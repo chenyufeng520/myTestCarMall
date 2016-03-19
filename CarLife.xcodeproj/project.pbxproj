@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		61DAF56C9D24F373AED071E7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D15F239C25E0C1B48272C93 /* libPods.a */; };
 		7116286F1C9CFCC20049AB7B /* BaseDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7116286E1C9CFCC20049AB7B /* BaseDataHelper.m */; };
+		713F07DA1C9DCAD100BC2462 /* CMShoppingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F07D91C9DCAD100BC2462 /* CMShoppingViewController.m */; };
 		CE2747B51BF4603E00D2349D /* BlockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2747B41BF4603E00D2349D /* BlockButton.m */; };
 		CE2747BB1BF4612200D2349D /* NSObject+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2747BA1BF4612200D2349D /* NSObject+Common.m */; };
 		CE34D18C1BF596DB00EB31CF /* ISTMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE34D1191BF596DB00EB31CF /* ISTMineViewController.m */; };
@@ -122,6 +123,8 @@
 		7116286C1C9CF8260049AB7B /* BaseGlobalDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseGlobalDef.h; sourceTree = "<group>"; };
 		7116286D1C9CFCC20049AB7B /* BaseDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDataHelper.h; sourceTree = "<group>"; };
 		7116286E1C9CFCC20049AB7B /* BaseDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDataHelper.m; sourceTree = "<group>"; };
+		713F07D81C9DCAD100BC2462 /* CMShoppingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMShoppingViewController.h; sourceTree = "<group>"; };
+		713F07D91C9DCAD100BC2462 /* CMShoppingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMShoppingViewController.m; sourceTree = "<group>"; };
 		9A8FB673EE1C5A1EA93F4475 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CE2747B31BF4603E00D2349D /* BlockButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockButton.h; sourceTree = "<group>"; };
 		CE2747B41BF4603E00D2349D /* BlockButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockButton.m; sourceTree = "<group>"; };
@@ -409,6 +412,196 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		713F07C01C9DC96400BC2462 /* 工具箱 */ = {
+			isa = PBXGroup;
+			children = (
+				713F07D51C9DCA1200BC2462 /* Controllers */,
+				713F07D31C9DCA1200BC2462 /* Model */,
+				713F07D41C9DCA1200BC2462 /* Resource */,
+				713F07D61C9DCA1200BC2462 /* Helper */,
+				713F07D71C9DCA1200BC2462 /* View */,
+			);
+			path = "工具箱";
+			sourceTree = "<group>";
+		};
+		713F07C11C9DC96A00BC2462 /* 新闻 */ = {
+			isa = PBXGroup;
+			children = (
+				713F07D01C9DCA0A00BC2462 /* Resource */,
+				713F07CE1C9DCA0A00BC2462 /* View */,
+				713F07CF1C9DCA0A00BC2462 /* Model */,
+				713F07D11C9DCA0A00BC2462 /* Helper */,
+				713F07D21C9DCA0A00BC2462 /* Controllers */,
+			);
+			path = "新闻";
+			sourceTree = "<group>";
+		};
+		713F07C21C9DC96F00BC2462 /* 订单 */ = {
+			isa = PBXGroup;
+			children = (
+				713F07CB1C9DCA0000BC2462 /* Controllers */,
+				713F07C91C9DCA0000BC2462 /* View */,
+				713F07CA1C9DCA0000BC2462 /* Helper */,
+				713F07CC1C9DCA0000BC2462 /* Resource */,
+				713F07CD1C9DCA0000BC2462 /* Model */,
+			);
+			path = "订单";
+			sourceTree = "<group>";
+		};
+		713F07C31C9DC97200BC2462 /* 商城 */ = {
+			isa = PBXGroup;
+			children = (
+				713F07C61C9DC9E300BC2462 /* Controllers */,
+				713F07C41C9DC9E300BC2462 /* View */,
+				713F07C51C9DC9E300BC2462 /* Helper */,
+				713F07C71C9DC9E300BC2462 /* Model */,
+				713F07C81C9DC9E300BC2462 /* Resource */,
+			);
+			path = "商城";
+			sourceTree = "<group>";
+		};
+		713F07C41C9DC9E300BC2462 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		713F07C51C9DC9E300BC2462 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		713F07C61C9DC9E300BC2462 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				713F07D81C9DCAD100BC2462 /* CMShoppingViewController.h */,
+				713F07D91C9DCAD100BC2462 /* CMShoppingViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		713F07C71C9DC9E300BC2462 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		713F07C81C9DC9E300BC2462 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		713F07C91C9DCA0000BC2462 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		713F07CA1C9DCA0000BC2462 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		713F07CB1C9DCA0000BC2462 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		713F07CC1C9DCA0000BC2462 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		713F07CD1C9DCA0000BC2462 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		713F07CE1C9DCA0A00BC2462 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		713F07CF1C9DCA0A00BC2462 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		713F07D01C9DCA0A00BC2462 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		713F07D11C9DCA0A00BC2462 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		713F07D21C9DCA0A00BC2462 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		713F07D31C9DCA1200BC2462 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		713F07D41C9DCA1200BC2462 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		713F07D51C9DCA1200BC2462 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		713F07D61C9DCA1200BC2462 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		713F07D71C9DCA1200BC2462 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9CEA27099F4CC18F79DC18DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,6 +614,10 @@
 		CE34D0C61BF596DB00EB31CF /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				713F07C31C9DC97200BC2462 /* 商城 */,
+				713F07C21C9DC96F00BC2462 /* 订单 */,
+				713F07C11C9DC96A00BC2462 /* 新闻 */,
+				713F07C01C9DC96400BC2462 /* 工具箱 */,
 				CE34D11E1BF596DB00EB31CF /* 登录 */,
 				CE34D1561BF596DB00EB31CF /* 首页 */,
 				CE34D11A1BF596DB00EB31CF /* 加油 */,
@@ -1277,6 +1474,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				713F07DA1C9DCAD100BC2462 /* CMShoppingViewController.m in Sources */,
 				CE34D1911BF596DB00EB31CF /* ISTLoginViewController.m in Sources */,
 				CE34D2281BF5D6B100EB31CF /* TabbarItem.m in Sources */,
 				CE34D2141BF5C4C100EB31CF /* User.m in Sources */,
