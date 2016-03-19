@@ -1,0 +1,35 @@
+//
+//  BaseDataHelper.h
+//  CarLife
+//
+//  Created by 陈宇峰 on 16/3/19.
+//  Copyright © 2016年 高大鹏. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import "AFNetworking.h"
+#import "STHUDManager.h"
+
+@interface BaseDataHelper : NSObject
+
++ (BaseDataHelper *)defaultHelper;
+
+- (void)checkNetwork;
+
+//网络请求
+- (void)requestForURLStr:(NSString*)URLStr requestMethod:(NSString*)requestMethod info:(NSDictionary *)requestInfo andBlock:(void (^)(id response, NSError *error))block;
+
+//网络请求
+- (void)testrequestForURLStr:(NSString*)URLStr requestMethod:(NSString*)requestMethod info:(NSDictionary *)requestInfo andBlock:(void (^)(id response, NSError *error))block;
+
+//上传图片(不带进度条的)
+- (void)updateImages:(NSArray *)imageArray urlStr:(NSString *)URLStr info:(NSDictionary *)requestInfo andBlock:(void (^)(id response, NSError *error))block;
+
+//上传图片(带进度条的)
+- (void)updateImages:(UIImage *)image urlStr:(NSString *)URLStr info:(NSDictionary *)requestInfo andBlock:(void (^)(id response, NSError *error))block uploadProgressBlock:(void (^)(float, long long, long long))uploadProgressBlock;
+
+
+- (void)postBodyForUrlStr:(NSString *)UrlStr info:(NSDictionary *)requestInfo andBlock:(void (^)(id response, NSError *error))block;
+
+
+@end

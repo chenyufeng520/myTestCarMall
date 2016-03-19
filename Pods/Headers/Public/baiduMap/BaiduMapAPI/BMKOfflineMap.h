@@ -1,0 +1,1 @@
+../../../../baiduMap/MapFrameWork/BaiduMapAPI.framework/Headers/BMKOfflineMap.h

@@ -1,0 +1,17 @@
+//
+//  PrefixHeader.pch
+//  CarLife
+//
+//  Created by 高大鹏 on 15/10/17.
+//  Copyright © 2015年 高大鹏. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "BaseGlobalDef.h"
+#import "ISTGlobal.h"
+
+#endif /* PrefixHeader_pch */

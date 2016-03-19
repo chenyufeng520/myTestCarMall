@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>STTabBarSetting</key>
+	<dict>
+		<key>Items</key>
+		<array>
+			<dict>
+				<key>Type</key>
+				<string>Home</string>
+				<key>Title</key>
+				<string>首页</string>
+				<key>TabBarNormal</key>
+				<string>home1</string>
+				<key>TabBarSelected</key>
+				<string>home2</string>
+			</dict>
+			<dict>
+				<key>Type</key>
+				<string>Card</string>
+				<key>Title</key>
+				<string>加油卡</string>
+				<key>TabBarNormal</key>
+				<string>home1</string>
+				<key>TabBarSelected</key>
+				<string>home2</string>
+			</dict>
+			<dict>
+				<key>Type</key>
+				<string>Navi</string>
+				<key>Title</key>
+				<string>导航</string>
+				<key>TabBarNormal</key>
+				<string>home1</string>
+				<key>TabBarSelected</key>
+				<string>home2</string>
+			</dict>
+			<dict>
+				<key>Type</key>
+				<string>Service</string>
+				<key>Title</key>
+				<string>服务</string>
+				<key>TabBarNormal</key>
+				<string>home1</string>
+				<key>TabBarSelected</key>
+				<string>home2</string>
+			</dict>
+			<dict>
+				<key>Type</key>
+				<string>Mine</string>
+				<key>Title</key>
+				<string>我的</string>
+				<key>TabBarNormal</key>
+				<string>mine1</string>
+				<key>TabBarSelected</key>
+				<string>mine2</string>
+			</dict>
+		</array>
+	</dict>
+</dict>
+</plist>
