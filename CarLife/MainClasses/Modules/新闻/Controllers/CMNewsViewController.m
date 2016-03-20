@@ -1,24 +1,24 @@
 //
-//  CMShoppingViewController.m
+//  CMNewsViewController.m
 //  CarLife
 //
 //  Created by 陈宇峰 on 16/3/20.
 //  Copyright © 2016年 高大鹏. All rights reserved.
 //
 
-#import "CMShoppingViewController.h"
+#import "CMNewsViewController.h"
 
-@interface CMShoppingViewController ()
+@interface CMNewsViewController ()
 
 @end
 
-@implementation CMShoppingViewController
+@implementation CMNewsViewController
 
 - (ISTTopBar *)creatTopBarView:(CGRect)frame
 {
     // 导航头
     ISTTopBar *tbTop = [[ISTTopBar alloc] initWithFrame:frame];
-    [tbTop.btnTitle setTitle:@"商城" forState:UIControlStateNormal];
+    [tbTop.btnTitle setTitle:@"新闻" forState:UIControlStateNormal];
     
     return tbTop;
 }

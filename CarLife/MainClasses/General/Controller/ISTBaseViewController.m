@@ -53,6 +53,7 @@
 {
     [super loadView];
     self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreen_Width, kScreen_Height)];
+    self.view.backgroundColor = kMainBGColor;
 }
 
 //重要：不然有偏移

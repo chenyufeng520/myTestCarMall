@@ -1,24 +1,24 @@
 //
-//  CMShoppingViewController.m
+//  CMToolKitViewController.m
 //  CarLife
 //
 //  Created by 陈宇峰 on 16/3/20.
 //  Copyright © 2016年 高大鹏. All rights reserved.
 //
 
-#import "CMShoppingViewController.h"
+#import "CMToolKitViewController.h"
 
-@interface CMShoppingViewController ()
+@interface CMToolKitViewController ()
 
 @end
 
-@implementation CMShoppingViewController
+@implementation CMToolKitViewController
 
 - (ISTTopBar *)creatTopBarView:(CGRect)frame
 {
     // 导航头
     ISTTopBar *tbTop = [[ISTTopBar alloc] initWithFrame:frame];
-    [tbTop.btnTitle setTitle:@"商城" forState:UIControlStateNormal];
+    [tbTop.btnTitle setTitle:@"工具箱" forState:UIControlStateNormal];
     
     return tbTop;
 }

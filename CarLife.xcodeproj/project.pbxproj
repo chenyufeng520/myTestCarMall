@@ -10,6 +10,14 @@
 		61DAF56C9D24F373AED071E7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D15F239C25E0C1B48272C93 /* libPods.a */; };
 		7116286F1C9CFCC20049AB7B /* BaseDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7116286E1C9CFCC20049AB7B /* BaseDataHelper.m */; };
 		713F07DA1C9DCAD100BC2462 /* CMShoppingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F07D91C9DCAD100BC2462 /* CMShoppingViewController.m */; };
+		71A42A4B1C9E709C00CA29FE /* CMOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A4A1C9E709C00CA29FE /* CMOrderViewController.m */; };
+		71A42A4E1C9E70B200CA29FE /* CMNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A4D1C9E70B200CA29FE /* CMNewsViewController.m */; };
+		71A42A511C9E70CD00CA29FE /* CMToolKitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A501C9E70CD00CA29FE /* CMToolKitViewController.m */; };
+		71A42A581C9E752500CA29FE /* ShoppingDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A571C9E752500CA29FE /* ShoppingDataHelper.m */; };
+		71A42A5B1C9E755700CA29FE /* OrderDatahelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A5A1C9E755700CA29FE /* OrderDatahelper.m */; };
+		71A42A5E1C9E756A00CA29FE /* NewsDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A5D1C9E756A00CA29FE /* NewsDataHelper.m */; };
+		71A42A611C9E757A00CA29FE /* ToolDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A601C9E757A00CA29FE /* ToolDataHelper.m */; };
+		71A42A641C9E758E00CA29FE /* MineDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A631C9E758E00CA29FE /* MineDataHelper.m */; };
 		CE2747B51BF4603E00D2349D /* BlockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2747B41BF4603E00D2349D /* BlockButton.m */; };
 		CE2747BB1BF4612200D2349D /* NSObject+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2747BA1BF4612200D2349D /* NSObject+Common.m */; };
 		CE34D18C1BF596DB00EB31CF /* ISTMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE34D1191BF596DB00EB31CF /* ISTMineViewController.m */; };
@@ -125,6 +133,22 @@
 		7116286E1C9CFCC20049AB7B /* BaseDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDataHelper.m; sourceTree = "<group>"; };
 		713F07D81C9DCAD100BC2462 /* CMShoppingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMShoppingViewController.h; sourceTree = "<group>"; };
 		713F07D91C9DCAD100BC2462 /* CMShoppingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMShoppingViewController.m; sourceTree = "<group>"; };
+		71A42A491C9E709C00CA29FE /* CMOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMOrderViewController.h; sourceTree = "<group>"; };
+		71A42A4A1C9E709C00CA29FE /* CMOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMOrderViewController.m; sourceTree = "<group>"; };
+		71A42A4C1C9E70B200CA29FE /* CMNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMNewsViewController.h; sourceTree = "<group>"; };
+		71A42A4D1C9E70B200CA29FE /* CMNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMNewsViewController.m; sourceTree = "<group>"; };
+		71A42A4F1C9E70CD00CA29FE /* CMToolKitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMToolKitViewController.h; sourceTree = "<group>"; };
+		71A42A501C9E70CD00CA29FE /* CMToolKitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMToolKitViewController.m; sourceTree = "<group>"; };
+		71A42A561C9E752500CA29FE /* ShoppingDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingDataHelper.h; sourceTree = "<group>"; };
+		71A42A571C9E752500CA29FE /* ShoppingDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingDataHelper.m; sourceTree = "<group>"; };
+		71A42A591C9E755700CA29FE /* OrderDatahelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDatahelper.h; sourceTree = "<group>"; };
+		71A42A5A1C9E755700CA29FE /* OrderDatahelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDatahelper.m; sourceTree = "<group>"; };
+		71A42A5C1C9E756A00CA29FE /* NewsDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDataHelper.h; sourceTree = "<group>"; };
+		71A42A5D1C9E756A00CA29FE /* NewsDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDataHelper.m; sourceTree = "<group>"; };
+		71A42A5F1C9E757A00CA29FE /* ToolDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolDataHelper.h; sourceTree = "<group>"; };
+		71A42A601C9E757A00CA29FE /* ToolDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolDataHelper.m; sourceTree = "<group>"; };
+		71A42A621C9E758E00CA29FE /* MineDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineDataHelper.h; sourceTree = "<group>"; };
+		71A42A631C9E758E00CA29FE /* MineDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineDataHelper.m; sourceTree = "<group>"; };
 		9A8FB673EE1C5A1EA93F4475 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CE2747B31BF4603E00D2349D /* BlockButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockButton.h; sourceTree = "<group>"; };
 		CE2747B41BF4603E00D2349D /* BlockButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockButton.m; sourceTree = "<group>"; };
@@ -427,11 +451,11 @@
 		713F07C11C9DC96A00BC2462 /* 新闻 */ = {
 			isa = PBXGroup;
 			children = (
+				713F07D21C9DCA0A00BC2462 /* Controllers */,
 				713F07D01C9DCA0A00BC2462 /* Resource */,
 				713F07CE1C9DCA0A00BC2462 /* View */,
 				713F07CF1C9DCA0A00BC2462 /* Model */,
 				713F07D11C9DCA0A00BC2462 /* Helper */,
-				713F07D21C9DCA0A00BC2462 /* Controllers */,
 			);
 			path = "新闻";
 			sourceTree = "<group>";
@@ -470,6 +494,8 @@
 		713F07C51C9DC9E300BC2462 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				71A42A561C9E752500CA29FE /* ShoppingDataHelper.h */,
+				71A42A571C9E752500CA29FE /* ShoppingDataHelper.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -507,6 +533,8 @@
 		713F07CA1C9DCA0000BC2462 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				71A42A591C9E755700CA29FE /* OrderDatahelper.h */,
+				71A42A5A1C9E755700CA29FE /* OrderDatahelper.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -514,6 +542,8 @@
 		713F07CB1C9DCA0000BC2462 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				71A42A491C9E709C00CA29FE /* CMOrderViewController.h */,
+				71A42A4A1C9E709C00CA29FE /* CMOrderViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -556,6 +586,8 @@
 		713F07D11C9DCA0A00BC2462 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				71A42A5C1C9E756A00CA29FE /* NewsDataHelper.h */,
+				71A42A5D1C9E756A00CA29FE /* NewsDataHelper.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -563,6 +595,8 @@
 		713F07D21C9DCA0A00BC2462 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				71A42A4C1C9E70B200CA29FE /* CMNewsViewController.h */,
+				71A42A4D1C9E70B200CA29FE /* CMNewsViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -584,6 +618,8 @@
 		713F07D51C9DCA1200BC2462 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				71A42A4F1C9E70CD00CA29FE /* CMToolKitViewController.h */,
+				71A42A501C9E70CD00CA29FE /* CMToolKitViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -591,6 +627,8 @@
 		713F07D61C9DCA1200BC2462 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				71A42A5F1C9E757A00CA29FE /* ToolDataHelper.h */,
+				71A42A601C9E757A00CA29FE /* ToolDataHelper.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -600,6 +638,36 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		71A42A521C9E74D200CA29FE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		71A42A531C9E74D200CA29FE /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				71A42A621C9E758E00CA29FE /* MineDataHelper.h */,
+				71A42A631C9E758E00CA29FE /* MineDataHelper.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		71A42A541C9E74D200CA29FE /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		71A42A551C9E74D200CA29FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		9CEA27099F4CC18F79DC18DB /* Pods */ = {
@@ -630,6 +698,10 @@
 			isa = PBXGroup;
 			children = (
 				CE34D1171BF596DB00EB31CF /* Controller */,
+				71A42A521C9E74D200CA29FE /* View */,
+				71A42A531C9E74D200CA29FE /* Helper */,
+				71A42A541C9E74D200CA29FE /* Resource */,
+				71A42A551C9E74D200CA29FE /* Model */,
 			);
 			path = "我的";
 			sourceTree = "<group>";
@@ -1478,6 +1550,7 @@
 				CE34D1911BF596DB00EB31CF /* ISTLoginViewController.m in Sources */,
 				CE34D2281BF5D6B100EB31CF /* TabbarItem.m in Sources */,
 				CE34D2141BF5C4C100EB31CF /* User.m in Sources */,
+				71A42A611C9E757A00CA29FE /* ToolDataHelper.m in Sources */,
 				DC4588A61BD383B80069FE64 /* BSVoicePlayer.m in Sources */,
 				CED1C13E1BF44E6B007C94F3 /* MD5DataSigner.m in Sources */,
 				DC86C3CC1BD36F86007DEE6F /* CLLocation+YCLocation.m in Sources */,
@@ -1507,17 +1580,21 @@
 				DC7B72381BD1F9A100327B03 /* UIControl+RoundCorner.m in Sources */,
 				CE34D19B1BF596DB00EB31CF /* WXLoginModel.m in Sources */,
 				CE34D1901BF596DB00EB31CF /* ISTAgreementController.m in Sources */,
+				71A42A511C9E70CD00CA29FE /* CMToolKitViewController.m in Sources */,
 				CE34D1C51BF5C42A00EB31CF /* ISTVerifyCodeButton.m in Sources */,
 				DC7B722F1BD1F9A100327B03 /* STHUDManager.m in Sources */,
 				DC7B72391BD1F9A100327B03 /* UIImage+Util.m in Sources */,
+				71A42A641C9E758E00CA29FE /* MineDataHelper.m in Sources */,
 				CE34D2111BF5C4C100EB31CF /* MessageTool.m in Sources */,
 				CE34D1C31BF5C42A00EB31CF /* ISTSectionBar.m in Sources */,
 				DC7B723A1BD1F9A100327B03 /* UIImage-Extensions.m in Sources */,
 				DC7B71FC1BD1F9A000327B03 /* AppDelegate.m in Sources */,
+				71A42A4B1C9E709C00CA29FE /* CMOrderViewController.m in Sources */,
 				CE34D2101BF5C4C100EB31CF /* AllDataReplyCenter.m in Sources */,
 				DC7B701F1BD1F5B500327B03 /* main.m in Sources */,
 				DC55CE4F1BD2AF7A00A92782 /* MapViewController.mm in Sources */,
 				CE2747BB1BF4612200D2349D /* NSObject+Common.m in Sources */,
+				71A42A5B1C9E755700CA29FE /* OrderDatahelper.m in Sources */,
 				DC86C3921BD36C66007DEE6F /* ClickImage.m in Sources */,
 				CED1C13B1BF44E6B007C94F3 /* base64.m in Sources */,
 				CE34D18E1BF596DB00EB31CF /* ISTAccountBindViewController.m in Sources */,
@@ -1529,6 +1606,7 @@
 				CE34D2201BF5C4C100EB31CF /* ISTEnterView.m in Sources */,
 				CED1C1411BF44E6B007C94F3 /* RSADataSigner.m in Sources */,
 				CED1C1421BF44E6B007C94F3 /* RSADataVerifier.m in Sources */,
+				71A42A581C9E752500CA29FE /* ShoppingDataHelper.m in Sources */,
 				DCD55B771BD4E61F0016D138 /* TXCustomAlertWindow.m in Sources */,
 				7116286F1C9CFCC20049AB7B /* BaseDataHelper.m in Sources */,
 				CE34D1921BF596DB00EB31CF /* ISTRegisterViewController.m in Sources */,
@@ -1536,6 +1614,8 @@
 				DC7B72331BD1F9A100327B03 /* NSString+Util.m in Sources */,
 				CE34D18F1BF596DB00EB31CF /* ISTAccountCreateViewController.m in Sources */,
 				CE34D2221BF5C4C100EB31CF /* ISTTopBar.m in Sources */,
+				71A42A5E1C9E756A00CA29FE /* NewsDataHelper.m in Sources */,
+				71A42A4E1C9E70B200CA29FE /* CMNewsViewController.m in Sources */,
 				DC86C3E61BD36F86007DEE6F /* UUDatePicker.m in Sources */,
 				CED1C1431BF44E6B007C94F3 /* BSPayCenter.m in Sources */,
 				CE34D2231BF5C4C100EB31CF /* ISTCustomBar.m in Sources */,

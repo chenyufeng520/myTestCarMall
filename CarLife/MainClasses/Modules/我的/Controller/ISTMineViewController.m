@@ -19,7 +19,7 @@
 {
     // 导航头
     ISTTopBar *tbTop = [[ISTTopBar alloc] initWithFrame:frame];
-    [tbTop.btnTitle setTitle:@"我的" forState:UIControlStateNormal];
+    [tbTop.btnTitle setTitle:@"个人中心" forState:UIControlStateNormal];
     
     return tbTop;
 }
