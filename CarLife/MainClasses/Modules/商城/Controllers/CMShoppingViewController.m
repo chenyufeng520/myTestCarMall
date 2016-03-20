@@ -18,7 +18,7 @@
 {
     // 导航头
     ISTTopBar *tbTop = [[ISTTopBar alloc] initWithFrame:frame];
-    [tbTop.btnTitle setTitle:@"商城" forState:UIControlStateNormal];
+    [tbTop.btnTitle setTitle:@"点车商城" forState:UIControlStateNormal];
     
     return tbTop;
 }
