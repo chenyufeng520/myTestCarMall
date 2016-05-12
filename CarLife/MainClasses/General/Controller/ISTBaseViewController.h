@@ -2,8 +2,8 @@
 //  ISTBaseViewController.h
 //  BSports
 //
-//  Created by 雷克 on 14/12/25.
-//  Copyright (c) 2014年 ist. All rights reserved.
+//  Created by 陈宇峰 on 16/5/10.
+//  Copyright © 2016年 陈宇峰. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

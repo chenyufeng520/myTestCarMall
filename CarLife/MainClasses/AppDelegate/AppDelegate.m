@@ -2,8 +2,8 @@
 //  AppDelegate.m
 //  Project
 //
-//  Created by 高大鹏 on 15/10/17.
-//  Copyright © 2015年 高大鹏. All rights reserved.
+//  Created by 陈宇峰 on 16/5/10.
+//  Copyright © 2016年 陈宇峰. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -170,14 +170,6 @@
                                                       NSString *resultSting = resultDic[@"result"];
                                                       NSLog(@"%@",resultSting);
                                                   }];
-        //
-        //这个方法也没调用：
-        //        [[AlipaySDK defaultService] processAuth_V2Result:url
-        //                                         standbyCallback:^(NSDictionary *resultDic) {
-        //                                             NSLog(@"result = %@",resultDic);
-        //                                             NSString *resultStr = resultDic[@"result"];
-        //                                             NSLog(@"%@",resultStr);
-        //                                         }];
         return YES;
         
     }
@@ -206,7 +198,7 @@
     [UMSocialWechatHandler setWXAppId:@"wxac4778adb8dbc9ea" appSecret:@"da972b13215611e5291c31374534d3b8" url:url];
     //[UMSocialData defaultData].extConfig.wechatSessionData.wxMessageType = UMSocialWXMessageTypeImage;
     //短信配置：
-    [UMSocialData defaultData].extConfig.smsData.shareText = [NSString stringWithFormat:@"天天运动：快乐生活每一天！这里有海量的场馆信息，一键网上订场，更多优惠值得你拥有！赶快下载APP试用吧！地址：%@；",url];
+    [UMSocialData defaultData].extConfig.smsData.shareText = [NSString stringWithFormat:@"快乐生活每一天！更多优惠值得你拥有！赶快下载APP试用吧！地址：%@；",url];
     [UMSocialData defaultData].extConfig.smsData.shareImage = nil;
     
     //微信配置
@@ -241,30 +233,6 @@
                                      shareImage:nil
                                 shareToSnsNames:names
                                        delegate:self];
-}
-
-- (void)setUMSocial
-{
-    //如果你要支持不同的屏幕方向，需要这样设置，否则在iPhone只支持一个竖屏方向
-    //[UMSocialConfig setSupportedInterfaceOrientations:UIInterfaceOrientationMaskAll];
-    
-    //设置友盟社会化组件appkey
-    //[UMSocialData setAppKey:UmengAppkey];
-    
-    //设置微信AppId
-    //[UMSocialWechatHandler setWXAppId:@"wx7ea3320364626402" appSecret:@"82a1f7a4f98d61c103a37d17fc0b298d" url:@"http://www.che168.com"];
-    //设置手机QQ的AppId 二手车之家ID:100588656(无权限,暂用友盟大号100424468分享)
-    //[UMSocialConfig setQQAppId:@"100424468" url:@"http://www.che168.com" importClasses:@[[QQApiInterface class],[TencentOAuth class]]];
-    
-    //打开新浪微博的SSO开关
-    //[UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
-    
-    //设置分享到QQ空间的应用Id，和分享url 链接
-    //[UMSocialQQHandler setQQWithAppId:@"100424468" appKey:UM_APP_KEY url:@"http://www.che168.com"];
-    //设置支持没有客户端情况下使用SSO授权
-    //[UMSocialQQHandler setSupportWebView:YES];
-    
-    //[UMSocialConfig setFinishToastIsHidden:YES position:UMSocialiToastPositionCenter];
 }
 
 
@@ -367,7 +335,6 @@
          self.window.rootViewController = self.rootNavigation;
      }];
     
-    //    self.window.rootViewController = self.rootNavigation;
     [self.window makeKeyAndVisible];
 }
 - (void)showLoginView{
@@ -380,7 +347,7 @@
      {
          self.window.rootViewController = self.loginNavigation;
      }];
-    //    self.window.rootViewController = self.loginNavigation;
+   
     [self.window makeKeyAndVisible];
 }
 

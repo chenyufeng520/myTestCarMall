@@ -2,14 +2,15 @@
 //  ISTCustomBar.m
 //  HMDemo
 //
-//  Created by Raik on 14-3-17.
-//  Copyright (c) 2014年 iShinetech. All rights reserved.
+//  Created by 陈宇峰 on 16/5/10.
+//  Copyright © 2016年 陈宇峰. All rights reserved.
 //
 
 #import "ISTCustomBar.h"
 #import "ISTGlobal.h"
 #import "BaseGlobalDef.h"
 #import "TabbarItem.h"
+#import "CustomBarButton.h"
 
 #define kItemLineTag               110
 @implementation ISTCustomBar
@@ -32,10 +33,10 @@
             TabbarItem *tb = array[i];
             
             CGRect btmFrame = CGRectMake(kTabbarItemWidth*i, 0, kTabbarItemWidth, kTabBarHeight);
-            if (tb.highlighted) {
-                btmFrame = CGRectMake(kTabbarItemWidth*i, -0.2 * kTabBarHeight, kTabbarItemWidth, kTabBarHeight * 1.2);
-            }
-            UIButton *barItem = [UIButton buttonWithType:UIButtonTypeCustom];
+//            if (tb.highlighted) {
+//                btmFrame = CGRectMake(kTabbarItemWidth*i, -0.2 * kTabBarHeight, kTabbarItemWidth, kTabBarHeight * 1.2);
+//            }
+            CustomBarButton *barItem = [CustomBarButton buttonWithType:UIButtonTypeCustom];
             barItem.frame = btmFrame;
             barItem.tag = i;
             [barItem addTarget:self action:@selector(tabbarItemAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -46,21 +47,29 @@
             [barItem setImage:normalImage forState:UIControlStateNormal];
             [barItem setImage:selectedImage forState:UIControlStateSelected];
             barItem.imageView.contentMode = UIViewContentModeScaleAspectFit;
-            barItem.imageEdgeInsets = [barItem setImageEdgeInsetsFromCenterOffSet:CGVectorMake(0, 0) imageSize:CGSizeMake(kTabbarItemWidth, btmFrame.size.height)];
+//            barItem.imageEdgeInsets = [barItem setImageEdgeInsetsFromCenterOffSet:CGVectorMake(0, 0) imageSize:CGSizeMake(kTabbarItemWidth, btmFrame.size.height - 19)];
+            
+//            barItem.imageEdgeInsets = UIEdgeInsetsMake(0, 0, kAdjustLength(60), 0);
+//            barItem.titleEdgeInsets = UIEdgeInsetsMake(barItem.height - kAdjustLength(60), 0, 0, 0);
             barItem.adjustsImageWhenHighlighted = NO;
             barItem.showsTouchWhenHighlighted = NO;
+            [barItem setTitle:tb.title forState:UIControlStateNormal];
+            barItem.titleLabel.font = kFontSmall;
+            barItem.titleLabel.textAlignment = NSTextAlignmentCenter;
+            [barItem setTitleColor:kDarkTextColor forState:UIControlStateNormal];
+            [barItem setTitleColor:kGreenColor forState:UIControlStateSelected];
             
-            UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 17, barItem.width, barItem.height-10)];
-            //titleLabel.text = [NSString stringWithFormat:@"%@",[infoDic objectForKey:@"Title"]];
-            titleLabel.textAlignment = NSTextAlignmentCenter;
-            titleLabel.backgroundColor = [UIColor clearColor];
-            titleLabel.textColor = kWhiteColor;
-            titleLabel.font = [UIFont systemFontOfSize:14];
-            //headerLabel.text = @"test";
-            //            [barItem addSubview:titleLabel];
+//            UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, barItem.height - kAdjustLength(60), barItem.width, kAdjustLength(60))];
+//            titleLabel.text = tb.title;
+//            titleLabel.textAlignment = NSTextAlignmentCenter;
+//            titleLabel.backgroundColor = [UIColor clearColor];
+//            titleLabel.textColor = kDarkTextColor;
+//            titleLabel.font = kFontSmall;
+//            [barItem addSubview:titleLabel];
+            
             //line:
             UIView *line = [[UIView alloc] initLineWithFrame:CGRectMake(0, 0, barItem.width, kLinePixel) color:kLightGreenColor];
-            //            [barItem addSubview:line];
+            //  [barItem addSubview:line];
             line.hidden = YES;
             line.tag = kItemLineTag;
             

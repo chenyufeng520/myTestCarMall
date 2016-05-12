@@ -18,6 +18,7 @@
 		71A42A5E1C9E756A00CA29FE /* NewsDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A5D1C9E756A00CA29FE /* NewsDataHelper.m */; };
 		71A42A611C9E757A00CA29FE /* ToolDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A601C9E757A00CA29FE /* ToolDataHelper.m */; };
 		71A42A641C9E758E00CA29FE /* MineDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A631C9E758E00CA29FE /* MineDataHelper.m */; };
+		71A71C201CE3320A0078FABA /* CustomBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A71C1F1CE3320A0078FABA /* CustomBarButton.m */; };
 		CE2747B51BF4603E00D2349D /* BlockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2747B41BF4603E00D2349D /* BlockButton.m */; };
 		CE2747BB1BF4612200D2349D /* NSObject+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2747BA1BF4612200D2349D /* NSObject+Common.m */; };
 		CE34D18C1BF596DB00EB31CF /* ISTMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE34D1191BF596DB00EB31CF /* ISTMineViewController.m */; };
@@ -149,6 +150,8 @@
 		71A42A601C9E757A00CA29FE /* ToolDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolDataHelper.m; sourceTree = "<group>"; };
 		71A42A621C9E758E00CA29FE /* MineDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineDataHelper.h; sourceTree = "<group>"; };
 		71A42A631C9E758E00CA29FE /* MineDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineDataHelper.m; sourceTree = "<group>"; };
+		71A71C1E1CE3320A0078FABA /* CustomBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBarButton.h; sourceTree = "<group>"; };
+		71A71C1F1CE3320A0078FABA /* CustomBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBarButton.m; sourceTree = "<group>"; };
 		9A8FB673EE1C5A1EA93F4475 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CE2747B31BF4603E00D2349D /* BlockButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockButton.h; sourceTree = "<group>"; };
 		CE2747B41BF4603E00D2349D /* BlockButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockButton.m; sourceTree = "<group>"; };
@@ -1007,6 +1010,8 @@
 				CE34D2031BF5C4C100EB31CF /* ISTTopBar.m */,
 				CE34D2041BF5C4C100EB31CF /* ISTCustomBar.h */,
 				CE34D2051BF5C4C100EB31CF /* ISTCustomBar.m */,
+				71A71C1E1CE3320A0078FABA /* CustomBarButton.h */,
+				71A71C1F1CE3320A0078FABA /* CustomBarButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1568,6 +1573,7 @@
 				CED1C1361BF44E6B007C94F3 /* AliPayOrder.m in Sources */,
 				CE34D1C21BF5C42A00EB31CF /* ISTButtonHelper.m in Sources */,
 				CE34D1C01BF5C42A00EB31CF /* ISTAlertView.m in Sources */,
+				71A71C201CE3320A0078FABA /* CustomBarButton.m in Sources */,
 				CE34D1941BF596DB00EB31CF /* LoginDataHelper.m in Sources */,
 				CE34D1931BF596DB00EB31CF /* LoginCenter.m in Sources */,
 				CE2747B51BF4603E00D2349D /* BlockButton.m in Sources */,
@@ -1757,7 +1763,7 @@
 					"$(PROJECT_DIR)/CarLife/MainClasses/Vender/BSPay/Alipay/AlipaySDK2.2",
 					"$(PROJECT_DIR)/CarLife/MainClasses/Vender/BSPay/CUPPay/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sunboxsoft.CarLife;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sunboxsoft.CarMall;
 				PRODUCT_NAME = CarLife;
 			};
 			name = Debug;
@@ -1811,7 +1817,7 @@
 					"$(PROJECT_DIR)/CarLife/MainClasses/Vender/BSPay/Alipay/AlipaySDK2.2",
 					"$(PROJECT_DIR)/CarLife/MainClasses/Vender/BSPay/CUPPay/libs",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sunboxsoft.CarLife;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sunboxsoft.CarMall;
 				PRODUCT_NAME = CarLife;
 			};
 			name = Release;

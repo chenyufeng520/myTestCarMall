@@ -2,8 +2,8 @@
 //  ISTGlobal.h
 //  CarLife
 //
-//  Created by 高大鹏 on 15/11/13.
-//  Copyright © 2015年 高大鹏. All rights reserved.
+//  Created by 陈宇峰 on 16/5/10.
+//  Copyright © 2016年 陈宇峰. All rights reserved.
 //
 
 #ifndef ISTGlobal_h

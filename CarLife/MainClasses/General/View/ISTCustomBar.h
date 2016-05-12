@@ -2,8 +2,8 @@
 //  ISTCustomBar.h
 //  HMDemo
 //
-//  Created by Raik on 14-3-17.
-//  Copyright (c) 2014年 iShinetech. All rights reserved.
+//  Created by 陈宇峰 on 16/5/10.
+//  Copyright © 2016年 陈宇峰. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

@@ -2,8 +2,8 @@
 //  ISTMineViewController.m
 //  BSports
 //
-//  Created by 高大鹏 on 15/8/18.
-//  Copyright (c) 2015年 ist. All rights reserved.
+//  Created by 陈宇峰 on 16/5/12.
+//  Copyright © 2016年 陈宇峰. All rights reserved.
 //
 
 #import "ISTMineViewController.h"

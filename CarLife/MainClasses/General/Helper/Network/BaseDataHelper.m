@@ -2,8 +2,8 @@
 //  BaseDataHelper.m
 //  CarLife
 //
-//  Created by 陈宇峰 on 16/3/19.
-//  Copyright © 2016年 高大鹏. All rights reserved.
+//  Created by 陈宇峰 on 16/5/10.
+//  Copyright © 2016年 陈宇峰. All rights reserved.
 //
 
 #import "BaseDataHelper.h"
