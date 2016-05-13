@@ -19,6 +19,12 @@
 		71A42A611C9E757A00CA29FE /* ToolDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A601C9E757A00CA29FE /* ToolDataHelper.m */; };
 		71A42A641C9E758E00CA29FE /* MineDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A631C9E758E00CA29FE /* MineDataHelper.m */; };
 		71A71C201CE3320A0078FABA /* CustomBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A71C1F1CE3320A0078FABA /* CustomBarButton.m */; };
+		71CAC5F41CE5C4E900B4C705 /* GifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CAC5F31CE5C4E900B4C705 /* GifViewController.m */; };
+		71CAC5FC1CE5C8B500B4C705 /* startAnimation1.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAC5F71CE5C8B500B4C705 /* startAnimation1.png */; };
+		71CAC5FD1CE5C8B500B4C705 /* startAnimation2.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAC5F81CE5C8B500B4C705 /* startAnimation2.png */; };
+		71CAC5FE1CE5C8B500B4C705 /* startAnimation3.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAC5F91CE5C8B500B4C705 /* startAnimation3.png */; };
+		71CAC5FF1CE5C8B500B4C705 /* startAnimation4.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAC5FA1CE5C8B500B4C705 /* startAnimation4.png */; };
+		71CAC6001CE5C8B500B4C705 /* startAnimation5.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAC5FB1CE5C8B500B4C705 /* startAnimation5.png */; };
 		CE2747B51BF4603E00D2349D /* BlockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2747B41BF4603E00D2349D /* BlockButton.m */; };
 		CE2747BB1BF4612200D2349D /* NSObject+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2747BA1BF4612200D2349D /* NSObject+Common.m */; };
 		CE34D18C1BF596DB00EB31CF /* ISTMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE34D1191BF596DB00EB31CF /* ISTMineViewController.m */; };
@@ -152,6 +158,13 @@
 		71A42A631C9E758E00CA29FE /* MineDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineDataHelper.m; sourceTree = "<group>"; };
 		71A71C1E1CE3320A0078FABA /* CustomBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBarButton.h; sourceTree = "<group>"; };
 		71A71C1F1CE3320A0078FABA /* CustomBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBarButton.m; sourceTree = "<group>"; };
+		71CAC5F21CE5C4E900B4C705 /* GifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifViewController.h; sourceTree = "<group>"; };
+		71CAC5F31CE5C4E900B4C705 /* GifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifViewController.m; sourceTree = "<group>"; };
+		71CAC5F71CE5C8B500B4C705 /* startAnimation1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startAnimation1.png; sourceTree = "<group>"; };
+		71CAC5F81CE5C8B500B4C705 /* startAnimation2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startAnimation2.png; sourceTree = "<group>"; };
+		71CAC5F91CE5C8B500B4C705 /* startAnimation3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startAnimation3.png; sourceTree = "<group>"; };
+		71CAC5FA1CE5C8B500B4C705 /* startAnimation4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startAnimation4.png; sourceTree = "<group>"; };
+		71CAC5FB1CE5C8B500B4C705 /* startAnimation5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startAnimation5.png; sourceTree = "<group>"; };
 		9A8FB673EE1C5A1EA93F4475 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CE2747B31BF4603E00D2349D /* BlockButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockButton.h; sourceTree = "<group>"; };
 		CE2747B41BF4603E00D2349D /* BlockButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockButton.m; sourceTree = "<group>"; };
@@ -673,6 +686,18 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		71CAC5F61CE5C83B00B4C705 /* 启动动画图 */ = {
+			isa = PBXGroup;
+			children = (
+				71CAC5F71CE5C8B500B4C705 /* startAnimation1.png */,
+				71CAC5F81CE5C8B500B4C705 /* startAnimation2.png */,
+				71CAC5F91CE5C8B500B4C705 /* startAnimation3.png */,
+				71CAC5FA1CE5C8B500B4C705 /* startAnimation4.png */,
+				71CAC5FB1CE5C8B500B4C705 /* startAnimation5.png */,
+			);
+			path = "启动动画图";
+			sourceTree = "<group>";
+		};
 		9CEA27099F4CC18F79DC18DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -963,8 +988,8 @@
 		CE34D1ED1BF5C4C100EB31CF /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				71CAC5F61CE5C83B00B4C705 /* 启动动画图 */,
 				CE34D1EE1BF5C4C100EB31CF /* TabBar */,
-				CE34D1F71BF5C4C100EB31CF /* 通用 */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -982,13 +1007,6 @@
 				CE34D1F61BF5C4C100EB31CF /* mine2@3x.png */,
 			);
 			path = TabBar;
-			sourceTree = "<group>";
-		};
-		CE34D1F71BF5C4C100EB31CF /* 通用 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "通用";
 			sourceTree = "<group>";
 		};
 		CE34D1F81BF5C4C100EB31CF /* Plist */ = {
@@ -1280,6 +1298,8 @@
 			children = (
 				DC7B71391BD1F9A000327B03 /* AppDelegate.h */,
 				DC7B713A1BD1F9A000327B03 /* AppDelegate.m */,
+				71CAC5F21CE5C4E900B4C705 /* GifViewController.h */,
+				71CAC5F31CE5C4E900B4C705 /* GifViewController.m */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -1471,7 +1491,9 @@
 				CE34D1A91BF596DB00EB31CF /* logo@2x.png in Resources */,
 				CE34D1A71BF596DB00EB31CF /* login_unselectedSegment@2x.png in Resources */,
 				CED1C1371BF44E6B007C94F3 /* AlipaySDK.bundle in Resources */,
+				71CAC5FE1CE5C8B500B4C705 /* startAnimation3.png in Resources */,
 				CE34D1A21BF596DB00EB31CF /* icons-lock@3x.png in Resources */,
+				71CAC5FF1CE5C8B500B4C705 /* startAnimation4.png in Resources */,
 				CE34D1AA1BF596DB00EB31CF /* logo@3x.png in Resources */,
 				CE34D2191BF5C4C100EB31CF /* mine1@2x.png in Resources */,
 				CE34D21E1BF5C4C100EB31CF /* STTabBarSetting.plist in Resources */,
@@ -1487,9 +1509,12 @@
 				CE34D19F1BF596DB00EB31CF /* icons-iphoe@2x.png in Resources */,
 				CE34D19E1BF596DB00EB31CF /* denglu@3x.png in Resources */,
 				CE34D1A11BF596DB00EB31CF /* icons-lock@2x.png in Resources */,
+				71CAC5FC1CE5C8B500B4C705 /* startAnimation1.png in Resources */,
 				CE34D1A51BF596DB00EB31CF /* login_selectedSegment@2x.png in Resources */,
 				CE34D1A61BF596DB00EB31CF /* login_selectedSegment@3x.png in Resources */,
 				CE34D2161BF5C4C100EB31CF /* home1@3x.png in Resources */,
+				71CAC5FD1CE5C8B500B4C705 /* startAnimation2.png in Resources */,
+				71CAC6001CE5C8B500B4C705 /* startAnimation5.png in Resources */,
 				CE34D2171BF5C4C100EB31CF /* home2@2x.png in Resources */,
 				CE34D19D1BF596DB00EB31CF /* denglu@2x.png in Resources */,
 				CE34D19C1BF596DB00EB31CF /* denglu.png in Resources */,
@@ -1566,6 +1591,7 @@
 				CE34D20A1BF5C4C100EB31CF /* ISTContentViewController.m in Sources */,
 				CE34D18C1BF596DB00EB31CF /* ISTMineViewController.m in Sources */,
 				CED1C1401BF44E6B007C94F3 /* openssl_wrapper.m in Sources */,
+				71CAC5F41CE5C4E900B4C705 /* GifViewController.m in Sources */,
 				CE34D2121BF5C4C100EB31CF /* SocketHelper.m in Sources */,
 				CE34D18D1BF596DB00EB31CF /* ISTRefuelViewController.m in Sources */,
 				DC7B72371BD1F9A100327B03 /* UIColor+expanded.m in Sources */,

@@ -22,6 +22,7 @@
 #import "IQKeyboardManager.h"
 #import "LoginCenter.h"
 #import "ISTLoginViewController.h"
+#import "GifViewController.h"
 
 @interface AppDelegate ()<UMSocialUIDelegate,WXApiDelegate,BMKGeneralDelegate>
 {
@@ -57,7 +58,11 @@
     [self applicationConfiguration];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = kWhiteColor;
-    [self layoutMainView:nil];
+    GifViewController *VC = [[GifViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:VC];
+    self.window.rootViewController = nav;
+    [self.window makeKeyAndVisible];
+    //    [self layoutMainView:nil];
     
     
     return YES;
@@ -84,14 +89,15 @@
     self.loginNavigation.navigationBarHidden = YES;
     
     [self.window setRootViewController:self.rootNavigation];
+    [self.window makeKeyAndVisible];
     
-//    if (![LoginCenter isLoginValid]) {
-//        [self showLoginView];
-//    }
-//    else
-//    {
-        [self showTabBar];
-//    }
+    //    if (![LoginCenter isLoginValid]) {
+    //        [self showLoginView];
+    //    }
+    //    else
+    //    {
+//    [self showTabBar];
+    //    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -100,23 +106,23 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:kApplicationDidEnterBackground object:nil];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:kApplicationDidBecameForeground object:nil];
     
     [BMKMapView didForeGround];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-
+    
 }
 
 #pragma mark - 参数拼接
@@ -145,19 +151,6 @@
     // 这里处理新浪微博SSO授权之后跳转回来，和微信分享完成之后跳转回来
     NSLog(@"source app-%@, des app-%@",sourceApplication,application);
     if ([sourceApplication isEqualToString:@"com.tencent.xin"]) {
-        //[[NSNotificationCenter defaultCenter] postNotificationName:kOrderRefreshNotification object:nil];
-        NSString *urlString = [url absoluteString];
-        NSDictionary *info = [self getParameter:urlString];
-        NSRange ret = [urlString rangeOfString:@"pay"];
-        if(ret.location != NSNotFound){
-            //支付成功：
-            if(info && [[info objectForKey:@"ret"] intValue] == 0){
-                [[NSNotificationCenter defaultCenter] postNotificationName:kPaySucceedNotification object:@{@"result":[NSNumber numberWithBool:YES]}];
-            }
-            else{
-                [[NSNotificationCenter defaultCenter] postNotificationName:kPaySucceedNotification object:@{@"result":[NSNumber numberWithBool:NO]}];
-            }
-        }
         return [WXApi handleOpenURL:url delegate:self];
     }
     else if([url.host isEqualToString:@"safepay"])
@@ -347,7 +340,7 @@
      {
          self.window.rootViewController = self.loginNavigation;
      }];
-   
+    
     [self.window makeKeyAndVisible];
 }
 

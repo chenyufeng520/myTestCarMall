@@ -19,8 +19,10 @@
 @property (strong, nonatomic) ISTContentViewController *mainVC;
 
 + (AppDelegate *)shareDelegate;
--(void)showTabBar;
--(void)showLoginView;
+
+- (void)layoutMainView:(id)sender;
+- (void)showTabBar;
+- (void)showLoginView;
 
 //分享：
 - (void)showShareOn:(ISTBaseViewController *)vc content:(NSString *)text imageUrl:(NSString *)imageUrl shareUrl:(NSString *)url wxsessionContent:(NSDictionary *)wxsessionContent;

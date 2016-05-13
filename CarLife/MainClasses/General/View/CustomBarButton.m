@@ -15,7 +15,7 @@
 }
 
 - (CGRect)imageRectForContentRect:(CGRect)contentRect{
-    return CGRectMake(contentRect.origin.x, contentRect.origin.y, contentRect.size.width, contentRect.size.height - kAdjustLength(60));
+    return CGRectMake(contentRect.origin.x, contentRect.origin.y + kAdjustLength(10), contentRect.size.width, contentRect.size.height - kAdjustLength(70));
 }
 
 /*
