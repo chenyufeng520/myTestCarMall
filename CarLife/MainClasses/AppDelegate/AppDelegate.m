@@ -96,7 +96,7 @@
     //    }
     //    else
     //    {
-//    [self showTabBar];
+    //    [self showTabBar];
     //    }
 }
 
