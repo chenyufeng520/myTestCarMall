@@ -19,7 +19,7 @@
 //网络请求
 - (void)requestForURLStr:(NSString*)URLStr requestMethod:(NSString*)requestMethod info:(NSDictionary *)requestInfo andBlock:(void (^)(id response, NSError *error))block;
 
-//网络请求
+//网络请求(测试)
 - (void)testrequestForURLStr:(NSString*)URLStr requestMethod:(NSString*)requestMethod info:(NSDictionary *)requestInfo andBlock:(void (^)(id response, NSError *error))block;
 
 //上传图片(不带进度条的)

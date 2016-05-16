@@ -491,7 +491,7 @@
             [info setValue:scodeField.text forKey:@"validcode"];
             
             __weak typeof(self) weakSelf = self;
-            [[LoginDataHelper defaultHelper] requestForType:LoginNetwork_Regist info:info andBlock:^(id response, NSError *error) {
+            [[LoginDataHelper defaultHelper] requestForURLStr:@"" requestMethod:@"POST" info:info andBlock:^(id response, NSError *error)  {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [[STHUDManager sharedManager] hideHUDInView:self];
                     if ([response isKindOfClass:[NSDictionary class]]) {
@@ -523,7 +523,7 @@
     [info setValue:scodeField.text forKey:@"validcode"];
     
     __weak typeof(self) weakSelf = self;
-    [[LoginDataHelper defaultHelper] requestForType:LoginNetwork_Changepwd info:info andBlock:^(id response, NSError *error) {
+    [[LoginDataHelper defaultHelper] requestForURLStr:@"" requestMethod:@"POST" info:info andBlock:^(id response, NSError *error)  {
         dispatch_async(dispatch_get_main_queue(), ^{
             [[STHUDManager sharedManager] hideHUDInView:self];
             if ([response isKindOfClass:[NSDictionary class]]) {
@@ -575,7 +575,8 @@
     else
     {
         __weak typeof(self) weakSelf = self;
-        [[LoginDataHelper defaultHelper] requestForType:LoginNetwork_Getregvalidcode info:@{@"phone":self.phoneNumberField.text} andBlock:^(id response, NSError *error) {
+        [[LoginDataHelper defaultHelper] requestForURLStr:@"" requestMethod:@"POST" info:@{@"phone":self.phoneNumberField.text} andBlock:^(id response, NSError *error)
+         {
             if ([response isKindOfClass:[NSDictionary class]]) {
                 if ([response[@"result"] boolValue]) {
                     

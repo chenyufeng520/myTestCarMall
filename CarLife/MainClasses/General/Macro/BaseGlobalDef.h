@@ -63,7 +63,7 @@ _Pragma("clang diagnostic pop") \
 
 /**服务器主域名设置**/
 
-#define kMainDomain             @"http://autolife.nsenz.com:80"
+#define kMainDomain             @"http://www.uhuitong.com:9000"
 #define kTestMainDomain         @"http://101.201.174.252"
 
 /**账号设置**/
@@ -104,7 +104,7 @@ typedef enum {
 #define  kWhiteColor             RGBCOLOR(255, 255, 255)
 #define  kLightGreenColor        RGBCOLOR(122, 205, 133)
 #define  kDarkGreenColor         RGBCOLOR(55, 166, 76)
-#define  kDarkGreenColor1        RGBCOLOR(12, 172, 134)//积分查询的积分颜色
+#define  kDarkGreenColor1        RGBCOLOR(12, 172, 134)
 #define  kBlueColor              RGBCOLOR(65, 157, 246)
 #define  kGreenColor             RGBCOLOR(52, 208, 97)
 #define  kRedColor               RGBCOLOR(203, 47, 31)

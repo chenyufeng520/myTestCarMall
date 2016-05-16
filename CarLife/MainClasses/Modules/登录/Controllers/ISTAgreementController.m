@@ -53,7 +53,7 @@
     _contentView.height += (kTabBarHeight);
     _contentView.backgroundColor = [UIColor clearColor];
     self.view.backgroundColor = kWhiteColor;
-    [self getArtcileInfo];
+    
     [self loadSubviews];
     
 }
@@ -78,28 +78,28 @@
 
 #pragma mark - 获取文本信息
 
-- (void)getArtcileInfo
-{
-    [[STHUDManager sharedManager] showHUDInView:_contentView];
-    
-    [[LoginDataHelper defaultHelper] requestForType:LoginNetwork_UserProtocol info:nil andBlock:^(id response, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[STHUDManager sharedManager] hideHUDInView:_contentView];
-            if ([response isKindOfClass:[NSDictionary class]]) {
-                if ([response[@"result"] boolValue]) {
-                    _textView.text = response[@"data"];
-                }
-                else
-                {
-                    _textView.text = @"获取信息失败";
-                }
-            }
-            else
-            {
-                _textView.text = @"获取信息失败";
-            }
-        });
-    }];
-}
+//- (void)getArtcileInfo
+//{
+//    [[STHUDManager sharedManager] showHUDInView:_contentView];
+//    
+//    [[LoginDataHelper defaultHelper] requestForType:LoginNetwork_UserProtocol info:nil andBlock:^(id response, NSError *error) {
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [[STHUDManager sharedManager] hideHUDInView:_contentView];
+//            if ([response isKindOfClass:[NSDictionary class]]) {
+//                if ([response[@"result"] boolValue]) {
+//                    _textView.text = response[@"data"];
+//                }
+//                else
+//                {
+//                    _textView.text = @"获取信息失败";
+//                }
+//            }
+//            else
+//            {
+//                _textView.text = @"获取信息失败";
+//            }
+//        });
+//    }];
+//}
 
 @end

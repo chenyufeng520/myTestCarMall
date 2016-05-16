@@ -1799,6 +1799,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunboxsoft.CarMall;
 				PRODUCT_NAME = CarLife;
+				PROVISIONING_PROFILE = "7e6072c6-2892-4529-97f9-47a840b4a37b";
 			};
 			name = Debug;
 		};
@@ -1853,6 +1854,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunboxsoft.CarMall;
 				PRODUCT_NAME = CarLife;
+				PROVISIONING_PROFILE = "7e6072c6-2892-4529-97f9-47a840b4a37b";
 			};
 			name = Release;
 		};
