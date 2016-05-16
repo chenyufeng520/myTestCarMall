@@ -61,24 +61,6 @@
     UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 15, kScreen_Width, 101)];
     bgView.backgroundColor = kWhiteColor;
     [_contentView addSubview:bgView];
-    
-    //手机号码
-//    UILabel *phoneLb = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 80, 50)];
-//    phoneLb.backgroundColor = [UIColor clearColor];
-//    phoneLb.textColor = kDarkTextColor;
-//    phoneLb.font = kFontNormal;
-//    phoneLb.text = @"手机号";
-//    phoneLb.textAlignment = NSTextAlignmentRight;
-//    [bgView addSubview:phoneLb];
-//    
-//    _phoneTf = [[UITextField alloc] init];
-//    _phoneTf.frame = CGRectMake(100, 0, bgView.width-120-kAdjustLength(255), 50);
-//    _phoneTf.textColor = kDarkTextColor;
-//    _phoneTf.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-//    _phoneTf.font = kFontLarge_1;
-//    _phoneTf.text = @"";
-//    _phoneTf.placeholder = @"请输入手机号";
-//    [bgView addSubview:_phoneTf];
 
     //手机号码
     UILabel *phoneLb = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 80, 50)];
@@ -110,7 +92,7 @@
         }
         else
         {
-            [[LoginDataHelper defaultHelper] requestForType:LoginNetwork_Getregvalidcode info:@{@"phone":_phoneTf.text} andBlock:^(id response, NSError *error) {
+            [[LoginDataHelper defaultHelper] requestForURLStr:@"" requestMethod:@"POST" info:@{@"phone":_phoneTf.text} andBlock:^(id response, NSError *error) {
                 if ([response isKindOfClass:[NSDictionary class]]) {
                     if ([response[@"result"] boolValue]) {
                         
@@ -236,7 +218,7 @@
      flag 空：创建 非空：关联
      */
     [[STHUDManager sharedManager] showHUDInView:self.view];
-    [[LoginDataHelper defaultHelper] requestForType:LoginNetwork_RelateAccount info:infoDic andBlock:^(id response, NSError *error) {
+    [[LoginDataHelper defaultHelper] requestForURLStr:@"" requestMethod:@"POST" info:infoDic andBlock:^(id response, NSError *error)  {
         [[STHUDManager sharedManager] hideHUDInView:weakSelf.view];
         if ([response isKindOfClass:[NSDictionary class]]) {
             if ([response[@"result"] boolValue]) {

@@ -6,17 +6,10 @@
 //  Copyright © 2015年 高大鹏. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "AFNetworking.h"
-#import "LoginNetworkDef.h"
-#import "STHUDManager.h"
+#import "BaseDataHelper.h"
 
-@interface LoginDataHelper : NSObject
+static NSString *kLogin                 = @"/app/login";                   //登录
 
-+ (LoginDataHelper *)defaultHelper;
-
-- (void)checkNetwork;
-
-- (void)requestForType:(LoginNetworkRequestType)type info:(NSDictionary *)requestInfo andBlock:(void (^)(id response, NSError *error))block;
+@interface LoginDataHelper : BaseDataHelper
 
 @end

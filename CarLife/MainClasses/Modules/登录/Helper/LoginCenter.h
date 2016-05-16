@@ -39,13 +39,4 @@ typedef enum
 + (BOOL)isLoginValid;
 + (void)doLogin:(NSDictionary *)info;
 
-/*
- NSMutableDictionary *loginInfo = [NSMutableDictionary dictionary];
- [loginInfo setValue:self forKey:kViewController];
- [loginInfo setValue:[NSNumber numberWithInt:LoginMode_Vistor] forKey:kLoginMode];
- [loginInfo setValue:[NSNumber numberWithInt:Column_Login] forKey:kColumnType];
- [loginInfo setValue:[NSNumber numberWithInt:index] forKey:kMenuIndex];
- [loginInfo setValue:[NSNumber numberWithInt:PresentType] forKey:kAnimateType];
- [LoginCenter doLogin:loginInfo];
-*/
 @end

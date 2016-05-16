@@ -98,7 +98,7 @@ static NSInteger repasswordTag  = 3004;
         }
         else
         {
-            [[LoginDataHelper defaultHelper] requestForType:LoginNetwork_Getregvalidcode info:@{@"phone":_phoneTf.text} andBlock:^(id response, NSError *error) {
+            [[LoginDataHelper defaultHelper] requestForURLStr:@"" requestMethod:@"POST" info:@{@"phone":_phoneTf.text}  andBlock:^(id response, NSError *error) {
                 if ([response isKindOfClass:[NSDictionary class]]) {
                     if ([response[@"result"] boolValue]) {
                         
@@ -285,7 +285,7 @@ label2.frame = CGRectMake(label1.right, _AgreementBnt.origin.y,label2.width , _A
     if([self.Navtitle isEqualToString:@"重置密码"])
     {
         [[STHUDManager sharedManager] showHUDInView:self.view];
-        [[LoginDataHelper defaultHelper] requestForType:LoginNetwork_Changepwd info:@{@"phone":_phoneTf.text,@"newPassWord":_passwordTf.text,@"checkCode":_codeTf.text} andBlock:^(id response, NSError *error) {
+        [[LoginDataHelper defaultHelper] requestForURLStr:@"" requestMethod:@"POST" info:@{@"phone":_phoneTf.text,@"newPassWord":_passwordTf.text,@"checkCode":_codeTf.text} andBlock:^(id response, NSError *error)  {
             [[STHUDManager sharedManager] hideHUDInView:weakSelf.view];
             if ([response isKindOfClass:[NSDictionary class]]) {
                 if ([response[@"result"] boolValue]) {
@@ -319,7 +319,7 @@ label2.frame = CGRectMake(label1.right, _AgreementBnt.origin.y,label2.width , _A
         }
         
         [[STHUDManager sharedManager] showHUDInView:self.view];
-        [[LoginDataHelper defaultHelper] requestForType:LoginNetwork_Regist info:@{@"phone":_phoneTf.text,@"password":_passwordTf.text,@"checkCode":_codeTf.text} andBlock:^(id response, NSError *error) {
+        [[LoginDataHelper defaultHelper] requestForURLStr:@"" requestMethod:@"POST" info:@{@"phone":_phoneTf.text,@"password":_passwordTf.text,@"checkCode":_codeTf.text} andBlock:^(id response, NSError *error)  {
             [[STHUDManager sharedManager] hideHUDInView:weakSelf.view];
             if ([response isKindOfClass:[NSDictionary class]]) {
                 if ([response[@"result"] boolValue]) {

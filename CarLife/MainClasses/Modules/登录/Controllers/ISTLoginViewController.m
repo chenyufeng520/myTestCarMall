@@ -335,7 +335,7 @@
     
     __weak typeof(self) weakSelf = self;
 //    [[STHUDManager sharedManager] showHUDInView:self.view];
-    [[LoginDataHelper defaultHelper] requestForType:LoginNetwork_Login info:@{@"wxOpenId":openid} andBlock:^(id response, NSError *error) {
+    [[LoginDataHelper defaultHelper] requestForURLStr:@"" requestMethod:@"POST" info:@{@"wxOpenId":openid} andBlock:^(id response, NSError *error)  {
         dispatch_async(dispatch_get_main_queue(), ^{
             [[STHUDManager sharedManager] hideHUDInView:weakSelf.view];
             if ([response isKindOfClass:[NSDictionary class]]) {
@@ -399,11 +399,18 @@
 - (void)onLoginResponse{
     [self.view endEditing:YES];
    
-    if ([self canLogin]) {
-        [self loginSuccessfully:nil];
+    //登录完成显示首页
+    [[NSNotificationCenter defaultCenter] postNotificationName:kTurnBackHomeNotification object:nil];
+    //登录成功，需要做操作的界面接收此通知
+    [[NSNotificationCenter defaultCenter] postNotificationName:kLoginSucceedNotification object:nil];
+    [[AppDelegate shareDelegate] showTabBar];
+
+    
+//    if ([self canLogin]) {
+//        
 //        __weak typeof(self) weakSelf = self;
 //        [[STHUDManager sharedManager] showHUDInView:self.view];
-//        [[LoginDataHelper defaultHelper] requestForType:LoginNetwork_Login info:@{@"phone":_nameTextField.text,@"password":_pwdTextField.text} andBlock:^(id response, NSError *error) {
+//        [[LoginDataHelper defaultHelper] requestForURLStr:kLogin requestMethod:@"POST" info:@{@"phone":_nameTextField.text,@"password":_pwdTextField.text} andBlock:^(id response, NSError *error) {
 //            [[STHUDManager sharedManager] hideHUDInView:weakSelf.view];
 //            if ([response isKindOfClass:[NSDictionary class]]) {
 //                if ([response[@"result"] boolValue]) {
@@ -419,8 +426,8 @@
 //                kTipAlert(@"服务器异常");
 //            }
 //        }];
-
-    }
+//
+//    }
 
 }
 
