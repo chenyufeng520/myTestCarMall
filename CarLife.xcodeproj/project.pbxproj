@@ -698,6 +698,13 @@
 			path = "启动动画图";
 			sourceTree = "<group>";
 		};
+		82C248551CEA194B006D5FF8 /* 聊天 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "聊天";
+			sourceTree = "<group>";
+		};
 		9CEA27099F4CC18F79DC18DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -710,6 +717,7 @@
 		CE34D0C61BF596DB00EB31CF /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				82C248551CEA194B006D5FF8 /* 聊天 */,
 				713F07C31C9DC97200BC2462 /* 商城 */,
 				713F07C21C9DC96F00BC2462 /* 订单 */,
 				713F07C11C9DC96A00BC2462 /* 新闻 */,

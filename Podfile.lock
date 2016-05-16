@@ -29,6 +29,7 @@ PODS:
   - FMDB/common (2.5)
   - FMDB/standard (2.5):
     - FMDB/common
+  - HyphenateFullSDK (3.1.2)
   - iOS-WechatSDK (1.6.1)
   - IQKeyboardManager (3.3.4)
   - JDStatusBarNotification (1.5.2)
@@ -52,6 +53,7 @@ DEPENDENCIES:
   - CocoaAsyncSocket (~> 7.4.2)
   - CustomBadge (~> 3.0.0)
   - FMDB (~> 2.5)
+  - HyphenateFullSDK (~> 3.0)
   - iOS-WechatSDK (~> 1.6.1)
   - IQKeyboardManager (~> 3.3.2)
   - JDStatusBarNotification (~> 1.5.2)
@@ -73,6 +75,7 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: f5783bdedd232d91b89769bc4b5a1580aed518ad
   CustomBadge: c60738d213e7ef019b0bf1caa7948333f280ea9b
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
+  HyphenateFullSDK: f6ed4f5fed2b41f344eab73b451a27f1e8aa8ba2
   iOS-WechatSDK: bd8d0ad5ff5635ded9ab08a8cf09a53569931fde
   IQKeyboardManager: ac803e61e5b50efae6b3aeedd95a02c7c7d3b2b3
   JDStatusBarNotification: a36d09ccbb047217572b074a61e7ca10dddc5f0a
