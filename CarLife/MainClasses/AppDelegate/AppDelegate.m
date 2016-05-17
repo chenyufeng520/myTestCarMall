@@ -23,7 +23,6 @@
 #import "LoginCenter.h"
 #import "ISTLoginViewController.h"
 #import "GifViewController.h"
-#import <HyphenateFullSDK/EMSDKFull.h>
 
 @interface AppDelegate ()<UMSocialUIDelegate,WXApiDelegate,BMKGeneralDelegate>
 {
