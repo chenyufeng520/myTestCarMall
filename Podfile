@@ -1,6 +1,5 @@
 platform :ios, '7.0'
 
-pod 'MBProgressHUD', '~> 0.9.1'
 pod 'AFNetworking', '~> 2.6.1'
 pod 'CocoaAsyncSocket', '~> 7.4.2'
 pod 'Reachability', '~> 3.2'
@@ -17,5 +16,4 @@ pod 'CustomBadge', '~> 3.0.0'
 pod 'VRGCalendarView', '~> 0.0.1'
 pod 'WPAttributedMarkup', '~> 1.0.0'
 pod 'ZYQAssetPickerController', '~> 1.0.0'
-pod 'MJRefresh', '~> 2.4.12'
 pod 'OpenUDID', '~> 1.0.0'

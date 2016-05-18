@@ -32,8 +32,6 @@ PODS:
   - iOS-WechatSDK (1.6.1)
   - IQKeyboardManager (3.3.4)
   - JDStatusBarNotification (1.5.2)
-  - MBProgressHUD (0.9.1)
-  - MJRefresh (2.4.12)
   - OpenUDID (1.0.0)
   - Reachability (3.2)
   - SDWebImage (3.7.3):
@@ -55,8 +53,6 @@ DEPENDENCIES:
   - iOS-WechatSDK (~> 1.6.1)
   - IQKeyboardManager (~> 3.3.2)
   - JDStatusBarNotification (~> 1.5.2)
-  - MBProgressHUD (~> 0.9.1)
-  - MJRefresh (~> 2.4.12)
   - OpenUDID (~> 1.0.0)
   - Reachability (~> 3.2)
   - SDWebImage (~> 3.7.3)
@@ -76,8 +72,6 @@ SPEC CHECKSUMS:
   iOS-WechatSDK: bd8d0ad5ff5635ded9ab08a8cf09a53569931fde
   IQKeyboardManager: ac803e61e5b50efae6b3aeedd95a02c7c7d3b2b3
   JDStatusBarNotification: a36d09ccbb047217572b074a61e7ca10dddc5f0a
-  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
-  MJRefresh: ca8e9589895977df32d379d46e6b8a5450b3ff44
   OpenUDID: e7cb6984c7304906ad20f3a36bf087b025896b6b
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
