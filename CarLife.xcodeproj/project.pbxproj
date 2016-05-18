@@ -211,6 +211,8 @@
 		8259CCBD1CECC9C300D6685C /* chat_sender_audio_playing_full@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8259CC791CECC9C300D6685C /* chat_sender_audio_playing_full@2x.png */; };
 		8259CCBE1CECC9C300D6685C /* chat_sender_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8259CC7A1CECC9C300D6685C /* chat_sender_bg@2x.png */; };
 		8259CCBF1CECC9C300D6685C /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8259CC7B1CECC9C300D6685C /* user@2x.png */; };
+		8259CCC21CECCB7C00D6685C /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8259CCC11CECCB7C00D6685C /* ChatViewController.m */; };
+		8259CCC41CECCC0A00D6685C /* EaseUIResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8259CCC31CECCC0A00D6685C /* EaseUIResource.bundle */; };
 		CE2747B51BF4603E00D2349D /* BlockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2747B41BF4603E00D2349D /* BlockButton.m */; };
 		CE2747BB1BF4612200D2349D /* NSObject+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2747BA1BF4612200D2349D /* NSObject+Common.m */; };
 		CE34D18C1BF596DB00EB31CF /* ISTMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE34D1191BF596DB00EB31CF /* ISTMineViewController.m */; };
@@ -711,6 +713,9 @@
 		8259CC7A1CECC9C300D6685C /* chat_sender_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_sender_bg@2x.png"; sourceTree = "<group>"; };
 		8259CC7B1CECC9C300D6685C /* user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user@2x.png"; sourceTree = "<group>"; };
 		8259CC7C1CECC9C300D6685C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		8259CCC01CECCB7C00D6685C /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		8259CCC11CECCB7C00D6685C /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		8259CCC31CECCC0A00D6685C /* EaseUIResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EaseUIResource.bundle; sourceTree = "<group>"; };
 		9A8FB673EE1C5A1EA93F4475 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CE2747B31BF4603E00D2349D /* BlockButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockButton.h; sourceTree = "<group>"; };
 		CE2747B41BF4603E00D2349D /* BlockButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockButton.m; sourceTree = "<group>"; };
@@ -1257,6 +1262,9 @@
 		8259CA6B1CECC8F500D6685C /* 环信 */ = {
 			isa = PBXGroup;
 			children = (
+				8259CCC31CECCC0A00D6685C /* EaseUIResource.bundle */,
+				8259CCC01CECCB7C00D6685C /* ChatViewController.h */,
+				8259CCC11CECCB7C00D6685C /* ChatViewController.m */,
 				8259CC321CECC9C300D6685C /* Resource */,
 				8259CA971CECC9AE00D6685C /* EaseUI */,
 				8259CA6C1CECC90900D6685C /* HyphenateSDK */,
@@ -2825,6 +2833,7 @@
 				8259CC891CECC9C300D6685C /* chatBar_colorMore_photoSelected@2x.png in Resources */,
 				8259CC7D1CECC9C300D6685C /* arrow@2x.png in Resources */,
 				8259CC821CECC9C300D6685C /* chatBar_colorMore_audioCall@2x.png in Resources */,
+				8259CCC41CECCC0A00D6685C /* EaseUIResource.bundle in Resources */,
 				8259CCBD1CECC9C300D6685C /* chat_sender_audio_playing_full@2x.png in Resources */,
 				71CAC5FF1CE5C8B500B4C705 /* startAnimation4.png in Resources */,
 				CE34D1AA1BF596DB00EB31CF /* logo@3x.png in Resources */,
@@ -3014,6 +3023,7 @@
 				8259CC241CECC9AE00D6685C /* EaseBubbleView+Location.m in Sources */,
 				8259CC061CECC9AE00D6685C /* EaseConversationModel.m in Sources */,
 				CE34D1C21BF5C42A00EB31CF /* ISTButtonHelper.m in Sources */,
+				8259CCC21CECCB7C00D6685C /* ChatViewController.m in Sources */,
 				8259CBBC1CECC9AE00D6685C /* EaseUI.m in Sources */,
 				8259CBE41CECC9AE00D6685C /* MWTapDetectingView.m in Sources */,
 				CE34D1C01BF5C42A00EB31CF /* ISTAlertView.m in Sources */,

@@ -23,6 +23,7 @@
 #import "LoginCenter.h"
 #import "ISTLoginViewController.h"
 #import "GifViewController.h"
+#import "ChatViewController.h"
 
 @interface AppDelegate ()<UMSocialUIDelegate,WXApiDelegate,BMKGeneralDelegate>
 {
@@ -60,7 +61,7 @@
     self.window.backgroundColor = kWhiteColor;
     GifViewController *VC = [[GifViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:VC];
-    self.window.rootViewController = nav;
+    self.window.rootViewController = [[ChatViewController alloc] init];
     [self.window makeKeyAndVisible];
     //    [self layoutMainView:nil];
     
