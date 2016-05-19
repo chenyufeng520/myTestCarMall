@@ -10,6 +10,10 @@
 		61DAF56C9D24F373AED071E7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D15F239C25E0C1B48272C93 /* libPods.a */; };
 		7116286F1C9CFCC20049AB7B /* BaseDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7116286E1C9CFCC20049AB7B /* BaseDataHelper.m */; };
 		713F07DA1C9DCAD100BC2462 /* CMShoppingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F07D91C9DCAD100BC2462 /* CMShoppingViewController.m */; };
+		7163F97E1CED534300BB565B /* PersonInfoListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7163F97D1CED534300BB565B /* PersonInfoListCell.m */; };
+		7163F9801CED557100BB565B /* mine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7163F97F1CED557100BB565B /* mine.xcassets */; };
+		7163F9831CED5C2100BB565B /* PersonHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7163F9821CED5C2100BB565B /* PersonHeadCell.m */; };
+		7163F9861CED6EBB00BB565B /* ToolKitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7163F9851CED6EBB00BB565B /* ToolKitCell.m */; };
 		71A42A4B1C9E709C00CA29FE /* CMOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A4A1C9E709C00CA29FE /* CMOrderViewController.m */; };
 		71A42A4E1C9E70B200CA29FE /* CMNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A4D1C9E70B200CA29FE /* CMNewsViewController.m */; };
 		71A42A511C9E70CD00CA29FE /* CMToolKitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A501C9E70CD00CA29FE /* CMToolKitViewController.m */; };
@@ -328,6 +332,13 @@
 		7116286E1C9CFCC20049AB7B /* BaseDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDataHelper.m; sourceTree = "<group>"; };
 		713F07D81C9DCAD100BC2462 /* CMShoppingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMShoppingViewController.h; sourceTree = "<group>"; };
 		713F07D91C9DCAD100BC2462 /* CMShoppingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMShoppingViewController.m; sourceTree = "<group>"; };
+		7163F97C1CED534300BB565B /* PersonInfoListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoListCell.h; sourceTree = "<group>"; };
+		7163F97D1CED534300BB565B /* PersonInfoListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfoListCell.m; sourceTree = "<group>"; };
+		7163F97F1CED557100BB565B /* mine.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mine.xcassets; sourceTree = "<group>"; };
+		7163F9811CED5C2100BB565B /* PersonHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonHeadCell.h; sourceTree = "<group>"; };
+		7163F9821CED5C2100BB565B /* PersonHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonHeadCell.m; sourceTree = "<group>"; };
+		7163F9841CED6EBB00BB565B /* ToolKitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolKitCell.h; sourceTree = "<group>"; };
+		7163F9851CED6EBB00BB565B /* ToolKitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolKitCell.m; sourceTree = "<group>"; };
 		71A42A491C9E709C00CA29FE /* CMOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMOrderViewController.h; sourceTree = "<group>"; };
 		71A42A4A1C9E709C00CA29FE /* CMOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMOrderViewController.m; sourceTree = "<group>"; };
 		71A42A4C1C9E70B200CA29FE /* CMNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMNewsViewController.h; sourceTree = "<group>"; };
@@ -1206,6 +1217,8 @@
 		713F07D71C9DCA1200BC2462 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7163F9841CED6EBB00BB565B /* ToolKitCell.h */,
+				7163F9851CED6EBB00BB565B /* ToolKitCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1213,6 +1226,10 @@
 		71A42A521C9E74D200CA29FE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7163F97C1CED534300BB565B /* PersonInfoListCell.h */,
+				7163F97D1CED534300BB565B /* PersonInfoListCell.m */,
+				7163F9811CED5C2100BB565B /* PersonHeadCell.h */,
+				7163F9821CED5C2100BB565B /* PersonHeadCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1229,6 +1246,7 @@
 		71A42A541C9E74D200CA29FE /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				7163F97F1CED557100BB565B /* mine.xcassets */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -2835,6 +2853,7 @@
 				8259CC821CECC9C300D6685C /* chatBar_colorMore_audioCall@2x.png in Resources */,
 				8259CCC41CECCC0A00D6685C /* EaseUIResource.bundle in Resources */,
 				8259CCBD1CECC9C300D6685C /* chat_sender_audio_playing_full@2x.png in Resources */,
+				7163F9801CED557100BB565B /* mine.xcassets in Resources */,
 				71CAC5FF1CE5C8B500B4C705 /* startAnimation4.png in Resources */,
 				CE34D1AA1BF596DB00EB31CF /* logo@3x.png in Resources */,
 				8259CC971CECC9C300D6685C /* chatBar_recordSelectedBg@2x.png in Resources */,
@@ -2978,6 +2997,7 @@
 				8259CBD31CECC9AE00D6685C /* MJRefreshBackGifFooter.m in Sources */,
 				CE34D2281BF5D6B100EB31CF /* TabbarItem.m in Sources */,
 				CE34D2141BF5C4C100EB31CF /* User.m in Sources */,
+				7163F9831CED5C2100BB565B /* PersonHeadCell.m in Sources */,
 				8259CBF51CECC9AE00D6685C /* UIImageView+EMWebCache.m in Sources */,
 				8259CC231CECC9AE00D6685C /* EaseBubbleView+Image.m in Sources */,
 				8259CC271CECC9AE00D6685C /* EaseBubbleView+Voice.m in Sources */,
@@ -3098,6 +3118,8 @@
 				8259CC181CECC9AE00D6685C /* EaseMessageViewController.m in Sources */,
 				8259CC2E1CECC9AE00D6685C /* EaseFacialView.m in Sources */,
 				8259CC051CECC9AE00D6685C /* EaseSDKHelper.m in Sources */,
+				7163F97E1CED534300BB565B /* PersonInfoListCell.m in Sources */,
+				7163F9861CED6EBB00BB565B /* ToolKitCell.m in Sources */,
 				8259CC0B1CECC9AE00D6685C /* NSString+Valid.m in Sources */,
 				8259CC0C1CECC9AE00D6685C /* UIViewController+DismissKeyboard.m in Sources */,
 				8259CBC51CECC9AE00D6685C /* wav.mm in Sources */,

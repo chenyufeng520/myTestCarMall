@@ -8,14 +8,25 @@
 
 #import "ISTMineViewController.h"
 #import "AppDelegate.h"
+#import "PersonInfoListCell.h"
+#import "PersonHeadCell.h"
 
 @interface ISTMineViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     UITableView *_tableView;
 }
+@property (nonatomic,strong) NSArray * listArray;
+
 @end
 
 @implementation ISTMineViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+        
+    }
+    return self;
+}
 
 - (ISTTopBar *)creatTopBarView:(CGRect)frame
 {
@@ -29,8 +40,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self prepareData];
     [self loadSubviews];
 }
+
+- (void)prepareData{
+    
+    self.listArray = @[
+                       @{@"icon":@"我的订单",@"title":@"编辑资料"},
+                       @{@"icon":@"我的订单",@"title":@"我的订单"},@{@"icon":@"我的订单",@"title":@"记事本"},@{@"icon":@"我的订单",@"title":@"设置"},@{@"icon":@"我的订单",@"title":@"意见反馈"},@{@"icon":@"我的订单",@"title":@"附近修理厂"},@{@"icon":@"我的订单",@"title":@"附近车主"}
+                       ];
+}
+
 
 - (void)loadSubviews
 {
@@ -40,7 +61,7 @@
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, _contentView.height) style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-//    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.showsVerticalScrollIndicator = NO;
     [_contentView addSubview:_tableView];
     
@@ -48,9 +69,9 @@
     
     UIButton *LogoutButton = [UIButton buttonWithType:UIButtonTypeCustom];
     LogoutButton.frame = CGRectMake(kAdjustLength(40), 5, kScreen_Width - kAdjustLength(80), 40);
-    [LogoutButton setTitle:@"退出登录" forState:UIControlStateNormal];
+    [LogoutButton setTitle:@"退出账号" forState:UIControlStateNormal];
     [LogoutButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
-    LogoutButton.backgroundColor = kRedColor;
+    LogoutButton.backgroundColor = kBlueColor;
     LogoutButton.layer.cornerRadius = kCornerRadius;
     LogoutButton.layer.masksToBounds = YES;
     LogoutButton.titleLabel.font = kFontNormal;
@@ -77,7 +98,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 1) {
-        return 6;
+        return self.listArray.count;
     }
     else{
         return 1;
@@ -86,24 +107,84 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 1) {
-        return 50;
+        return kScreen_Width*154/1080;;
     }
     else{
-        return 100;
+        return 120;
     }
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-   static NSString *celliden = @"celliden";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:celliden];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:celliden];
+    
+    if (indexPath.section == 0) {
+        static NSString *largeCelliden = @"largeCelliden";
+        PersonHeadCell *cell = [tableView dequeueReusableCellWithIdentifier:largeCelliden];
+        if (cell == nil) {
+            cell = [[PersonHeadCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:largeCelliden];
+        }
+        cell.iconImageView.image = [UIImage imageNamed:@"Default-user"];
+        cell.titleLabel.text = @"隔壁老王";
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+
     }
-    return cell;
+    else{
+//        static NSString *celliden = @"celliden";
+//        PersonInfoListCell *cell = [tableView dequeueReusableCellWithIdentifier:celliden];
+//        if (cell == nil) {
+//            cell = [[PersonInfoListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:celliden];
+//        }
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//        [cell reloadCellWithInfo:self.listArray[indexPath.row]];
+//        return cell;
+        
+        static NSString *cellIdentifier = @"Cell";
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }
+        
+        NSDictionary *column = self.listArray[indexPath.row];
+        
+        cell.textLabel.text = column[@"title"];
+        cell.textLabel.font = kFontNormal;
+        cell.textLabel.textColor = kDarkTextColor;
+        cell.imageView.image = [UIImage imageNamed:column[@"icon"]];
+        
+        UIView *line = [[UIView alloc] initLineWithFrame:CGRectMake(10, kScreen_Width*154/1080-1, _tableView.width-20, 1) color:kMainBGColor];
+        [cell.contentView addSubview:line];
+        
+        return cell;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-  
+    if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            //编辑资料
+        }
+        else if (indexPath.row == 1){
+            //我的订单
+        }
+        else if (indexPath.row == 2){
+            //记事本
+        }
+        else if (indexPath.row == 3){
+            //设置
+        }
+        else if (indexPath.row == 4){
+            //意见反馈
+        }
+        else if (indexPath.row == 5){
+            //附近修理厂
+        }
+        else{
+            //附近车主
+        }
+    }
 }
 
 #pragma mark - Click Menu

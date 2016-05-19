@@ -57,7 +57,7 @@
             barItem.titleLabel.font = kFontSmall;
             barItem.titleLabel.textAlignment = NSTextAlignmentCenter;
             [barItem setTitleColor:kDarkTextColor forState:UIControlStateNormal];
-            [barItem setTitleColor:kGreenColor forState:UIControlStateSelected];
+            [barItem setTitleColor:kNavBarColor forState:UIControlStateSelected];
             
 //            UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, barItem.height - kAdjustLength(60), barItem.width, kAdjustLength(60))];
 //            titleLabel.text = tb.title;

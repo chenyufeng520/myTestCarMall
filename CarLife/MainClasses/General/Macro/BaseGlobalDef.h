@@ -95,8 +95,10 @@ typedef enum {
 #define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 
 #define  kMainBGColor            RGBCOLOR(240,240,240)
-#define  kNavBarColor            RGBCOLOR(185,0,16)
-#define  kStatusBarColor         RGBCOLOR(185,0,16)
+//#define  kNavBarColor            RGBCOLOR(185,0,16)
+//#define  kStatusBarColor         RGBCOLOR(185,0,16)    //红色导航
+#define  kNavBarColor            RGBCOLOR(65, 157, 246)  //蓝色导航
+#define  kStatusBarColor         RGBCOLOR(65, 157, 246)
 #define  kDarkTextColor          RGBCOLOR(76, 73, 72)
 #define  kLightTextColor         RGBCOLOR(137, 137, 137)
 

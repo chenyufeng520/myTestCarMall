@@ -61,7 +61,7 @@
     self.window.backgroundColor = kWhiteColor;
     GifViewController *VC = [[GifViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:VC];
-    self.window.rootViewController = [[ChatViewController alloc] init];
+    self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     //    [self layoutMainView:nil];
     
