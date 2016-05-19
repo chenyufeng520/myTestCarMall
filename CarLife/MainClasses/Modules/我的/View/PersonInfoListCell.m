@@ -33,7 +33,7 @@
     self.titleLabel.textAlignment = NSTextAlignmentLeft;
     [self addSubview:self.titleLabel];
     
-    UILabel * sepLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 50-1, kScreen_Width, 1)];
+    UILabel * sepLine = [[UILabel alloc]initWithFrame:CGRectMake(20, 50-1, kScreen_Width - 40, 1)];
     sepLine.backgroundColor = kMainBGColor;
     [self addSubview:sepLine];
     

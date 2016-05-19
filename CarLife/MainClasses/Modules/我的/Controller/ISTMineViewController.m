@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "PersonInfoListCell.h"
 #import "PersonHeadCell.h"
+#import "UIAlertHelper.h"
 
 @interface ISTMineViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -107,7 +108,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 1) {
-        return kScreen_Width*154/1080;;
+//        return kScreen_Width*154/1080;
+        return 50;
     }
     else{
         return 120;
@@ -129,40 +131,41 @@
 
     }
     else{
-//        static NSString *celliden = @"celliden";
-//        PersonInfoListCell *cell = [tableView dequeueReusableCellWithIdentifier:celliden];
-//        if (cell == nil) {
-//            cell = [[PersonInfoListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:celliden];
-//        }
-//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//        [cell reloadCellWithInfo:self.listArray[indexPath.row]];
-//        return cell;
-        
-        static NSString *cellIdentifier = @"Cell";
-        
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        
+        static NSString *celliden = @"celliden";
+        PersonInfoListCell *cell = [tableView dequeueReusableCellWithIdentifier:celliden];
         if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell = [[PersonInfoListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:celliden];
         }
-        
-        NSDictionary *column = self.listArray[indexPath.row];
-        
-        cell.textLabel.text = column[@"title"];
-        cell.textLabel.font = kFontNormal;
-        cell.textLabel.textColor = kDarkTextColor;
-        cell.imageView.image = [UIImage imageNamed:column[@"icon"]];
-        
-        UIView *line = [[UIView alloc] initLineWithFrame:CGRectMake(10, kScreen_Width*154/1080-1, _tableView.width-20, 1) color:kMainBGColor];
-        [cell.contentView addSubview:line];
-        
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        [cell reloadCellWithInfo:self.listArray[indexPath.row]];
         return cell;
+        
+//        static NSString *cellIdentifier = @"Cell";
+//        
+//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+//        
+//        if (cell == nil) {
+//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+//            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//        }
+//        
+//        NSDictionary *column = self.listArray[indexPath.row];
+//        
+//        cell.textLabel.text = column[@"title"];
+//        cell.textLabel.font = kFontNormal;
+//        cell.textLabel.textColor = kDarkTextColor;
+//        cell.imageView.image = [UIImage imageNamed:column[@"icon"]];
+//        
+//        UIView *line = [[UIView alloc] initLineWithFrame:CGRectMake(10, kScreen_Width*154/1080-1, _tableView.width-20, 1) color:kMainBGColor];
+//        [cell.contentView addSubview:line];
+//        
+//        return cell;
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 1) {
+        
         if (indexPath.row == 0) {
             //编辑资料
         }
@@ -184,6 +187,10 @@
         else{
             //附近车主
         }
+        
+        //敬请期待
+        KTipFun;
+        return ;
     }
 }
 

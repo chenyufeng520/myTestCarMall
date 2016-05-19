@@ -54,16 +54,15 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     
     [self applicationConfiguration];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = kWhiteColor;
-    GifViewController *VC = [[GifViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:VC];
-    self.window.rootViewController = nav;
-    [self.window makeKeyAndVisible];
-    //    [self layoutMainView:nil];
+//    GifViewController *VC = [[GifViewController alloc] init];
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:VC];
+//    self.window.rootViewController = nav;
+//    [self.window makeKeyAndVisible];
+    [self layoutMainView:nil];
     
     
     return YES;
@@ -90,7 +89,10 @@
     self.loginNavigation.navigationBarHidden = YES;
     
     [self.window setRootViewController:self.rootNavigation];
-    [self.window makeKeyAndVisible];
+    [self showTabBar];
+    
+//    [self.window setRootViewController:self.rootNavigation];
+//    [self.window makeKeyAndVisible];
     
     //    if (![LoginCenter isLoginValid]) {
     //        [self showLoginView];

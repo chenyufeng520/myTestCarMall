@@ -8,6 +8,7 @@
 
 #import "CMToolKitViewController.h"
 #import "ToolKitCell.h"
+#import "UIAlertHelper.h"
 
 @interface CMToolKitViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 {
@@ -86,7 +87,9 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    //敬请期待
+    KTipFun;
+    return ;
 }
 
 
