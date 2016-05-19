@@ -1061,6 +1061,9 @@
 			isa = PBXGroup;
 			children = (
 				713F07CB1C9DCA0000BC2462 /* Controllers */,
+				71D87F421CEE0CCC000D7525 /* View */,
+				71D87F411CEE0CC9000D7525 /* Model */,
+				71D87F401CEE0CC4000D7525 /* Resource */,
 				71C9E5D11CEE06D100F28D1F /* Helper */,
 			);
 			path = "订单";
@@ -1214,6 +1217,27 @@
 				71CAC5FB1CE5C8B500B4C705 /* startAnimation5.png */,
 			);
 			path = "启动动画图";
+			sourceTree = "<group>";
+		};
+		71D87F401CEE0CC4000D7525 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		71D87F411CEE0CC9000D7525 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		71D87F421CEE0CCC000D7525 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8259CA6B1CECC8F500D6685C /* 环信 */ = {
