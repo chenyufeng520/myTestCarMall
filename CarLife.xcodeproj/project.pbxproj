@@ -30,6 +30,7 @@
 		71CAC5FE1CE5C8B500B4C705 /* startAnimation3.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAC5F91CE5C8B500B4C705 /* startAnimation3.png */; };
 		71CAC5FF1CE5C8B500B4C705 /* startAnimation4.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAC5FA1CE5C8B500B4C705 /* startAnimation4.png */; };
 		71CAC6001CE5C8B500B4C705 /* startAnimation5.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAC5FB1CE5C8B500B4C705 /* startAnimation5.png */; };
+		71D87F451CEE0D8B000D7525 /* OrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D87F441CEE0D8B000D7525 /* OrderCell.m */; };
 		8259CA961CECC90900D6685C /* libHyphenateSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8259CA951CECC90900D6685C /* libHyphenateSDK.a */; };
 		8259CBBC1CECC9AE00D6685C /* EaseUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8259CA9A1CECC9AE00D6685C /* EaseUI.m */; };
 		8259CBBD1CECC9AE00D6685C /* EMAudioPlayerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8259CAA41CECC9AE00D6685C /* EMAudioPlayerUtil.m */; };
@@ -373,6 +374,8 @@
 		71CAC5F91CE5C8B500B4C705 /* startAnimation3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startAnimation3.png; sourceTree = "<group>"; };
 		71CAC5FA1CE5C8B500B4C705 /* startAnimation4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startAnimation4.png; sourceTree = "<group>"; };
 		71CAC5FB1CE5C8B500B4C705 /* startAnimation5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startAnimation5.png; sourceTree = "<group>"; };
+		71D87F431CEE0D8B000D7525 /* OrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCell.h; sourceTree = "<group>"; };
+		71D87F441CEE0D8B000D7525 /* OrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCell.m; sourceTree = "<group>"; };
 		8259CA6E1CECC90900D6685C /* EMCallLocalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallLocalView.h; sourceTree = "<group>"; };
 		8259CA6F1CECC90900D6685C /* EMCallManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallManagerDelegate.h; sourceTree = "<group>"; };
 		8259CA701CECC90900D6685C /* EMCallRemoteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallRemoteView.h; sourceTree = "<group>"; };
@@ -1236,6 +1239,8 @@
 		71D87F421CEE0CCC000D7525 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				71D87F431CEE0D8B000D7525 /* OrderCell.h */,
+				71D87F441CEE0D8B000D7525 /* OrderCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3042,6 +3047,7 @@
 				8259CC161CECC9AE00D6685C /* EaseConversationListViewController.m in Sources */,
 				CE34D1901BF596DB00EB31CF /* ISTAgreementController.m in Sources */,
 				8259CBD41CECC9AE00D6685C /* MJRefreshBackNormalFooter.m in Sources */,
+				71D87F451CEE0D8B000D7525 /* OrderCell.m in Sources */,
 				71A42A511C9E70CD00CA29FE /* CMToolKitViewController.m in Sources */,
 				8259CBE61CECC9AE00D6685C /* DACircularProgressView.m in Sources */,
 				8259CBEA1CECC9AE00D6685C /* EMSDWebImageDownloader.m in Sources */,
