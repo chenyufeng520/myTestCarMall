@@ -8,8 +8,18 @@
 
 #import "CMShoppingViewController.h"
 #import "ShoppingDataHelper.h"
+#import "UseProductTableViewController.h"
+#import "TyreTableViewController.h"
+#import "OilTableViewController.h"
+#import "TyreTableViewController.h"
+#import "PartsTableViewController.h"
 
 @interface CMShoppingViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+
+@property (nonatomic, strong)UseProductTableViewController *productVC;
+@property (nonatomic, strong)TyreTableViewController *tyreVC;
+@property (nonatomic, strong)OilTableViewController *oilVC;
+@property (nonatomic, strong)PartsTableViewController *partsVC;
 
 /** 保存所有栏目的数据*/
 @property (nonatomic, strong)NSMutableDictionary *columeModelDic;
@@ -18,12 +28,9 @@
 @property (nonatomic, strong)NSMutableArray *nowColumeArrar;
 
 /** 栏目*/
-@property (nonatomic, strong)UIScrollView *columeScrollView;
+@property (nonatomic, strong)UIView *columeView;
 /** 下划线*/
 @property (nonatomic, strong)UIView *underline;
-
-/** 滚动视图*/
-@property (nonatomic, strong)UICollectionView *collectionView;
 
 
 @end
@@ -48,8 +55,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadSubviews];
-    [_contentView addSubview:self.columeScrollView];
-    [_contentView addSubview:self.collectionView];
+    [self.view addSubview:self.columeView];
+    _contentView.frame = CGRectMake(0, self.iosChangeFloat + kNavHeight + _columeView.height, kScreen_Width, kScreen_Height - (kNavHeight+self.iosChangeFloat - _columeView.height)-kTabBarHeight);
+    [_contentView addSubview:self.productVC.view];
     [self loadColumeDataWithLabelTag:1];
 }
 
@@ -70,38 +78,49 @@
     return _nowColumeArrar;
 }
 
-- (UIScrollView *)columeScrollView{
-    if (!_columeScrollView) {
-        _columeScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreen_Width, kAdjustLength(140))];
-        _columeScrollView.backgroundColor = RGBCOLOR(236, 237, 239);
-        _columeScrollView.showsHorizontalScrollIndicator = NO;
+- (UIView *)columeView{
+    if (!_columeView) {
+        _columeView = [[UIView alloc] initWithFrame:CGRectMake(0, self.iosChangeFloat+kNavHeight, kScreen_Width, kAdjustLength(140))];
+        _columeView.backgroundColor = RGBCOLOR(236, 237, 239);
         [self setupColumeLabel];
     }
-    return _columeScrollView;
+    return _columeView;
 }
 
-- (UICollectionView *)collectionView
-{
-    if (_collectionView == nil) {
-        CGFloat h = kScreen_Height - kNavHeight -self.iosChangeFloat - self.columeScrollView.height ;
-        CGRect frame = CGRectMake(0, self.columeScrollView.maxY, kScreen_Width, h);
-        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-        _collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:flowLayout];
-        _collectionView.backgroundColor = [UIColor whiteColor];
-//        _collectionView.delegate = self;
-//        _collectionView.dataSource = self;
-//        [_collectionView registerClass:[ShopCommonCollectionViewCell class] forCellWithReuseIdentifier:reuseID];
-        
-        flowLayout.itemSize = _collectionView.bounds.size;
-        flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        flowLayout.minimumInteritemSpacing = 0;
-        flowLayout.minimumLineSpacing = 0;
-        _collectionView.pagingEnabled = YES;
-        _collectionView.showsHorizontalScrollIndicator = NO;
+- (UseProductTableViewController *)productVC{
+    if (!_productVC) {
+        _productVC = [[UseProductTableViewController alloc] init];
+        _productVC.view.frame = CGRectMake(0, 0, kScreen_Width, kScreen_Height-_contentView.minX-kTabBarHeight);
     }
-    return _collectionView;
+    return _productVC;
 }
 
+- (TyreTableViewController *)tyreVC{
+    if (!_tyreVC) {
+        _tyreVC = [[TyreTableViewController alloc] init];
+        _tyreVC.view.frame = CGRectMake(kScreen_Width, 0, kScreen_Width, kScreen_Height-_contentView.minX-kTabBarHeight);
+        [_contentView addSubview:_tyreVC.view];
+    }
+    return _tyreVC;
+}
+
+- (OilTableViewController *)oilVC{
+    if (!_oilVC) {
+        _oilVC = [[OilTableViewController alloc] init];
+        _oilVC.view.frame = CGRectMake(2*kScreen_Width, 0, kScreen_Width, kScreen_Height-_contentView.minX-kTabBarHeight);
+        [_contentView addSubview:_oilVC.view];
+    }
+    return _oilVC;
+}
+
+- (PartsTableViewController *)partsVC{
+    if (!_partsVC) {
+        _partsVC = [[PartsTableViewController alloc] init];
+        _partsVC.view.frame = CGRectMake(3*kScreen_Width, 0, kScreen_Width, kScreen_Height-_contentView.minX-kTabBarHeight);
+        [_contentView addSubview:_partsVC.view];
+    }
+    return _partsVC;
+}
 
 /** 
  * 设置_columeScrollView栏目
@@ -109,49 +128,46 @@
 - (void)setupColumeLabel
 {
     NSArray *titileArr = @[@"用品",@"轮胎",@"机油",@"零件"];
-    CGFloat h = _columeScrollView.bounds.size.height;
+    CGFloat h = _columeView.bounds.size.height;
     CGFloat w = kScreen_Width/(float)(titileArr.count);
-    CGFloat x = 0;
-    int i = 0;
+    
+    _contentView.contentSize = CGSizeMake(kScreen_Width*4, _contentView.height);
     
     _underline = [[UIView alloc] initWithFrame:CGRectMake(0, h-1, w, 1)];
     _underline.backgroundColor = kNavBarColor;
-    [_columeScrollView addSubview:_underline];
-    for (NSString *titleStr in titileArr) {
-        UILabel *label = [[UILabel alloc] init];
-        label.text = titleStr;
-        label.textAlignment = NSTextAlignmentCenter;
-        label.font = [UIFont systemFontOfSize:18];
-        [label sizeToFit];
-        label.userInteractionEnabled = YES;
-        label.frame = CGRectMake(x, 0, w, h);
+    [_columeView addSubview:_underline];
+    
+    for (NSInteger i=0; i<titileArr.count; i++) {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [btn setFrame:CGRectMake(i*w, 0, w, _columeView.height)];
+        [btn setTitle:titileArr[i] forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         if (i==0) {
-            label.textColor = kNavBarColor;
+            [btn setTitleColor:kNavBarColor forState:UIControlStateNormal];
         }
-        x+=label.width;
-        [_columeScrollView addSubview:label];
-        label.tag = i++;
-        [label addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelClick:)]];
+        btn.tag = i;
+        btn.titleLabel.font = [UIFont systemFontOfSize:18];
+        [btn addTarget:self action:@selector(colemeButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [_columeView addSubview:btn];
     }
 }
 
 /** 
- * 栏目Label点击事件
+ * 栏目btn点击事件
  */
-- (void)labelClick:(UITapGestureRecognizer *)recognizer
+- (void)colemeButtonClick:(UIButton *)btn
 {
-    for (UILabel *lab in _columeScrollView.subviews) {
-        if ([lab isKindOfClass:[UILabel class]]) {
-            lab.textColor = [UIColor blackColor];
+    for (UIButton *tempBtn in _columeView.subviews) {
+        if ([tempBtn isKindOfClass:[UIButton class]]) {
+            [tempBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         }
     }
-    UILabel *label = (UILabel *)recognizer.view;
-    label.textColor = kNavBarColor;
+    [btn setTitleColor:kNavBarColor forState:UIControlStateNormal];
     // 下划线滚动并着色
     [UIView animateWithDuration:0.5 animations:^{
-        [_underline setMinX:label.minX];
+        [_underline setMinX:btn.minX];
     }];
-    [self loadColumeDataWithLabelTag:label.tag];
+    [self loadColumeDataWithLabelTag:btn.tag];
 }
 
 
