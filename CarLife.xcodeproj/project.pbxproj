@@ -213,6 +213,8 @@
 		8259CCBF1CECC9C300D6685C /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8259CC7B1CECC9C300D6685C /* user@2x.png */; };
 		8259CCC21CECCB7C00D6685C /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8259CCC11CECCB7C00D6685C /* ChatViewController.m */; };
 		8259CCC41CECCC0A00D6685C /* EaseUIResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8259CCC31CECCC0A00D6685C /* EaseUIResource.bundle */; };
+		82607C241CED6E5B00E7DCAE /* CMShopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 82607C231CED6E5B00E7DCAE /* CMShopModel.m */; };
+		82687A831CEDF989009AC8E2 /* UseProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 82687A821CEDF989009AC8E2 /* UseProductModel.m */; };
 		CE2747B51BF4603E00D2349D /* BlockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2747B41BF4603E00D2349D /* BlockButton.m */; };
 		CE2747BB1BF4612200D2349D /* NSObject+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2747BA1BF4612200D2349D /* NSObject+Common.m */; };
 		CE34D18C1BF596DB00EB31CF /* ISTMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE34D1191BF596DB00EB31CF /* ISTMineViewController.m */; };
@@ -716,6 +718,10 @@
 		8259CCC01CECCB7C00D6685C /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		8259CCC11CECCB7C00D6685C /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		8259CCC31CECCC0A00D6685C /* EaseUIResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EaseUIResource.bundle; sourceTree = "<group>"; };
+		82607C221CED6E5B00E7DCAE /* CMShopModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMShopModel.h; path = "CarLife/MainClasses/Modules/商城/Controllers/CMShopModel.h"; sourceTree = SOURCE_ROOT; };
+		82607C231CED6E5B00E7DCAE /* CMShopModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMShopModel.m; path = "CarLife/MainClasses/Modules/商城/Controllers/CMShopModel.m"; sourceTree = SOURCE_ROOT; };
+		82687A811CEDF989009AC8E2 /* UseProductModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UseProductModel.h; path = "CarLife/MainClasses/Modules/商城/Helper/UseProductModel.h"; sourceTree = SOURCE_ROOT; };
+		82687A821CEDF989009AC8E2 /* UseProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UseProductModel.m; path = "CarLife/MainClasses/Modules/商城/Helper/UseProductModel.m"; sourceTree = SOURCE_ROOT; };
 		9A8FB673EE1C5A1EA93F4475 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CE2747B31BF4603E00D2349D /* BlockButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockButton.h; sourceTree = "<group>"; };
 		CE2747B41BF4603E00D2349D /* BlockButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockButton.m; sourceTree = "<group>"; };
@@ -1082,6 +1088,10 @@
 		713F07C71C9DC9E300BC2462 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				82607C221CED6E5B00E7DCAE /* CMShopModel.h */,
+				82607C231CED6E5B00E7DCAE /* CMShopModel.m */,
+				82687A811CEDF989009AC8E2 /* UseProductModel.h */,
+				82687A821CEDF989009AC8E2 /* UseProductModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3076,6 +3086,7 @@
 				CE34D1C31BF5C42A00EB31CF /* ISTSectionBar.m in Sources */,
 				DC7B723A1BD1F9A100327B03 /* UIImage-Extensions.m in Sources */,
 				8259CBBD1CECC9AE00D6685C /* EMAudioPlayerUtil.m in Sources */,
+				82687A831CEDF989009AC8E2 /* UseProductModel.m in Sources */,
 				8259CC111CECC9AE00D6685C /* EaseEmoji.m in Sources */,
 				DC7B71FC1BD1F9A000327B03 /* AppDelegate.m in Sources */,
 				71A42A4B1C9E709C00CA29FE /* CMOrderViewController.m in Sources */,
@@ -3124,6 +3135,7 @@
 				CED1C1421BF44E6B007C94F3 /* RSADataVerifier.m in Sources */,
 				71A42A581C9E752500CA29FE /* ShoppingDataHelper.m in Sources */,
 				8259CC0D1CECC9AE00D6685C /* UIViewController+HUD.m in Sources */,
+				82607C241CED6E5B00E7DCAE /* CMShopModel.m in Sources */,
 				DCD55B771BD4E61F0016D138 /* TXCustomAlertWindow.m in Sources */,
 				8259CC101CECC9AE00D6685C /* EaseMessageReadManager.m in Sources */,
 				8259CC001CECC9AE00D6685C /* PSTGridLayoutInfo.m in Sources */,

@@ -63,7 +63,7 @@ _Pragma("clang diagnostic pop") \
 
 /**服务器主域名设置**/
 
-#define kMainDomain             @"http://www.uhuitong.com:9000"
+#define kMainDomain             @"http://www.hfdianche.cn/wuliu/" 
 #define kTestMainDomain         @"http://101.201.174.252"
 
 /**账号设置**/
@@ -95,7 +95,7 @@ typedef enum {
 #define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 
 #define  kMainBGColor            RGBCOLOR(240,240,240)
-#define  kNavBarColor            RGBCOLOR(185,0,16)
+#define  kNavBarColor            RGBCOLOR(15,119,216)
 #define  kStatusBarColor         RGBCOLOR(185,0,16)
 #define  kDarkTextColor          RGBCOLOR(76, 73, 72)
 #define  kLightTextColor         RGBCOLOR(137, 137, 137)
