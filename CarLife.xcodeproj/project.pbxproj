@@ -1084,6 +1084,9 @@
 			isa = PBXGroup;
 			children = (
 				713F07D21C9DCA0A00BC2462 /* Controllers */,
+				71749CCF1CEE08E800FD0D1D /* View */,
+				71749CCE1CEE08E400FD0D1D /* Model */,
+				71749CCD1CEE08DF00FD0D1D /* Resource */,
 				713F07D11C9DCA0A00BC2462 /* Helper */,
 			);
 			path = "新闻";
@@ -1105,6 +1108,7 @@
 			isa = PBXGroup;
 			children = (
 				713F07C61C9DC9E300BC2462 /* Controllers */,
+				71749CD11CEE094000FD0D1D /* Resource */,
 				71178BD81CEE078B008E5B47 /* View */,
 				713F07C51C9DC9E300BC2462 /* Helper */,
 				713F07C71C9DC9E300BC2462 /* Model */,
@@ -1193,6 +1197,41 @@
 				7163F9851CED6EBB00BB565B /* ToolKitCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		71749CCD1CEE08DF00FD0D1D /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		71749CCE1CEE08E400FD0D1D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		71749CCF1CEE08E800FD0D1D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		71749CD01CEE091300FD0D1D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		71749CD11CEE094000FD0D1D /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		71A42A521C9E74D200CA29FE /* View */ = {
@@ -2041,6 +2080,7 @@
 			isa = PBXGroup;
 			children = (
 				CE34D1171BF596DB00EB31CF /* Controller */,
+				71749CD01CEE091300FD0D1D /* Model */,
 				71A42A521C9E74D200CA29FE /* View */,
 				71A42A531C9E74D200CA29FE /* Helper */,
 				71A42A541C9E74D200CA29FE /* Resource */,
