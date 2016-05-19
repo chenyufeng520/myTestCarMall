@@ -18,12 +18,12 @@
 		71A42A4E1C9E70B200CA29FE /* CMNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A4D1C9E70B200CA29FE /* CMNewsViewController.m */; };
 		71A42A511C9E70CD00CA29FE /* CMToolKitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A501C9E70CD00CA29FE /* CMToolKitViewController.m */; };
 		71A42A581C9E752500CA29FE /* ShoppingDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A571C9E752500CA29FE /* ShoppingDataHelper.m */; };
-		71A42A5B1C9E755700CA29FE /* OrderDatahelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A5A1C9E755700CA29FE /* OrderDatahelper.m */; };
 		71A42A5E1C9E756A00CA29FE /* NewsDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A5D1C9E756A00CA29FE /* NewsDataHelper.m */; };
 		71A42A611C9E757A00CA29FE /* ToolDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A601C9E757A00CA29FE /* ToolDataHelper.m */; };
 		71A42A641C9E758E00CA29FE /* MineDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A631C9E758E00CA29FE /* MineDataHelper.m */; };
 		71A71C201CE3320A0078FABA /* CustomBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A71C1F1CE3320A0078FABA /* CustomBarButton.m */; };
 		71C9E5D01CEDF2EB00F28D1F /* UIAlertHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C9E5CF1CEDF2EB00F28D1F /* UIAlertHelper.m */; };
+		71C9E5D41CEE06F400F28D1F /* OrderDatahelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C9E5D31CEE06F400F28D1F /* OrderDatahelper.m */; };
 		71CAC5F41CE5C4E900B4C705 /* GifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CAC5F31CE5C4E900B4C705 /* GifViewController.m */; };
 		71CAC5FC1CE5C8B500B4C705 /* startAnimation1.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAC5F71CE5C8B500B4C705 /* startAnimation1.png */; };
 		71CAC5FD1CE5C8B500B4C705 /* startAnimation2.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAC5F81CE5C8B500B4C705 /* startAnimation2.png */; };
@@ -354,8 +354,6 @@
 		71A42A501C9E70CD00CA29FE /* CMToolKitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMToolKitViewController.m; sourceTree = "<group>"; };
 		71A42A561C9E752500CA29FE /* ShoppingDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingDataHelper.h; sourceTree = "<group>"; };
 		71A42A571C9E752500CA29FE /* ShoppingDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingDataHelper.m; sourceTree = "<group>"; };
-		71A42A591C9E755700CA29FE /* OrderDatahelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDatahelper.h; sourceTree = "<group>"; };
-		71A42A5A1C9E755700CA29FE /* OrderDatahelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDatahelper.m; sourceTree = "<group>"; };
 		71A42A5C1C9E756A00CA29FE /* NewsDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDataHelper.h; sourceTree = "<group>"; };
 		71A42A5D1C9E756A00CA29FE /* NewsDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDataHelper.m; sourceTree = "<group>"; };
 		71A42A5F1C9E757A00CA29FE /* ToolDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolDataHelper.h; sourceTree = "<group>"; };
@@ -366,6 +364,8 @@
 		71A71C1F1CE3320A0078FABA /* CustomBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBarButton.m; sourceTree = "<group>"; };
 		71C9E5CE1CEDF2EB00F28D1F /* UIAlertHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertHelper.h; sourceTree = "<group>"; };
 		71C9E5CF1CEDF2EB00F28D1F /* UIAlertHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAlertHelper.m; sourceTree = "<group>"; };
+		71C9E5D21CEE06F400F28D1F /* OrderDatahelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDatahelper.h; sourceTree = "<group>"; };
+		71C9E5D31CEE06F400F28D1F /* OrderDatahelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDatahelper.m; sourceTree = "<group>"; };
 		71CAC5F21CE5C4E900B4C705 /* GifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifViewController.h; sourceTree = "<group>"; };
 		71CAC5F31CE5C4E900B4C705 /* GifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifViewController.m; sourceTree = "<group>"; };
 		71CAC5F71CE5C8B500B4C705 /* startAnimation1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startAnimation1.png; sourceTree = "<group>"; };
@@ -1038,12 +1038,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		71178BD81CEE078B008E5B47 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		71178BD91CEE07B7008E5B47 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		71178BDA1CEE07BE008E5B47 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		71178BDB1CEE07C3008E5B47 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		71178BDC1CEE082E008E5B47 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		71178BDD1CEE0832008E5B47 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		713F07C01C9DC96400BC2462 /* 工具箱 */ = {
 			isa = PBXGroup;
 			children = (
 				713F07D51C9DCA1200BC2462 /* Controllers */,
-				713F07D31C9DCA1200BC2462 /* Model */,
-				713F07D41C9DCA1200BC2462 /* Resource */,
+				71178BDD1CEE0832008E5B47 /* Resource */,
+				71178BDC1CEE082E008E5B47 /* Model */,
 				713F07D61C9DCA1200BC2462 /* Helper */,
 				713F07D71C9DCA1200BC2462 /* View */,
 			);
@@ -1054,9 +1096,9 @@
 			isa = PBXGroup;
 			children = (
 				713F07D21C9DCA0A00BC2462 /* Controllers */,
-				713F07D01C9DCA0A00BC2462 /* Resource */,
-				713F07CE1C9DCA0A00BC2462 /* View */,
-				713F07CF1C9DCA0A00BC2462 /* Model */,
+				71749CCF1CEE08E800FD0D1D /* View */,
+				71749CCE1CEE08E400FD0D1D /* Model */,
+				71749CCD1CEE08DF00FD0D1D /* Resource */,
 				713F07D11C9DCA0A00BC2462 /* Helper */,
 			);
 			path = "新闻";
@@ -1066,10 +1108,10 @@
 			isa = PBXGroup;
 			children = (
 				713F07CB1C9DCA0000BC2462 /* Controllers */,
-				713F07C91C9DCA0000BC2462 /* View */,
-				713F07CA1C9DCA0000BC2462 /* Helper */,
-				713F07CC1C9DCA0000BC2462 /* Resource */,
-				713F07CD1C9DCA0000BC2462 /* Model */,
+				71178BDB1CEE07C3008E5B47 /* Model */,
+				71178BDA1CEE07BE008E5B47 /* View */,
+				71178BD91CEE07B7008E5B47 /* Resource */,
+				71C9E5D11CEE06D100F28D1F /* Helper */,
 			);
 			path = "订单";
 			sourceTree = "<group>";
@@ -1078,19 +1120,12 @@
 			isa = PBXGroup;
 			children = (
 				713F07C61C9DC9E300BC2462 /* Controllers */,
-				713F07C41C9DC9E300BC2462 /* View */,
+				71749CD11CEE094000FD0D1D /* Resource */,
+				71178BD81CEE078B008E5B47 /* View */,
 				713F07C51C9DC9E300BC2462 /* Helper */,
 				713F07C71C9DC9E300BC2462 /* Model */,
-				713F07C81C9DC9E300BC2462 /* Resource */,
 			);
 			path = "商城";
-			sourceTree = "<group>";
-		};
-		713F07C41C9DC9E300BC2462 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		713F07C51C9DC9E300BC2462 /* Helper */ = {
@@ -1130,29 +1165,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		713F07C81C9DC9E300BC2462 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resource;
-			sourceTree = "<group>";
-		};
-		713F07C91C9DCA0000BC2462 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		713F07CA1C9DCA0000BC2462 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				71A42A591C9E755700CA29FE /* OrderDatahelper.h */,
-				71A42A5A1C9E755700CA29FE /* OrderDatahelper.m */,
-			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
 		713F07CB1C9DCA0000BC2462 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1160,41 +1172,6 @@
 				71A42A4A1C9E709C00CA29FE /* CMOrderViewController.m */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		713F07CC1C9DCA0000BC2462 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resource;
-			sourceTree = "<group>";
-		};
-		713F07CD1C9DCA0000BC2462 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		713F07CE1C9DCA0A00BC2462 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		713F07CF1C9DCA0A00BC2462 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		713F07D01C9DCA0A00BC2462 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resource;
 			sourceTree = "<group>";
 		};
 		713F07D11C9DCA0A00BC2462 /* Helper */ = {
@@ -1213,20 +1190,6 @@
 				71A42A4D1C9E70B200CA29FE /* CMNewsViewController.m */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		713F07D31C9DCA1200BC2462 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		713F07D41C9DCA1200BC2462 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resource;
 			sourceTree = "<group>";
 		};
 		713F07D51C9DCA1200BC2462 /* Controllers */ = {
@@ -1254,6 +1217,41 @@
 				7163F9851CED6EBB00BB565B /* ToolKitCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		71749CCD1CEE08DF00FD0D1D /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		71749CCE1CEE08E400FD0D1D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		71749CCF1CEE08E800FD0D1D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		71749CD01CEE091300FD0D1D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		71749CD11CEE094000FD0D1D /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		71A42A521C9E74D200CA29FE /* View */ = {
@@ -1284,11 +1282,13 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		71A42A551C9E74D200CA29FE /* Model */ = {
+		71C9E5D11CEE06D100F28D1F /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				71C9E5D21CEE06F400F28D1F /* OrderDatahelper.h */,
+				71C9E5D31CEE06F400F28D1F /* OrderDatahelper.m */,
 			);
-			path = Model;
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		71CAC5F61CE5C83B00B4C705 /* 启动动画图 */ = {
@@ -2093,10 +2093,10 @@
 			isa = PBXGroup;
 			children = (
 				CE34D1171BF596DB00EB31CF /* Controller */,
+				71749CD01CEE091300FD0D1D /* Model */,
 				71A42A521C9E74D200CA29FE /* View */,
 				71A42A531C9E74D200CA29FE /* Helper */,
 				71A42A541C9E74D200CA29FE /* Resource */,
-				71A42A551C9E74D200CA29FE /* Model */,
 			);
 			path = "我的";
 			sourceTree = "<group>";
@@ -3144,7 +3144,6 @@
 				8259CBE21CECC9AE00D6685C /* MWPhotoBrowser.m in Sources */,
 				DC55CE4F1BD2AF7A00A92782 /* MapViewController.mm in Sources */,
 				CE2747BB1BF4612200D2349D /* NSObject+Common.m in Sources */,
-				71A42A5B1C9E755700CA29FE /* OrderDatahelper.m in Sources */,
 				8259CBFD1CECC9AE00D6685C /* PSTCollectionViewItemKey.m in Sources */,
 				8259CC181CECC9AE00D6685C /* EaseMessageViewController.m in Sources */,
 				8259CC2E1CECC9AE00D6685C /* EaseFacialView.m in Sources */,
@@ -3200,6 +3199,7 @@
 				8259CBF71CECC9AE00D6685C /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
 				71A42A5E1C9E756A00CA29FE /* NewsDataHelper.m in Sources */,
 				8259CC2C1CECC9AE00D6685C /* EaseTextView.m in Sources */,
+				71C9E5D41CEE06F400F28D1F /* OrderDatahelper.m in Sources */,
 				71A42A4E1C9E70B200CA29FE /* CMNewsViewController.m in Sources */,
 				DC86C3E61BD36F86007DEE6F /* UUDatePicker.m in Sources */,
 				8259CC211CECC9AE00D6685C /* EaseBubbleView+File.m in Sources */,
