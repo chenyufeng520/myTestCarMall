@@ -1026,10 +1026,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		71178BD81CEE078B008E5B47 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		71178BD91CEE07B7008E5B47 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		71178BDA1CEE07BE008E5B47 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		71178BDB1CEE07C3008E5B47 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		71178BDC1CEE082E008E5B47 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		71178BDD1CEE0832008E5B47 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		713F07C01C9DC96400BC2462 /* 工具箱 */ = {
 			isa = PBXGroup;
 			children = (
 				713F07D51C9DCA1200BC2462 /* Controllers */,
+				71178BDD1CEE0832008E5B47 /* Resource */,
+				71178BDC1CEE082E008E5B47 /* Model */,
 				713F07D61C9DCA1200BC2462 /* Helper */,
 				713F07D71C9DCA1200BC2462 /* View */,
 			);
@@ -1040,9 +1084,6 @@
 			isa = PBXGroup;
 			children = (
 				713F07D21C9DCA0A00BC2462 /* Controllers */,
-				713F07D01C9DCA0A00BC2462 /* Resource */,
-				713F07CE1C9DCA0A00BC2462 /* View */,
-				713F07CF1C9DCA0A00BC2462 /* Model */,
 				713F07D11C9DCA0A00BC2462 /* Helper */,
 			);
 			path = "新闻";
@@ -1051,8 +1092,11 @@
 		713F07C21C9DC96F00BC2462 /* 订单 */ = {
 			isa = PBXGroup;
 			children = (
-				71C9E5D11CEE06D100F28D1F /* Helper */,
 				713F07CB1C9DCA0000BC2462 /* Controllers */,
+				71178BDB1CEE07C3008E5B47 /* Model */,
+				71178BDA1CEE07BE008E5B47 /* View */,
+				71178BD91CEE07B7008E5B47 /* Resource */,
+				71C9E5D11CEE06D100F28D1F /* Helper */,
 			);
 			path = "订单";
 			sourceTree = "<group>";
@@ -1061,6 +1105,7 @@
 			isa = PBXGroup;
 			children = (
 				713F07C61C9DC9E300BC2462 /* Controllers */,
+				71178BD81CEE078B008E5B47 /* View */,
 				713F07C51C9DC9E300BC2462 /* Helper */,
 				713F07C71C9DC9E300BC2462 /* Model */,
 			);
@@ -1103,27 +1148,6 @@
 				71A42A4A1C9E709C00CA29FE /* CMOrderViewController.m */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		713F07CE1C9DCA0A00BC2462 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		713F07CF1C9DCA0A00BC2462 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		713F07D01C9DCA0A00BC2462 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resource;
 			sourceTree = "<group>";
 		};
 		713F07D11C9DCA0A00BC2462 /* Helper */ = {
@@ -1197,13 +1221,6 @@
 				7163F97F1CED557100BB565B /* mine.xcassets */,
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		71A42A551C9E74D200CA29FE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		71C9E5D11CEE06D100F28D1F /* Helper */ = {
@@ -2027,7 +2044,6 @@
 				71A42A521C9E74D200CA29FE /* View */,
 				71A42A531C9E74D200CA29FE /* Helper */,
 				71A42A541C9E74D200CA29FE /* Resource */,
-				71A42A551C9E74D200CA29FE /* Model */,
 			);
 			path = "我的";
 			sourceTree = "<group>";
