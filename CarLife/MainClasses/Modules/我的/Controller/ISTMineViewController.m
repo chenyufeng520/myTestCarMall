@@ -48,8 +48,8 @@
 - (void)prepareData{
     
     self.listArray = @[
-                       @{@"icon":@"我的订单",@"title":@"编辑资料"},
-                       @{@"icon":@"我的订单",@"title":@"我的订单"},@{@"icon":@"我的订单",@"title":@"记事本"},@{@"icon":@"我的订单",@"title":@"设置"},@{@"icon":@"我的订单",@"title":@"意见反馈"},@{@"icon":@"我的订单",@"title":@"附近修理厂"},@{@"icon":@"我的订单",@"title":@"附近车主"}
+                       @{@"icon":@"leftbar_info_01",@"title":@"编辑资料"},
+                       @{@"icon":@"leftbar_info_02",@"title":@"我的订单"},@{@"icon":@"leftbar_info_03",@"title":@"记事本"},@{@"icon":@"leftbar_info_04",@"title":@"设置"},@{@"icon":@"leftbar_info_05",@"title":@"意见反馈"},@{@"icon":@"leftbar_info_06",@"title":@"附近修理厂"},@{@"icon":@"leftbar_info_07",@"title":@"附近车主"}
                        ];
 }
 
@@ -90,7 +90,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     
-    return 5;
+    return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -108,11 +108,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 1) {
-//        return kScreen_Width*154/1080;
         return 50;
     }
     else{
-        return 120;
+        return 130;
     }
 }
 
@@ -139,27 +138,7 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         [cell reloadCellWithInfo:self.listArray[indexPath.row]];
         return cell;
-        
-//        static NSString *cellIdentifier = @"Cell";
-//        
-//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//        
-//        if (cell == nil) {
-//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-//            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//        }
-//        
-//        NSDictionary *column = self.listArray[indexPath.row];
-//        
-//        cell.textLabel.text = column[@"title"];
-//        cell.textLabel.font = kFontNormal;
-//        cell.textLabel.textColor = kDarkTextColor;
-//        cell.imageView.image = [UIImage imageNamed:column[@"icon"]];
-//        
-//        UIView *line = [[UIView alloc] initLineWithFrame:CGRectMake(10, kScreen_Width*154/1080-1, _tableView.width-20, 1) color:kMainBGColor];
-//        [cell.contentView addSubview:line];
-//        
-//        return cell;
+    
     }
 }
 

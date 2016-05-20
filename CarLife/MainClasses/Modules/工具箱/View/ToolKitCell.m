@@ -24,9 +24,6 @@
     float imgWidth = cellWidth - kAdjustLength(60);
     
     _toolImg = [[UIImageView alloc] initWithFrame:CGRectMake(kAdjustLength(30), 0, imgWidth, imgWidth)];
-    _toolImg.layer.cornerRadius = imgWidth/2;
-    _toolImg.layer.masksToBounds = YES;
-    _toolImg.backgroundColor = [UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1];
     [self addSubview:_toolImg];
     
     _toolTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, _toolImg.maxY, cellWidth, kAdjustLength(60))];
