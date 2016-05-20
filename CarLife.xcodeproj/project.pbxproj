@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		61DAF56C9D24F373AED071E7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D15F239C25E0C1B48272C93 /* libPods.a */; };
 		7116286F1C9CFCC20049AB7B /* BaseDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7116286E1C9CFCC20049AB7B /* BaseDataHelper.m */; };
+		71249F6A1CEF3DE900C2151D /* MineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71249F691CEF3DE900C2151D /* MineModel.m */; };
 		713F07DA1C9DCAD100BC2462 /* CMShoppingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F07D91C9DCAD100BC2462 /* CMShoppingViewController.m */; };
 		7163F97E1CED534300BB565B /* PersonInfoListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7163F97D1CED534300BB565B /* PersonInfoListCell.m */; };
 		7163F9801CED557100BB565B /* mine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7163F97F1CED557100BB565B /* mine.xcassets */; };
@@ -333,6 +334,8 @@
 		7116286C1C9CF8260049AB7B /* BaseGlobalDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseGlobalDef.h; sourceTree = "<group>"; };
 		7116286D1C9CFCC20049AB7B /* BaseDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDataHelper.h; sourceTree = "<group>"; };
 		7116286E1C9CFCC20049AB7B /* BaseDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDataHelper.m; sourceTree = "<group>"; };
+		71249F681CEF3DE900C2151D /* MineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineModel.h; sourceTree = "<group>"; };
+		71249F691CEF3DE900C2151D /* MineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineModel.m; sourceTree = "<group>"; };
 		713F07D81C9DCAD100BC2462 /* CMShoppingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMShoppingViewController.h; sourceTree = "<group>"; };
 		713F07D91C9DCAD100BC2462 /* CMShoppingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMShoppingViewController.m; sourceTree = "<group>"; };
 		7163F97C1CED534300BB565B /* PersonInfoListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoListCell.h; sourceTree = "<group>"; };
@@ -1279,6 +1282,8 @@
 		71D87F4D1CEE0E52000D7525 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				71249F681CEF3DE900C2151D /* MineModel.h */,
+				71249F691CEF3DE900C2151D /* MineModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3004,6 +3009,7 @@
 				8259CBD31CECC9AE00D6685C /* MJRefreshBackGifFooter.m in Sources */,
 				CE34D2281BF5D6B100EB31CF /* TabbarItem.m in Sources */,
 				CE34D2141BF5C4C100EB31CF /* User.m in Sources */,
+				71249F6A1CEF3DE900C2151D /* MineModel.m in Sources */,
 				7163F9831CED5C2100BB565B /* PersonHeadCell.m in Sources */,
 				8259CBF51CECC9AE00D6685C /* UIImageView+EMWebCache.m in Sources */,
 				8259CC231CECC9AE00D6685C /* EaseBubbleView+Image.m in Sources */,
