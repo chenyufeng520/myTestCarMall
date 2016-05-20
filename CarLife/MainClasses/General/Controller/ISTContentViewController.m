@@ -8,7 +8,6 @@
 
 #import "ISTContentViewController.h"
 #import "ISTHomeViewController.h"
-#import "ISTRefuelViewController.h"
 #import "ISTMineViewController.h"
 #import "BaseGlobalDef.h"
 #import "TabbarItem.h"
