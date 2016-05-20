@@ -98,22 +98,23 @@
 //TODO:点击事件
 - (void)tabbarItemAction:(UIButton *)btn
 {
-    for (int i = kbuttonItemTag; i < 5 + kbuttonItemTag; i++) {
-        UIButton *itemButton = (UIButton*)[self viewWithTag:i];
-        itemButton.backgroundColor = [UIColor clearColor];
-    }
-    btn.backgroundColor = kBlueColor;
-    
     [self setSelectedIndex:btn.tag - kbuttonItemTag];
 }
 
 - (void)setSelectedIndex:(int)index
 {
+    for (int i = kbuttonItemTag; i < 5 + kbuttonItemTag; i++) {
+        UIButton *itemButton = (UIButton*)[self viewWithTag:i];
+        itemButton.backgroundColor = [UIColor clearColor];
+    }
+    
     _selectedIndex = index;
     if (index < 0 || index > _tabbars.count - 1) {
         return;
     }
     UIButton *item = [_tabbars objectAtIndex:index];
+    item.backgroundColor = kBlueColor;
+    
     if(_currentBtn == nil || _currentBtn != item)
     {
         UIView *oldLine = [_currentBtn viewWithTag:kItemLineTag];

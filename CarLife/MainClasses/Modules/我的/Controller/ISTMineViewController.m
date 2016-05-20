@@ -143,6 +143,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];//cell的点击效果
+    
     if (indexPath.section == 1) {
         
         if (indexPath.row == 0) {
