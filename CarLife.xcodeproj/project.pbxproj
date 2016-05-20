@@ -30,6 +30,7 @@
 		71CAC5FE1CE5C8B500B4C705 /* startAnimation3.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAC5F91CE5C8B500B4C705 /* startAnimation3.png */; };
 		71CAC5FF1CE5C8B500B4C705 /* startAnimation4.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAC5FA1CE5C8B500B4C705 /* startAnimation4.png */; };
 		71CAC6001CE5C8B500B4C705 /* startAnimation5.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAC5FB1CE5C8B500B4C705 /* startAnimation5.png */; };
+		71D87F451CEE0D8B000D7525 /* OrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D87F441CEE0D8B000D7525 /* OrderCell.m */; };
 		8259CA961CECC90900D6685C /* libHyphenateSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8259CA951CECC90900D6685C /* libHyphenateSDK.a */; };
 		8259CBBC1CECC9AE00D6685C /* EaseUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8259CA9A1CECC9AE00D6685C /* EaseUI.m */; };
 		8259CBBD1CECC9AE00D6685C /* EMAudioPlayerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8259CAA41CECC9AE00D6685C /* EMAudioPlayerUtil.m */; };
@@ -368,6 +369,8 @@
 		71CAC5F91CE5C8B500B4C705 /* startAnimation3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startAnimation3.png; sourceTree = "<group>"; };
 		71CAC5FA1CE5C8B500B4C705 /* startAnimation4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startAnimation4.png; sourceTree = "<group>"; };
 		71CAC5FB1CE5C8B500B4C705 /* startAnimation5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startAnimation5.png; sourceTree = "<group>"; };
+		71D87F431CEE0D8B000D7525 /* OrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCell.h; sourceTree = "<group>"; };
+		71D87F441CEE0D8B000D7525 /* OrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCell.m; sourceTree = "<group>"; };
 		8259CA6E1CECC90900D6685C /* EMCallLocalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallLocalView.h; sourceTree = "<group>"; };
 		8259CA6F1CECC90900D6685C /* EMCallManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallManagerDelegate.h; sourceTree = "<group>"; };
 		8259CA701CECC90900D6685C /* EMCallRemoteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallRemoteView.h; sourceTree = "<group>"; };
@@ -1023,54 +1026,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		71178BD81CEE078B008E5B47 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		71178BD91CEE07B7008E5B47 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resource;
-			sourceTree = "<group>";
-		};
-		71178BDA1CEE07BE008E5B47 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		71178BDB1CEE07C3008E5B47 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		71178BDC1CEE082E008E5B47 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		71178BDD1CEE0832008E5B47 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resource;
-			sourceTree = "<group>";
-		};
 		713F07C01C9DC96400BC2462 /* 工具箱 */ = {
 			isa = PBXGroup;
 			children = (
 				713F07D51C9DCA1200BC2462 /* Controllers */,
-				71178BDD1CEE0832008E5B47 /* Resource */,
-				71178BDC1CEE082E008E5B47 /* Model */,
+				71D87F4C1CEE0E45000D7525 /* Model */,
+				71D87F4B1CEE0E3E000D7525 /* Resource */,
 				713F07D61C9DCA1200BC2462 /* Helper */,
 				713F07D71C9DCA1200BC2462 /* View */,
 			);
@@ -1081,9 +1042,9 @@
 			isa = PBXGroup;
 			children = (
 				713F07D21C9DCA0A00BC2462 /* Controllers */,
-				71749CCF1CEE08E800FD0D1D /* View */,
-				71749CCE1CEE08E400FD0D1D /* Model */,
-				71749CCD1CEE08DF00FD0D1D /* Resource */,
+				71D87F4A1CEE0E2E000D7525 /* View */,
+				71D87F491CEE0E29000D7525 /* Model */,
+				71D87F481CEE0E21000D7525 /* Resource */,
 				713F07D11C9DCA0A00BC2462 /* Helper */,
 			);
 			path = "新闻";
@@ -1093,9 +1054,9 @@
 			isa = PBXGroup;
 			children = (
 				713F07CB1C9DCA0000BC2462 /* Controllers */,
-				71178BDB1CEE07C3008E5B47 /* Model */,
-				71178BDA1CEE07BE008E5B47 /* View */,
-				71178BD91CEE07B7008E5B47 /* Resource */,
+				71D87F421CEE0CCC000D7525 /* View */,
+				71D87F411CEE0CC9000D7525 /* Model */,
+				71D87F401CEE0CC4000D7525 /* Resource */,
 				71C9E5D11CEE06D100F28D1F /* Helper */,
 			);
 			path = "订单";
@@ -1105,8 +1066,8 @@
 			isa = PBXGroup;
 			children = (
 				713F07C61C9DC9E300BC2462 /* Controllers */,
-				71749CD11CEE094000FD0D1D /* Resource */,
-				71178BD81CEE078B008E5B47 /* View */,
+				71D87F471CEE0E09000D7525 /* View */,
+				71D87F461CEE0E03000D7525 /* Resource */,
 				713F07C51C9DC9E300BC2462 /* Helper */,
 				713F07C71C9DC9E300BC2462 /* Model */,
 			);
@@ -1194,41 +1155,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		71749CCD1CEE08DF00FD0D1D /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resource;
-			sourceTree = "<group>";
-		};
-		71749CCE1CEE08E400FD0D1D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		71749CCF1CEE08E800FD0D1D /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		71749CD01CEE091300FD0D1D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		71749CD11CEE094000FD0D1D /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resource;
-			sourceTree = "<group>";
-		};
 		71A42A521C9E74D200CA29FE /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1276,6 +1202,85 @@
 				71CAC5FB1CE5C8B500B4C705 /* startAnimation5.png */,
 			);
 			path = "启动动画图";
+			sourceTree = "<group>";
+		};
+		71D87F401CEE0CC4000D7525 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		71D87F411CEE0CC9000D7525 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		71D87F421CEE0CCC000D7525 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				71D87F431CEE0D8B000D7525 /* OrderCell.h */,
+				71D87F441CEE0D8B000D7525 /* OrderCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		71D87F461CEE0E03000D7525 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		71D87F471CEE0E09000D7525 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		71D87F481CEE0E21000D7525 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		71D87F491CEE0E29000D7525 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		71D87F4A1CEE0E2E000D7525 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		71D87F4B1CEE0E3E000D7525 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		71D87F4C1CEE0E45000D7525 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		71D87F4D1CEE0E52000D7525 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		8259CA6B1CECC8F500D6685C /* 环信 */ = {
@@ -2068,7 +2073,7 @@
 			isa = PBXGroup;
 			children = (
 				CE34D1171BF596DB00EB31CF /* Controller */,
-				71749CD01CEE091300FD0D1D /* Model */,
+				71D87F4D1CEE0E52000D7525 /* Model */,
 				71A42A521C9E74D200CA29FE /* View */,
 				71A42A531C9E74D200CA29FE /* Helper */,
 				71A42A541C9E74D200CA29FE /* Resource */,
@@ -3081,6 +3086,7 @@
 				8259CC161CECC9AE00D6685C /* EaseConversationListViewController.m in Sources */,
 				CE34D1901BF596DB00EB31CF /* ISTAgreementController.m in Sources */,
 				8259CBD41CECC9AE00D6685C /* MJRefreshBackNormalFooter.m in Sources */,
+				71D87F451CEE0D8B000D7525 /* OrderCell.m in Sources */,
 				71A42A511C9E70CD00CA29FE /* CMToolKitViewController.m in Sources */,
 				8259CBE61CECC9AE00D6685C /* DACircularProgressView.m in Sources */,
 				8259CBEA1CECC9AE00D6685C /* EMSDWebImageDownloader.m in Sources */,
