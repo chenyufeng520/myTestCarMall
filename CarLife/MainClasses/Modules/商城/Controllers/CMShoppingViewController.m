@@ -8,18 +8,8 @@
 
 #import "CMShoppingViewController.h"
 #import "ShoppingDataHelper.h"
-#import "UseProductTableViewController.h"
-#import "TyreTableViewController.h"
-#import "OilTableViewController.h"
-#import "TyreTableViewController.h"
-#import "PartsTableViewController.h"
 
-@interface CMShoppingViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
-
-@property (nonatomic, strong)UseProductTableViewController *productVC;
-@property (nonatomic, strong)TyreTableViewController *tyreVC;
-@property (nonatomic, strong)OilTableViewController *oilVC;
-@property (nonatomic, strong)PartsTableViewController *partsVC;
+@interface CMShoppingViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate>
 
 /** 保存所有栏目的数据*/
 @property (nonatomic, strong)NSMutableDictionary *columeModelDic;
@@ -57,7 +47,7 @@
     [self loadSubviews];
     [self.view addSubview:self.columeView];
     _contentView.frame = CGRectMake(0, self.iosChangeFloat + kNavHeight + _columeView.height, kScreen_Width, kScreen_Height - (kNavHeight+self.iosChangeFloat - _columeView.height)-kTabBarHeight);
-    [_contentView addSubview:self.productVC.view];
+    _contentView.delegate = self;
     [self loadColumeDataWithLabelTag:1];
 }
 
@@ -85,41 +75,6 @@
         [self setupColumeLabel];
     }
     return _columeView;
-}
-
-- (UseProductTableViewController *)productVC{
-    if (!_productVC) {
-        _productVC = [[UseProductTableViewController alloc] init];
-        _productVC.view.frame = CGRectMake(0, 0, kScreen_Width, kScreen_Height-_contentView.minX-kTabBarHeight);
-    }
-    return _productVC;
-}
-
-- (TyreTableViewController *)tyreVC{
-    if (!_tyreVC) {
-        _tyreVC = [[TyreTableViewController alloc] init];
-        _tyreVC.view.frame = CGRectMake(kScreen_Width, 0, kScreen_Width, kScreen_Height-_contentView.minX-kTabBarHeight);
-        [_contentView addSubview:_tyreVC.view];
-    }
-    return _tyreVC;
-}
-
-- (OilTableViewController *)oilVC{
-    if (!_oilVC) {
-        _oilVC = [[OilTableViewController alloc] init];
-        _oilVC.view.frame = CGRectMake(2*kScreen_Width, 0, kScreen_Width, kScreen_Height-_contentView.minX-kTabBarHeight);
-        [_contentView addSubview:_oilVC.view];
-    }
-    return _oilVC;
-}
-
-- (PartsTableViewController *)partsVC{
-    if (!_partsVC) {
-        _partsVC = [[PartsTableViewController alloc] init];
-        _partsVC.view.frame = CGRectMake(3*kScreen_Width, 0, kScreen_Width, kScreen_Height-_contentView.minX-kTabBarHeight);
-        [_contentView addSubview:_partsVC.view];
-    }
-    return _partsVC;
 }
 
 /** 
@@ -194,4 +149,12 @@
         complection(modelArr);
     }];
 }
+
+#pragma mark UIScrowViewDelegate
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+    if (scrollView.contentOffset.x) {
+        
+    }
+}
+
 @end
