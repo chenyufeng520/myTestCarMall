@@ -14,7 +14,6 @@
 		71249F721CEF3F2300C2151D /* NewsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71249F711CEF3F2300C2151D /* NewsListCell.m */; };
 		71249F751CEF3F4100C2151D /* NewsListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71249F741CEF3F4100C2151D /* NewsListModel.m */; };
 		71249F7A1CEF3F7500C2151D /* ToolKitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71249F791CEF3F7500C2151D /* ToolKitModel.m */; };
-		71249F7F1CEF40B200C2151D /* CMShoppingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71249F7E1CEF40B200C2151D /* CMShoppingCell.m */; };
 		71249F851CEF433E00C2151D /* UseProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71249F841CEF433E00C2151D /* UseProductModel.m */; };
 		713F07DA1C9DCAD100BC2462 /* CMShoppingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F07D91C9DCAD100BC2462 /* CMShoppingViewController.m */; };
 		7163F97E1CED534300BB565B /* PersonInfoListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7163F97D1CED534300BB565B /* PersonInfoListCell.m */; };
@@ -38,6 +37,14 @@
 		71CAC5FF1CE5C8B500B4C705 /* startAnimation4.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAC5FA1CE5C8B500B4C705 /* startAnimation4.png */; };
 		71CAC6001CE5C8B500B4C705 /* startAnimation5.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAC5FB1CE5C8B500B4C705 /* startAnimation5.png */; };
 		71D87F451CEE0D8B000D7525 /* OrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D87F441CEE0D8B000D7525 /* OrderCell.m */; };
+		8241D3051CF2CC9700411423 /* UseProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8241D3041CF2CC9700411423 /* UseProductTableViewController.m */; };
+		8241D3081CF2CE0800411423 /* TyreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8241D3071CF2CE0800411423 /* TyreTableViewController.m */; };
+		8241D30B1CF2CE1200411423 /* OilTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8241D30A1CF2CE1200411423 /* OilTableViewController.m */; };
+		8241D30E1CF2CE1900411423 /* PartsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8241D30D1CF2CE1900411423 /* PartsTableViewController.m */; };
+		8241D3111CF2CE3400411423 /* UseProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8241D3101CF2CE3400411423 /* UseProductCell.m */; };
+		8241D3141CF2CE4000411423 /* TyreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8241D3131CF2CE4000411423 /* TyreTableViewCell.m */; };
+		8241D3171CF2CE4900411423 /* OilTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8241D3161CF2CE4900411423 /* OilTableViewCell.m */; };
+		8241D31A1CF2CE5A00411423 /* PartsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8241D3191CF2CE5A00411423 /* PartsTableViewCell.m */; };
 		8259CA961CECC90900D6685C /* libHyphenateSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8259CA951CECC90900D6685C /* libHyphenateSDK.a */; };
 		8259CBBC1CECC9AE00D6685C /* EaseUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8259CA9A1CECC9AE00D6685C /* EaseUI.m */; };
 		8259CBBD1CECC9AE00D6685C /* EMAudioPlayerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8259CAA41CECC9AE00D6685C /* EMAudioPlayerUtil.m */; };
@@ -348,8 +355,6 @@
 		71249F741CEF3F4100C2151D /* NewsListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsListModel.m; sourceTree = "<group>"; };
 		71249F781CEF3F7500C2151D /* ToolKitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolKitModel.h; sourceTree = "<group>"; };
 		71249F791CEF3F7500C2151D /* ToolKitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolKitModel.m; sourceTree = "<group>"; };
-		71249F7D1CEF40B200C2151D /* CMShoppingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMShoppingCell.h; sourceTree = "<group>"; };
-		71249F7E1CEF40B200C2151D /* CMShoppingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMShoppingCell.m; sourceTree = "<group>"; };
 		71249F831CEF433E00C2151D /* UseProductModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UseProductModel.h; sourceTree = "<group>"; };
 		71249F841CEF433E00C2151D /* UseProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UseProductModel.m; sourceTree = "<group>"; };
 		713F07D81C9DCAD100BC2462 /* CMShoppingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMShoppingViewController.h; sourceTree = "<group>"; };
@@ -390,6 +395,22 @@
 		71CAC5FB1CE5C8B500B4C705 /* startAnimation5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startAnimation5.png; sourceTree = "<group>"; };
 		71D87F431CEE0D8B000D7525 /* OrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCell.h; sourceTree = "<group>"; };
 		71D87F441CEE0D8B000D7525 /* OrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCell.m; sourceTree = "<group>"; };
+		8241D3031CF2CC9700411423 /* UseProductTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UseProductTableViewController.h; sourceTree = "<group>"; };
+		8241D3041CF2CC9700411423 /* UseProductTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UseProductTableViewController.m; sourceTree = "<group>"; };
+		8241D3061CF2CE0800411423 /* TyreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TyreTableViewController.h; sourceTree = "<group>"; };
+		8241D3071CF2CE0800411423 /* TyreTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TyreTableViewController.m; sourceTree = "<group>"; };
+		8241D3091CF2CE1200411423 /* OilTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OilTableViewController.h; sourceTree = "<group>"; };
+		8241D30A1CF2CE1200411423 /* OilTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OilTableViewController.m; sourceTree = "<group>"; };
+		8241D30C1CF2CE1900411423 /* PartsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartsTableViewController.h; sourceTree = "<group>"; };
+		8241D30D1CF2CE1900411423 /* PartsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartsTableViewController.m; sourceTree = "<group>"; };
+		8241D30F1CF2CE3400411423 /* UseProductCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UseProductCell.h; sourceTree = "<group>"; };
+		8241D3101CF2CE3400411423 /* UseProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UseProductCell.m; sourceTree = "<group>"; };
+		8241D3121CF2CE4000411423 /* TyreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TyreTableViewCell.h; sourceTree = "<group>"; };
+		8241D3131CF2CE4000411423 /* TyreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TyreTableViewCell.m; sourceTree = "<group>"; };
+		8241D3151CF2CE4900411423 /* OilTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OilTableViewCell.h; sourceTree = "<group>"; };
+		8241D3161CF2CE4900411423 /* OilTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OilTableViewCell.m; sourceTree = "<group>"; };
+		8241D3181CF2CE5A00411423 /* PartsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartsTableViewCell.h; sourceTree = "<group>"; };
+		8241D3191CF2CE5A00411423 /* PartsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartsTableViewCell.m; sourceTree = "<group>"; };
 		8259CA6E1CECC90900D6685C /* EMCallLocalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallLocalView.h; sourceTree = "<group>"; };
 		8259CA6F1CECC90900D6685C /* EMCallManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallManagerDelegate.h; sourceTree = "<group>"; };
 		8259CA701CECC90900D6685C /* EMCallRemoteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallRemoteView.h; sourceTree = "<group>"; };
@@ -1108,6 +1129,14 @@
 			children = (
 				713F07D81C9DCAD100BC2462 /* CMShoppingViewController.h */,
 				713F07D91C9DCAD100BC2462 /* CMShoppingViewController.m */,
+				8241D3031CF2CC9700411423 /* UseProductTableViewController.h */,
+				8241D3041CF2CC9700411423 /* UseProductTableViewController.m */,
+				8241D3061CF2CE0800411423 /* TyreTableViewController.h */,
+				8241D3071CF2CE0800411423 /* TyreTableViewController.m */,
+				8241D3091CF2CE1200411423 /* OilTableViewController.h */,
+				8241D30A1CF2CE1200411423 /* OilTableViewController.m */,
+				8241D30C1CF2CE1900411423 /* PartsTableViewController.h */,
+				8241D30D1CF2CE1900411423 /* PartsTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1236,8 +1265,14 @@
 		71D87F471CEE0E09000D7525 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				71249F7D1CEF40B200C2151D /* CMShoppingCell.h */,
-				71249F7E1CEF40B200C2151D /* CMShoppingCell.m */,
+				8241D30F1CF2CE3400411423 /* UseProductCell.h */,
+				8241D3101CF2CE3400411423 /* UseProductCell.m */,
+				8241D3121CF2CE4000411423 /* TyreTableViewCell.h */,
+				8241D3131CF2CE4000411423 /* TyreTableViewCell.m */,
+				8241D3151CF2CE4900411423 /* OilTableViewCell.h */,
+				8241D3161CF2CE4900411423 /* OilTableViewCell.m */,
+				8241D3181CF2CE5A00411423 /* PartsTableViewCell.h */,
+				8241D3191CF2CE5A00411423 /* PartsTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2983,6 +3018,7 @@
 				CE34D2281BF5D6B100EB31CF /* TabbarItem.m in Sources */,
 				CE34D2141BF5C4C100EB31CF /* User.m in Sources */,
 				71249F6A1CEF3DE900C2151D /* MineModel.m in Sources */,
+				8241D3111CF2CE3400411423 /* UseProductCell.m in Sources */,
 				7163F9831CED5C2100BB565B /* PersonHeadCell.m in Sources */,
 				8259CBF51CECC9AE00D6685C /* UIImageView+EMWebCache.m in Sources */,
 				8259CC231CECC9AE00D6685C /* EaseBubbleView+Image.m in Sources */,
@@ -3042,7 +3078,6 @@
 				8259CC1C1CECC9AE00D6685C /* EaseUserCell.m in Sources */,
 				CE34D1931BF596DB00EB31CF /* LoginCenter.m in Sources */,
 				CE2747B51BF4603E00D2349D /* BlockButton.m in Sources */,
-				71249F7F1CEF40B200C2151D /* CMShoppingCell.m in Sources */,
 				CE34D1C41BF5C42A00EB31CF /* ISTStringHelper.m in Sources */,
 				8259CBBF1CECC9AE00D6685C /* EMCDDeviceManager+Media.m in Sources */,
 				DC7B72341BD1F9A100327B03 /* NSTimer+Addition.m in Sources */,
@@ -3087,6 +3122,7 @@
 				CE34D1C31BF5C42A00EB31CF /* ISTSectionBar.m in Sources */,
 				DC7B723A1BD1F9A100327B03 /* UIImage-Extensions.m in Sources */,
 				8259CBBD1CECC9AE00D6685C /* EMAudioPlayerUtil.m in Sources */,
+				8241D3141CF2CE4000411423 /* TyreTableViewCell.m in Sources */,
 				8259CC111CECC9AE00D6685C /* EaseEmoji.m in Sources */,
 				DC7B71FC1BD1F9A000327B03 /* AppDelegate.m in Sources */,
 				71A42A4B1C9E709C00CA29FE /* CMOrderViewController.m in Sources */,
@@ -3114,6 +3150,7 @@
 				8259CC0C1CECC9AE00D6685C /* UIViewController+DismissKeyboard.m in Sources */,
 				8259CBC51CECC9AE00D6685C /* wav.mm in Sources */,
 				DC86C3921BD36C66007DEE6F /* ClickImage.m in Sources */,
+				8241D30E1CF2CE1900411423 /* PartsTableViewController.m in Sources */,
 				CED1C13B1BF44E6B007C94F3 /* base64.m in Sources */,
 				8259CBF11CECC9AE00D6685C /* UIImage+EMGIF.m in Sources */,
 				8259CBF61CECC9AE00D6685C /* UIView+EMWebCacheOperation.m in Sources */,
@@ -3130,16 +3167,19 @@
 				8259CC1A1CECC9AE00D6685C /* EaseUsersListViewController.m in Sources */,
 				CE34D22B1BF5D6DC00EB31CF /* BaseModel.m in Sources */,
 				DC7B723B1BD1F9A100327B03 /* UIView+Util.m in Sources */,
+				8241D31A1CF2CE5A00411423 /* PartsTableViewCell.m in Sources */,
 				CE34D2201BF5C4C100EB31CF /* ISTEnterView.m in Sources */,
 				8259CBDA1CECC9AE00D6685C /* MJRefreshConst.m in Sources */,
 				CED1C1411BF44E6B007C94F3 /* RSADataSigner.m in Sources */,
 				CED1C1421BF44E6B007C94F3 /* RSADataVerifier.m in Sources */,
 				71A42A581C9E752500CA29FE /* ShoppingDataHelper.m in Sources */,
 				8259CC0D1CECC9AE00D6685C /* UIViewController+HUD.m in Sources */,
+				8241D3081CF2CE0800411423 /* TyreTableViewController.m in Sources */,
 				DCD55B771BD4E61F0016D138 /* TXCustomAlertWindow.m in Sources */,
 				8259CC101CECC9AE00D6685C /* EaseMessageReadManager.m in Sources */,
 				8259CC001CECC9AE00D6685C /* PSTGridLayoutInfo.m in Sources */,
 				7116286F1C9CFCC20049AB7B /* BaseDataHelper.m in Sources */,
+				8241D30B1CF2CE1200411423 /* OilTableViewController.m in Sources */,
 				8259CC131CECC9AE00D6685C /* EaseEmotionEscape.m in Sources */,
 				8259CC281CECC9AE00D6685C /* EaseBubbleView.m in Sources */,
 				8259CBF41CECC9AE00D6685C /* UIImageView+EMHighlightedWebCache.m in Sources */,
@@ -3150,6 +3190,7 @@
 				8259CC291CECC9AE00D6685C /* EaseChatToolbar.m in Sources */,
 				8259CBE31CECC9AE00D6685C /* MWTapDetectingImageView.m in Sources */,
 				DC7B72331BD1F9A100327B03 /* NSString+Util.m in Sources */,
+				8241D3171CF2CE4900411423 /* OilTableViewCell.m in Sources */,
 				8259CC011CECC9AE00D6685C /* PSTGridLayoutItem.m in Sources */,
 				CE34D18F1BF596DB00EB31CF /* ISTAccountCreateViewController.m in Sources */,
 				CE34D2221BF5C4C100EB31CF /* ISTTopBar.m in Sources */,
@@ -3169,6 +3210,7 @@
 				71249F7A1CEF3F7500C2151D /* ToolKitModel.m in Sources */,
 				8259CBFB1CECC9AE00D6685C /* PSTCollectionViewData.m in Sources */,
 				71249F6D1CEF3EA000C2151D /* OrderModel.m in Sources */,
+				8241D3051CF2CC9700411423 /* UseProductTableViewController.m in Sources */,
 				8259CBE01CECC9AE00D6685C /* MWGridViewController.m in Sources */,
 				8259CC0E1CECC9AE00D6685C /* EaseChineseToPinyin.m in Sources */,
 				8259CBD81CECC9AE00D6685C /* MJRefreshStateHeader.m in Sources */,

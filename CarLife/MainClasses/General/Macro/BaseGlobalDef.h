@@ -27,6 +27,10 @@
 #define Phone_HeightProportion(Height)     Height*kScreen_Height/736
 
 
+#define STRING_HEIGHT(string,width,font) [string boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font]} context:nil].size.height
+
+#define STRING_WIDTH(string,height,font) [string boundingRectWithSize:CGSizeMake(MAXFLOAT, height) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font]} context:nil].size.width
+
 //提示语
 #define KTipFun [UIAlertHelper showAlert:@"敬请期待" AndShowView:_contentView];
 #define KTipView(_S_, ...) [UIAlertHelper showAlert:[NSString stringWithFormat:(_S_), ##__VA_ARGS__] AndShowView:_contentView];
@@ -63,7 +67,7 @@ _Pragma("clang diagnostic pop") \
 
 /**服务器主域名设置**/
 
-#define kMainDomain             @"http://www.uhuitong.com:9000"
+#define kMainDomain             @"http://www.hfdianche.cn/wuliu/"
 #define kTestMainDomain         @"http://101.201.174.252"
 
 /**账号设置**/
