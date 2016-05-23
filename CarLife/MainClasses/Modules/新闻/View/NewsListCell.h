@@ -10,4 +10,9 @@
 
 @interface NewsListCell : UITableViewCell
 
+@property(nonatomic,strong)UIImageView *iconImg;
+@property(nonatomic,strong)UILabel *titleLable;
+@property(nonatomic,strong)UILabel *detailLable;
+@property(nonatomic,strong)UILabel *timeLable;
+
 @end

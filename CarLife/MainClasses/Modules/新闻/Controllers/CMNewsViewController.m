@@ -7,12 +7,24 @@
 //
 
 #import "CMNewsViewController.h"
+#import "NewsListCell.h"
+#import "MJRefresh.h"
 
-@interface CMNewsViewController ()
-
+@interface CMNewsViewController ()<UITableViewDataSource,UITableViewDelegate>
+{
+    UITableView *_tableView;
+}
+@property(nonatomic,strong)NSMutableArray *dataArr;
 @end
 
 @implementation CMNewsViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+        _dataArr = [NSMutableArray array];
+    }
+    return self;
+}
 
 - (ISTTopBar *)creatTopBarView:(CGRect)frame
 {
@@ -23,17 +35,79 @@
     return tbTop;
 }
 
-- (void)loadSubviews
-{
+- (void)loadSubviews{
+    
     _tbTop = [self creatTopBarView:kTopFrame];
     [self.view addSubview:_tbTop];
+    
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, _contentView.width, _contentView.height) style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.backgroundColor = [UIColor clearColor];
+    [_contentView addSubview:_tableView];
+    
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self resetData];
+    }];
+    _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [self performData];
+    }];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadSubviews];
+    [self performData];
 }
 
+#pragma mark - 网络请求
+
+- (void)performData{
+    for (int i = 0; i < 5; i++) {
+        [_dataArr addObject:@"测试"];
+    }
+    [_tableView.mj_footer endRefreshing];
+    
+    [_tableView reloadData];
+}
+
+- (void)resetData{
+    [_dataArr removeAllObjects];
+    
+    for (int i = 0; i < 5; i++) {
+        [_dataArr addObject:@"测试"];
+    }
+   
+    [_tableView.mj_header endRefreshing];
+    
+    [_tableView reloadData];
+}
+
+#pragma mark - tableview
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return _dataArr.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return kAdjustLength(400);
+}
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+  static NSString *celliden = @"celliden";
+    NewsListCell *cell = [tableView dequeueReusableCellWithIdentifier:celliden];
+    if (cell == nil) {
+        cell = [[NewsListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:celliden];
+    }
+    cell.titleLable.text = @"全新测试宝马";
+    cell.detailLable.text = @"这是全新的一轮打浆机，是不是宿舍啦吧啦啦啦；世界观啊；时时刻刻难受了道路";
+    cell.timeLable.text = @"2016-5-23";
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES]; 
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
