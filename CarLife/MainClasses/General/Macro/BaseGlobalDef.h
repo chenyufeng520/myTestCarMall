@@ -27,6 +27,10 @@
 #define Phone_HeightProportion(Height)     Height*kScreen_Height/736
 
 
+#define STRING_HEIGHT(string,width,font) [string boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font]} context:nil].size.height
+
+#define STRING_WIDTH(string,height,font) [string boundingRectWithSize:CGSizeMake(MAXFLOAT, height) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font]} context:nil].size.width
+
 //提示语
 #define KTipFun [UIAlertHelper showAlert:@"敬请期待" AndShowView:_contentView];
 #define KTipView(_S_, ...) [UIAlertHelper showAlert:[NSString stringWithFormat:(_S_), ##__VA_ARGS__] AndShowView:_contentView];

@@ -17,6 +17,7 @@
 #import "BaseGlobalDef.h"
 #import "ISTGlobal.h"
 #import "EaseUI-Prefix.pch"
+#import "MBProgressHUD+Add.h"
 
 #endif
 

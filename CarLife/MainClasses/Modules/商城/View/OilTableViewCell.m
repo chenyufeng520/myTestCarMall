@@ -1,16 +1,17 @@
 //
-//  CMShoppingCell.m
+//  OilTableViewCell.m
 //  CarLife
 //
-//  Created by 陈宇峰 on 16/5/20.
+//  Created by 聂康  on 16/5/23.
 //  Copyright © 2016年 陈宇峰. All rights reserved.
 //
 
-#import "CMShoppingCell.h"
+#import "OilTableViewCell.h"
 
-@implementation CMShoppingCell
+@implementation OilTableViewCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     // Initialization code
 }
 

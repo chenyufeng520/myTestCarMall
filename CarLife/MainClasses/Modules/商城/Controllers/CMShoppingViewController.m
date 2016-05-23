@@ -8,8 +8,17 @@
 
 #import "CMShoppingViewController.h"
 #import "ShoppingDataHelper.h"
+#import "UseProductTableViewController.h"
+#import "TyreTableViewController.h"
+#import "OilTableViewController.h"
+#import "PartsTableViewController.h"
 
-@interface CMShoppingViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate>
+@interface CMShoppingViewController ()<UIScrollViewDelegate>{
+    UseProductTableViewController *_productVC;
+    TyreTableViewController *_tyreVC;
+    OilTableViewController *_oilVC;
+    PartsTableViewController *_partsVC;
+}
 
 /** 保存所有栏目的数据*/
 @property (nonatomic, strong)NSMutableDictionary *columeModelDic;
@@ -46,14 +55,26 @@
     [super viewDidLoad];
     [self loadSubviews];
     [self.view addSubview:self.columeView];
-    _contentView.frame = CGRectMake(0, self.iosChangeFloat + kNavHeight + _columeView.height, kScreen_Width, kScreen_Height - (kNavHeight+self.iosChangeFloat - _columeView.height)-kTabBarHeight);
+    _contentView.frame = CGRectMake(0, self.iosChangeFloat + kNavHeight + _columeView.height, kScreen_Width, kScreen_Height - (kNavHeight+self.iosChangeFloat + _columeView.height)-kTabBarHeight);
     _contentView.delegate = self;
-    [self loadColumeDataWithLabelTag:1];
+    _contentView.pagingEnabled = YES;
+    _contentView.backgroundColor = [UIColor whiteColor];
+    [_contentView showsHorizontalScrollIndicator];
+
+    [self addFirstVCView];
 }
 
-
+- (void)addFirstVCView{
+    if (!_productVC) {
+        _productVC = [[UseProductTableViewController alloc] initWithStyle:UITableViewStylePlain];
+        _productVC.view.frame = _contentView.bounds;
+        [self addChildViewController:_productVC];
+        [_contentView addSubview:_productVC.view];
+    }
+}
 
 #pragma mark 懒加载
+
 - (NSMutableDictionary *)columeModelDic{
     if (!_columeModelDic) {
         _columeModelDic = [NSMutableDictionary dictionary];
@@ -122,7 +143,8 @@
     [UIView animateWithDuration:0.5 animations:^{
         [_underline setMinX:btn.minX];
     }];
-    [self loadColumeDataWithLabelTag:btn.tag];
+    CGPoint point = CGPointMake(btn.tag * kScreen_Width, 0);
+    _contentView.contentOffset = point;
 }
 
 
@@ -130,31 +152,16 @@
  * 加载对应栏目的数据
  */
 - (void)loadColumeDataWithLabelTag:(NSInteger)labelTag{
-    NSArray *urlStringArr = @[@"index.php?m=api&c=Store&a=index"];
-//    [CMShopModel columeDataListWithUrlString:[urlStringArr objectAtIndex:labelTag-1] complection:^(NSMutableArray *array) {
-//        _nowColumeArrar = array;
-//        [_collectionView reloadData];
-//    }];
-}
-
-- (void)columeDataListWithUrlString:(NSString *)urlString complection:(void (^)(NSMutableArray *array))complection{
-    //    ShoppingDataHelper *helper = (ShoppingDataHelper*)[ShoppingDataHelper defaultHelper];
-    [[ShoppingDataHelper defaultHelper] requestForURLStr:urlString requestMethod:@"GET" info:nil andBlock:^(id response, NSError *error) {
-        NSArray *dataArray = (NSArray *)response;
-        NSMutableArray *modelArr = [NSMutableArray array];
-        for (NSDictionary *dic in dataArray) {
-//            CMShopModel *model = [[self alloc] initWithDic:dic];
-//            [modelArr addObject:model];
-        }
-        complection(modelArr);
-    }];
+ 
 }
 
 #pragma mark UIScrowViewDelegate
-- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
-    if (scrollView.contentOffset.x) {
-        
-    }
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+
 }
 
 @end
