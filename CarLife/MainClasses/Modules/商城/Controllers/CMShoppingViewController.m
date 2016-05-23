@@ -46,14 +46,14 @@
     [super viewDidLoad];
     [self loadSubviews];
     [self.view addSubview:self.columeView];
-    _contentView.frame = CGRectMake(0, self.iosChangeFloat + kNavHeight + _columeView.height, kScreen_Width, kScreen_Height - (kNavHeight+self.iosChangeFloat - _columeView.height)-kTabBarHeight);
-    _contentView.delegate = self;
+    _contentView.frame = CGRectMake(0, self.iosChangeFloat + kNavHeight + _columeView.height, kScreen_Width, kScreen_Height - (kNavHeight+self.iosChangeFloat + _columeView.height)-kTabBarHeight);
     [self loadColumeDataWithLabelTag:1];
+    [_contentView showsHorizontalScrollIndicator];
 }
 
 
-
 #pragma mark 懒加载
+
 - (NSMutableDictionary *)columeModelDic{
     if (!_columeModelDic) {
         _columeModelDic = [NSMutableDictionary dictionary];
@@ -151,10 +151,12 @@
 }
 
 #pragma mark UIScrowViewDelegate
-- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
-    if (scrollView.contentOffset.x) {
-        
-    }
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+    NSLog(@"%f",scrollView.contentOffset.x);
 }
 
 @end

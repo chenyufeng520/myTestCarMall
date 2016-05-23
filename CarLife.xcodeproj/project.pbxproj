@@ -2807,6 +2807,7 @@
 				TargetAttributes = {
 					DC7B70191BD1F5B500327B03 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = Q9QGXP49FA;
 					};
 				};
 			};
@@ -3303,6 +3304,7 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3348,7 +3350,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunboxsoft.CarMall;
 				PRODUCT_NAME = CarLife;
-				PROVISIONING_PROFILE = "7e6072c6-2892-4529-97f9-47a840b4a37b";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -3362,6 +3364,7 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3407,7 +3410,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunboxsoft.CarMall;
 				PRODUCT_NAME = CarLife;
-				PROVISIONING_PROFILE = "7e6072c6-2892-4529-97f9-47a840b4a37b";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
