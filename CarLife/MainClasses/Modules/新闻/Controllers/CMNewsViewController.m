@@ -9,6 +9,7 @@
 #import "CMNewsViewController.h"
 #import "NewsListCell.h"
 #import "MJRefresh.h"
+#import "NewsDataHelper.h"
 
 @interface CMNewsViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -58,6 +59,7 @@
     [super viewDidLoad];
     [self loadSubviews];
     [self performData];
+//    [self loadData];
 }
 
 #pragma mark - 网络请求
@@ -81,6 +83,13 @@
     [_tableView.mj_header endRefreshing];
     
     [_tableView reloadData];
+}
+
+- (void)loadData{
+    
+    [[NewsDataHelper defaultHelper] commonRequestForURLStr:nil requestMethod:@"GET" info:@{@"channelId":@"5572a109b3cdc86cf39001e5",@"page":@"1"} andBlock:^(id response, NSError *error) {
+        
+    }];
 }
 
 #pragma mark - tableview

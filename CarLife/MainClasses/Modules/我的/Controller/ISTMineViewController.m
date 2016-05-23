@@ -192,6 +192,7 @@
 - (void)logoutButtonClick:(UIButton*)button{
     [[NSNotificationCenter defaultCenter] postNotificationName:kLogoutNotification object:nil];
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kUSERINFO];
+    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kUserid];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [[AppDelegate shareDelegate] showLoginView];
 }

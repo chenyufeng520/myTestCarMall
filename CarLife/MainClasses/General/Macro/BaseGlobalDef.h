@@ -63,7 +63,7 @@ _Pragma("clang diagnostic pop") \
 
 /**服务器主域名设置**/
 
-#define kMainDomain             @"http://www.uhuitong.com:9000"
+#define kMainDomain             @"http://www.hfdianche.cn/wuliu/"
 #define kTestMainDomain         @"http://101.201.174.252"
 
 /**账号设置**/
