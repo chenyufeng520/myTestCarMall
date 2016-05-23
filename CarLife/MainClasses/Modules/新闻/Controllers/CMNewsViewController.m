@@ -8,8 +8,10 @@
 
 #import "CMNewsViewController.h"
 
-@interface CMNewsViewController ()
-
+@interface CMNewsViewController ()<UITableViewDataSource,UITableViewDelegate>
+{
+    UITableView *_tableView;
+}
 @end
 
 @implementation CMNewsViewController
@@ -27,6 +29,8 @@
 {
     _tbTop = [self creatTopBarView:kTopFrame];
     [self.view addSubview:_tbTop];
+    
+  
 }
 
 - (void)viewDidLoad {
