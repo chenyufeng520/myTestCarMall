@@ -24,12 +24,15 @@
 
 - (void)configUI{
     
-    UIImageView *backImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreen_Width, 120)];
+    UIImageView *backImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreen_Width, 130)];
+    backImg.image = [UIImage imageNamed:@"leftbar_bg"];
     [self addSubview:backImg];
     
-    self.iconImageView = [[UIImageView alloc]initWithFrame:CGRectMake((kScreen_Width - 70)/2, 10, 70, 70)];
+    self.iconImageView = [[UIImageView alloc]initWithFrame:CGRectMake((kScreen_Width - 70)/2, 15, 70, 70)];
     self.iconImageView.layer.cornerRadius = 35;
     self.iconImageView.layer.masksToBounds = YES;
+    self.iconImageView.layer.borderWidth = 3;
+    self.iconImageView.layer.borderColor = kWhiteColor.CGColor;
     [backImg addSubview:self.iconImageView];
     
     self.titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, self.iconImageView.maxY, kScreen_Width, 40)];

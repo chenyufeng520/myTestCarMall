@@ -13,6 +13,7 @@
 #import "CustomBarButton.h"
 
 #define kItemLineTag               110
+#define kbuttonItemTag            520
 @implementation ISTCustomBar
 
 - (id)initWithFrame:(CGRect)frame withContent:(NSArray *)array
@@ -38,7 +39,7 @@
 //            }
             CustomBarButton *barItem = [CustomBarButton buttonWithType:UIButtonTypeCustom];
             barItem.frame = btmFrame;
-            barItem.tag = i;
+            barItem.tag = i + kbuttonItemTag;
             [barItem addTarget:self action:@selector(tabbarItemAction:) forControlEvents:UIControlEventTouchUpInside];
             
             UIImage *normalImage = [UIImage imageNamed:tb.unSelectImg];
@@ -57,7 +58,7 @@
             barItem.titleLabel.font = kFontSmall;
             barItem.titleLabel.textAlignment = NSTextAlignmentCenter;
             [barItem setTitleColor:kDarkTextColor forState:UIControlStateNormal];
-            [barItem setTitleColor:kNavBarColor forState:UIControlStateSelected];
+            [barItem setTitleColor:kWhiteColor forState:UIControlStateSelected];
             
 //            UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, barItem.height - kAdjustLength(60), barItem.width, kAdjustLength(60))];
 //            titleLabel.text = tb.title;
@@ -69,7 +70,7 @@
             
             //line:
             UIView *line = [[UIView alloc] initLineWithFrame:CGRectMake(0, 0, barItem.width, kLinePixel) color:kLightGreenColor];
-            //  [barItem addSubview:line];
+//            [barItem addSubview:line];
             line.hidden = YES;
             line.tag = kItemLineTag;
             
@@ -90,23 +91,30 @@
     UIButton *item = (UIButton *)sender;
     if(_delegate && [_delegate respondsToSelector:@selector(didTabbarViewButtonTouched:)])
     {
-        [self.delegate didTabbarViewButtonTouched:item.tag];
+        [self.delegate didTabbarViewButtonTouched:item.tag - kbuttonItemTag];
     }
 }
 
 //TODO:点击事件
 - (void)tabbarItemAction:(UIButton *)btn
 {
-    [self setSelectedIndex:btn.tag];
+    [self setSelectedIndex:btn.tag - kbuttonItemTag];
 }
 
 - (void)setSelectedIndex:(int)index
 {
+    for (int i = kbuttonItemTag; i < 5 + kbuttonItemTag; i++) {
+        UIButton *itemButton = (UIButton*)[self viewWithTag:i];
+        itemButton.backgroundColor = [UIColor clearColor];
+    }
+    
     _selectedIndex = index;
     if (index < 0 || index > _tabbars.count - 1) {
         return;
     }
     UIButton *item = [_tabbars objectAtIndex:index];
+    item.backgroundColor = kBlueColor;
+    
     if(_currentBtn == nil || _currentBtn != item)
     {
         UIView *oldLine = [_currentBtn viewWithTag:kItemLineTag];
@@ -121,6 +129,7 @@
         _currentBtn.selected = NO;
         _currentBtn = item;
         _currentBtn.selected = YES;
+        _currentBtn.backgroundColor = kBlueColor;
         
         [self bringSubviewToFront:item];
         [self onTabbarItemTouched:item];

@@ -48,7 +48,6 @@
     [self configWeiXin];
     //    [self umengTrack];
     //    [UMSocialData setAppKey:UmengAppkey];
-    //    [self initializeAutoLogin];
     
     [[HttpReachabilityHelper sharedService] detectNetwork];
 }
@@ -252,28 +251,6 @@
     manager.shouldResignOnTouchOutside = NO;
     manager.shouldToolbarUsesTextFieldTintColor = YES;
     manager.enableAutoToolbar = YES;
-}
-
-#pragma mark - Auto login
-
-- (void)initializeAutoLogin
-{
-    //注意该值是反的，noAutoLogin = YES表示非自动登录
-    BOOL noAutoLogin = [[NSUserDefaults standardUserDefaults] boolForKey:kNoAutoLogin];
-    
-    if (!noAutoLogin) {
-        //自动登录
-        if (![LoginCenter isLoginValid]) {
-            [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kUserid];
-        }
-    }
-    else
-    {
-        //非自动登录
-        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kUserid];
-    }
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
 }
 
 #pragma mark Baidu Map

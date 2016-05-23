@@ -8,7 +8,6 @@
 
 #import "ISTContentViewController.h"
 #import "ISTHomeViewController.h"
-#import "ISTRefuelViewController.h"
 #import "ISTMineViewController.h"
 #import "BaseGlobalDef.h"
 #import "TabbarItem.h"
@@ -123,36 +122,36 @@
     NSMutableDictionary *dic1 = [NSMutableDictionary dictionary];
     [dic1 setValue:@"商城" forKey:@"title"];
     [dic1 setValue:@"shopping" forKey:@"type"];
-    [dic1 setValue:@"hnotebook" forKey:@"unSelectImg"];
-    [dic1 setValue:@"hnotebook" forKey:@"selectImg"];
+    [dic1 setValue:@"btn_gray_01" forKey:@"unSelectImg"];
+    [dic1 setValue:@"btn_white_01" forKey:@"selectImg"];
     [dic1 setValue:[NSNumber numberWithBool:NO] forKey:@"highlighted"];
     
     NSMutableDictionary *dic2 = [NSMutableDictionary dictionary];
     [dic2 setValue:@"订单" forKey:@"title"];
     [dic2 setValue:@"order" forKey:@"type"];
-    [dic2 setValue:@"horder" forKey:@"unSelectImg"];
-    [dic2 setValue:@"horder" forKey:@"selectImg"];
+    [dic2 setValue:@"btn_gray_02" forKey:@"unSelectImg"];
+    [dic2 setValue:@"btn_white_02" forKey:@"selectImg"];
     [dic2 setValue:[NSNumber numberWithBool:NO] forKey:@"highlighted"];
     
     NSMutableDictionary *dic3 = [NSMutableDictionary dictionary];
     [dic3 setValue:@"新闻" forKey:@"title"];
     [dic3 setValue:@"news" forKey:@"type"];
-    [dic3 setValue:@"hnews" forKey:@"unSelectImg"];
-    [dic3 setValue:@"hnews" forKey:@"selectImg"];
+    [dic3 setValue:@"btn_gray_03" forKey:@"unSelectImg"];
+    [dic3 setValue:@"btn_white_03" forKey:@"selectImg"];
     [dic3 setValue:[NSNumber numberWithBool:NO] forKey:@"highlighted"];
     
     NSMutableDictionary *dic4 = [NSMutableDictionary dictionary];
     [dic4 setValue:@"工具箱" forKey:@"title"];
     [dic4 setValue:@"toolKit" forKey:@"type"];
-    [dic4 setValue:@"hnotebook" forKey:@"unSelectImg"];
-    [dic4 setValue:@"hnotebook" forKey:@"selectImg"];
+    [dic4 setValue:@"btn_gray_04" forKey:@"unSelectImg"];
+    [dic4 setValue:@"btn_white_04" forKey:@"selectImg"];
     [dic4 setValue:[NSNumber numberWithBool:NO] forKey:@"highlighted"];
     
     NSMutableDictionary *dic5 = [NSMutableDictionary dictionary];
     [dic5 setValue:@"个人中心" forKey:@"title"];
     [dic5 setValue:@"mine" forKey:@"type"];
-    [dic5 setValue:@"hmy" forKey:@"unSelectImg"];
-    [dic5 setValue:@"hmy" forKey:@"selectImg"];
+    [dic5 setValue:@"btn_gray_05" forKey:@"unSelectImg"];
+    [dic5 setValue:@"btn_white_05" forKey:@"selectImg"];
     [dic5 setValue:[NSNumber numberWithBool:NO] forKey:@"highlighted"];
     
     NSArray *items = @[dic1, dic2, dic3,dic4,dic5];
