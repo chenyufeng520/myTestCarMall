@@ -10,6 +10,8 @@
 #import "UseProductCell.h"
 #import "ShoppingDataHelper.h"
 #import "UseProductModel.h"
+#import "ProductDetailViewController.h"
+#import "AppDelegate.h"
 
 @interface UseProductTableViewController ()
 
@@ -34,16 +36,19 @@
         if (error) {
             [MBProgressHUD showError:@"网络异常" toView:self.view];
         }else{
-            NSDictionary *responseDic = (NSDictionary *)response;
-            if ([response[@"status"] intValue] == 200) {
-                NSArray *resArr = responseDic[@"data"];
-                for (NSDictionary *dic in resArr) {
-                    UseProductModel *model = [[UseProductModel alloc] initWithDic:dic];
-                    [self.dataArr addObject:model];
+            if ([response isKindOfClass:[NSDictionary class]]) {
+                NSDictionary *responseDic = (NSDictionary *)response;
+                if ([response[@"status"] intValue] == 200) {
+                    NSArray *resArr = responseDic[@"data"];
+                    for (NSDictionary *dic in resArr) {
+                        UseProductModel *model = [[UseProductModel alloc] initWithDic:dic];
+                        [self.dataArr addObject:model];
+                    }
+                    [self.tableView reloadData];
+                }else{
+                    [MBProgressHUD showMessag:responseDic[@"message"] toView:self.view];
                 }
-                [self.tableView reloadData];
-            }else{
-                [MBProgressHUD showMessag:responseDic[@"message"] toView:self.view];
+
             }
         }
     }];
@@ -67,6 +72,17 @@
     }
     cell.productModel = self.dataArr[indexPath.row];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    UseProductCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    ProductDetailViewController *productDetail = [[ProductDetailViewController alloc] init];
+    productDetail.title = cell.nameLab.text;
+    productDetail.productId = cell.productModel.gid;
+//    productDetail.hidesBottomBarWhenPushed = YES;
+    [[AppDelegate shareDelegate].rootNavigation pushViewController:productDetail animated:YES];
+//    [self.navigationController pushViewController:productDetail animated:YES];
 }
 
 @end

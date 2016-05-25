@@ -18,7 +18,7 @@
 {
     // 导航头
     ISTTopBar *tbTop = [[ISTTopBar alloc] initWithFrame:frame];
-    [tbTop.btnTitle setTitle:@"订单" forState:UIControlStateNormal];
+    [tbTop.btnTitle setTitle:@"下订单" forState:UIControlStateNormal];
     
     return tbTop;
 }
@@ -32,22 +32,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadSubviews];
+    _contentView.height += kAdjustLength(240);
+    [self makeTopButtton];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)makeTopButtton{
+    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, self.iosChangeFloat+kNavHeight, kScreen_Width, kAdjustLength(300))];
+    topView.backgroundColor = _contentView.backgroundColor;
+    [_contentView addSubview:topView];
+    
+    UIView *btnView = [[UIView alloc] initWithFrame:CGRectMake((kScreen_Width-kAdjustLength(560)/2.f), 10, kAdjustLength(560), kAdjustLength(100))];
+    btnView.backgroundColor = kNavBarColor;
+    btnView.layer.cornerRadius = kAdjustLength(50);
+    [topView addSubview:btnView];
+    
+    NSArray *segTitiArr = @[@"汽配店",@"下订单"];
+    UIButton *shopBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    shopBtn.frame = CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

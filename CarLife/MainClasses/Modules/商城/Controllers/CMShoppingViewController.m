@@ -55,11 +55,6 @@
     [super viewDidLoad];
     [self loadSubviews];
     [self.view addSubview:self.columeView];
-    _contentView.frame = CGRectMake(0, self.iosChangeFloat + kNavHeight + _columeView.height, kScreen_Width, kScreen_Height - (kNavHeight+self.iosChangeFloat + _columeView.height)-kTabBarHeight);
-    _contentView.delegate = self;
-    _contentView.pagingEnabled = YES;
-    _contentView.backgroundColor = [UIColor whiteColor];
-    [_contentView showsHorizontalScrollIndicator];
 
     [self addFirstVCView];
 }
@@ -107,6 +102,12 @@
     CGFloat h = _columeView.bounds.size.height;
     CGFloat w = kScreen_Width/(float)(titileArr.count);
     
+    _contentView.frame = CGRectMake(0, self.iosChangeFloat + kNavHeight + _columeView.height, kScreen_Width, kScreen_Height - (kNavHeight+self.iosChangeFloat + _columeView.height)-kTabBarHeight);
+    _contentView.delegate = self;
+    _contentView.pagingEnabled = YES;
+    _contentView.backgroundColor = [UIColor whiteColor];
+    [_contentView showsHorizontalScrollIndicator];
+
     _contentView.contentSize = CGSizeMake(kScreen_Width*4, _contentView.height);
     
     _underline = [[UIView alloc] initWithFrame:CGRectMake(0, h-1, w, 1)];
@@ -156,12 +157,10 @@
 }
 
 #pragma mark UIScrowViewDelegate
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-
-}
-
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
-
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//    if (scrollView.contentOffset.x < 0) {
+//        scrollView.contentOffset = CGPointMake(0, 0);
+//    }
 }
 
 @end

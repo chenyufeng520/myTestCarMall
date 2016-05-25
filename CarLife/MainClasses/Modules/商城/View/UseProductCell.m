@@ -26,13 +26,13 @@
     self.nameLab.font = [UIFont systemFontOfSize:16];
     self.nameLab.numberOfLines = 0;
     [self.contentView addSubview:self.nameLab];
-    
+
     self.introLab = [[UILabel alloc] init];
     self.introLab.font = [UIFont systemFontOfSize:14];
     self.introLab.textColor = [UIColor grayColor];
     self.introLab.numberOfLines = 0;
     [self.contentView addSubview:self.introLab];
-    
+
     self.priceLab = [[UILabel alloc] init];
     self.priceLab.font = [UIFont systemFontOfSize:16];
     self.priceLab.textColor = kNavBarColor;
@@ -48,16 +48,21 @@
     _productModel = productModel;
     
     self.leftImage.frame = CGRectMake(10, 5, kAdjustLength(280), kAdjustLength(280));
-    [self.leftImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kMainDomain,productModel.goods_picurl]] placeholderImage:[UIImage imageNamed:@""]];
+    [self.leftImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kMainDomain,productModel.goods_picurl]]];
     
     self.nameLab.frame = CGRectMake(self.leftImage.maxX+10, self.leftImage.minY, kScreen_Width-self.leftImage.maxX-20, STRING_HEIGHT(productModel.goods_name, kScreen_Width-self.leftImage.maxX-20, 16));
     self.nameLab.text = productModel.goods_name;
     
     self.priceLab.frame = CGRectMake(self.leftImage.maxX+10, self.leftImage.maxY-(STRING_HEIGHT(productModel.goods_hprice, kScreen_Width-self.leftImage.maxX-20, 16)), kScreen_Width-self.leftImage.maxX-20, STRING_HEIGHT(productModel.goods_hprice, kScreen_Width-self.leftImage.maxX-20, 16));
-    self.priceLab.text = productModel.goods_price;
+    self.priceLab.text = [NSString stringWithFormat:@"¥ %@",productModel.goods_price];
     
-    self.introLab.frame = CGRectMake(self.leftImage.maxX+10, self.nameLab.maxY, kScreen_Width-self.leftImage.maxX-20, kAdjustLength(280)-self.nameLab.height-self.priceLab.height);
-    self.introLab.text = productModel.goods_intr;
+    CGFloat introTextH = 0;
+    self.introLab.text = [productModel.goods_intr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if ([ValidObject objectIsValid:productModel.goods_intr]) {
+        introTextH = STRING_HEIGHT(_introLab.text, kScreen_Width-self.leftImage.maxX-20, 14);
+    }
+    CGFloat introMaxH = kAdjustLength(280)-self.nameLab.height-self.priceLab.height;
+    self.introLab.frame = CGRectMake(self.leftImage.maxX+10, self.nameLab.maxY, kScreen_Width-self.leftImage.maxX-20, introTextH < introMaxH ? introTextH:introMaxH);
     
     self.line.frame = CGRectMake(10, self.leftImage.maxY+4, kScreen_Width-20, 1);
     
