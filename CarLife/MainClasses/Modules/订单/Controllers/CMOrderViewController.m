@@ -8,9 +8,14 @@
 
 #import "CMOrderViewController.h"
 #import "CustomSegmentView.h"
+#import "SearchShopTextField.h"
+#import "ShopListTableViewController.h"
+#import "OrderTableViewController.h"
 
 @interface CMOrderViewController ()<CustomSegmentDelegate,UIScrollViewDelegate>{
-    UITextField *_textField;
+    SearchShopTextField *_textField;
+    ShopListTableViewController *_shopListVC;
+    OrderTableViewController *_orderVC;
 }
 
 @end
@@ -36,6 +41,7 @@
     [super viewDidLoad];
     [self loadSubviews];
     [self makeTopButtton];
+    [self addShopListView];
 }
 
 - (void)makeTopButtton{
@@ -46,13 +52,16 @@
     
     //选择菜单
     NSArray *titleArr = @[@"汽配店",@"下订单"];
-    CustomSegmentView *segmentView = [[CustomSegmentView alloc] initWithFrame:CGRectMake((kScreen_Width-kAdjustLength(560))*0.5, 10, kAdjustLength(560), kAdjustLength(100))];
+    CustomSegmentView *segmentView = [[CustomSegmentView alloc] initWithFrame:CGRectMake(kAdjustLength(240), 10, (kScreen_Width-2*kAdjustLength(240)), kAdjustLength(100))];
     [segmentView setTitles:titleArr];
     segmentView.backgroundColor = kNavBarColor;
     segmentView.delegate = self;
     [topView addSubview:segmentView];
     
+    _textField = [[SearchShopTextField alloc] initWithFrame:CGRectMake(kAdjustLength(140), segmentView.maxY + 10, (kScreen_Width-2*kAdjustLength(140)), kAdjustLength(120))];
+    [topView addSubview:_textField];
     
+    topView.height = _textField.maxY + 10;
     
     _contentView.minY = topView.maxY;
     _contentView.height = kScreen_Height - self.iosChangeFloat - kNavHeight - topView.height - kTabBarHeight;
@@ -61,9 +70,25 @@
     _contentView.delegate = self;
 }
 
-#pragma mark CustomSegmentViewDelegate
+/**
+ * 商铺列表vc
+ **/
+- (void)addShopListView{
+    if (!_shopListVC) {
+        _shopListVC = [[ShopListTableViewController alloc] init];
+        _shopListVC.view.frame = _contentView.bounds;
+        [self addChildViewController:_shopListVC];
+        [_contentView addSubview:_shopListVC.view];
+    }
+}
+
+#pragma mark CustomSegmentView Delegate
 - (void)segmentedViewSelectTitleInteger:(NSInteger)integer{
     
 }
 
+#pragma mark UIScrollView Delegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+
+}
 @end

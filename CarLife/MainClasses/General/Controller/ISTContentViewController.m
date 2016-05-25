@@ -239,7 +239,7 @@
 }
 
 #pragma mark - customtabbar delegate
-- (void)didTabbarViewButtonTouched:(int)index
+- (void)didTabbarViewButtonTouched:(NSInteger)index
 {
     self.selectedIndex = index;
     
