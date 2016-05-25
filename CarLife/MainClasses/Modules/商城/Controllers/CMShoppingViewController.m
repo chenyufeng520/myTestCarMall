@@ -106,8 +106,6 @@
     _contentView.delegate = self;
     _contentView.pagingEnabled = YES;
     _contentView.backgroundColor = [UIColor whiteColor];
-    [_contentView showsHorizontalScrollIndicator];
-
     _contentView.contentSize = CGSizeMake(kScreen_Width*4, _contentView.height);
     
     _underline = [[UIView alloc] initWithFrame:CGRectMake(0, h-1, w, 1)];
