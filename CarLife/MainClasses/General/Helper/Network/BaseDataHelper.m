@@ -141,6 +141,50 @@ static BaseDataHelper *_sharedInst = nil;
     }
 }
 
+- (void)commonRequestForURLStr:(NSString*)URLStr requestMethod:(NSString*)requestMethod info:(NSDictionary *)requestInfo andBlock:(void (^)(id response, NSError *error))block{
+    NSString *urlString = nil;
+    
+    if ([requestMethod isEqualToString:@"GET"]) {
+        urlString = [self setParameter:requestInfo withBaseUrl:[NSString stringWithFormat:@"%@",URLStr]];
+        requestMethod = @"GET";
+    }
+    else
+    {
+        urlString = [NSString stringWithFormat:@"%@",URLStr];
+    }
+    
+    urlString = [NSString encodeChineseToUTF8:urlString];
+    
+    BSLog(@"\n请求路径：%@\n***请求参数：\n%@\n***结束\n\n",urlString,requestInfo);
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    configuration.HTTPCookieAcceptPolicy = NSHTTPCookieAcceptPolicyAlways;
+    configuration.HTTPShouldSetCookies = YES;
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:configuration];
+    [manager setResponseSerializer:[AFJSONResponseSerializer new]];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", nil];//[NSSet setWithObject:@"application/json"];
+    [manager.requestSerializer setTimeoutInterval:60];
+    
+    if ([requestMethod isEqualToString:@"POST"]) {
+        [manager POST:urlString parameters:requestInfo  success:^(NSURLSessionDataTask *task, id responseObject){
+            BSLog(@"\n\n路径:%@\n***请求结果:\n%@\n***结束\n\n", task.response.URL,responseObject);
+            block(responseObject,nil);
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            BSLog(@"%@",error);
+            block(nil,error);
+        }];
+    } else {
+        [manager GET:urlString parameters:nil  success:^(NSURLSessionDataTask *task, id responseObject) {
+            BSLog(@"\n\n路径:%@\n***请求结果:\n%@\n***结束\n\n", task.response.URL,responseObject);
+            block(responseObject,nil);
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            BSLog(@"%@",error);
+            block(nil,error);
+        }];
+    }
+
+}
+
 #pragma mark - 上传图片（不带进度条）
 
 - (void)updateImages:(NSArray *)imageArray urlStr:(NSString *)URLStr info:(NSDictionary *)requestInfo andBlock:(void (^)(id response, NSError *error))block

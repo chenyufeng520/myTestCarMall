@@ -99,8 +99,8 @@
         str = @"请求数据失败！";
     }
     NSString *msg = str;
-    if ([[dict objectForKey:@"msg"] isKindOfClass:[NSString class]]) {
-        msg = [dict objectForKey:@"msg"];
+    if ([[dict objectForKey:@"message"] isKindOfClass:[NSString class]]) {
+        msg = [dict objectForKey:@"message"];
     }
     
     kTipAlert(@"%@",msg);

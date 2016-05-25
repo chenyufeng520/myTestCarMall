@@ -243,7 +243,7 @@
 {
     [[NSUserDefaults standardUserDefaults] setValue:@"" forKey:wxUserid];
     //登录成功保存用户信息
-    [[NSUserDefaults standardUserDefaults] setValue:[dic[@"userID"] stringValue] forKey:kUserid];
+    [[NSUserDefaults standardUserDefaults] setValue:[dic[@"uid"] stringValue] forKey:kUserid];
     [[NSUserDefaults standardUserDefaults] setValue:_phoneTf.text forKey:kPhone];
     [[NSUserDefaults standardUserDefaults] synchronize];
     

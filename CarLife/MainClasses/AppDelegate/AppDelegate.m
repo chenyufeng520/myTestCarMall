@@ -57,10 +57,10 @@
     [self applicationConfiguration];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = kWhiteColor;
-//    GifViewController *VC = [[GifViewController alloc] init];
-//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:VC];
-//    self.window.rootViewController = nav;
-//    [self.window makeKeyAndVisible];
+    //    GifViewController *VC = [[GifViewController alloc] init];
+    //    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:VC];
+    //    self.window.rootViewController = nav;
+    //    [self.window makeKeyAndVisible];
     [self layoutMainView:nil];
     
     
@@ -87,19 +87,16 @@
     self.loginNavigation =[[ISTBaseNavigationController alloc] initWithRootViewController:self.loginVC];
     self.loginNavigation.navigationBarHidden = YES;
     
-    [self.window setRootViewController:self.rootNavigation];
-    [self showTabBar];
-    
-//    [self.window setRootViewController:self.rootNavigation];
-//    [self.window makeKeyAndVisible];
-    
-    //    if (![LoginCenter isLoginValid]) {
-    //        [self showLoginView];
-    //    }
-    //    else
-    //    {
-    //    [self showTabBar];
-    //    }
+    if (![LoginCenter isLoginValid]) {
+        
+        [self.window setRootViewController:self.loginNavigation];
+    }
+    else
+    {
+        
+        [self.window setRootViewController:self.rootNavigation];
+    }
+    [self.window makeKeyAndVisible];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

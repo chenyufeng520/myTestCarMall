@@ -398,36 +398,33 @@
 //登录按钮响应
 - (void)onLoginResponse{
     [self.view endEditing:YES];
-   
-    //登录完成显示首页
-    [[NSNotificationCenter defaultCenter] postNotificationName:kTurnBackHomeNotification object:nil];
-    //登录成功，需要做操作的界面接收此通知
-    [[NSNotificationCenter defaultCenter] postNotificationName:kLoginSucceedNotification object:nil];
-    [[AppDelegate shareDelegate] showTabBar];
-
     
-//    if ([self canLogin]) {
-//        
-//        __weak typeof(self) weakSelf = self;
-//        [[STHUDManager sharedManager] showHUDInView:self.view];
-//        [[LoginDataHelper defaultHelper] requestForURLStr:kLogin requestMethod:@"POST" info:@{@"phone":_nameTextField.text,@"password":_pwdTextField.text} andBlock:^(id response, NSError *error) {
-//            [[STHUDManager sharedManager] hideHUDInView:weakSelf.view];
-//            if ([response isKindOfClass:[NSDictionary class]]) {
-//                if ([response[@"result"] boolValue]) {
-//                    [weakSelf loginSuccessfully:response[@"data"]];
-//                }
-//                else
-//                {
-//                    [weakSelf outputErrorInfo:response andDefault:@"登录失败"];
-//                }
-//            }
-//            else
-//            {
-//                kTipAlert(@"服务器异常");
-//            }
-//        }];
-//
-//    }
+    if ([self canLogin]) {
+        
+        __weak typeof(self) weakSelf = self;
+        [[STHUDManager sharedManager] showHUDInView:self.view];
+        [[LoginDataHelper defaultHelper] requestForURLStr:@"index.php" requestMethod:@"GET" info:@{@"m":@"Api",@"c":@"User",@"a":@"loginHandle",@"user_username":_nameTextField.text,@"user_pwd":_pwdTextField.text} andBlock:^(id response, NSError *error) {
+            [[STHUDManager sharedManager] hideHUDInView:weakSelf.view];
+            
+            if ([response isKindOfClass:[NSDictionary class]]) {
+                int status = [response[@"status"] intValue];
+                
+                if (status == 200) {
+                    //请求成功，处理结果
+                    [weakSelf loginSuccessfully:response[@"data"]];
+                }
+                else
+                {
+                    [weakSelf outputErrorInfo:response andDefault:@"登录失败"];
+                }
+            }
+            else
+            {
+                   [weakSelf outputErrorInfo:nil andDefault:@"请求数据失败"];
+            }
+        }];
+
+    }
 
 }
 
@@ -445,7 +442,7 @@
 {
     [[STHUDManager sharedManager] hideHUDInView:self.view];
     
-    NSString *userid = [NSString stringWithFormat:@"%.0lf",[dic[@"userID"] doubleValue]];
+    NSString *userid = [NSString stringWithFormat:@"%.0lf",[dic[@"uid"] doubleValue]];
     [[NSUserDefaults standardUserDefaults] setObject:userid forKey:kUserid];
     [[NSUserDefaults standardUserDefaults] setValue:_pwdTextField.text forKey:kPassword];
     [[NSUserDefaults standardUserDefaults] setValue:_nameTextField.text forKey:kPhone];
