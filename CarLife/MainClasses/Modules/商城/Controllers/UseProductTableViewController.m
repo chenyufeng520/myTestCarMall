@@ -77,7 +77,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     UseProductCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    ProductDetailViewController *productDetail = [[ProductDetailViewController alloc] init];
+//    ProductDetailViewController *productDetail = [[ProductDetailViewController alloc] init];
+    ProductDetailViewController *productDetail = [[ProductDetailViewController alloc] initWithNibName:@"ProductDetailViewController" bundle:[NSBundle mainBundle]];
+
     productDetail.title = cell.nameLab.text;
     productDetail.productId = cell.productModel.gid;
 //    productDetail.hidesBottomBarWhenPushed = YES;

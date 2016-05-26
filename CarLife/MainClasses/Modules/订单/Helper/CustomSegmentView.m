@@ -39,7 +39,7 @@
     self.backgroundColor = [UIColor clearColor];
 //    self.layer.borderWidth = 1;
 //    self.layer.borderColor = [self.tintColor CGColor];
-    self.layer.cornerRadius = self.height * 0.5;
+    self.layer.cornerRadius = self.frame.size.height * 0.5;
     self.clipsToBounds = YES;
     self.botLabelArray = [[NSMutableArray alloc] init];
     self.topLabelArray = [[NSMutableArray alloc] init];
