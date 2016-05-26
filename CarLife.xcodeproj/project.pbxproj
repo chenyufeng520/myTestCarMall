@@ -38,6 +38,7 @@
 		71CAC5FF1CE5C8B500B4C705 /* startAnimation4.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAC5FA1CE5C8B500B4C705 /* startAnimation4.png */; };
 		71CAC6001CE5C8B500B4C705 /* startAnimation5.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CAC5FB1CE5C8B500B4C705 /* startAnimation5.png */; };
 		71CAFEF91CF45C660098CF4B /* DragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CAFEF81CF45C660098CF4B /* DragView.m */; };
+		71CCE63D1CF6A9960045F7C8 /* ISTSupBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CCE63C1CF6A9960045F7C8 /* ISTSupBaseViewController.m */; };
 		71D87F451CEE0D8B000D7525 /* OrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D87F441CEE0D8B000D7525 /* OrderCell.m */; };
 		8241D3051CF2CC9700411423 /* UseProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8241D3041CF2CC9700411423 /* UseProductTableViewController.m */; };
 		8241D3081CF2CE0800411423 /* TyreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8241D3071CF2CE0800411423 /* TyreTableViewController.m */; };
@@ -405,6 +406,8 @@
 		71CAC5FB1CE5C8B500B4C705 /* startAnimation5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startAnimation5.png; sourceTree = "<group>"; };
 		71CAFEF71CF45C650098CF4B /* DragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragView.h; sourceTree = "<group>"; };
 		71CAFEF81CF45C660098CF4B /* DragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragView.m; sourceTree = "<group>"; };
+		71CCE63B1CF6A9960045F7C8 /* ISTSupBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTSupBaseViewController.h; sourceTree = "<group>"; };
+		71CCE63C1CF6A9960045F7C8 /* ISTSupBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTSupBaseViewController.m; sourceTree = "<group>"; };
 		71D87F431CEE0D8B000D7525 /* OrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCell.h; sourceTree = "<group>"; };
 		71D87F441CEE0D8B000D7525 /* OrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCell.m; sourceTree = "<group>"; };
 		8241D3031CF2CC9700411423 /* UseProductTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UseProductTableViewController.h; sourceTree = "<group>"; };
@@ -2309,6 +2312,8 @@
 			children = (
 				CE34D1C81BF5C4C100EB31CF /* ISTBaseNavigationController.h */,
 				CE34D1C91BF5C4C100EB31CF /* ISTBaseNavigationController.m */,
+				71CCE63B1CF6A9960045F7C8 /* ISTSupBaseViewController.h */,
+				71CCE63C1CF6A9960045F7C8 /* ISTSupBaseViewController.m */,
 				CE34D1CA1BF5C4C100EB31CF /* ISTBaseViewController.h */,
 				CE34D1CB1BF5C4C100EB31CF /* ISTBaseViewController.m */,
 				CE34D1CC1BF5C4C100EB31CF /* ISTContentViewController.h */,
@@ -2859,7 +2864,7 @@
 				TargetAttributes = {
 					DC7B70191BD1F5B500327B03 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = Q9QGXP49FA;
+						DevelopmentTeam = PCUTZ5RAXB;
 					};
 				};
 			};
@@ -3128,6 +3133,7 @@
 				8259CBDE1CECC9AE00D6685C /* MWCaptionView.m in Sources */,
 				8259CBEF1CECC9AE00D6685C /* NSData+EMImageContentType.m in Sources */,
 				8259CBD01CECC9AE00D6685C /* MJRefreshAutoGifFooter.m in Sources */,
+				71CCE63D1CF6A9960045F7C8 /* ISTSupBaseViewController.m in Sources */,
 				82B41D191CF3479B00E4F844 /* ProductDetailViewController.m in Sources */,
 				8259CBFF1CECC9AE00D6685C /* PSTCollectionViewUpdateItem.m in Sources */,
 				8259CBCC1CECC9AE00D6685C /* MJRefreshBackFooter.m in Sources */,
@@ -3422,7 +3428,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunboxsoft.CarMall;
 				PRODUCT_NAME = CarLife;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "7e6072c6-2892-4529-97f9-47a840b4a37b";
 			};
 			name = Debug;
 		};
