@@ -21,12 +21,12 @@
 - (void)configUI{
     
     float cellWidth = self.width;
-    float imgWidth = cellWidth - kAdjustLength(60);
+    float imgWidth = cellWidth - kAdjustLength(70);
     
     _toolImg = [[UIImageView alloc] initWithFrame:CGRectMake(kAdjustLength(30), 0, imgWidth, imgWidth)];
     [self addSubview:_toolImg];
     
-    _toolTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, _toolImg.maxY, cellWidth, kAdjustLength(60))];
+    _toolTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, _toolImg.maxY + kAdjustLength(10), cellWidth, kAdjustLength(60))];
     _toolTitle.textAlignment = NSTextAlignmentCenter;
     _toolTitle.textColor = kDarkTextColor;
     _toolTitle.font = kFontNormal;
