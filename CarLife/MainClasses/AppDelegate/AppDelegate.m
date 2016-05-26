@@ -142,36 +142,6 @@
     return kvDic;
 }
 
-#pragma mark - UMSocial
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-    NSLog(@"application %@", application);
-    // 处理调用
-    // 这里处理新浪微博SSO授权之后跳转回来，和微信分享完成之后跳转回来
-    NSLog(@"source app-%@, des app-%@",sourceApplication,application);
-    if ([sourceApplication isEqualToString:@"com.tencent.xin"]) {
-        return [WXApi handleOpenURL:url delegate:self];
-    }
-    else if([url.host isEqualToString:@"safepay"])
-    {
-        //resultUrl 钱包返回的授权结果url
-        //这个方法的block没调用，官方demo也没调用，莫名其妙的调用了BSPayCenter里的block方法：[[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic)
-        [[AlipaySDK defaultService] processOrderWithPaymentResult:url
-                                                  standbyCallback:^(NSDictionary *resultDic) {
-                                                      NSLog(@"result = %@",resultDic);
-                                                      NSString *resultSting = resultDic[@"result"];
-                                                      NSLog(@"%@",resultSting);
-                                                  }];
-        return YES;
-        
-    }
-    //UMSocial
-    else
-    {
-        return  [UMSocialSnsService handleOpenURL:url wxApiDelegate:nil];
-    }
-}
-
 #pragma mark - 友盟分享 method private
 - (void)showShareOn:(ISTBaseViewController *)vc content:(NSString *)text imageUrl:(NSString *)imageUrl shareUrl:(NSString *)url wxsessionContent:(NSDictionary *)wxsessionContent
 {
@@ -326,25 +296,71 @@
     [WXApi registerApp:wxAppKey withDescription:@"weixin"];
 }
 
--(void)onResp:(BaseReq *)resp
-{
-    /*
-     ErrCode ERR_OK = 0(用户同意)
-     ERR_AUTH_DENIED = -4（用户拒绝授权）
-     ERR_USER_CANCEL = -2（用户取消）
-     code    用户换取access_token的code，仅在ErrCode为0时有效
-     state   第三方程序发送时用来标识其请求的唯一性的标志，由第三方程序调用sendReq时传入，由微信终端回传，state字符串长度不能超过1K
-     lang    微信客户端当前语言
-     country 微信用户当前国家信息
-     */
-    SendAuthResp *aresp = (SendAuthResp *)resp;
-    
-    if (aresp.errCode == 0) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"WexinLogin" object:nil userInfo:@{@"code":aresp.code}];
+#pragma mark - WXApiDelegate
+- (void)onResp:(BaseResp *)resp {
+    //微信登录
+    if ([resp isKindOfClass:[SendAuthResp class]]) {
+        
+        SendAuthResp *authResp = (SendAuthResp *)resp;
+        if (authResp.errCode == 0) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"WexinLogin" object:nil userInfo:@{@"code":authResp.code}];
+        }
+        else
+        {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"WexinLoginFailed" object:nil];
+        }
+        
     }
-    
+    //微信支付
+    else if([resp isKindOfClass:[PayResp class]]){
+        //支付返回结果，实际支付结果需要去微信服务器端查询
+        
+        switch (resp.errCode) {
+            case WXSuccess:
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:kPaySucceedNotification object:@{@"result":[NSNumber numberWithBool:YES]}];
+                NSLog(@"支付成功－PaySuccess，retcode = %d", resp.errCode);
+                break;
+                
+            default:
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:kPaySucceedNotification object:@{@"result":[NSNumber numberWithBool:NO]}];
+                NSLog(@"错误，retcode = %d, retstr = %@", resp.errCode,resp.errStr);
+                break;
+        }
+    }
 }
 
+#pragma mark - UMSocial
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    NSLog(@"application %@", application);
+    // 处理调用
+    // 这里处理新浪微博SSO授权之后跳转回来，和微信分享完成之后跳转回来
+    NSLog(@"source app-%@, des app-%@",sourceApplication,application);
+    if ([sourceApplication isEqualToString:@"com.tencent.xin"]) {
+        return [WXApi handleOpenURL:url delegate:self];
+    }
+    else if([url.host isEqualToString:@"safepay"])
+    {
+        //跳转支付宝钱包进行支付，处理支付结果
+        //        这个方法的block没调用，官方demo也没调用，莫名其妙的调用了BSPayCenter里的block方法：[[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic)
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url
+                                                  standbyCallback:^(NSDictionary *resultDic) {
+                                                      NSLog(@"result = %@",resultDic);
+                                                      NSString *resultSting = resultDic[@"result"];
+                                                      NSLog(@"%@",resultSting);
+                                                  }];
+        
+        return YES;
+        
+    }
+    //UMSocial
+    else
+    {
+        return  [UMSocialSnsService handleOpenURL:url wxApiDelegate:nil];
+    }
+}
 
 - (BOOL)application:(UIApplication *)application
       handleOpenURL:(NSURL *)url

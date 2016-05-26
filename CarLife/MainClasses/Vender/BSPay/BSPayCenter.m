@@ -18,7 +18,6 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "DataSigner.h"
 #import "UPPayPlugin.h"
-#import "BaseGlobalDef.h"
 
 static NSString *const kOrderID = @"OrderID";
 static NSString *const kTotalAmount = @"TotalAmount";
@@ -56,162 +55,173 @@ typedef void(^paymentFinishCallBack)(int statusCode, NSString *statusMessage, NS
     return self;
 }
 
-#pragma mark -
++(BOOL) isWXAppInstalled{
+    
+    [WXApi registerApp:kWXAppID];
+    BOOL isInstalled = NO;
+    if ([WXApi isWXAppInstalled]) {
+        isInstalled = YES;
+    }
+    return isInstalled;
+}
+
 #pragma mark - 微信支付过程
-//- (void)wxPayAction:(NSDictionary *)sender{
-//    _price = [NSString stringWithFormat:@"%.2f",[[sender objectForKey:@"amount"] floatValue] *100];
-//    
-//    NSString *strUrl = @"https://api.weixin.qq.com/cgi-bin/token";
-//    
-//    NSDictionary *param = @{
-//                            @"appid":kWXAppID,
-//                            @"secret":kWXAppSecret,
-//                            @"grant_type":@"client_credential"
-//                            };
-//    
-//    __weak BSPayCenter *tempObject = self;
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
-//    [manager GET:strUrl parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"%@",responseObject);
-//        
-//        _accessToken = [responseObject objectForKey:@"access_token"];
-//        [tempObject prepay];
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"%@",error);
-//    }];
-//}
-//
-//- (void)prepay {
-//    //https://api.weixin.qq.com/pay/genprepay?access_token=ACCESS_TOKEN
-//    
-//    
-//    NSMutableData *postData = [self getProductArgs];
-//    NSString *strUrl = [NSString stringWithFormat:@"https://api.weixin.qq.com/pay/genprepay?&access_token=%@",_accessToken];
-//    NSURLSessionConfiguration *conf = [NSURLSessionConfiguration defaultSessionConfiguration];
-//    AFURLSessionManager *sessMgr  = [[AFURLSessionManager alloc] initWithSessionConfiguration:conf];
-//    sessMgr.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
-//    
-//    NSURL *url = [NSURL URLWithString:strUrl];
-//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-//    [request setHTTPBody:postData];
-//    [request setHTTPMethod:@"POST"];
-//    
-//    __weak BSPayCenter *tempObject = self;
-//    NSURLSessionDataTask *task = [sessMgr dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-//        NSLog(@"%@  %@",responseObject,error);
-//        
-//        int errorCode = [responseObject[@"errcode"] intValue];
-//        if (0 == errorCode) {
-//            tempObject.prepayid = responseObject[@"prepayid"];
-//            if([tempObject.prepayid length] != 0){
-//                [tempObject pay];
-//            }
-//            else{
-//                NSLog(@"获取订单号失败");
-//            }
-//        }
-//        
-//        if ([responseObject[@"errcode"]integerValue] == 49004) {
-//            NSLog(@"%@",responseObject[@"errmsg"]);
-//            
-//        }
-//    }];
-//    
-//    [task resume];
-//    
-//    
-//}
-///*
-// app_signature 生成方法:  [self genSign:params]
-// A)参与签名的字段包括:appid、appkey、noncer、package、timestamp 以及 traceid
-// B)对所有待签名参数按照字段名的 ASCII 码从小到大排序(字典序)后,使用 URL 键值对的 格式(即 key1=value1&key2=value2...)拼接成字符串 string1。 注意:所有参数名均为小写字符
-// C)对 string1 作签名算法,字段名和字段值都采用原始值,不进行 URL 转义。具体签名算法 为 SHA1
-// */
-//- (NSMutableData *)getProductArgs
-//{
-//    self.timeStamp = [self genTimeStamp];
-//    self.nonceStr = [self genNonceStr];
-//    // traceId 由开发者自定义，可用于订单的查询与跟踪，建议根据支付用户信息生成此id
-//    self.traceId = [self genTraceId];
-//    self.package = [self genPackage];
-//    
-//    
-//    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-//    [params setObject:kWXAppID forKey:@"appid"];
-//    [params setObject:kWXAppKey forKey:@"appkey"];
-//    [params setObject:self.nonceStr forKey:@"noncestr"];
-//    [params setObject:self.timeStamp forKey:@"timestamp"];
-//    [params setObject:self.traceId forKey:@"traceid"];
-//    [params setObject:self.package forKey:@"package"];
-//    [params setObject:[self genSign:params] forKey:@"app_signature"];
-//    [params setObject:@"sha1" forKey:@"sign_method"];
-//    
-//    NSError *error = nil;
-//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error: &error];
-//    NSLog(@"--- ProductArgs: %@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
-//    return [NSMutableData dataWithData:jsonData];
-//}
-//
-//#pragma mark  开始支付
-//- (void)pay{
-//    //构造支付请求
-//    PayReq *request = [[PayReq alloc]init];
-//    request.partnerId = kWXPartnerId;
-//    request.prepayId = self.prepayid;
-//    request.package = @"Sign=WXPay";
-//    request.nonceStr = self.nonceStr;
-//    request.timeStamp = [self.timeStamp integerValue];
-//    
-//    //构造参数列表
-//    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-//    [params setObject:kWXAppID forKey:@"appid"];
-//    [params setObject:kWXAppKey forKey:@"appkey"];
-//    [params setObject:request.nonceStr forKey:@"noncestr"];
-//    [params setObject:request.package forKey:@"package"];
-//    [params setObject:request.partnerId forKey:@"partnerid"];
-//    [params setObject:request.prepayId forKey:@"prepayid"];
-//    [params setObject:self.timeStamp forKey:@"timestamp"];
-//    request.sign = [self genSign:params];
-//    
-//    
-//    
-//    [WXApi sendReq:request];
-//    
-//}
-//
-////测试：
-//- (void)wxPay:(NSDictionary *)info{
-//    //构造支付请求
-//    PayReq *request = [[PayReq alloc]init];
-//    request.partnerId = [info objectForKey:@"partnerid"];
-//    request.prepayId = [info objectForKey:@"prepayid"];
-//    request.package = [info objectForKey:@"package"];
-//    request.nonceStr = [info objectForKey:@"noncestr"];
-//    request.timeStamp = [[info objectForKey:@"timestamp"] integerValue];
-//    request.sign = [info objectForKey:@"sign"];
-//    
-////    request.partnerId = @"1236247102";//[info objectForKey:@"partnerid"];
-////    request.prepayId = @"wx20150407233519eba501d7900855160015";
-////    request.package = @"Sign=WXPay";//[info objectForKey:@"package"];
-////    //request.nonceStr = [info objectForKey:@"noncestr"];
-////    request.timeStamp = 1428420919;//[[info objectForKey:@"timestamp"] integerValue];
-////    request.sign = @"F94CB1D69414060C2AF5861276D12F2C";
-//    BOOL paySucceed  = [WXApi sendReq:request];
-//    if(paySucceed == NO){
-//        BSLog(@"支付失败");
-//    }
-//    //    [[NSNotificationCenter defaultCenter] postNotificationName:kPaySucceedNotification object:@{@"result":[NSNumber numberWithBool:paySucceed]}];
-//}
+- (NSString *)wxPayAction:(NSDictionary *)sender{
+    
+    // V3&V4支付流程实现
+    // 注意:参数配置请查看服务器端Demo
+    // 更新时间：2015年11月20日
+    //============================================================
+        NSString *urlString   = @"http://wxpay.weixin.qq.com/pub_v2/app/app_pay.php?plat=ios";
+//    NSString *urlString   = [NSString stringWithFormat:@"http://www.uhuitong.com:9000/trustPay/weixinPay?orderid=%@",sender[@"orderid"]];
+  
+    //解析服务端返回json数据
+    NSError *error;
+    //加载一个NSURL对象
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    //将请求的url数据放到NSData对象中
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    if ( response != nil) {
+        NSMutableDictionary *dict = NULL;
+        //IOS5自带解析类NSJSONSerialization从response中解析出数据放到字典中
+        dict = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+        
+        NSLog(@"url:%@",urlString);
+        if(dict != nil){
+            NSMutableString *retcode = [dict objectForKey:@"retcode"];
+            if (retcode.intValue == 0){
+                NSMutableString *stamp  = [dict objectForKey:@"timestamp"];
+                
+                //调起微信支付
+                PayReq* req             = [[PayReq alloc] init];
+                req.partnerId           = [dict objectForKey:@"partnerid"];
+                req.prepayId            = [dict objectForKey:@"prepayid"];
+                req.nonceStr            = [dict objectForKey:@"noncestr"];
+                req.timeStamp           = stamp.intValue;
+                req.package             = [dict objectForKey:@"package"];
+                req.sign                = [dict objectForKey:@"sign"];
+                [WXApi sendReq:req];
+                //日志输出
+                NSLog(@"appid=%@\npartid=%@\nprepayid=%@\nnoncestr=%@\ntimestamp=%ld\npackage=%@\nsign=%@",[dict objectForKey:@"appid"],req.partnerId,req.prepayId,req.nonceStr,(long)req.timeStamp,req.package,req.sign );
+                return @"";
+            }else{
+                return [dict objectForKey:@"retmsg"];
+            }
+        }else{
+            return @"服务器返回错误，未获取到json对象";
+        }
+    }else{
+        return @"服务器返回错误";
+    }
+}
+
+
+- (void)prepay {
+    //https://api.weixin.qq.com/pay/genprepay?access_token=ACCESS_TOKEN
+    
+    
+    NSMutableData *postData = [self getProductArgs];
+    NSString *strUrl = [NSString stringWithFormat:@"https://api.weixin.qq.com/pay/genprepay?&access_token=%@",_accessToken];
+    NSURLSessionConfiguration *conf = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *sessMgr  = [[AFURLSessionManager alloc] initWithSessionConfiguration:conf];
+    sessMgr.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
+    
+    NSURL *url = [NSURL URLWithString:strUrl];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setHTTPBody:postData];
+    [request setHTTPMethod:@"POST"];
+    
+    __weak BSPayCenter *tempObject = self;
+    NSURLSessionDataTask *task = [sessMgr dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        NSLog(@"%@  %@",responseObject,error);
+        
+        int errorCode = [responseObject[@"errcode"] intValue];
+        if (0 == errorCode) {
+            tempObject.prepayid = responseObject[@"prepayid"];
+            if([tempObject.prepayid length] != 0){
+                [tempObject pay];
+            }
+            else{
+                NSLog(@"获取订单号失败");
+            }
+        }
+        
+        if ([responseObject[@"errcode"]integerValue] == 49004) {
+            NSLog(@"%@",responseObject[@"errmsg"]);
+            
+        }
+    }];
+    
+    [task resume];
+    
+    
+}
+/*
+ app_signature 生成方法:  [self genSign:params]
+ A)参与签名的字段包括:appid、appkey、noncer、package、timestamp 以及 traceid
+ B)对所有待签名参数按照字段名的 ASCII 码从小到大排序(字典序)后,使用 URL 键值对的 格式(即 key1=value1&key2=value2...)拼接成字符串 string1。 注意:所有参数名均为小写字符
+ C)对 string1 作签名算法,字段名和字段值都采用原始值,不进行 URL 转义。具体签名算法 为 SHA1
+ */
+- (NSMutableData *)getProductArgs
+{
+    self.timeStamp = [self genTimeStamp];
+    self.nonceStr = [self genNonceStr];
+    // traceId 由开发者自定义，可用于订单的查询与跟踪，建议根据支付用户信息生成此id
+    self.traceId = [self genTraceId];
+    self.package = [self genPackage];
+    
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:kWXAppID forKey:@"appid"];
+    [params setObject:kWXAppKey forKey:@"appkey"];
+    [params setObject:self.nonceStr forKey:@"noncestr"];
+    [params setObject:self.timeStamp forKey:@"timestamp"];
+    [params setObject:self.traceId forKey:@"traceid"];
+    [params setObject:self.package forKey:@"package"];
+    [params setObject:[self genSign:params] forKey:@"app_signature"];
+    [params setObject:@"sha1" forKey:@"sign_method"];
+    
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error: &error];
+    NSLog(@"--- ProductArgs: %@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
+    return [NSMutableData dataWithData:jsonData];
+}
+
+#pragma mark  开始支付
+- (void)pay{
+    //构造支付请求
+    PayReq *request = [[PayReq alloc]init];
+    request.partnerId = kWXPartnerId;
+    request.prepayId = self.prepayid;
+    request.package = @"Sign=WXPay";
+    request.nonceStr = self.nonceStr;
+    request.timeStamp = [self.timeStamp integerValue];
+    
+    //构造参数列表
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:kWXAppID forKey:@"appid"];
+    [params setObject:kWXAppKey forKey:@"appkey"];
+    [params setObject:request.nonceStr forKey:@"noncestr"];
+    [params setObject:request.package forKey:@"package"];
+    [params setObject:request.partnerId forKey:@"partnerid"];
+    [params setObject:request.prepayId forKey:@"prepayid"];
+    [params setObject:self.timeStamp forKey:@"timestamp"];
+    request.sign = [self genSign:params];
+    
+    
+    
+    [WXApi sendReq:request];
+    
+}
 
 - (void)wxPay:(NSDictionary *)info{
     //构造支付请求
     PayReq *request = [[PayReq alloc]init];
     request.partnerId = [info objectForKey:@"partnerid"];
     request.prepayId = [info objectForKey:@"prepayid"];
-    request.package = [info objectForKey:@"packages"];
+    request.package = [info objectForKey:@"packageValue"];
     request.nonceStr = [info objectForKey:@"noncestr"];
     request.timeStamp = (UInt32)[[info objectForKey:@"timestamp"] integerValue];
     request.sign = [info objectForKey:@"sign"];
@@ -465,7 +475,7 @@ typedef void(^paymentFinishCallBack)(int statusCode, NSString *statusMessage, NS
     if ([result isEqualToString:@"success"]) {
         flag = YES;
     }
-
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:kPaySucceedNotification object:@{@"result":[NSNumber numberWithBool:flag]}];
 }
 

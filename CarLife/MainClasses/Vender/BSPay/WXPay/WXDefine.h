@@ -10,11 +10,9 @@
  微信支付参数：
  注意 ：参数需要你自己提供
  */
-//#define kWXAppID @"wxd930ea5d5a258f4f"
-//#define kWXAppSecret @"db426a9829e4b49a0dcac7b4162da6b6"
 
-#define kWXAppID @"wxac4778adb8dbc9ea"
-#define kWXAppSecret @"da972b13215611e5291c31374534d3b8"
+#define kWXAppID @"wxb4ba3c02aa476ea1"
+#define kWXAppSecret @"db426a9829e4b49a0dcac7b4162da6b6"
 /**
  * 微信开放平台和商户约定的支付密钥
  *

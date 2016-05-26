@@ -32,10 +32,10 @@
 			<key>CFBundleURLIconFile</key>
 			<string>icon</string>
 			<key>CFBundleURLName</key>
-			<string>com.sunboxsoft.Project</string>
+			<string>com.sunboxsoft.CarMall</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>bsport</string>
+				<string>carMall</string>
 			</array>
 		</dict>
 		<dict>
@@ -52,10 +52,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>weixin</string>
+			<string>weixinpay</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wxac4778adb8dbc9ea</string>
+				<string>wxb4ba3c02aa476ea1</string>
 			</array>
 		</dict>
 		<dict>

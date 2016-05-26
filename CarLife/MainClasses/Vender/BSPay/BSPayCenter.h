@@ -26,4 +26,12 @@
 - (void)zfbPay:(NSDictionary *)info;
 - (void)uppay:(NSString *)tn mode:(NSString *)mode viewController:(UIViewController *)vc;
 
+- (NSString *)wxPayAction:(NSDictionary *)sender;
+
+/*! @brief 检查微信是否已被用户安装
+ *
+ * @return 微信已安装返回YES，未安装返回NO。
+ */
++(BOOL) isWXAppInstalled;
+
 @end

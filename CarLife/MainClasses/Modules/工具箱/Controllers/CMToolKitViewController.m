@@ -40,7 +40,7 @@
     [self.view addSubview:_tbTop];
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, _contentView.width, _contentView.height) collectionViewLayout:layout];
+    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, kAdjustLength(40), _contentView.width, _contentView.height - kAdjustLength(40)) collectionViewLayout:layout];
     [_collectionView setBackgroundColor:[UIColor clearColor]];
     [_collectionView registerClass:[ToolKitCell class] forCellWithReuseIdentifier:@"cell"];
     _collectionView.dataSource = self;
