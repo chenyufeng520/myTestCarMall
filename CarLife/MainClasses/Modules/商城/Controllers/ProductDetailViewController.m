@@ -64,6 +64,9 @@
     _productImage = [[UIImageView alloc] init];
     [_contentView addSubview:_productImage];
     
+    _labOnImage = [[UILabel alloc] init];
+    [_productImage addSubview:_labOnImage];
+    
     _productIntroLab = [[UILabel alloc] init];
     _productIntroLab.font = [UIFont systemFontOfSize:14];
     _productIntroLab.numberOfLines = 0;
