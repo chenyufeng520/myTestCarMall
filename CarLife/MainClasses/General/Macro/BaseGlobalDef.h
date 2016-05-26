@@ -138,6 +138,9 @@ typedef enum {
 #define kFontMini               [UIFont systemFontOfSize:10]
 #define kFontMiniBold           [UIFont boldSystemFontOfSize:10]
 
+
+/** 图片网址拼接*/
+#define KImageUrl(a) [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kMainDomain,a]]
 /**通知**/
 static NSString *kLoginNotification                 = @"kLoginNotification";                //登录操作
 static NSString *kLogoutNotification                = @"kLogoutNotification";               //注销操作

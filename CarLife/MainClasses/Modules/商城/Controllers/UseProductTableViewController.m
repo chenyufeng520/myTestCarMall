@@ -12,6 +12,7 @@
 #import "UseProductModel.h"
 #import "ProductDetailViewController.h"
 #import "AppDelegate.h"
+#import "GoodsDetailViewController.h"
 
 @interface UseProductTableViewController ()
 
@@ -77,14 +78,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     UseProductCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//    ProductDetailViewController *productDetail = [[ProductDetailViewController alloc] init];
-    ProductDetailViewController *productDetail = [[ProductDetailViewController alloc] initWithNibName:@"ProductDetailViewController" bundle:[NSBundle mainBundle]];
+    GoodsDetailViewController *goodsDetail = [[GoodsDetailViewController alloc] initWithNibName:@"GoodsDetailViewController" bundle:[NSBundle mainBundle]];
 
-    productDetail.title = cell.nameLab.text;
-    productDetail.productId = cell.productModel.gid;
-//    productDetail.hidesBottomBarWhenPushed = YES;
-    [[AppDelegate shareDelegate].rootNavigation pushViewController:productDetail animated:YES];
-//    [self.navigationController pushViewController:productDetail animated:YES];
+    goodsDetail.title = cell.nameLab.text;
+    goodsDetail.productModel = cell.productModel;
+    [[AppDelegate shareDelegate].rootNavigation pushViewController:goodsDetail animated:YES];
 }
 
 @end
