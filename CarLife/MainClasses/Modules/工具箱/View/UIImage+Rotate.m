@@ -2,8 +2,8 @@
 //  UIImage+Rotate.m
 //  IphoneMapSdkDemo
 //
-//  Created by wzy on 14-11-14.
-//  Copyright (c) 2014年 Baidu. All rights reserved.
+//  Created by 陈宇峰 on 16/5/27.
+//  Copyright © 2016年 陈宇峰. All rights reserved.
 //
 
 #import "UIImage+Rotate.h"
