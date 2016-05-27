@@ -239,7 +239,6 @@
 		8259CCC21CECCB7C00D6685C /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8259CCC11CECCB7C00D6685C /* ChatViewController.m */; };
 		8259CCC41CECCC0A00D6685C /* EaseUIResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8259CCC31CECCC0A00D6685C /* EaseUIResource.bundle */; };
 		8272E0071CF6B36600BB3AD7 /* GoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8272E0051CF6B36600BB3AD7 /* GoodsDetailViewController.m */; };
-		8272E0081CF6B36600BB3AD7 /* GoodsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8272E0061CF6B36600BB3AD7 /* GoodsDetailViewController.xib */; };
 		82B41D191CF3479B00E4F844 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B41D181CF3479B00E4F844 /* ProductDetailViewController.m */; };
 		82C248EC1CF4300E00CA440B /* ValidObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C248EB1CF4300E00CA440B /* ValidObject.m */; };
 		82E9526C1CF576540078E89B /* CustomSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E9526B1CF576540078E89B /* CustomSegmentView.m */; };
@@ -797,7 +796,6 @@
 		8259CCC31CECCC0A00D6685C /* EaseUIResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EaseUIResource.bundle; sourceTree = "<group>"; };
 		8272E0041CF6B36600BB3AD7 /* GoodsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailViewController.h; sourceTree = "<group>"; };
 		8272E0051CF6B36600BB3AD7 /* GoodsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailViewController.m; sourceTree = "<group>"; };
-		8272E0061CF6B36600BB3AD7 /* GoodsDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodsDetailViewController.xib; sourceTree = "<group>"; };
 		82B41D171CF3479B00E4F844 /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
 		82B41D181CF3479B00E4F844 /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
 		82C248EA1CF4300E00CA440B /* ValidObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValidObject.h; sourceTree = "<group>"; };
@@ -1175,7 +1173,6 @@
 				82B41D181CF3479B00E4F844 /* ProductDetailViewController.m */,
 				8272E0041CF6B36600BB3AD7 /* GoodsDetailViewController.h */,
 				8272E0051CF6B36600BB3AD7 /* GoodsDetailViewController.m */,
-				8272E0061CF6B36600BB3AD7 /* GoodsDetailViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -2864,7 +2861,7 @@
 				TargetAttributes = {
 					DC7B70191BD1F5B500327B03 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = PCUTZ5RAXB;
+						DevelopmentTeam = Q9QGXP49FA;
 					};
 				};
 			};
@@ -2908,7 +2905,6 @@
 				8259CCAE1CECC9C300D6685C /* VoiceSearchFeedback010@2x.png in Resources */,
 				CE34D1A21BF596DB00EB31CF /* icons-lock@3x.png in Resources */,
 				8259CC8E1CECC9C300D6685C /* chatBar_face@2x.png in Resources */,
-				8272E0081CF6B36600BB3AD7 /* GoodsDetailViewController.xib in Resources */,
 				8259CC9F1CECC9C300D6685C /* chat_receiver_audio_playing000@2x.png in Resources */,
 				8259CC7E1CECC9C300D6685C /* in.caf in Resources */,
 				8259CCAA1CECC9C300D6685C /* VoiceSearchFeedback006@2x.png in Resources */,
@@ -3430,7 +3426,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunboxsoft.CarMall;
 				PRODUCT_NAME = CarLife;
-				PROVISIONING_PROFILE = "7e6072c6-2892-4529-97f9-47a840b4a37b";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};

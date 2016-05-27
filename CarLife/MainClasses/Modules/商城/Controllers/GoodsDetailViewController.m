@@ -9,15 +9,6 @@
 #import "GoodsDetailViewController.h"
 
 @interface GoodsDetailViewController ()
-@property (weak, nonatomic) IBOutlet UIScrollView *contentView;
-@property (weak, nonatomic) IBOutlet UIImageView *topImageView;
-@property (weak, nonatomic) IBOutlet UILabel *labelOnImage;
-@property (weak, nonatomic) IBOutlet UILabel *introLabel;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topImageViewHeight;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *alphaLabelHeight;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *alphaLabelToTop;
-
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrToTopHeight;
 @end
 
 @implementation GoodsDetailViewController
@@ -43,24 +34,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadSubviews];
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    [self initConstantWithData];
+    [self initWithData];
 }
 
-/** 根据传过来的模型数据设置约束*/
-- (void)initConstantWithData{
-    _scrToTopHeight.constant = self.iosChangeFloat + kNavHeight;
-    _topImageViewHeight.constant = kScreen_Width *9/16.f;
+- (void)initWithData{
     
-    [_topImageView sd_setImageWithURL:KImageUrl(self.productModel.goods_picurl) placeholderImage:[UIImage imageNamed:@"占位图"]];
-    
-    _alphaLabelHeight.constant = kAdjustLength(100);
-    _alphaLabelToTop.constant = _topImageViewHeight.constant - kAdjustLength(100);
-    _labelOnImage.text = [NSString stringWithFormat:@"%@(%@)",self.productModel.goods_name,self.productModel.goods_remark];
-    
-    _introLabel.text = self.productModel.goods_intr;
-    
-    _contentView.contentSize = CGSizeMake(kScreen_Width,kScreen_Height - self.iosChangeFloat - kNavHeight);
 }
 
 #pragma mark - Click Menu
