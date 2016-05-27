@@ -9,6 +9,8 @@
 #import "CMToolKitViewController.h"
 #import "ToolKitCell.h"
 #import "UIAlertHelper.h"
+#import "RoadSearchViewController.h"
+#import "AppDelegate.h"
 
 @interface CMToolKitViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 {
@@ -87,9 +89,15 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    //敬请期待
-    KTipFun;
-    return ;
+    if (indexPath.row == 3) {
+        RoadSearchViewController *roadVC = [[RoadSearchViewController alloc] init];
+        [[AppDelegate shareDelegate].rootNavigation pushViewController:roadVC animated:YES];
+    }
+    else{
+        //敬请期待
+        KTipFun;
+        return ;
+    }
 }
 
 

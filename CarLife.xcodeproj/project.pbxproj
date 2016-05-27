@@ -17,6 +17,8 @@
 		71249F851CEF433E00C2151D /* UseProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71249F841CEF433E00C2151D /* UseProductModel.m */; };
 		713F07DA1C9DCAD100BC2462 /* CMShoppingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F07D91C9DCAD100BC2462 /* CMShoppingViewController.m */; };
 		713F08721CF55B190022A009 /* ShoppingCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F08711CF55B190022A009 /* ShoppingCarViewController.m */; };
+		7163AB981CF7DD0B00C0FC3C /* RoadSearchViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7163AB971CF7DD0B00C0FC3C /* RoadSearchViewController.mm */; };
+		7163AB9B1CF7DD1900C0FC3C /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7163AB9A1CF7DD1900C0FC3C /* UIImage+Rotate.m */; };
 		7163F97E1CED534300BB565B /* PersonInfoListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7163F97D1CED534300BB565B /* PersonInfoListCell.m */; };
 		7163F9801CED557100BB565B /* mine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7163F97F1CED557100BB565B /* mine.xcassets */; };
 		7163F9831CED5C2100BB565B /* PersonHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7163F9821CED5C2100BB565B /* PersonHeadCell.m */; };
@@ -326,8 +328,6 @@
 		DC45889E1BD37D8D0069FE64 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC45885A1BD374FE0069FE64 /* libz.tbd */; };
 		DC4588A01BD37D9A0069FE64 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC45889F1BD37D9A0069FE64 /* libsqlite3.tbd */; };
 		DC4588A61BD383B80069FE64 /* BSVoicePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DC4588A51BD383B80069FE64 /* BSVoicePlayer.m */; };
-		DC55CE4F1BD2AF7A00A92782 /* MapViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = DC55CE4E1BD2AF7A00A92782 /* MapViewController.mm */; };
-		DC55CE521BD2B03B00A92782 /* BSPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = DC55CE511BD2B03B00A92782 /* BSPointAnnotation.m */; };
 		DC55CE541BD2B16900A92782 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC55CE531BD2B16900A92782 /* MapKit.framework */; };
 		DC55CE581BD2B9F000A92782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC55CE571BD2B9F000A92782 /* Images.xcassets */; };
 		DC7B701F1BD1F5B500327B03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7B701E1BD1F5B500327B03 /* main.m */; };
@@ -372,6 +372,10 @@
 		713F07D91C9DCAD100BC2462 /* CMShoppingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMShoppingViewController.m; sourceTree = "<group>"; };
 		713F08701CF55B190022A009 /* ShoppingCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCarViewController.h; sourceTree = "<group>"; };
 		713F08711CF55B190022A009 /* ShoppingCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCarViewController.m; sourceTree = "<group>"; };
+		7163AB961CF7DD0B00C0FC3C /* RoadSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoadSearchViewController.h; sourceTree = "<group>"; };
+		7163AB971CF7DD0B00C0FC3C /* RoadSearchViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RoadSearchViewController.mm; sourceTree = "<group>"; };
+		7163AB991CF7DD1900C0FC3C /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
+		7163AB9A1CF7DD1900C0FC3C /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
 		7163F97C1CED534300BB565B /* PersonInfoListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoListCell.h; sourceTree = "<group>"; };
 		7163F97D1CED534300BB565B /* PersonInfoListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfoListCell.m; sourceTree = "<group>"; };
 		7163F97F1CED557100BB565B /* mine.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mine.xcassets; sourceTree = "<group>"; };
@@ -1022,10 +1026,6 @@
 		DC45889F1BD37D9A0069FE64 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		DC4588A41BD383B80069FE64 /* BSVoicePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSVoicePlayer.h; sourceTree = "<group>"; };
 		DC4588A51BD383B80069FE64 /* BSVoicePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSVoicePlayer.m; sourceTree = "<group>"; };
-		DC55CE4D1BD2AF7A00A92782 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		DC55CE4E1BD2AF7A00A92782 /* MapViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MapViewController.mm; sourceTree = "<group>"; };
-		DC55CE501BD2B03B00A92782 /* BSPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSPointAnnotation.h; sourceTree = "<group>"; };
-		DC55CE511BD2B03B00A92782 /* BSPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSPointAnnotation.m; sourceTree = "<group>"; };
 		DC55CE531BD2B16900A92782 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DC55CE571BD2B9F000A92782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DC7B701A1BD1F5B500327B03 /* CarLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1220,6 +1220,8 @@
 			children = (
 				71A42A4F1C9E70CD00CA29FE /* CMToolKitViewController.h */,
 				71A42A501C9E70CD00CA29FE /* CMToolKitViewController.m */,
+				7163AB961CF7DD0B00C0FC3C /* RoadSearchViewController.h */,
+				7163AB971CF7DD0B00C0FC3C /* RoadSearchViewController.mm */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1238,6 +1240,8 @@
 			children = (
 				7163F9841CED6EBB00BB565B /* ToolKitCell.h */,
 				7163F9851CED6EBB00BB565B /* ToolKitCell.m */,
+				7163AB991CF7DD1900C0FC3C /* UIImage+Rotate.h */,
+				7163AB9A1CF7DD1900C0FC3C /* UIImage+Rotate.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2647,17 +2651,6 @@
 			path = WXSpeech;
 			sourceTree = "<group>";
 		};
-		DC55CE4C1BD2AF0E00A92782 /* BaiduMap */ = {
-			isa = PBXGroup;
-			children = (
-				DC55CE4D1BD2AF7A00A92782 /* MapViewController.h */,
-				DC55CE4E1BD2AF7A00A92782 /* MapViewController.mm */,
-				DC55CE501BD2B03B00A92782 /* BSPointAnnotation.h */,
-				DC55CE511BD2B03B00A92782 /* BSPointAnnotation.m */,
-			);
-			path = BaiduMap;
-			sourceTree = "<group>";
-		};
 		DC7B70111BD1F5B500327B03 = {
 			isa = PBXGroup;
 			children = (
@@ -2729,7 +2722,6 @@
 				DC86C3931BD36F86007DEE6F /* CLLocation+YCLocation */,
 				DC86C3C71BD36F86007DEE6F /* UUDatePicker_Block */,
 				DC86C38F1BD36C66007DEE6F /* ClickImage */,
-				DC55CE4C1BD2AF0E00A92782 /* BaiduMap */,
 				DC7B71E01BD1F9A000327B03 /* STHUDManager */,
 				DC7B71E31BD1F9A000327B03 /* Utilities */,
 				CED1C0C21BF44E6B007C94F3 /* BSPay */,
@@ -2872,7 +2864,7 @@
 				TargetAttributes = {
 					DC7B70191BD1F5B500327B03 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = Q9QGXP49FA;
+						DevelopmentTeam = PCUTZ5RAXB;
 					};
 				};
 			};
@@ -3089,6 +3081,7 @@
 				8259CC201CECC9AE00D6685C /* EaseMessageTimeCell.m in Sources */,
 				82E952721CF595D30078E89B /* SearchShopTextField.m in Sources */,
 				8259CC191CECC9AE00D6685C /* EaseRefreshTableViewController.m in Sources */,
+				7163AB981CF7DD0B00C0FC3C /* RoadSearchViewController.mm in Sources */,
 				8259CBF31CECC9AE00D6685C /* UIImage+EMWebP.m in Sources */,
 				CE34D1AB1BF596DB00EB31CF /* ISTLoginView.m in Sources */,
 				8259CBD61CECC9AE00D6685C /* MJRefreshGifHeader.m in Sources */,
@@ -3146,7 +3139,6 @@
 				82B41D191CF3479B00E4F844 /* ProductDetailViewController.m in Sources */,
 				8259CBFF1CECC9AE00D6685C /* PSTCollectionViewUpdateItem.m in Sources */,
 				8259CBCC1CECC9AE00D6685C /* MJRefreshBackFooter.m in Sources */,
-				DC55CE521BD2B03B00A92782 /* BSPointAnnotation.m in Sources */,
 				CE34D1C11BF5C42A00EB31CF /* ISTBase64.m in Sources */,
 				8259CC021CECC9AE00D6685C /* PSTGridLayoutRow.m in Sources */,
 				8259CBEE1CECC9AE00D6685C /* MKAnnotationView+EMWebCache.m in Sources */,
@@ -3202,8 +3194,8 @@
 				8259CBFE1CECC9AE00D6685C /* PSTCollectionViewLayout.m in Sources */,
 				DC7B701F1BD1F5B500327B03 /* main.m in Sources */,
 				8259CBE21CECC9AE00D6685C /* MWPhotoBrowser.m in Sources */,
-				DC55CE4F1BD2AF7A00A92782 /* MapViewController.mm in Sources */,
 				CE2747BB1BF4612200D2349D /* NSObject+Common.m in Sources */,
+				7163AB9B1CF7DD1900C0FC3C /* UIImage+Rotate.m in Sources */,
 				8259CBFD1CECC9AE00D6685C /* PSTCollectionViewItemKey.m in Sources */,
 				8259CC181CECC9AE00D6685C /* EaseMessageViewController.m in Sources */,
 				8259CC2E1CECC9AE00D6685C /* EaseFacialView.m in Sources */,
@@ -3438,7 +3430,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sunboxsoft.CarMall;
 				PRODUCT_NAME = CarLife;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "7e6072c6-2892-4529-97f9-47a840b4a37b";
 			};
 			name = Debug;
 		};

@@ -21,7 +21,7 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - baiduMap (2.8.1)
+  - BaiduMapKit (2.10.2)
   - CocoaAsyncSocket (7.4.2)
   - CustomBadge (3.0.0)
   - FMDB (2.5):
@@ -46,7 +46,7 @@ PODS:
 DEPENDENCIES:
   - ActionSheetPicker-3.0 (~> 2.0.3)
   - AFNetworking (~> 2.6.1)
-  - baiduMap (~> 2.8.1)
+  - BaiduMapKit (~> 2.10.2)
   - CocoaAsyncSocket (~> 7.4.2)
   - CustomBadge (~> 3.0.0)
   - FMDB (~> 2.5)
@@ -65,7 +65,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: 11f2053085d3088dc1ef9d38a9f11c18b528dd9e
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  baiduMap: 3529560fb1a6cb3ccdf6b21db16c6c86b0cfef70
+  BaiduMapKit: b1706a062597c70ec62a0cca93212cba1d3017e1
   CocoaAsyncSocket: f5783bdedd232d91b89769bc4b5a1580aed518ad
   CustomBadge: c60738d213e7ef019b0bf1caa7948333f280ea9b
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52

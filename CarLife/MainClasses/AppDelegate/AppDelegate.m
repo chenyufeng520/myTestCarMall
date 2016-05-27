@@ -17,7 +17,8 @@
 #import "HttpReachabilityHelper.h"
 #import "BaseDataHelper.h"
 #import <AlipaySDK/AlipaySDK.h>
-#import <BaiduMapAPI/BMapKit.h>
+#import <BaiduMapAPI_Base/BMKBaseComponent.h>
+#import <BaiduMapAPI_Map/BMKMapView.h>
 #import <MapKit/MapKit.h>
 #import "IQKeyboardManager.h"
 #import "LoginCenter.h"
@@ -101,7 +102,7 @@
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     
-    [BMKMapView willBackGround];
+//    [BMKMapView willBackGround];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -117,7 +118,7 @@
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kApplicationDidBecameForeground object:nil];
     
-    [BMKMapView didForeGround];
+//    [BMKMapView didForeGround];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

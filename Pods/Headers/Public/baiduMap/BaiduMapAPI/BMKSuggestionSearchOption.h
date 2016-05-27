@@ -1,1 +1,0 @@
-../../../../baiduMap/MapFrameWork/BaiduMapAPI.framework/Headers/BMKSuggestionSearchOption.h

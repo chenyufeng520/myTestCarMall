@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'B502810E14F15A7D9647BEF0'
+               BlueprintIdentifier = '0CB13D8E93300EA4D152E0D3'
                BlueprintName = 'CustomBadge'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libCustomBadge.a'>

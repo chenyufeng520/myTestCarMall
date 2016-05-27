@@ -81,7 +81,7 @@ _Pragma("clang diagnostic pop") \
 
 /**第三方账号设置**/
 static NSString *UmengAppkey    = @"56e67d0de0f55a6688000ee2";
-static NSString *kBaiduMapAK    = @"e4xMAVREDcy16SZpDbustl2t";
+static NSString *kBaiduMapAK    = @"OMfhufGZQLyMY7HyTw2FN52lakOUqQxb";
 static NSString *wxAppKey       = @"wxac4778adb8dbc9ea";
 static NSString *wxSecret       = @"da972b13215611e5291c31374534d3b8";
 static NSString *KeFuAppKey     = @"3d09752b4ad192976fd39172a9d72e1a";
