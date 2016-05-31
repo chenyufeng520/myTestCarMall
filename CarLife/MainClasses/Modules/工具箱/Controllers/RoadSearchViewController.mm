@@ -51,11 +51,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    if( ([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0))
-//    {
-//        //        self.edgesForExtendedLayout=UIRectEdgeNone;
-//        self.navigationController.navigationBar.translucent = NO;
-//    }
+
     _routesearch = [[BMKRouteSearch alloc]init];
 
     self.view.backgroundColor = [UIColor whiteColor];
