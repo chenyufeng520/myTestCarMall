@@ -23,6 +23,9 @@
 		7163F9801CED557100BB565B /* mine.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7163F97F1CED557100BB565B /* mine.xcassets */; };
 		7163F9831CED5C2100BB565B /* PersonHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7163F9821CED5C2100BB565B /* PersonHeadCell.m */; };
 		7163F9861CED6EBB00BB565B /* ToolKitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7163F9851CED6EBB00BB565B /* ToolKitCell.m */; };
+		71977F811CFFDD05007B2C4B /* ModifyUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71977F801CFFDD05007B2C4B /* ModifyUserInfoViewController.m */; };
+		71977F861CFFE12E007B2C4B /* MineProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71977F831CFFE12E007B2C4B /* MineProfileCell.m */; };
+		71977F871CFFE12E007B2C4B /* MineProfileImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71977F851CFFE12E007B2C4B /* MineProfileImgCell.m */; };
 		71A42A4B1C9E709C00CA29FE /* CMOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A4A1C9E709C00CA29FE /* CMOrderViewController.m */; };
 		71A42A4E1C9E70B200CA29FE /* CMNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A4D1C9E70B200CA29FE /* CMNewsViewController.m */; };
 		71A42A511C9E70CD00CA29FE /* CMToolKitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A501C9E70CD00CA29FE /* CMToolKitViewController.m */; };
@@ -383,6 +386,12 @@
 		7163F9821CED5C2100BB565B /* PersonHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonHeadCell.m; sourceTree = "<group>"; };
 		7163F9841CED6EBB00BB565B /* ToolKitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolKitCell.h; sourceTree = "<group>"; };
 		7163F9851CED6EBB00BB565B /* ToolKitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolKitCell.m; sourceTree = "<group>"; };
+		71977F7F1CFFDD05007B2C4B /* ModifyUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyUserInfoViewController.h; sourceTree = "<group>"; };
+		71977F801CFFDD05007B2C4B /* ModifyUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyUserInfoViewController.m; sourceTree = "<group>"; };
+		71977F821CFFE12E007B2C4B /* MineProfileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineProfileCell.h; sourceTree = "<group>"; };
+		71977F831CFFE12E007B2C4B /* MineProfileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineProfileCell.m; sourceTree = "<group>"; };
+		71977F841CFFE12E007B2C4B /* MineProfileImgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineProfileImgCell.h; sourceTree = "<group>"; };
+		71977F851CFFE12E007B2C4B /* MineProfileImgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineProfileImgCell.m; sourceTree = "<group>"; };
 		71A42A491C9E709C00CA29FE /* CMOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMOrderViewController.h; sourceTree = "<group>"; };
 		71A42A4A1C9E709C00CA29FE /* CMOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMOrderViewController.m; sourceTree = "<group>"; };
 		71A42A4C1C9E70B200CA29FE /* CMNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMNewsViewController.h; sourceTree = "<group>"; };
@@ -1253,6 +1262,10 @@
 				7163F97D1CED534300BB565B /* PersonInfoListCell.m */,
 				7163F9811CED5C2100BB565B /* PersonHeadCell.h */,
 				7163F9821CED5C2100BB565B /* PersonHeadCell.m */,
+				71977F821CFFE12E007B2C4B /* MineProfileCell.h */,
+				71977F831CFFE12E007B2C4B /* MineProfileCell.m */,
+				71977F841CFFE12E007B2C4B /* MineProfileImgCell.h */,
+				71977F851CFFE12E007B2C4B /* MineProfileImgCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2168,6 +2181,8 @@
 			children = (
 				CE34D1181BF596DB00EB31CF /* ISTMineViewController.h */,
 				CE34D1191BF596DB00EB31CF /* ISTMineViewController.m */,
+				71977F7F1CFFDD05007B2C4B /* ModifyUserInfoViewController.h */,
+				71977F801CFFDD05007B2C4B /* ModifyUserInfoViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3157,7 +3172,9 @@
 				8259CBD41CECC9AE00D6685C /* MJRefreshBackNormalFooter.m in Sources */,
 				71D87F451CEE0D8B000D7525 /* OrderCell.m in Sources */,
 				71A42A511C9E70CD00CA29FE /* CMToolKitViewController.m in Sources */,
+				71977F871CFFE12E007B2C4B /* MineProfileImgCell.m in Sources */,
 				8259CBE61CECC9AE00D6685C /* DACircularProgressView.m in Sources */,
+				71977F811CFFDD05007B2C4B /* ModifyUserInfoViewController.m in Sources */,
 				8259CBEA1CECC9AE00D6685C /* EMSDWebImageDownloader.m in Sources */,
 				8259CBBE1CECC9AE00D6685C /* EMAudioRecorderUtil.m in Sources */,
 				8259CBC41CECC9AE00D6685C /* amrFileCodec.mm in Sources */,
@@ -3246,6 +3263,7 @@
 				8259CC291CECC9AE00D6685C /* EaseChatToolbar.m in Sources */,
 				8259CBE31CECC9AE00D6685C /* MWTapDetectingImageView.m in Sources */,
 				DC7B72331BD1F9A100327B03 /* NSString+Util.m in Sources */,
+				71977F861CFFE12E007B2C4B /* MineProfileCell.m in Sources */,
 				8241D3171CF2CE4900411423 /* OilTableViewCell.m in Sources */,
 				8259CC011CECC9AE00D6685C /* PSTGridLayoutItem.m in Sources */,
 				CE34D18F1BF596DB00EB31CF /* ISTAccountCreateViewController.m in Sources */,
@@ -3428,7 +3446,7 @@
 					"$(PROJECT_DIR)/CarLife/MainClasses/Modules/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/CarLife/MainClasses/Modules/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sunboxsoft.CarMall;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hfdianche.DianCheWuLiu;
 				PRODUCT_NAME = CarLife;
 				PROVISIONING_PROFILE = "7e6072c6-2892-4529-97f9-47a840b4a37b";
 			};
@@ -3488,7 +3506,7 @@
 					"$(PROJECT_DIR)/CarLife/MainClasses/Modules/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/CarLife/MainClasses/Modules/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sunboxsoft.CarMall;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hfdianche.DianCheWuLiu;
 				PRODUCT_NAME = CarLife;
 				PROVISIONING_PROFILE = "";
 			};

@@ -442,6 +442,18 @@
 {
     [[STHUDManager sharedManager] hideHUDInView:self.view];
     
+    User *user = [[User alloc] init];
+    user.uid = dic[@"uid"];
+    user.user_email = dic[@"user_email"];
+    user.user_nickname = dic[@"user_nickname"];
+    user.user_phone = dic[@"user_phone"];
+    user.user_time = dic[@"user_time"];
+    user.user_type = dic[@"user_type"];
+    user.user_username = dic[@"user_username"];
+    
+     NSData *userObj = [NSKeyedArchiver archivedDataWithRootObject:user];
+    [[NSUserDefaults standardUserDefaults] setObject:userObj forKey:kUSERINFO];
+
     NSString *userid = [NSString stringWithFormat:@"%.0lf",[dic[@"uid"] doubleValue]];
     [[NSUserDefaults standardUserDefaults] setObject:userid forKey:kUserid];
     [[NSUserDefaults standardUserDefaults] setValue:_pwdTextField.text forKey:kPassword];

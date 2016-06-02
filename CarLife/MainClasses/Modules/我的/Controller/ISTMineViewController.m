@@ -11,6 +11,7 @@
 #import "PersonInfoListCell.h"
 #import "PersonHeadCell.h"
 #import "UIAlertHelper.h"
+#import "ModifyUserInfoViewController.h"
 
 @interface ISTMineViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -150,29 +151,36 @@
         
         if (indexPath.row == 0) {
             //编辑资料
+            ModifyUserInfoViewController *userInfo = [[ModifyUserInfoViewController alloc] init];
+            [[AppDelegate shareDelegate].rootNavigation pushViewController:userInfo animated:YES];
         }
         else if (indexPath.row == 1){
             //我的订单
+            //敬请期待
+            KTipFun;
+          
+//            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=LOCATION_SERVICES"]];
         }
         else if (indexPath.row == 2){
             //记事本
+            KTipFun;
         }
         else if (indexPath.row == 3){
             //设置
+            KTipFun;
         }
         else if (indexPath.row == 4){
             //意见反馈
+            KTipFun;
         }
         else if (indexPath.row == 5){
             //附近修理厂
+            KTipFun;
         }
         else{
             //附近车主
+            KTipFun;
         }
-        
-        //敬请期待
-        KTipFun;
-        return ;
     }
 }
 
