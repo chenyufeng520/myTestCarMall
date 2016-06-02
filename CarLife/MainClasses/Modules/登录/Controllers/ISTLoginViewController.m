@@ -415,12 +415,12 @@
                 }
                 else
                 {
-                    [weakSelf outputErrorInfo:response andDefault:@"登录失败"];
+                     [[ISTHUDManager defaultManager] showHUDWithError:@"登录失败"];
                 }
             }
             else
             {
-                   [weakSelf outputErrorInfo:nil andDefault:@"请求数据失败"];
+                   [[ISTHUDManager defaultManager] showHUDWithError:@"登录失败"];
             }
         }];
 

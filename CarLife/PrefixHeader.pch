@@ -21,6 +21,7 @@
 #import "ValidObject.h"
 #import "UIAlertHelper.h"
 #import "User.h"
+#import "ISTHUDManager.h"
 
 #endif
 

@@ -26,6 +26,8 @@
 		71977F811CFFDD05007B2C4B /* ModifyUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71977F801CFFDD05007B2C4B /* ModifyUserInfoViewController.m */; };
 		71977F861CFFE12E007B2C4B /* MineProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71977F831CFFE12E007B2C4B /* MineProfileCell.m */; };
 		71977F871CFFE12E007B2C4B /* MineProfileImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71977F851CFFE12E007B2C4B /* MineProfileImgCell.m */; };
+		71977F8A1D0021F7007B2C4B /* ISTHUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71977F891D0021F7007B2C4B /* ISTHUDManager.m */; };
+		71977F8D1D002685007B2C4B /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71977F8C1D002685007B2C4B /* UserModel.m */; };
 		71A42A4B1C9E709C00CA29FE /* CMOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A4A1C9E709C00CA29FE /* CMOrderViewController.m */; };
 		71A42A4E1C9E70B200CA29FE /* CMNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A4D1C9E70B200CA29FE /* CMNewsViewController.m */; };
 		71A42A511C9E70CD00CA29FE /* CMToolKitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A42A501C9E70CD00CA29FE /* CMToolKitViewController.m */; };
@@ -392,6 +394,10 @@
 		71977F831CFFE12E007B2C4B /* MineProfileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineProfileCell.m; sourceTree = "<group>"; };
 		71977F841CFFE12E007B2C4B /* MineProfileImgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineProfileImgCell.h; sourceTree = "<group>"; };
 		71977F851CFFE12E007B2C4B /* MineProfileImgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineProfileImgCell.m; sourceTree = "<group>"; };
+		71977F881D0021F7007B2C4B /* ISTHUDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTHUDManager.h; sourceTree = "<group>"; };
+		71977F891D0021F7007B2C4B /* ISTHUDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTHUDManager.m; sourceTree = "<group>"; };
+		71977F8B1D002685007B2C4B /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		71977F8C1D002685007B2C4B /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		71A42A491C9E709C00CA29FE /* CMOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMOrderViewController.h; sourceTree = "<group>"; };
 		71A42A4A1C9E709C00CA29FE /* CMOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMOrderViewController.m; sourceTree = "<group>"; };
 		71A42A4C1C9E70B200CA29FE /* CMNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMNewsViewController.h; sourceTree = "<group>"; };
@@ -2399,6 +2405,8 @@
 				CE34D22A1BF5D6DC00EB31CF /* BaseModel.m */,
 				CE34D1EA1BF5C4C100EB31CF /* User.h */,
 				CE34D1EB1BF5C4C100EB31CF /* User.m */,
+				71977F8B1D002685007B2C4B /* UserModel.h */,
+				71977F8C1D002685007B2C4B /* UserModel.m */,
 				CE34D2261BF5D6B100EB31CF /* TabbarItem.h */,
 				CE34D2271BF5D6B100EB31CF /* TabbarItem.m */,
 			);
@@ -2749,6 +2757,8 @@
 			children = (
 				DC7B71E11BD1F9A000327B03 /* STHUDManager.h */,
 				DC7B71E21BD1F9A000327B03 /* STHUDManager.m */,
+				71977F881D0021F7007B2C4B /* ISTHUDManager.h */,
+				71977F891D0021F7007B2C4B /* ISTHUDManager.m */,
 			);
 			path = STHUDManager;
 			sourceTree = "<group>";
@@ -3140,6 +3150,7 @@
 				71A71C201CE3320A0078FABA /* CustomBarButton.m in Sources */,
 				CE34D1941BF596DB00EB31CF /* LoginDataHelper.m in Sources */,
 				71249F721CEF3F2300C2151D /* NewsListCell.m in Sources */,
+				71977F8D1D002685007B2C4B /* UserModel.m in Sources */,
 				8259CBDC1CECC9AE00D6685C /* UIScrollView+MJRefresh.m in Sources */,
 				8259CC1C1CECC9AE00D6685C /* EaseUserCell.m in Sources */,
 				CE34D1931BF596DB00EB31CF /* LoginCenter.m in Sources */,
@@ -3179,6 +3190,7 @@
 				8259CBBE1CECC9AE00D6685C /* EMAudioRecorderUtil.m in Sources */,
 				8259CBC41CECC9AE00D6685C /* amrFileCodec.mm in Sources */,
 				CE34D1C51BF5C42A00EB31CF /* ISTVerifyCodeButton.m in Sources */,
+				71977F8A1D0021F7007B2C4B /* ISTHUDManager.m in Sources */,
 				8259CBC01CECC9AE00D6685C /* EMCDDeviceManager+Microphone.m in Sources */,
 				71CAFEF91CF45C660098CF4B /* DragView.m in Sources */,
 				8259CBEB1CECC9AE00D6685C /* EMSDWebImageDownloaderOperation.m in Sources */,

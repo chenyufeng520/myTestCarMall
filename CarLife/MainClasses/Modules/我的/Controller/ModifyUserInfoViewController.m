@@ -11,16 +11,25 @@
 #import "MineDataHelper.h"
 #import "MineProfileCell.h"
 #import "MineProfileImgCell.h"
+#import "UserModel.h"
 
 @interface ModifyUserInfoViewController ()<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIAlertViewDelegate>
 {
     UITableView *_tableView;
+    UserModel *_userModel;
 }
 
 
 @end
 
 @implementation ModifyUserInfoViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+    if ([super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+        _userModel = [[UserModel alloc] init];
+    }
+    return self;
+}
 
 - (ISTTopBar *)creatTopBarView:(CGRect)frame
 {
@@ -40,6 +49,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadSubviews];
+    [self getUserInfoData];
 }
 
 - (void)loadSubviews
@@ -53,7 +63,7 @@
     _tableView.dataSource = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [_contentView addSubview:_tableView];
-
+    
 }
 
 #pragma mark - tableView
@@ -122,9 +132,18 @@
         
         NSData *udObject = [[NSUserDefaults standardUserDefaults] objectForKey:kUSERINFO];
         User *user = [NSKeyedUnarchiver unarchiveObjectWithData:udObject];
+        if (indexPath.row == 0) {
+            cell.field.text = _userModel.user_address;
+        }
+        if (indexPath.row == 1) {
+            cell.field.text = _userModel.user_nickname;
+        }
         if (indexPath.row == 2) {
             [cell.field setEnabled:NO];
             cell.field.text = user.user_phone;
+        }
+        if (indexPath.row == 3) {
+            cell.field.text = _userModel.user_email;
         }
         return cell;
     }
@@ -197,14 +216,13 @@
     if (btn.tag == BSTopBarButtonLeft) {
         
         [self.navigationController popViewControllerAnimated:YES];
-
+        
     }
     else if (btn.tag == BSTopBarButtonRight) {
         
-        __weak typeof(self) weakSelf = self;
-        [[STHUDManager sharedManager] showHUDInView:_contentView];
+        [[ISTHUDManager defaultManager] showHUDInView:_contentView withText:@"保存中"];
         [[MineDataHelper defaultHelper] requestForURLStr:@"index.php" requestMethod:@"POST" info:@{@"m":@"api",@"c":@"user",@"a":@"updateHandle",@"uid":userid,@"user_address":field1.text,@"user_nickname":field2.text,@"user_email":field4.text} andBlock:^(id response, NSError *error) {
-            [[STHUDManager sharedManager] hideHUDInView:_contentView];
+            [[ISTHUDManager defaultManager] hideHUDInView:_contentView];
             
             if ([response isKindOfClass:[NSDictionary class]]) {
                 int status = [response[@"status"] intValue];
@@ -215,12 +233,12 @@
                 }
                 else
                 {
-                    [weakSelf outputErrorInfo:response andDefault:@"保存失败"];
+                    [[ISTHUDManager defaultManager] showHUDWithError:@"保存失败"];
                 }
             }
             else
             {
-                [weakSelf outputErrorInfo:nil andDefault:@"请求数据失败"];
+                [[ISTHUDManager defaultManager] showHUDWithError:@"保存失败"];
             }
         }];
     }
@@ -230,19 +248,70 @@
 //上传图片
 - (void)upLoad:(UIImage*)image{
     
-    [[STHUDManager sharedManager] showHUDInView:_contentView];
+    NSData *udObject = [[NSUserDefaults standardUserDefaults] objectForKey:kUSERINFO];
+    User *user = [NSKeyedUnarchiver unarchiveObjectWithData:udObject];
+    NSString *userid = user.uid;
+    [[ISTHUDManager defaultManager] showHUDInView:_contentView withText:@"上传中"];
     
-    [[MineDataHelper defaultHelper] updateImages:@[image] urlStr:@"" info:nil andBlock:^(id response, NSError *error) {
+//    [[MineDataHelper defaultHelper] updateImages:@[image] urlStr:@"index.php" info:@{@"m":@"Api",@"c":@"User",@"a":@"updateavatar",@"uid":userid,@"avatar":@"123.png"} andBlock:^(id response, NSError *error) {
+    
+    [[MineDataHelper defaultHelper] requestForURLStr:@"index.php" requestMethod:@"POST" info:@{@"m":@"Api",@"c":@"User",@"a":@"updateavatar",@"uid":userid,@"avatar":@"123.png"} andBlock:^(id response, NSError *error){
         
-        [[STHUDManager sharedManager] hideHUDInView:_contentView];
+        [[ISTHUDManager defaultManager] hideHUDInView:_contentView];
         
-        if ([response isKindOfClass:[NSDictionary class]]){
-            BSLog(@"%@",response);
-            if ([response[@"result"] boolValue]){
-                
+        if ([response isKindOfClass:[NSDictionary class]]) {
+            int status = [response[@"status"] intValue];
+            
+            if (status == 400) {
+                //请求成功，处理结果
+            }
+            else
+            {
+                [[ISTHUDManager defaultManager] showHUDWithError:@"上传失败"];
             }
         }
+        else
+        {
+            [[ISTHUDManager defaultManager] showHUDWithError:@"上传失败"];
+        }
     }];
+}
+
+//获取用户详情
+- (void)getUserInfoData{
+    
+    NSData *udObject = [[NSUserDefaults standardUserDefaults] objectForKey:kUSERINFO];
+    User *user = [NSKeyedUnarchiver unarchiveObjectWithData:udObject];
+    NSString *userid = user.uid;
+    
+    [[ISTHUDManager defaultManager] showHUDInView:_contentView withText:nil];
+    [[MineDataHelper defaultHelper] requestForURLStr:@"index.php" requestMethod:@"GET" info:@{@"m":@"api",@"c":@"user",@"a":@"update",@"uid":userid} andBlock:^(id response, NSError *error) {
+        [[ISTHUDManager defaultManager] hideHUDInView:_contentView];
+        if ([response isKindOfClass:[NSDictionary class]]) {
+            int status = [response[@"status"] intValue];
+            
+            if (status == 200) {
+                //请求成功，处理结果
+                NSDictionary *dic = response[@"data"];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    _userModel.user_address = dic[@"user_address"];
+                    _userModel.user_nickname = dic[@"user_nickname"];
+                    _userModel.user_email = dic[@"user_email"];
+                    [_tableView reloadData];
+                });
+            }
+            else
+            {
+                [[ISTHUDManager defaultManager] showHUDWithError:@"获取用户信息失败"];
+            }
+        }
+        else
+        {
+            [[ISTHUDManager defaultManager] showHUDWithError:@"获取用户信息失败"];
+        }
+    }];
+    
 }
 
 #pragma mark - 相机
@@ -272,13 +341,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
