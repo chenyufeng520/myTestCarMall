@@ -212,9 +212,6 @@
                 if (status == 200) {
                     KTipView(@"保存成功");
                     //请求成功，处理结果
-//                    NSData *userObj = [NSKeyedArchiver archivedDataWithRootObject:user];
-//                    [[NSUserDefaults standardUserDefaults] setObject:userObj forKey:kUSERINFO];
-//                    [[NSUserDefaults standardUserDefaults] synchronize];
                 }
                 else
                 {
