@@ -6,8 +6,8 @@
 //  Copyright © 2016年 陈宇峰. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ISTSupBaseViewController.h"
 
-@interface ShopListTableViewController : UITableViewController
+@interface ShopListTableViewController : ISTSupBaseViewController
 
 @end

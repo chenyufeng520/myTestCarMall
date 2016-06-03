@@ -6,10 +6,10 @@
 //  Copyright © 2016年 陈宇峰. All rights reserved.
 //
 
-#import "ISTSupBaseViewController.h"
+#import "ISTBaseViewController.h"
 #import "UseProductModel.h"
 
-@interface GoodsDetailViewController : ISTSupBaseViewController
+@interface GoodsDetailViewController : ISTBaseViewController
 
 @property (nonatomic, strong)UseProductModel *productModel;
 

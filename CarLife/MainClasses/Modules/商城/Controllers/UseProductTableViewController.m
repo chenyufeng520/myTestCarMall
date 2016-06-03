@@ -78,8 +78,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     UseProductCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    GoodsDetailViewController *goodsDetail = [[GoodsDetailViewController alloc] initWithNibName:@"GoodsDetailViewController" bundle:[NSBundle mainBundle]];
-
+    GoodsDetailViewController *goodsDetail = [[GoodsDetailViewController alloc] init];
     goodsDetail.title = cell.nameLab.text;
     goodsDetail.productModel = cell.productModel;
     [[AppDelegate shareDelegate].rootNavigation pushViewController:goodsDetail animated:YES];

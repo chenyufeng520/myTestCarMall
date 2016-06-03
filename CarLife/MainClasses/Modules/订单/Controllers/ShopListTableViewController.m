@@ -8,8 +8,12 @@
 
 #import "ShopListTableViewController.h"
 #import "OrderDatahelper.h"
+#import "OrderCell.h"
 
-@interface ShopListTableViewController ()
+@interface ShopListTableViewController ()<UITableViewDelegate,UITableViewDataSource>{
+    UITableView *_tableView;
+    NSMutableArray *_shopListArr;
+}
 
 @end
 
@@ -17,76 +21,79 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self initData];
+    [self makeUI];
     [self loadShopListData];
 }
 
-- (void)loadShopListData{
+- (void)initData{
+    _shopListArr = [NSMutableArray array];
+    for (int i=0; i<20; i++) {
+        OrderModel *model = [[OrderModel alloc] init];
+        [_shopListArr addObject:model];
+    }
+}
 
+- (void)makeUI{
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreen_Width, 1)];
+    line.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:line];
+    
+    NSArray *titleArr = @[@"店铺名称",@"专营类别",@"联系方式"];
+    CGFloat w = kScreen_Width/(float)titleArr.count;
+    for (int i=0; i<titleArr.count; i++) {
+        UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(i*w, 0, w, kAdjustLength(160))];
+        lab.font = kFont_16;
+        lab.text = titleArr[i];
+        lab.backgroundColor = [UIColor whiteColor];
+        lab.textAlignment = NSTextAlignmentCenter;
+        [self.view addSubview:lab];
+    }
+    
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kAdjustLength(160), kScreen_Width, kScreen_Height-self.iosChangeFloat-kNavHeight-30-kAdjustLength(100)-kAdjustLength(120)-kAdjustLength(160)-kTabBarHeight) style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.backgroundColor = kMainBGColor;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.view addSubview:_tableView];
+}
+
+- (void)loadShopListData{
+    [_tableView reloadData];
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return _shopListArr.count;
 }
 
-/*
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    OrderModel *model = _shopListArr[indexPath.row];
+    if (model.status == FoldStatus) {
+        return kAdjustLength(260);
+    }
+    return kAdjustLength(160);
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    static NSString *iden = @"OrderCell";
+    OrderCell *cell = [tableView dequeueReusableCellWithIdentifier:iden];
+    if (!cell) {
+        cell = [[OrderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:iden];
+    }
+    cell.orderModel = _shopListArr[indexPath.row];
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    OrderCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (cell.orderModel.status == FoldStatus) {
+        cell.orderModel.status = UnfoldStatus;
+    }else if (cell.orderModel.status == UnfoldStatus) {
+        cell.orderModel.status = FoldStatus;
+    }
+    [_tableView reloadData];
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

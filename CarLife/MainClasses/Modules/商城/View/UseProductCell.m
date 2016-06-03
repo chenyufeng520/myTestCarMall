@@ -50,16 +50,16 @@
     self.leftImage.frame = CGRectMake(10, 5, kAdjustLength(280), kAdjustLength(280));
     [self.leftImage sd_setImageWithURL:KImageUrl(productModel.goods_picurl) placeholderImage:[UIImage imageNamed:@"占位图"]];
     
-    self.nameLab.frame = CGRectMake(self.leftImage.maxX+10, self.leftImage.minY, kScreen_Width-self.leftImage.maxX-20, STRING_HEIGHT(productModel.goods_name, kScreen_Width-self.leftImage.maxX-20, 16));
+    self.nameLab.frame = CGRectMake(self.leftImage.maxX+10, self.leftImage.minY, kScreen_Width-self.leftImage.maxX-20, STRING_HEIGHT(productModel.goods_name, kScreen_Width-self.leftImage.maxX-20, kFont_16));
     self.nameLab.text = productModel.goods_name;
     
-    self.priceLab.frame = CGRectMake(self.leftImage.maxX+10, self.leftImage.maxY-(STRING_HEIGHT(productModel.goods_hprice, kScreen_Width-self.leftImage.maxX-20, 16)), kScreen_Width-self.leftImage.maxX-20, STRING_HEIGHT(productModel.goods_hprice, kScreen_Width-self.leftImage.maxX-20, 16));
+    self.priceLab.frame = CGRectMake(self.leftImage.maxX+10, self.leftImage.maxY-(STRING_HEIGHT(productModel.goods_hprice, kScreen_Width-self.leftImage.maxX-20, kFont_16)), kScreen_Width-self.leftImage.maxX-20, STRING_HEIGHT(productModel.goods_hprice, kScreen_Width-self.leftImage.maxX-20, kFont_16));
     self.priceLab.text = [NSString stringWithFormat:@"¥ %@",productModel.goods_price];
     
     CGFloat introTextH = 0;
     self.introLab.text = [productModel.goods_intr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     if ([ValidObject objectIsValid:productModel.goods_intr]) {
-        introTextH = STRING_HEIGHT(_introLab.text, kScreen_Width-self.leftImage.maxX-20, 14);
+        introTextH = STRING_HEIGHT(_introLab.text, kScreen_Width-self.leftImage.maxX-20, kFontNormal);
     }
     CGFloat introMaxH = kAdjustLength(280)-self.nameLab.height-self.priceLab.height;
     self.introLab.frame = CGRectMake(self.leftImage.maxX+10, self.nameLab.maxY, kScreen_Width-self.leftImage.maxX-20, introTextH < introMaxH ? introTextH:introMaxH);

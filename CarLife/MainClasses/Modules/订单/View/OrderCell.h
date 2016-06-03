@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OrderModel.h"
 
 @interface OrderCell : UITableViewCell
+
+@property (nonatomic, strong)UILabel *nameLab;
+@property (nonatomic, strong)UILabel *typeLab;
+@property (nonatomic, strong)UIButton *phoneBtn;
+@property (nonatomic, strong)UIButton *msgBtn;
+@property (nonatomic, strong)UILabel *hiddenShopLab;
+@property (nonatomic, strong)UILabel *hiddenNameLab;
+@property (nonatomic, strong)OrderModel *orderModel;
 
 @end

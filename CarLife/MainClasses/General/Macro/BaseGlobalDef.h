@@ -27,9 +27,9 @@
 #define Phone_HeightProportion(Height)     Height*kScreen_Height/736
 
 
-#define STRING_HEIGHT(string,width,font) [string boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font]} context:nil].size.height
+#define STRING_HEIGHT(string,width,font) [string boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size.height
 
-#define STRING_WIDTH(string,height,font) [string boundingRectWithSize:CGSizeMake(MAXFLOAT, height) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font]} context:nil].size.width
+#define STRING_WIDTH(string,height,font) [string boundingRectWithSize:CGSizeMake(MAXFLOAT, height) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size.width
 
 //提示语
 #define KTipFun [UIAlertHelper showAlert:@"敬请期待" AndShowView:_contentView];
@@ -125,6 +125,8 @@ typedef enum {
 #define kFontSuper_b            [UIFont boldSystemFontOfSize:20]
 #define kFontLarge_2            [UIFont systemFontOfSize:19]
 #define kFontLarge_2_b          [UIFont boldSystemFontOfSize:19]
+#define kFont_16                [UIFont systemFontOfSize:16]
+#define kFont_16_b              [UIFont boldSystemFontOfSize:16]
 #define kFontLarge_1            [UIFont systemFontOfSize:15]
 #define kFontLarge_1_b          [UIFont boldSystemFontOfSize:15]
 #define kFontNormalBold         [UIFont boldSystemFontOfSize:14]

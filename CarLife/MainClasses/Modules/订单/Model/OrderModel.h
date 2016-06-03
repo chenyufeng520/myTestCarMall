@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger,Status){
+    UnfoldStatus = 0,
+    FoldStatus,
+};
+
 @interface OrderModel : NSObject
+
+@property (nonatomic, assign)Status status;
 
 @end

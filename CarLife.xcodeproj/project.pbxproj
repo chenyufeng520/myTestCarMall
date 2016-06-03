@@ -242,7 +242,6 @@
 		82B41D191CF3479B00E4F844 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B41D181CF3479B00E4F844 /* ProductDetailViewController.m */; };
 		82C248EC1CF4300E00CA440B /* ValidObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C248EB1CF4300E00CA440B /* ValidObject.m */; };
 		82E9526C1CF576540078E89B /* CustomSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E9526B1CF576540078E89B /* CustomSegmentView.m */; };
-		82E952721CF595D30078E89B /* SearchShopTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E952711CF595D30078E89B /* SearchShopTextField.m */; };
 		82E952751CF59C450078E89B /* ShopListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E952741CF59C450078E89B /* ShopListTableViewController.m */; };
 		82E952781CF59C8F0078E89B /* OrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E952771CF59C8F0078E89B /* OrderTableViewController.m */; };
 		CE2747B51BF4603E00D2349D /* BlockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2747B41BF4603E00D2349D /* BlockButton.m */; };
@@ -802,8 +801,6 @@
 		82C248EB1CF4300E00CA440B /* ValidObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValidObject.m; sourceTree = "<group>"; };
 		82E9526A1CF576540078E89B /* CustomSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSegmentView.h; sourceTree = "<group>"; };
 		82E9526B1CF576540078E89B /* CustomSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSegmentView.m; sourceTree = "<group>"; };
-		82E952701CF595D30078E89B /* SearchShopTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchShopTextField.h; sourceTree = "<group>"; };
-		82E952711CF595D30078E89B /* SearchShopTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchShopTextField.m; sourceTree = "<group>"; };
 		82E952731CF59C450078E89B /* ShopListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopListTableViewController.h; sourceTree = "<group>"; };
 		82E952741CF59C450078E89B /* ShopListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopListTableViewController.m; sourceTree = "<group>"; };
 		82E952761CF59C8F0078E89B /* OrderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderTableViewController.h; sourceTree = "<group>"; };
@@ -1188,8 +1185,6 @@
 				82E952771CF59C8F0078E89B /* OrderTableViewController.m */,
 				713F08701CF55B190022A009 /* ShoppingCarViewController.h */,
 				713F08711CF55B190022A009 /* ShoppingCarViewController.m */,
-				82E952701CF595D30078E89B /* SearchShopTextField.h */,
-				82E952711CF595D30078E89B /* SearchShopTextField.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -3075,7 +3070,6 @@
 				DC86C3CC1BD36F86007DEE6F /* CLLocation+YCLocation.m in Sources */,
 				8259CC1B1CECC9AE00D6685C /* EaseViewController.m in Sources */,
 				8259CC201CECC9AE00D6685C /* EaseMessageTimeCell.m in Sources */,
-				82E952721CF595D30078E89B /* SearchShopTextField.m in Sources */,
 				8259CC191CECC9AE00D6685C /* EaseRefreshTableViewController.m in Sources */,
 				7163AB981CF7DD0B00C0FC3C /* RoadSearchViewController.mm in Sources */,
 				8259CBF31CECC9AE00D6685C /* UIImage+EMWebP.m in Sources */,

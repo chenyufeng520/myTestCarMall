@@ -8,12 +8,11 @@
 
 #import "CMOrderViewController.h"
 #import "CustomSegmentView.h"
-#import "SearchShopTextField.h"
 #import "ShopListTableViewController.h"
 #import "OrderTableViewController.h"
 
-@interface CMOrderViewController ()<CustomSegmentDelegate,UIScrollViewDelegate>{
-    SearchShopTextField *_textField;
+@interface CMOrderViewController ()<CustomSegmentDelegate,UIScrollViewDelegate,UITextFieldDelegate>{
+    UITextField *_textField;
     ShopListTableViewController *_shopListVC;
     OrderTableViewController *_orderVC;
 }
@@ -58,14 +57,27 @@
     segmentView.delegate = self;
     [topView addSubview:segmentView];
     
-    _textField = [[SearchShopTextField alloc] initWithFrame:CGRectMake(kAdjustLength(140), segmentView.maxY + 10, (kScreen_Width-2*kAdjustLength(140)), kAdjustLength(120))];
-    [topView addSubview:_textField];
+    UIView *sideView = [[UIView alloc] initWithFrame:CGRectMake(kAdjustLength(140), segmentView.maxY + 10, (kScreen_Width-2*kAdjustLength(140)), kAdjustLength(120))];
+    sideView.layer.cornerRadius = sideView.height * 0.5;
+    sideView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    sideView.layer.borderWidth = 1;
+    [topView addSubview:sideView];
     
-    topView.height = _textField.maxY + 10;
+    UIImageView *leftImage = [[UIImageView alloc] initWithFrame:CGRectMake(5, 10, sideView.height-20, sideView.height-20)];
+    leftImage.image = [UIImage imageNamed:@"icon_1"];
+    [sideView addSubview:leftImage];
     
-    _contentView.minY = topView.maxY;
-    _contentView.height = kScreen_Height - self.iosChangeFloat - kNavHeight - topView.height - kTabBarHeight;
-    _contentView.contentSize = CGSizeMake(kScreen_Width * titleArr.count , _contentView.height);
+    _textField = [[UITextField alloc] initWithFrame:CGRectMake(leftImage.maxX+5, 0, sideView.width-2*(leftImage.width+5), kAdjustLength(120))];
+    _textField.borderStyle = UITextBorderStyleNone;
+    _textField.placeholder = @"输入关键字查询";
+    _textField.tintColor = kNavBarColor;
+    _textField.delegate = self;
+    [sideView addSubview:_textField];
+    
+    topView.height = sideView.maxY + 10;
+    
+    _contentView.frame = CGRectMake(0, topView.maxY, kScreen_Width, kScreen_Height-topView.maxY-kTabBarHeight);
+    _contentView.contentSize = CGSizeMake(kScreen_Width * titleArr.count , 0);
     _contentView.pagingEnabled = YES;
     _contentView.delegate = self;
 }

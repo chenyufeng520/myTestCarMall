@@ -25,7 +25,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     _contentView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.iosChangeFloat + kNavHeight, kScreen_Width, kScreen_Height - (kNavHeight+self.iosChangeFloat)-kTabBarHeight)];
     _contentView.backgroundColor = kMainBGColor;
     _contentView.scrollEnabled = YES;
