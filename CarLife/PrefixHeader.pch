@@ -19,6 +19,9 @@
 #import "EaseUI-Prefix.pch"
 #import "MBProgressHUD+Add.h"
 #import "ValidObject.h"
+#import "UIAlertHelper.h"
+#import "User.h"
+#import "ISTHUDManager.h"
 
 #endif
 

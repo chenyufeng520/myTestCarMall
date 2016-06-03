@@ -45,7 +45,7 @@
 			<string>20150401</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>sinopcalipay</string>
+				<string>carMallalipay</string>
 			</array>
 		</dict>
 		<dict>

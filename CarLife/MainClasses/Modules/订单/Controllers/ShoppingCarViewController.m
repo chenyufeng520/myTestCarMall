@@ -72,7 +72,7 @@
     UIButton *ylPayBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [ylPayBtn setFrame:CGRectMake(15, wxPayBtn.maxY + 10, _contentView.width - 30, kScreen_Width*130/1080)];
     [ylPayBtn setBackgroundColor:RGBCOLOR(234, 66, 71)];
-    [ylPayBtn setTitle:@"快捷支付" forState:UIControlStateNormal];
+    [ylPayBtn setTitle:@"银联支付" forState:UIControlStateNormal];
     ylPayBtn.titleLabel.font = kFontNormal;
     [ylPayBtn addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     ylPayBtn.tag = kYinlianPayTag;

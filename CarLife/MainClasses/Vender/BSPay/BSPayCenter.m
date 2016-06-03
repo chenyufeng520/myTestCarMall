@@ -400,7 +400,7 @@ typedef void(^paymentFinishCallBack)(int statusCode, NSString *statusMessage, NS
     order.showUrl = @"m.alipay.com";
     
     //应用注册scheme,在AlixPayDemo-Info.plist定义URL types
-    NSString *appScheme = @"sinopcalipay";
+    NSString *appScheme = @"carMallalipay";
     
     //将商品信息拼接成字符串
     NSString *orderSpec = [order description];

@@ -14,18 +14,13 @@
 {
     if(self = [super init])
     {
-        self.userid = [decoder decodeObjectForKey:@"userid"];
-        self.realname = [decoder decodeObjectForKey:@"realname"];
-        self.email = [decoder decodeObjectForKey:@"email"];
-        self.phone = [decoder decodeObjectForKey:@"phone"];
-        self.nickname = [decoder decodeObjectForKey:@"nickname"];
-        self.headimgurl = [decoder decodeObjectForKey:@"headimgurl"];
-        self.vocation = [decoder decodeObjectForKey:@"vocation"];
-        self.address = [decoder decodeObjectForKey:@"address"];
-        self.statemsg = [decoder decodeObjectForKey:@"statemsg"];
-        self.birthday = [decoder decodeObjectForKey:@"birthday"];
-        self.gender = [[decoder decodeObjectForKey:@"gender"] intValue];
-        self.age = [[decoder decodeObjectForKey:@"age"] intValue];
+        self.uid = [decoder decodeObjectForKey:@"uid"];
+        self.user_email = [decoder decodeObjectForKey:@"user_email"];
+        self.user_nickname = [decoder decodeObjectForKey:@"user_nickname"];
+        self.user_phone = [decoder decodeObjectForKey:@"user_phone"];
+        self.user_time = [decoder decodeObjectForKey:@"user_time"];
+        self.user_username = [decoder decodeObjectForKey:@"user_username"];
+        self.user_type = [decoder decodeObjectForKey:@"user_type"];
        
     }
     return  self;
@@ -33,36 +28,26 @@
 
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
-    [encoder encodeObject:[NSNumber numberWithInt:self.gender] forKey:@"gender"];
-    [encoder encodeObject:[NSNumber numberWithInt:self.age] forKey:@"age"];
-    [encoder encodeObject:self.vocation forKey:@"vocation"];
-    [encoder encodeObject:self.userid forKey:@"userid"];
-    [encoder encodeObject:self.realname forKey:@"realname"];
-    [encoder encodeObject:self.email forKey:@"email"];
-    [encoder encodeObject:self.phone forKey:@"phone"];
-    [encoder encodeObject:self.nickname forKey:@"nickname"];
-    [encoder encodeObject:self.headimgurl forKey:@"headimgurl"];
-    [encoder encodeObject:self.statemsg forKey:@"statemsg"];
-    [encoder encodeObject:self.address forKey:@"address"];
-    [encoder encodeObject:self.birthday forKey:@"birthday"];
+    [encoder encodeObject:self.user_type forKey:@"user_type"];
+    [encoder encodeObject:self.uid forKey:@"uid"];
+    [encoder encodeObject:self.user_email forKey:@"user_email"];
+    [encoder encodeObject:self.user_nickname forKey:@"user_nickname"];
+    [encoder encodeObject:self.user_phone forKey:@"user_phone"];
+    [encoder encodeObject:self.user_time forKey:@"user_time"];
+    [encoder encodeObject:self.user_username forKey:@"user_username"];
     
 }
 
 -(id)copyWithZone:(NSZone *)zone
 {
     User *nUser = [[User allocWithZone:zone] init];
-    nUser.userid = self.userid;
-    nUser.realname = self.realname;
-    nUser.email = self.email;
-    nUser.phone = self.phone;
-    nUser.nickname = self.nickname;
-    nUser.headimgurl = self.headimgurl;
-    nUser.address = self.address;
-    nUser.birthday = self.birthday;
-    nUser.statemsg = self.statemsg;
-    nUser.vocation = self.vocation;
-    nUser.gender = self.gender;
-    nUser.age = self.age;
+    nUser.uid = self.uid;
+    nUser.user_email = self.user_email;
+    nUser.user_nickname = self.user_nickname;
+    nUser.user_phone = self.user_phone;
+    nUser.user_time = self.user_time;
+    nUser.user_type = self.user_type;
+    nUser.user_username = self.user_username;
     
     return nUser;
 }
@@ -84,38 +69,34 @@
 
 - (NSString *)description
 {
-    NSString *descriptionString = [NSString stringWithFormat:@"userid:%@,phone:%@",self.userid,self.phone];
+    NSString *descriptionString = [NSString stringWithFormat:@"userid:%@,phone:%@",self.uid,self.user_phone];
     return descriptionString;
 }
 
 - (BOOL)isEqual:(id)object
 {
     User *other = (User *)object;
-    if (![self.userid isEqualToString:other.userid]) {
+    if (![self.uid isEqualToString:other.uid]) {
         return NO;
     }
-    if (self.nickname &&![self.nickname isEqualToString:other.nickname]) {
+    if (self.user_email &&![self.user_email isEqualToString:other.user_email]) {
         return NO;
     }
-    if (self.address && ![self.address isEqualToString:other.address]) {
+    if (self.user_nickname && ![self.user_nickname isEqualToString:other.user_nickname]) {
         return NO;
     }
-    if (self.birthday && ![self.birthday isEqualToString:other.birthday]) {
+    if (self.user_phone && ![self.user_phone isEqualToString:other.user_phone]) {
         return NO;
     }
-    if (self.statemsg && ![self.statemsg isEqualToString:other.statemsg]) {
+    if (self.user_time && ![self.user_time isEqualToString:other.user_time]) {
         return NO;
     }
-    if (self.vocation && ![self.vocation isEqualToString:other.vocation]) {
+    if (self.user_username && ![self.user_username isEqualToString:other.user_username]) {
         return NO;
     }
-    if (self.gender != other.gender) {
+    if (self.user_type && ![self.user_type isEqualToString:other.user_type]) {
         return NO;
     }
-    if (self.age != other.age) {
-        return NO;
-    }
-    
     return YES;
 }
 

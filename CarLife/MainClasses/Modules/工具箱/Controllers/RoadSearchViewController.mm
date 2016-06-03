@@ -2,8 +2,8 @@
 //  RoadSearchViewController.m
 //  DianCheWuLiu
 //
-//  Created by apple on 16/1/28.
-//  Copyright © 2016年 MAC. All rights reserved.
+//  Created by 陈宇峰 on 16/5/27.
+//  Copyright © 2016年 陈宇峰. All rights reserved.
 //
 
 #import "RoadSearchViewController.h"
@@ -51,11 +51,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    if( ([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0))
-//    {
-//        //        self.edgesForExtendedLayout=UIRectEdgeNone;
-//        self.navigationController.navigationBar.translucent = NO;
-//    }
+
     _routesearch = [[BMKRouteSearch alloc]init];
 
     self.view.backgroundColor = [UIColor whiteColor];

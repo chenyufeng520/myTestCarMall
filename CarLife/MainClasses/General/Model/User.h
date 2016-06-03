@@ -10,7 +10,6 @@
 
 @interface User : NSObject<NSCoding, NSCopying>
 
-@property (nonatomic, strong) NSString *userid, *realname, *email, *phone, *nickname, *headimgurl, *address, *birthday, *statemsg, *vocation;
-@property (nonatomic, assign) int gender, age;
+@property (nonatomic, strong) NSString *uid, *user_email, *user_nickname, *user_phone, *user_time, *user_username,*user_type;
 
 @end
