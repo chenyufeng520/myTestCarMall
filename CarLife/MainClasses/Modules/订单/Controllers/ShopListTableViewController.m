@@ -9,10 +9,14 @@
 #import "ShopListTableViewController.h"
 #import "OrderDatahelper.h"
 #import "OrderCell.h"
+#import "ChatViewController.h"
+#import "AppDelegate.h"
+#import "OrderDatahelper.h"
 
-@interface ShopListTableViewController ()<UITableViewDelegate,UITableViewDataSource>{
+@interface ShopListTableViewController ()<UITableViewDelegate,UITableViewDataSource,OrderCellDelegate>{
     UITableView *_tableView;
     NSMutableArray *_shopListArr;
+    int _page;
 }
 
 @end
@@ -27,11 +31,8 @@
 }
 
 - (void)initData{
+    _page = 1;
     _shopListArr = [NSMutableArray array];
-    for (int i=0; i<20; i++) {
-        OrderModel *model = [[OrderModel alloc] init];
-        [_shopListArr addObject:model];
-    }
 }
 
 - (void)makeUI{
@@ -59,7 +60,36 @@
 }
 
 - (void)loadShopListData{
-    [_tableView reloadData];
+    __weak typeof(self) weakSelf = self;
+    [[STHUDManager sharedManager] showHUDInView:self.view];
+    [[OrderDatahelper defaultHelper] requestForURLStr:kFormatUrl requestMethod:@"GET" info:@{@"m":@"Api",@"c":@"Json",@"a":@"index",@"p":[NSString stringWithFormat:@"%d",_page]} andBlock:^(id response, NSError *error) {
+        [[STHUDManager sharedManager] hideHUDInView:weakSelf.view];
+        if ([response isKindOfClass:[NSDictionary class]]) {
+            int status = [response[@"status"] intValue];
+            
+            if (status == 200) {
+                NSArray *dataArr = response[@"data"];
+                if (dataArr) {
+                    for (NSDictionary *dic in dataArr) {
+                        OrderModel *shopModel = [[OrderModel alloc] initWithDic:dic];
+                        [_shopListArr addObject:shopModel];
+                    }
+                    [_tableView reloadData];
+                }
+            }
+            else
+            {
+                [MBProgressHUD showMessag:response[@"message"] toView:self.view];
+            }
+        }
+        else
+        {
+            [MBProgressHUD showError:@"网络异常" toView:self.view];
+
+        }
+
+        [_tableView reloadData];
+    }];
 }
 
 #pragma mark - Table view data source
@@ -71,7 +101,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     OrderModel *model = _shopListArr[indexPath.row];
     if (model.status == FoldStatus) {
-        return kAdjustLength(260);
+        return kAdjustLength(360);
     }
     return kAdjustLength(160);
 }
@@ -83,6 +113,7 @@
         cell = [[OrderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:iden];
     }
     cell.orderModel = _shopListArr[indexPath.row];
+    cell.delegate = self;
     return cell;
 }
 
@@ -94,6 +125,20 @@
         cell.orderModel.status = FoldStatus;
     }
     [_tableView reloadData];
+}
+
+#pragma mark - OrderCellDelagate
+- (void)orderCellPhoneClick:(OrderModel *)orderModel{
+    UIWebView *webView = [[UIWebView alloc]init];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",orderModel.store_phone]];
+    [webView loadRequest:[NSURLRequest requestWithURL:url ]];
+}
+
+- (void)orderCellMessageClick:(OrderModel *)orderModel{
+    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:@"18501047155" conversationType:EMConversationTypeChat];
+    chatController.title = orderModel.store_name;
+    [[AppDelegate shareDelegate].rootNavigation pushViewController:chatController animated:YES];
+
 }
 
 @end

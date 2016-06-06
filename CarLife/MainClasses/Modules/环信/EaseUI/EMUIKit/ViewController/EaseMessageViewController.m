@@ -87,7 +87,7 @@
     EMChatToolbarType barType = self.conversation.type == EMConversationTypeChat ? EMChatToolbarTypeChat : EMChatToolbarTypeGroup;
     self.chatToolbar = [[EaseChatToolbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - chatbarHeight, self.view.frame.size.width, chatbarHeight) type:barType];
     self.chatToolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;    
-    
+    self.tableView.frame = CGRectMake(0, self.iosChangeFloat+kNavHeight, self.view.frame.size.width, self.view.frame.size.height-self.iosChangeFloat-kNavHeight-chatbarHeight);
     //初始化手势
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyBoardHidden:)];
     [self.view addGestureRecognizer:tap];
@@ -1140,10 +1140,12 @@
 - (void)chatToolbarDidChangeFrameToHeight:(CGFloat)toHeight
 {
     [UIView animateWithDuration:0.3 animations:^{
-        CGRect rect = self.tableView.frame;
-        rect.origin.y = 0;
-        rect.size.height = self.view.frame.size.height - toHeight;
-        self.tableView.frame = rect;
+//        CGRect rect = self.tableView.frame;
+//        rect.origin.y = 0;
+//        rect.size.height = self.view.frame.size.height - toHeight;
+//        self.tableView.frame = rect;
+        self.tableView.height = self.view.height-self.iosChangeFloat-kNavHeight - toHeight;
+
     }];
     
     [self _scrollViewToBottom:NO];

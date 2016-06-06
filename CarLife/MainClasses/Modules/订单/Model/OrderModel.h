@@ -16,5 +16,8 @@ typedef NS_ENUM(NSInteger,Status){
 @interface OrderModel : NSObject
 
 @property (nonatomic, assign)Status status;
+@property (nonatomic, strong)NSString *sid,*store_area,*store_name,*store_phone,*store_qq,*store_text,*store_type;
+
+- (id)initWithDic:(NSDictionary *)dic;
 
 @end

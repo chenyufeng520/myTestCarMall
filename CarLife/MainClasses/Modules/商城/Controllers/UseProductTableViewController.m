@@ -10,7 +10,6 @@
 #import "UseProductCell.h"
 #import "ShoppingDataHelper.h"
 #import "UseProductModel.h"
-#import "ProductDetailViewController.h"
 #import "AppDelegate.h"
 #import "GoodsDetailViewController.h"
 

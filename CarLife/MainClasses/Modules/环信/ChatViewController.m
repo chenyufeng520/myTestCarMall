@@ -29,14 +29,44 @@
 
 @implementation ChatViewController
 
+- (ISTTopBar *)creatTopBarView:(CGRect)frame
+{
+    // 导航头
+    ISTTopBar *tbTop = [[ISTTopBar alloc] initWithFrame:frame];
+    [tbTop.btnTitle setTitle:self.title forState:UIControlStateNormal];
+    [tbTop.btnLeft addTarget:self action:@selector(onClickTopBar:) forControlEvents:UIControlEventTouchUpInside];
+    [tbTop setLetfTitle:nil];
+    
+    return tbTop;
+}
+
+- (void)loadSubviews
+{
+    _tbTop = [self creatTopBarView:kTopFrame];
+    [self.view addSubview:_tbTop];
+}
+
+#pragma mark - Click Menu
+
+- (void)onClickTopBar:(UIButton *)btn
+{
+    if (btn.tag == BSTopBarButtonLeft) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else if (btn.tag == BSTopBarButtonRight) {
+        
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadSubviews];
+    // Do any additional setup after loading the view.
     // Do any additional setup after loading the view.
     self.showRefreshHeader = YES;
     self.delegate = self;
     self.dataSource = self;
-    
-    [self _setupBarButtonItem];
+//    [self _setupBarButtonItem];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deleteAllMessages:) name:KNOTIFICATIONNAME_DELETEALLMESSAGE object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(exitGroup) name:@"ExitGroup" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(insertCallMessage:) name:@"insertCallMessage" object:nil];
@@ -73,6 +103,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+
     if (self.conversation.type == EMConversationTypeGroupChat) {
         if ([[self.conversation.ext objectForKey:@"subject"] length])
         {
@@ -85,12 +116,14 @@
 
 - (void)_setupBarButtonItem
 {
-    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
-    [backButton setImage:[UIImage imageNamed:@"back.png"] forState:UIControlStateNormal];
+    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, kNavHeight, kNavHeight)];
+    UIImage *leftImage = [UIImage imageNamed:@"fanhui"];
+    [backButton setImage:leftImage forState:UIControlStateNormal];
     [backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+    backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-    [self.navigationItem setLeftBarButtonItem:backItem];
-    
+    self.navigationItem.leftBarButtonItem = backItem;
+
     //单聊
     if (self.conversation.type == EMConversationTypeChat) {
         UIButton *clearButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];

@@ -410,6 +410,8 @@
                 int status = [response[@"status"] intValue];
                 
                 if (status == 200) {
+                    //登录环信
+                    [weakSelf loginEMService:[[response objectForKey:@"data"] objectForKey:@"user_phone"]];
                     //请求成功，处理结果
                     [weakSelf loginSuccessfully:response[@"data"]];
                 }
@@ -438,8 +440,16 @@
 
 #pragma mark - 登录成功
 
+- (void)loginEMService:(NSString *)userphone{
+    EMError *error = [[EMClient sharedClient] loginWithUsername:userphone password:userphone];
+    if (error==nil) {
+        NSLog(@"登录成功");
+    }
+}
+
 - (void)loginSuccessfully:(NSDictionary *)dic
 {
+   
     [[STHUDManager sharedManager] hideHUDInView:self.view];
     
     User *user = [[User alloc] init];

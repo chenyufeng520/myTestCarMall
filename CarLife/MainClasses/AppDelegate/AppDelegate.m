@@ -24,7 +24,6 @@
 #import "LoginCenter.h"
 #import "ISTLoginViewController.h"
 #import "GifViewController.h"
-#import "ChatViewController.h"
 
 @interface AppDelegate ()<UMSocialUIDelegate,WXApiDelegate,BMKGeneralDelegate>
 {
@@ -44,6 +43,7 @@
 
 - (void)applicationConfiguration
 {
+    [self configEMSDK];
     [self startIQKeyboard];
     [self startBaiduMap];
     [self configWeiXin];
@@ -54,8 +54,8 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
     [self applicationConfiguration];
+    [self registerNotification:application];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = kWhiteColor;
     //    GifViewController *VC = [[GifViewController alloc] init];
@@ -94,10 +94,28 @@
     }
     else
     {
-        
+        [self autoLoginEMService];
         [self.window setRootViewController:self.rootNavigation];
     }
     [self.window makeKeyAndVisible];
+}
+
+//自动登录时登录环信
+- (void)autoLoginEMService{
+    NSString *user_phone = [[NSUserDefaults standardUserDefaults] objectForKey:kPhone];
+    EMError *error = [[EMClient sharedClient] loginWithUsername:user_phone password:user_phone];
+    if (error==nil) {
+        NSLog(@"登录成功");
+    }
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
+    EMError *error = [[EMClient sharedClient] bindDeviceToken:deviceToken];
+    NSLog(@"%@",error);
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
+    NSLog(@"%@",error);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -367,6 +385,32 @@
       handleOpenURL:(NSURL *)url
 {
     return  [WXApi handleOpenURL:url delegate:self];
+}
+
+#pragma mark - 环信
+- (void)configEMSDK{
+    EMOptions *options = [EMOptions optionsWithAppkey:EMAppKey];
+    options.apnsCertName = @"PushCer";
+    [[EMClient sharedClient] initializeSDKWithOptions:options];
+}
+
+#pragma mark - 注册推送
+- (void)registerNotification:(UIApplication *)application{
+    //iOS8 注册APNS
+    if ([application respondsToSelector:@selector(registerForRemoteNotifications)]) {
+        [application registerForRemoteNotifications];
+        UIUserNotificationType notificationTypes = UIUserNotificationTypeBadge |
+        UIUserNotificationTypeSound |
+        UIUserNotificationTypeAlert;
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:notificationTypes categories:nil];
+        [application registerUserNotificationSettings:settings];
+    }
+    else{
+        UIRemoteNotificationType notificationTypes = UIRemoteNotificationTypeBadge |
+        UIRemoteNotificationTypeSound |
+        UIRemoteNotificationTypeAlert;
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:notificationTypes];
+    }
 }
 
 @end

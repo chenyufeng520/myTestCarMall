@@ -60,7 +60,7 @@
     UIView *sideView = [[UIView alloc] initWithFrame:CGRectMake(kAdjustLength(140), segmentView.maxY + 10, (kScreen_Width-2*kAdjustLength(140)), kAdjustLength(120))];
     sideView.layer.cornerRadius = sideView.height * 0.5;
     sideView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    sideView.layer.borderWidth = 1;
+    sideView.layer.borderWidth = 0.8;
     [topView addSubview:sideView];
     
     UIImageView *leftImage = [[UIImageView alloc] initWithFrame:CGRectMake(5, 10, sideView.height-20, sideView.height-20)];

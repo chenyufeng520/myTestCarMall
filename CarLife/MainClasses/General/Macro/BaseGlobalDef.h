@@ -69,6 +69,8 @@ _Pragma("clang diagnostic pop") \
 
 #define kMainDomain             @"http://www.hfdianche.cn/wuliu/"
 #define kTestMainDomain         @"http://101.201.174.252"
+#define kFormatUrl              @"index.php"
+
 
 /**账号设置**/
 #define kNoAutoLogin            @"kAutoLogin"
@@ -85,6 +87,7 @@ static NSString *kBaiduMapAK    = @"fpqtisteyjqGzhgjvhNv2AOXLDBmR3dT";
 static NSString *wxAppKey       = @"wxac4778adb8dbc9ea";
 static NSString *wxSecret       = @"da972b13215611e5291c31374534d3b8";
 static NSString *KeFuAppKey     = @"3d09752b4ad192976fd39172a9d72e1a";
+static NSString *EMAppKey     = @"dianche123#dianche";
 
 /**支付方式**/
 typedef enum {
@@ -143,6 +146,7 @@ typedef enum {
 
 /** 图片网址拼接*/
 #define KImageUrl(a) [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kMainDomain,a]]
+
 /**通知**/
 static NSString *kLoginNotification                 = @"kLoginNotification";                //登录操作
 static NSString *kLogoutNotification                = @"kLogoutNotification";               //注销操作

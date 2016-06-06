@@ -328,6 +328,9 @@ label2.frame = CGRectMake(label1.right, _AgreementBnt.origin.y,label2.width , _A
                     //                alertView
                     //                [alertView showAlertViewWithCompleteBlock:^(NSInteger buttonIndex) {
                     //                }];
+                    //注册成为环信用户
+                    [weakSelf registEMService];
+                    
                     [weakSelf loginSuccessfully:response[@"data"]];
                 }
                 else
@@ -340,6 +343,14 @@ label2.frame = CGRectMake(label1.right, _AgreementBnt.origin.y,label2.width , _A
                 kTipAlert(@"服务器异常");
             }
         }];
+    }
+}
+
+/** 新用户注册环信*/
+- (void)registEMService{
+    EMError *error = [[EMClient sharedClient] registerWithUsername:_phoneTf.text password:_phoneTf.text];
+    if (!error) {
+        [[EMClient sharedClient] loginWithUsername:_phoneTf.text password:_phoneTf.text];
     }
 }
 

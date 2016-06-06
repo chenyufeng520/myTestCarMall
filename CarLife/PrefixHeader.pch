@@ -22,6 +22,7 @@
 #import "UIAlertHelper.h"
 #import "User.h"
 #import "ISTHUDManager.h"
+#import "EMSDK.h"
 
 #endif
 

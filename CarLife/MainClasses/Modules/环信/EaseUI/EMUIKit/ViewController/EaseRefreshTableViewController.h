@@ -11,10 +11,11 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "ISTSupBaseViewController.h"
 
 #define KCELLDEFAULTHEIGHT 50
 
-@interface EaseRefreshTableViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface EaseRefreshTableViewController : ISTSupBaseViewController<UITableViewDataSource, UITableViewDelegate>
 {
     NSArray *_rightItems;
 }
