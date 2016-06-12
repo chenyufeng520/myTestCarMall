@@ -155,10 +155,21 @@
 }
 
 #pragma mark UIScrowViewDelegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-//    if (scrollView.contentOffset.x < 0) {
-//        scrollView.contentOffset = CGPointMake(0, 0);
-//    }
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    int page = (scrollView.contentOffset.x/kScreen_Width);
+    scrollView.contentOffset = CGPointMake(page * kScreen_Width, 0);
+    for (UIButton *tempBtn in _columeView.subviews) {
+        if ([tempBtn isKindOfClass:[UIButton class]]) {
+            [tempBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            if (tempBtn.tag == page) {
+                [tempBtn setTitleColor:kNavBarColor forState:UIControlStateNormal];
+                [UIView animateWithDuration:0.5 animations:^{
+                    [_underline setMinX:tempBtn.minX];
+                }];
+            }
+
+        }
+    }
 }
 
 @end
