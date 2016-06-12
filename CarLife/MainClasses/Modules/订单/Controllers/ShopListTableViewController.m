@@ -17,6 +17,7 @@
     UITableView *_tableView;
     NSMutableArray *_shopListArr;
     int _page;
+    UIWebView *_phoneWebView;
 }
 
 @end
@@ -129,9 +130,12 @@
 
 #pragma mark - OrderCellDelagate
 - (void)orderCellPhoneClick:(OrderModel *)orderModel{
-    UIWebView *webView = [[UIWebView alloc]init];
+    if (!_phoneWebView) {
+        _phoneWebView = [[UIWebView alloc]init];
+        [self.view addSubview:_phoneWebView];
+    }
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",orderModel.store_phone]];
-    [webView loadRequest:[NSURLRequest requestWithURL:url ]];
+    [_phoneWebView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
 - (void)orderCellMessageClick:(OrderModel *)orderModel{
