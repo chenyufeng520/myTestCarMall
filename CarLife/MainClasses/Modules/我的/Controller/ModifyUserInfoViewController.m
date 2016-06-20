@@ -284,7 +284,7 @@
     User *user = [NSKeyedUnarchiver unarchiveObjectWithData:udObject];
     NSString *userid = user.uid;
     
-    [[ISTHUDManager defaultManager] showHUDInView:_contentView withText:nil];
+    [[ISTHUDManager defaultManager] showHUDInView:_contentView withText:@"获取用户信息"];
     [[MineDataHelper defaultHelper] requestForURLStr:@"index.php" requestMethod:@"GET" info:@{@"m":@"api",@"c":@"user",@"a":@"update",@"uid":userid} andBlock:^(id response, NSError *error) {
         [[ISTHUDManager defaultManager] hideHUDInView:_contentView];
         if ([response isKindOfClass:[NSDictionary class]]) {

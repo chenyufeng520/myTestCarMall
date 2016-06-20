@@ -88,6 +88,7 @@
     companyLogo.backgroundColor = [UIColor clearColor];
     companyLogo.contentMode = UIViewContentModeScaleAspectFit;
     companyLogo.image = [UIImage imageNamed:@"logo.png"];
+    
     [_mainView addSubview:companyLogo];
     
     UIView * backView = [[UIView alloc]initWithFrame:CGRectMake(10, companyLogo.bottom+15, self.view.width-2*10, kAdjustLength(320))];
