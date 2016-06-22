@@ -243,6 +243,7 @@
 		8259CCBF1CECC9C300D6685C /* user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8259CC7B1CECC9C300D6685C /* user@2x.png */; };
 		8259CCC21CECCB7C00D6685C /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8259CCC11CECCB7C00D6685C /* ChatViewController.m */; };
 		8259CCC41CECCC0A00D6685C /* EaseUIResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8259CCC31CECCC0A00D6685C /* EaseUIResource.bundle */; };
+		825DA8C31D1A7C62004FD96B /* ConversationListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 825DA8C21D1A7C62004FD96B /* ConversationListController.m */; };
 		8272E0071CF6B36600BB3AD7 /* GoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8272E0051CF6B36600BB3AD7 /* GoodsDetailViewController.m */; };
 		82C248EC1CF4300E00CA440B /* ValidObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C248EB1CF4300E00CA440B /* ValidObject.m */; };
 		82E9526C1CF576540078E89B /* CustomSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E9526B1CF576540078E89B /* CustomSegmentView.m */; };
@@ -807,6 +808,8 @@
 		8259CCC01CECCB7C00D6685C /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		8259CCC11CECCB7C00D6685C /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		8259CCC31CECCC0A00D6685C /* EaseUIResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EaseUIResource.bundle; sourceTree = "<group>"; };
+		825DA8C11D1A7C62004FD96B /* ConversationListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationListController.h; sourceTree = "<group>"; };
+		825DA8C21D1A7C62004FD96B /* ConversationListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationListController.m; sourceTree = "<group>"; };
 		8272E0041CF6B36600BB3AD7 /* GoodsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailViewController.h; sourceTree = "<group>"; };
 		8272E0051CF6B36600BB3AD7 /* GoodsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailViewController.m; sourceTree = "<group>"; };
 		82C248EA1CF4300E00CA440B /* ValidObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValidObject.h; sourceTree = "<group>"; };
@@ -1195,6 +1198,8 @@
 				82E952771CF59C8F0078E89B /* OrderTableViewController.m */,
 				713F08701CF55B190022A009 /* ShoppingCarViewController.h */,
 				713F08711CF55B190022A009 /* ShoppingCarViewController.m */,
+				825DA8C11D1A7C62004FD96B /* ConversationListController.h */,
+				825DA8C21D1A7C62004FD96B /* ConversationListController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -3246,6 +3251,7 @@
 				DCD55B771BD4E61F0016D138 /* TXCustomAlertWindow.m in Sources */,
 				8259CC101CECC9AE00D6685C /* EaseMessageReadManager.m in Sources */,
 				8259CC001CECC9AE00D6685C /* PSTGridLayoutInfo.m in Sources */,
+				825DA8C31D1A7C62004FD96B /* ConversationListController.m in Sources */,
 				7116286F1C9CFCC20049AB7B /* BaseDataHelper.m in Sources */,
 				8241D30B1CF2CE1200411423 /* OilTableViewController.m in Sources */,
 				8259CC131CECC9AE00D6685C /* EaseEmotionEscape.m in Sources */,

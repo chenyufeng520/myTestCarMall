@@ -10,7 +10,9 @@
 #import "CustomSegmentView.h"
 #import "ShopListTableViewController.h"
 #import "OrderTableViewController.h"
-
+#import "EaseConversationListViewController.h"
+#import "ConversationListController.h"
+#import "AppDelegate.h"
 @interface CMOrderViewController ()<CustomSegmentDelegate,UIScrollViewDelegate,UITextFieldDelegate>{
     UITextField *_textField;
     ShopListTableViewController *_shopListVC;
@@ -27,6 +29,9 @@
     ISTTopBar *tbTop = [[ISTTopBar alloc] initWithFrame:frame];
     [tbTop.btnTitle setTitle:@"下订单" forState:UIControlStateNormal];
     
+    [tbTop.btnRight setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    [tbTop.btnRight setTitle:@"消息" forState:UIControlStateNormal];
+    [tbTop.btnRight addTarget:self action:@selector(messageListVC:) forControlEvents:UIControlEventTouchUpInside];
     return tbTop;
 }
 
@@ -94,12 +99,19 @@
     }
 }
 
-#pragma mark CustomSegmentView Delegate
+#pragma mark - 跳转消息列表页面
+- (void)messageListVC:(UIButton *)btn{
+    ConversationListController *chatListVC = [[ConversationListController alloc] init];
+    [[AppDelegate shareDelegate].rootNavigation pushViewController:chatListVC animated:YES];
+
+}
+
+#pragma mark - CustomSegmentView Delegate
 - (void)segmentedViewSelectTitleInteger:(NSInteger)integer{
     
 }
 
-#pragma mark UIScrollView Delegate
+#pragma mark - UIScrollView Delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
 
 }
