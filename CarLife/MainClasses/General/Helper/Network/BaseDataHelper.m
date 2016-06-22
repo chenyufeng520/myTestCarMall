@@ -266,6 +266,55 @@ static BaseDataHelper *_sharedInst = nil;
     }];
 }
 
+#pragma mark - newsListRequest
+
+- (void)newsListRequestForPage:(int)page requestMethod:(NSString *)requestMethod info:(NSDictionary *)requestInfo andBlock:(void (^)(id response, NSError *error))block{
+    
+    
+    NSString *urlString = nil;
+    
+    if ([requestMethod isEqualToString:@"GET"]) {
+        urlString = [NSString stringWithFormat:@"http://apis.baidu.com/showapi_open_bus/channel_news/search_news?channelId=5572a109b3cdc86cf39001e5&page=%d",page];
+        requestMethod = @"GET";
+    }
+    else
+    {
+        urlString = [NSString stringWithFormat:@"http://apis.baidu.com/showapi_open_bus/channel_news/search_news?channelId=5572a109b3cdc86cf39001e5&page=%d",page];
+    }
+    
+    urlString = [NSString encodeChineseToUTF8:urlString];
+    
+    BSLog(@"\n请求路径：%@\n***请求参数：\n%@\n***结束\n\n",urlString,requestInfo);
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    configuration.HTTPCookieAcceptPolicy = NSHTTPCookieAcceptPolicyAlways;
+    configuration.HTTPShouldSetCookies = YES;
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:configuration];
+    [manager setResponseSerializer:[AFJSONResponseSerializer new]];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", nil];
+    [manager.requestSerializer setTimeoutInterval:60];
+    [manager.requestSerializer setValue:@"b6f043e546cb0751bec2e7bdf06e036f" forHTTPHeaderField:@"apikey"];
+    
+    if ([requestMethod isEqualToString:@"POST"]) {
+        [manager POST:urlString parameters:requestInfo  success:^(NSURLSessionDataTask *task, id responseObject){
+            BSLog(@"\n\n路径:%@\n***请求结果:\n%@\n***结束\n\n", task.response.URL,responseObject);
+            block(responseObject,nil);
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            BSLog(@"%@",error);
+            block(nil,error);
+        }];
+    } else {
+        [manager GET:urlString parameters:nil  success:^(NSURLSessionDataTask *task, id responseObject) {
+            BSLog(@"\n\n路径:%@\n***请求结果:\n%@\n***结束\n\n", task.response.URL,responseObject);
+            block(responseObject,nil);
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            BSLog(@"%@",error);
+            block(nil,error);
+        }];
+    }
+}
+
+
 
 #pragma mark - Url拼接及分割
 

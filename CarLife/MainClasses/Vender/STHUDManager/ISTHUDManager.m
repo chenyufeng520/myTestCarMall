@@ -60,23 +60,74 @@ static ISTHUDManager *instance = nil;
     hud.labelText = text;
 }
 
+//动画图片加载
+- (void)showAnimationHUDToView:(UIView *)view withText:(NSString *)text
+{
+    UIImageView *imageVIew =  [[UIImageView alloc] init];
+    imageVIew.width = 60;
+    imageVIew.height = 60;
+    
+    NSMutableArray *imageArr = [NSMutableArray array];
+    //创建一个可变数组
+    for(int i=1;i<13;i++){
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"loading%d.png",i]];
+        [imageArr addObject:image];
+    }
+    imageVIew.animationImages = imageArr;
+    imageVIew.animationDuration = imageArr.count/12;
+    imageVIew.animationRepeatCount = 0;
+    [imageVIew startAnimating];
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    hud.customView = imageVIew;
+    hud.delegate = self;
+    hud.mode = MBProgressHUDModeCustomView;
+    hud.dimBackground = NO;
+    hud.color = [UIColor clearColor];
+//    hud.labelColor = kLightTextColor;
+    hud.delegate = self;
+    hud.labelText = text;
+}
+
+
 #pragma mark - show methods
 
+//旧的等待框（暂时注释）
+//- (void)showHUDInView:(UIView *)view withText:(NSString *)text
+//{
+//    if ([[HttpReachabilityHelper sharedService] checkNetwork]) {
+//        
+//        [_viewArray addObject:view];
+//
+//        view.userInteractionEnabled = NO;
+//        
+//        MBProgressHUD *preHud = [MBProgressHUD HUDForView:view];
+//        if (!preHud.hidden) {
+//            [preHud hide:YES];
+//        }
+//        [self p_showHUDToView:view withText:text];
+//    }
+//}
+
+//动画加载(新的等待框)
 - (void)showHUDInView:(UIView *)view withText:(NSString *)text
 {
     if ([[HttpReachabilityHelper sharedService] checkNetwork]) {
         
         [_viewArray addObject:view];
-
+        
         view.userInteractionEnabled = NO;
         
         MBProgressHUD *preHud = [MBProgressHUD HUDForView:view];
+        
+        
         if (!preHud.hidden) {
             [preHud hide:YES];
         }
-        [self p_showHUDToView:view withText:text];
+        [self showAnimationHUDToView:view withText:text];
     }
 }
+
 
 - (void)showHUDWithSuccess:(NSString *)text
 {

@@ -76,7 +76,7 @@
     [super viewDidLoad];
     [self loadSubviews];
     [self performData];
-//    [self loadData];
+    [self loadData];
 }
 
 #pragma mark - 网络请求
@@ -104,7 +104,7 @@
 
 - (void)loadData{
     
-    [[NewsDataHelper defaultHelper] commonRequestForURLStr:nil requestMethod:@"GET" info:@{@"channelId":@"5572a109b3cdc86cf39001e5",@"page":@"1"} andBlock:^(id response, NSError *error) {
+    [[NewsDataHelper defaultHelper] newsListRequestForPage:1 requestMethod:@"GET" info:nil andBlock:^(id response, NSError *error) {
         
     }];
 }
