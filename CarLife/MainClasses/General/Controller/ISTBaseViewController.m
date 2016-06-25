@@ -30,8 +30,8 @@
     _contentView.scrollEnabled = YES;
     _contentView.showsVerticalScrollIndicator = NO;
     _contentView.showsHorizontalScrollIndicator = NO;
-    self.view.backgroundColor = kMainBGColor;
     [self.view addSubview:_contentView];
+    self.view.backgroundColor = kMainBGColor;
 }
 
 - (void)didReceiveMemoryWarning {

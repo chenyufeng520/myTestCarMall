@@ -8,6 +8,10 @@
 
 #import "GoodsDetailViewController.h"
 #import "ShoppingCarViewController.h"
+#import "ShoppingDataHelper.h"
+#import "AppDelegate.h"
+#import "DragView.h"
+#import "GoodsToPayViewController.h"
 
 @interface GoodsDetailViewController ()<UITextFieldDelegate,UITextViewDelegate>{
     UITextField *_numTextField;
@@ -38,6 +42,23 @@
     _tbTop = [self creatTopBarView:kTopFrame];
     [self.view addSubview:_tbTop];
     _contentView.height += kTabBarHeight;
+    
+    [self initWithModel];
+
+    
+    //悬浮按钮
+    DragView *dragView = [[DragView alloc] initWithFrame:CGRectMake(_contentView.width - kAdjustLength(200), _contentView.height - kAdjustLength(300), kAdjustLength(200), kAdjustLength(200))];
+    [dragView setBlock:^(){
+        BSLog(@"点击了悬浮按钮");
+        ShoppingCarViewController *shoppingCar = [[ShoppingCarViewController alloc] init];
+        [[AppDelegate shareDelegate].rootNavigation pushViewController:shoppingCar animated:YES];
+    }];
+    
+    UIImageView *shopCarImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kAdjustLength(200), kAdjustLength(200))];
+    shopCarImg.image = [UIImage imageNamed:@"shoppingCari"];
+    [dragView addSubview:shopCarImg];
+    
+    [_contentView addSubview:dragView];
 }
 
 
@@ -46,7 +67,6 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self addNotification];
     [self loadSubviews];
-    [self initWithModel];
 }
 
 - (void)addNotification{
@@ -213,14 +233,28 @@
         [self.navigationController popViewControllerAnimated:YES];
     }
     else if (btn.tag == BSTopBarButtonRight) {
-        ShoppingCarViewController *shoppingCar = [[ShoppingCarViewController alloc] init];
+        GoodsToPayViewController *shoppingCar = [[GoodsToPayViewController alloc] init];
         [self.navigationController pushViewController:shoppingCar animated:YES];
 
     }
 }
 
+#pragma mark - 添加到购物车
 - (void)addToCar:(UIButton *)btn{
-
+    if (!_msgTextView.text) {
+        _msgTextView.text = @"";
+    }
+    NSString *urlStr = [NSString stringWithFormat:@"index.php?m=api&c=Store&a=addBuycar&uid=%@&gid=%@&num=%@&dd_text=%@",kUID,self.productModel.gid,_numTextField.text,_msgTextView.text];
+    [[ShoppingDataHelper defaultHelper] requestForURLStr:urlStr requestMethod:@"GET" info:nil andBlock:^(id response, NSError *error) {
+        if (!error) {
+            NSDictionary *dic = response;
+            if ([[dic objectForKey:@"status"] integerValue] == 200) {
+                [[ISTHUDManager defaultManager] showHUDWithSuccess:@"添加成功"];
+            }else{
+                [[ISTHUDManager defaultManager] showHUDWithError:dic[@"message"]];
+            }
+        }
+ }];
 }
 
 #pragma mark - UITextViewDelegate
@@ -234,6 +268,7 @@
 {
     if ([text isEqualToString:@"\n"]) {
         [textView resignFirstResponder];
+        
         return NO;
     }
     return YES;

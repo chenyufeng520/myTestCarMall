@@ -81,6 +81,8 @@ _Pragma("clang diagnostic pop") \
 #define kPhone                  @"phone"
 #define kUserid                 @"kUserid"
 
+#define kUID     [[NSUserDefaults standardUserDefaults] objectForKey:kUserid]
+
 /**第三方账号设置**/
 static NSString *UmengAppkey    = @"56e67d0de0f55a6688000ee2";
 static NSString *kBaiduMapAK    = @"fpqtisteyjqGzhgjvhNv2AOXLDBmR3dT";

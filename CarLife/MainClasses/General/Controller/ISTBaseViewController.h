@@ -12,8 +12,7 @@
 #import "ISTGlobal.h"
 #import "ISTSupBaseViewController.h"
 
-@interface ISTBaseViewController : ISTSupBaseViewController<UIScrollViewDelegate>
-{
+@interface ISTBaseViewController : ISTSupBaseViewController<UIScrollViewDelegate>{
     UIScrollView *_contentView;
 }
 
