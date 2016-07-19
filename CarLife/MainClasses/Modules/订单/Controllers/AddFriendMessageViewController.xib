@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddFriendMessageViewController">
+            <connections>
+                <outlet property="toTopHeight" destination="6b4-Pw-Son" id="t5c-nL-R4r"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="对方需要你填写验证信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnN-eM-NBA">
+                    <rect key="frame" x="10" y="84" width="394" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="ssi-Jv-81F"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="我是..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bfi-mX-999">
+                    <rect key="frame" x="0.0" y="114" width="414" height="200"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="8OH-4U-KAK"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="M2f-Dd-2GA"/>
+                    </connections>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="qnN-eM-NBA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="6b4-Pw-Son"/>
+                <constraint firstItem="bfi-mX-999" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8Dy-MZ-RWX"/>
+                <constraint firstItem="qnN-eM-NBA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="AxS-cU-2Bm"/>
+                <constraint firstAttribute="trailing" secondItem="bfi-mX-999" secondAttribute="trailing" id="BUV-dp-iCF"/>
+                <constraint firstAttribute="trailing" secondItem="qnN-eM-NBA" secondAttribute="trailing" constant="10" id="OBu-aH-yxM"/>
+                <constraint firstItem="bfi-mX-999" firstAttribute="top" secondItem="qnN-eM-NBA" secondAttribute="bottom" constant="10" id="ghr-2T-Ngf"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+        </view>
+    </objects>
+</document>

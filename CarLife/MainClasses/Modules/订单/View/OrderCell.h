@@ -11,19 +11,21 @@
 
 @protocol OrderCellDelegate <NSObject>
 
+@optional
 - (void)orderCellPhoneClick:(OrderModel *)orderModel;
 - (void)orderCellMessageClick:(OrderModel *)orderModel;
+- (void)orderCellHiddenButtonClick:(NSInteger)index orderModel:(OrderModel *)orderModel;
 
 @end
 
 @interface OrderCell : UITableViewCell
 
+@property (nonatomic, strong)UIImageView *shopImage;
 @property (nonatomic, strong)UILabel *nameLab;
 @property (nonatomic, strong)UILabel *typeLab;
 @property (nonatomic, strong)UIButton *phoneBtn;
 @property (nonatomic, strong)UIButton *msgBtn;
-@property (nonatomic, strong)UILabel *hiddenShopLab;
-@property (nonatomic, strong)UILabel *hiddenNameLab;
+@property (nonatomic, strong)UIView *hiddenView;
 @property (nonatomic, strong)OrderModel *orderModel;
 
 @property (nonatomic, weak)id <OrderCellDelegate> delegate;
