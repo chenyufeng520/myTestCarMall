@@ -12,6 +12,11 @@
 #import "ChatViewController.h"
 #import "AppDelegate.h"
 #import "OrderDatahelper.h"
+#import "PhoneContactViewController.h"
+#import "NearCarOwerViewController.h"
+#import "RedEnvelopeViewController.h"
+#import "AddFriendMessageViewController.h"
+#import "ShareToZoneViewController.h"
 
 @interface ShopListTableViewController ()<UITableViewDelegate,UITableViewDataSource,OrderCellDelegate>{
     UITableView *_tableView;
@@ -41,13 +46,14 @@
     line.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:line];
     
-    NSArray *titleArr = @[@"店铺名称",@"专营类别",@"联系方式"];
-    CGFloat w = kScreen_Width/(float)titleArr.count;
+    NSArray *titleArr = @[@"店铺页",@"智能排序",@"筛选"];
+    CGFloat w = (kScreen_Width-10)/(float)titleArr.count;
     for (int i=0; i<titleArr.count; i++) {
-        UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(i*w, 0, w, kAdjustLength(160))];
+        UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(i*(w+5), 0, w, kAdjustLength(160))];
         lab.font = kFont_16;
         lab.text = titleArr[i];
-        lab.backgroundColor = [UIColor whiteColor];
+        lab.textColor = [UIColor whiteColor];
+        lab.backgroundColor = kNavBarColor;
         lab.textAlignment = NSTextAlignmentCenter;
         [self.view addSubview:lab];
     }
@@ -102,9 +108,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     OrderModel *model = _shopListArr[indexPath.row];
     if (model.status == FoldStatus) {
-        return kAdjustLength(360);
+        return 100+10*2+45*3+20*2;
     }
-    return kAdjustLength(160);
+    return 100;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -143,6 +149,52 @@
     chatController.title = orderModel.store_name;
     [[AppDelegate shareDelegate].rootNavigation pushViewController:chatController animated:YES];
 
+}
+
+- (void)orderCellHiddenButtonClick:(NSInteger)index orderModel:(OrderModel *)orderModel{
+    switch (index) {
+        case 0:
+        {
+            NearCarOwerViewController *nearCarOwer = [[NearCarOwerViewController alloc] init];
+            [[AppDelegate shareDelegate].rootNavigation pushViewController:nearCarOwer animated:YES];
+            break;
+        }
+        case 1:
+        {
+            RedEnvelopeViewController *redEnvelope = [[RedEnvelopeViewController alloc] init];
+            [[AppDelegate shareDelegate].rootNavigation pushViewController:redEnvelope animated:YES];
+            break;
+        }
+        case 2:
+        {
+            AddFriendMessageViewController *addMessage = [[AddFriendMessageViewController alloc] init];
+            [[AppDelegate shareDelegate].rootNavigation pushViewController:addMessage animated:YES];
+
+            break;
+        }
+        case 3:
+        {
+
+            break;
+        }
+        case 4:
+        {
+            PhoneContactViewController *phoneContact = [[    PhoneContactViewController alloc] init];
+            phoneContact.orderModel = orderModel;
+            [[AppDelegate shareDelegate].rootNavigation pushViewController:phoneContact animated:YES];
+            break;
+        }
+        case 5:
+        {
+            ShareToZoneViewController *shareZone = [[ShareToZoneViewController alloc] init];
+            [[AppDelegate shareDelegate].rootNavigation pushViewController:shareZone animated:YES];
+
+            break;
+        }
+            
+        default:
+            break;
+    }
 }
 
 @end

@@ -132,7 +132,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *iden = @"ShopCarCell";
+    static NSString *iden = @"ShopCarGoodsCell";
     ShopCarGoodsCell *cell = [tableView dequeueReusableCellWithIdentifier:iden];
     if (cell == nil) {
         cell = [[ShopCarGoodsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:iden];

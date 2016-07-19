@@ -59,6 +59,18 @@
 		71CB53F31D17DA2C0089E1DA /* loading12.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CB53E71D17DA2C0089E1DA /* loading12.png */; };
 		71CCE63D1CF6A9960045F7C8 /* ISTSupBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CCE63C1CF6A9960045F7C8 /* ISTSupBaseViewController.m */; };
 		71D87F451CEE0D8B000D7525 /* OrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D87F441CEE0D8B000D7525 /* OrderCell.m */; };
+		821F5D811D3DF4C000050A24 /* OrderCellButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F5D801D3DF4C000050A24 /* OrderCellButton.m */; };
+		821F5D851D3E08FD00050A24 /* PhoneContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F5D831D3E08FD00050A24 /* PhoneContactViewController.m */; };
+		821F5D861D3E08FD00050A24 /* PhoneContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 821F5D841D3E08FD00050A24 /* PhoneContactViewController.xib */; };
+		821F5D8A1D3E132C00050A24 /* NearCarOwerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F5D881D3E132C00050A24 /* NearCarOwerViewController.m */; };
+		821F5D8B1D3E132C00050A24 /* NearCarOwerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 821F5D891D3E132C00050A24 /* NearCarOwerViewController.xib */; };
+		821F5D8F1D3E145800050A24 /* NearCarOwerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F5D8D1D3E145800050A24 /* NearCarOwerCell.m */; };
+		821F5D901D3E145800050A24 /* NearCarOwerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 821F5D8E1D3E145800050A24 /* NearCarOwerCell.xib */; };
+		821F5D991D3E1E5A00050A24 /* RedEnvelopeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F5D971D3E1E5A00050A24 /* RedEnvelopeViewController.m */; };
+		821F5D9A1D3E1E5A00050A24 /* RedEnvelopeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 821F5D981D3E1E5A00050A24 /* RedEnvelopeViewController.xib */; };
+		821F5D9E1D3E242500050A24 /* AddFriendMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F5D9C1D3E242500050A24 /* AddFriendMessageViewController.m */; };
+		821F5D9F1D3E242500050A24 /* AddFriendMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 821F5D9D1D3E242500050A24 /* AddFriendMessageViewController.xib */; };
+		821F5DA31D3E281800050A24 /* ShareToZoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F5DA11D3E281800050A24 /* ShareToZoneViewController.m */; };
 		8241D3051CF2CC9700411423 /* UseProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8241D3041CF2CC9700411423 /* UseProductTableViewController.m */; };
 		8241D3081CF2CE0800411423 /* TyreTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8241D3071CF2CE0800411423 /* TyreTableViewController.m */; };
 		8241D30B1CF2CE1200411423 /* OilTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8241D30A1CF2CE1200411423 /* OilTableViewController.m */; };
@@ -455,6 +467,25 @@
 		71CCE63C1CF6A9960045F7C8 /* ISTSupBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTSupBaseViewController.m; sourceTree = "<group>"; };
 		71D87F431CEE0D8B000D7525 /* OrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCell.h; sourceTree = "<group>"; };
 		71D87F441CEE0D8B000D7525 /* OrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCell.m; sourceTree = "<group>"; };
+		821F5D7F1D3DF4C000050A24 /* OrderCellButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCellButton.h; sourceTree = "<group>"; };
+		821F5D801D3DF4C000050A24 /* OrderCellButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCellButton.m; sourceTree = "<group>"; };
+		821F5D821D3E08FD00050A24 /* PhoneContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneContactViewController.h; sourceTree = "<group>"; };
+		821F5D831D3E08FD00050A24 /* PhoneContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneContactViewController.m; sourceTree = "<group>"; };
+		821F5D841D3E08FD00050A24 /* PhoneContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhoneContactViewController.xib; sourceTree = "<group>"; };
+		821F5D871D3E132C00050A24 /* NearCarOwerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearCarOwerViewController.h; sourceTree = "<group>"; };
+		821F5D881D3E132C00050A24 /* NearCarOwerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearCarOwerViewController.m; sourceTree = "<group>"; };
+		821F5D891D3E132C00050A24 /* NearCarOwerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearCarOwerViewController.xib; sourceTree = "<group>"; };
+		821F5D8C1D3E145800050A24 /* NearCarOwerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearCarOwerCell.h; sourceTree = "<group>"; };
+		821F5D8D1D3E145800050A24 /* NearCarOwerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearCarOwerCell.m; sourceTree = "<group>"; };
+		821F5D8E1D3E145800050A24 /* NearCarOwerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearCarOwerCell.xib; sourceTree = "<group>"; };
+		821F5D961D3E1E5A00050A24 /* RedEnvelopeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedEnvelopeViewController.h; sourceTree = "<group>"; };
+		821F5D971D3E1E5A00050A24 /* RedEnvelopeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedEnvelopeViewController.m; sourceTree = "<group>"; };
+		821F5D981D3E1E5A00050A24 /* RedEnvelopeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RedEnvelopeViewController.xib; sourceTree = "<group>"; };
+		821F5D9B1D3E242500050A24 /* AddFriendMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendMessageViewController.h; sourceTree = "<group>"; };
+		821F5D9C1D3E242500050A24 /* AddFriendMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendMessageViewController.m; sourceTree = "<group>"; };
+		821F5D9D1D3E242500050A24 /* AddFriendMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddFriendMessageViewController.xib; sourceTree = "<group>"; };
+		821F5DA01D3E281800050A24 /* ShareToZoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareToZoneViewController.h; sourceTree = "<group>"; };
+		821F5DA11D3E281800050A24 /* ShareToZoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareToZoneViewController.m; sourceTree = "<group>"; };
 		8241D3031CF2CC9700411423 /* UseProductTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UseProductTableViewController.h; sourceTree = "<group>"; };
 		8241D3041CF2CC9700411423 /* UseProductTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UseProductTableViewController.m; sourceTree = "<group>"; };
 		8241D3061CF2CE0800411423 /* TyreTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TyreTableViewController.h; sourceTree = "<group>"; };
@@ -1232,6 +1263,20 @@
 				713F08711CF55B190022A009 /* ShoppingCarViewController.m */,
 				825DA8C11D1A7C62004FD96B /* ConversationListController.h */,
 				825DA8C21D1A7C62004FD96B /* ConversationListController.m */,
+				821F5D821D3E08FD00050A24 /* PhoneContactViewController.h */,
+				821F5D831D3E08FD00050A24 /* PhoneContactViewController.m */,
+				821F5D841D3E08FD00050A24 /* PhoneContactViewController.xib */,
+				821F5D871D3E132C00050A24 /* NearCarOwerViewController.h */,
+				821F5D881D3E132C00050A24 /* NearCarOwerViewController.m */,
+				821F5D891D3E132C00050A24 /* NearCarOwerViewController.xib */,
+				821F5D961D3E1E5A00050A24 /* RedEnvelopeViewController.h */,
+				821F5D971D3E1E5A00050A24 /* RedEnvelopeViewController.m */,
+				821F5D981D3E1E5A00050A24 /* RedEnvelopeViewController.xib */,
+				821F5D9B1D3E242500050A24 /* AddFriendMessageViewController.h */,
+				821F5D9C1D3E242500050A24 /* AddFriendMessageViewController.m */,
+				821F5D9D1D3E242500050A24 /* AddFriendMessageViewController.xib */,
+				821F5DA01D3E281800050A24 /* ShareToZoneViewController.h */,
+				821F5DA11D3E281800050A24 /* ShareToZoneViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1324,6 +1369,8 @@
 				71C9E5D31CEE06F400F28D1F /* OrderDatahelper.m */,
 				82E9526A1CF576540078E89B /* CustomSegmentView.h */,
 				82E9526B1CF576540078E89B /* CustomSegmentView.m */,
+				821F5D7F1D3DF4C000050A24 /* OrderCellButton.h */,
+				821F5D801D3DF4C000050A24 /* OrderCellButton.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1373,6 +1420,9 @@
 			children = (
 				71D87F431CEE0D8B000D7525 /* OrderCell.h */,
 				71D87F441CEE0D8B000D7525 /* OrderCell.m */,
+				821F5D8C1D3E145800050A24 /* NearCarOwerCell.h */,
+				821F5D8D1D3E145800050A24 /* NearCarOwerCell.m */,
+				821F5D8E1D3E145800050A24 /* NearCarOwerCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3012,6 +3062,7 @@
 				DC45884D1BD371D00069FE64 /* city.plist in Resources */,
 				8259CCAD1CECC9C300D6685C /* VoiceSearchFeedback009@2x.png in Resources */,
 				CE34D2151BF5C4C100EB31CF /* home1@2x.png in Resources */,
+				821F5D901D3E145800050A24 /* NearCarOwerCell.xib in Resources */,
 				8259CCBB1CECC9C300D6685C /* chat_sender_audio_playing_002@2x.png in Resources */,
 				8259CC961CECC9C300D6685C /* chatBar_recordSelected@2x.png in Resources */,
 				71CB53EC1D17DA2C0089E1DA /* loading5.png in Resources */,
@@ -3027,8 +3078,10 @@
 				CE34D2181BF5C4C100EB31CF /* home2@3x.png in Resources */,
 				DC45884C1BD371D00069FE64 /* area.plist in Resources */,
 				71CB53E91D17DA2C0089E1DA /* loading2.png in Resources */,
+				821F5D8B1D3E132C00050A24 /* NearCarOwerViewController.xib in Resources */,
 				8259CCB91CECC9C300D6685C /* chat_sender_audio_playing_000@2x.png in Resources */,
 				CE34D21A1BF5C4C100EB31CF /* mine1@3x.png in Resources */,
+				821F5D861D3E08FD00050A24 /* PhoneContactViewController.xib in Resources */,
 				8259CCBF1CECC9C300D6685C /* user@2x.png in Resources */,
 				8259CCA71CECC9C300D6685C /* VoiceSearchFeedback003@2x.png in Resources */,
 				CE34D19F1BF596DB00EB31CF /* icons-iphoe@2x.png in Resources */,
@@ -3038,6 +3091,7 @@
 				CE34D19E1BF596DB00EB31CF /* denglu@3x.png in Resources */,
 				8259CC861CECC9C300D6685C /* chatBar_colorMore_location@2x.png in Resources */,
 				8259CC901CECC9C300D6685C /* chatBar_keyboard@2x.png in Resources */,
+				821F5D9A1D3E1E5A00050A24 /* RedEnvelopeViewController.xib in Resources */,
 				8259CC951CECC9C300D6685C /* chatBar_recordBg@2x.png in Resources */,
 				CE34D1A11BF596DB00EB31CF /* icons-lock@2x.png in Resources */,
 				8259CCB81CECC9C300D6685C /* VoiceSearchFeedback020@2x.png in Resources */,
@@ -3062,6 +3116,7 @@
 				71CB53EE1D17DA2C0089E1DA /* loading7.png in Resources */,
 				71CAC6001CE5C8B500B4C705 /* startAnimation5.png in Resources */,
 				8259CCB31CECC9C300D6685C /* VoiceSearchFeedback015@2x.png in Resources */,
+				821F5D9F1D3E242500050A24 /* AddFriendMessageViewController.xib in Resources */,
 				CE34D2171BF5C4C100EB31CF /* home2@2x.png in Resources */,
 				8259CCA21CECC9C300D6685C /* chat_receiver_audio_playing003@2x.png in Resources */,
 				8259CCBE1CECC9C300D6685C /* chat_sender_bg@2x.png in Resources */,
@@ -3198,6 +3253,7 @@
 				82E9526C1CF576540078E89B /* CustomSegmentView.m in Sources */,
 				8259CC061CECC9AE00D6685C /* EaseConversationModel.m in Sources */,
 				71249F851CEF433E00C2151D /* UseProductModel.m in Sources */,
+				821F5D8F1D3E145800050A24 /* NearCarOwerCell.m in Sources */,
 				CE34D1C21BF5C42A00EB31CF /* ISTButtonHelper.m in Sources */,
 				8259CCC21CECCB7C00D6685C /* ChatViewController.m in Sources */,
 				8259CBBC1CECC9AE00D6685C /* EaseUI.m in Sources */,
@@ -3214,6 +3270,7 @@
 				CE2747B51BF4603E00D2349D /* BlockButton.m in Sources */,
 				CE34D1C41BF5C42A00EB31CF /* ISTStringHelper.m in Sources */,
 				8259CBBF1CECC9AE00D6685C /* EMCDDeviceManager+Media.m in Sources */,
+				821F5D991D3E1E5A00050A24 /* RedEnvelopeViewController.m in Sources */,
 				DC7B72341BD1F9A100327B03 /* NSTimer+Addition.m in Sources */,
 				8259CBDE1CECC9AE00D6685C /* MWCaptionView.m in Sources */,
 				8259CBEF1CECC9AE00D6685C /* NSData+EMImageContentType.m in Sources */,
@@ -3289,6 +3346,7 @@
 				7163F97E1CED534300BB565B /* PersonInfoListCell.m in Sources */,
 				7163F9861CED6EBB00BB565B /* ToolKitCell.m in Sources */,
 				8259CC0B1CECC9AE00D6685C /* NSString+Valid.m in Sources */,
+				821F5D811D3DF4C000050A24 /* OrderCellButton.m in Sources */,
 				8259CC0C1CECC9AE00D6685C /* UIViewController+DismissKeyboard.m in Sources */,
 				8259CBC51CECC9AE00D6685C /* wav.mm in Sources */,
 				DC86C3921BD36C66007DEE6F /* ClickImage.m in Sources */,
@@ -3315,6 +3373,7 @@
 				CED1C1411BF44E6B007C94F3 /* RSADataSigner.m in Sources */,
 				CED1C1421BF44E6B007C94F3 /* RSADataVerifier.m in Sources */,
 				71A42A581C9E752500CA29FE /* ShoppingDataHelper.m in Sources */,
+				821F5D9E1D3E242500050A24 /* AddFriendMessageViewController.m in Sources */,
 				8259CC0D1CECC9AE00D6685C /* UIViewController+HUD.m in Sources */,
 				8241D3081CF2CE0800411423 /* TyreTableViewController.m in Sources */,
 				DCD55B771BD4E61F0016D138 /* TXCustomAlertWindow.m in Sources */,
@@ -3328,6 +3387,7 @@
 				8259CBF41CECC9AE00D6685C /* UIImageView+EMHighlightedWebCache.m in Sources */,
 				CE34D1921BF596DB00EB31CF /* ISTRegisterViewController.m in Sources */,
 				8259CC141CECC9AE00D6685C /* EaseEmotionManager.m in Sources */,
+				821F5D851D3E08FD00050A24 /* PhoneContactViewController.m in Sources */,
 				8259CC2A1CECC9AE00D6685C /* EaseChatToolbarItem.m in Sources */,
 				DC7B72321BD1F9A100327B03 /* NSObject+JDStatusBar.m in Sources */,
 				8259CC291CECC9AE00D6685C /* EaseChatToolbar.m in Sources */,
@@ -3349,6 +3409,7 @@
 				CED1C1431BF44E6B007C94F3 /* BSPayCenter.m in Sources */,
 				8259CBE11CECC9AE00D6685C /* MWPhoto.m in Sources */,
 				8259CBCF1CECC9AE00D6685C /* MJRefreshHeader.m in Sources */,
+				821F5D8A1D3E132C00050A24 /* NearCarOwerViewController.m in Sources */,
 				8259CBE71CECC9AE00D6685C /* EMSDImageCache.m in Sources */,
 				8259CBF01CECC9AE00D6685C /* UIButton+EMWebCache.m in Sources */,
 				71249F7A1CEF3F7500C2151D /* ToolKitModel.m in Sources */,
@@ -3360,6 +3421,7 @@
 				8259CBD81CECC9AE00D6685C /* MJRefreshStateHeader.m in Sources */,
 				CE34D2231BF5C4C100EB31CF /* ISTCustomBar.m in Sources */,
 				8259CBFC1CECC9AE00D6685C /* PSTCollectionViewFlowLayout.m in Sources */,
+				821F5DA31D3E281800050A24 /* ShareToZoneViewController.m in Sources */,
 				DC7B72361BD1F9A100327B03 /* UIAlertView+Block.m in Sources */,
 				8259CC251CECC9AE00D6685C /* EaseBubbleView+Text.m in Sources */,
 				DCAAA96F1BD5296800D0BFE0 /* SDiPhoneVersion.m in Sources */,
