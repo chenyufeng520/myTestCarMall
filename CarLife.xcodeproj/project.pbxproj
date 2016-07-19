@@ -17,7 +17,7 @@
 		71249F851CEF433E00C2151D /* UseProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71249F841CEF433E00C2151D /* UseProductModel.m */; };
 		713F07DA1C9DCAD100BC2462 /* CMShoppingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F07D91C9DCAD100BC2462 /* CMShoppingViewController.m */; };
 		713F08721CF55B190022A009 /* ShoppingCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F08711CF55B190022A009 /* ShoppingCarViewController.m */; };
-		714991CE1D3DE0F000D180A0 /* ImgCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 714991C91D3DE0F000D180A0 /* ImgCell.mm */; };
+		714991CE1D3DE0F000D180A0 /* ImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 714991C91D3DE0F000D180A0 /* ImgCell.m */; };
 		714991CF1D3DE0F000D180A0 /* NoneImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 714991CB1D3DE0F000D180A0 /* NoneImgCell.m */; };
 		714991D01D3DE0F000D180A0 /* ThreeImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 714991CD1D3DE0F000D180A0 /* ThreeImgCell.m */; };
 		714991D31D3DE73600D180A0 /* DetailNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 714991D21D3DE73600D180A0 /* DetailNewsViewController.m */; };
@@ -406,7 +406,7 @@
 		713F08701CF55B190022A009 /* ShoppingCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCarViewController.h; sourceTree = "<group>"; };
 		713F08711CF55B190022A009 /* ShoppingCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCarViewController.m; sourceTree = "<group>"; };
 		714991C81D3DE0F000D180A0 /* ImgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImgCell.h; sourceTree = "<group>"; };
-		714991C91D3DE0F000D180A0 /* ImgCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImgCell.mm; sourceTree = "<group>"; };
+		714991C91D3DE0F000D180A0 /* ImgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImgCell.m; sourceTree = "<group>"; };
 		714991CA1D3DE0F000D180A0 /* NoneImgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoneImgCell.h; sourceTree = "<group>"; };
 		714991CB1D3DE0F000D180A0 /* NoneImgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoneImgCell.m; sourceTree = "<group>"; };
 		714991CC1D3DE0F000D180A0 /* ThreeImgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreeImgCell.h; sourceTree = "<group>"; };
@@ -1473,7 +1473,7 @@
 				71249F701CEF3F2300C2151D /* NewsListCell.h */,
 				71249F711CEF3F2300C2151D /* NewsListCell.m */,
 				714991C81D3DE0F000D180A0 /* ImgCell.h */,
-				714991C91D3DE0F000D180A0 /* ImgCell.mm */,
+				714991C91D3DE0F000D180A0 /* ImgCell.m */,
 				714991CA1D3DE0F000D180A0 /* NoneImgCell.h */,
 				714991CB1D3DE0F000D180A0 /* NoneImgCell.m */,
 				714991CC1D3DE0F000D180A0 /* ThreeImgCell.h */,
@@ -3005,7 +3005,7 @@
 				TargetAttributes = {
 					DC7B70191BD1F5B500327B03 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = Q9QGXP49FA;
+						DevelopmentTeam = PCUTZ5RAXB;
 					};
 				};
 			};
@@ -3398,7 +3398,7 @@
 				71A42A581C9E752500CA29FE /* ShoppingDataHelper.m in Sources */,
 				821F5D9E1D3E242500050A24 /* AddFriendMessageViewController.m in Sources */,
 				8259CC0D1CECC9AE00D6685C /* UIViewController+HUD.m in Sources */,
-				714991CE1D3DE0F000D180A0 /* ImgCell.mm in Sources */,
+				714991CE1D3DE0F000D180A0 /* ImgCell.m in Sources */,
 				8241D3081CF2CE0800411423 /* TyreTableViewController.m in Sources */,
 				DCD55B771BD4E61F0016D138 /* TXCustomAlertWindow.m in Sources */,
 				8259CC101CECC9AE00D6685C /* EaseMessageReadManager.m in Sources */,
@@ -3604,7 +3604,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hfdianche.DianCheWuLiu;
 				PRODUCT_NAME = CarLife;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "7e6072c6-2892-4529-97f9-47a840b4a37b";
 			};
 			name = Debug;
 		};
@@ -3664,7 +3664,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hfdianche.DianCheWuLiu;
 				PRODUCT_NAME = CarLife;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5c1abdc4-6c99-45c3-9d5e-7c182d2cfd0a";
 			};
 			name = Release;
 		};

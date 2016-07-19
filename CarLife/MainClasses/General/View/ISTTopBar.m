@@ -22,24 +22,24 @@
 
 - (void)initView
 {
-    UIView *statusView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.iosChangeFloat)];
-    statusView.backgroundColor = kStatusBarColor;
-    [self addSubview:statusView];
+    _statusView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.iosChangeFloat)];
+    _statusView.backgroundColor = kStatusBarColor;
+    [self addSubview:_statusView];
     
-    UIView *vBar = [[UIView alloc] initWithFrame:CGRectMake(0, self.iosChangeFloat, self.width, kNavHeight)];
-    vBar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+    _topBarView = [[UIView alloc] initWithFrame:CGRectMake(0, self.iosChangeFloat, self.width, kNavHeight)];
+    _topBarView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
     self.backgroundColor = kNavBarColor;
-    CGFloat segmentWidth = vBar.width / 4;
+    CGFloat segmentWidth = _topBarView.width / 4;
     
     // 标题
-    _btnTitle = [[UIButton alloc] initWithFrame:CGRectMake(segmentWidth, 0, segmentWidth * 2, vBar.height)];
+    _btnTitle = [[UIButton alloc] initWithFrame:CGRectMake(segmentWidth, 0, segmentWidth * 2, _topBarView.height)];
     _btnTitle.titleLabel.font = kFontLarge_2_b;
     _btnTitle.tag = BSTopBarButtonTitle;
     _btnTitle.exclusiveTouch = YES;
     [_btnTitle setTitleColor:kWhiteColor forState:UIControlStateNormal];
     
     // 左按钮
-    _btnLeft = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, segmentWidth, vBar.height)];
+    _btnLeft = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, segmentWidth, _topBarView.height)];
     _btnLeft.tag = BSTopBarButtonLeft;
     _btnLeft.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     _btnLeft.titleLabel.font = kFontLarge_1;
@@ -49,7 +49,7 @@
     [_btnLeft setTitleColor:kWhiteColor  forState:UIControlStateNormal];
     
     // 右按钮
-    _btnRight = [[UIButton alloc] initWithFrame:CGRectMake(vBar.width - segmentWidth, 0, segmentWidth, vBar.height)];
+    _btnRight = [[UIButton alloc] initWithFrame:CGRectMake(_topBarView.width - segmentWidth, 0, segmentWidth, _topBarView.height)];
     _btnRight.tag = BSTopBarButtonRight;
     _btnRight.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     _btnRight.titleLabel.font = kFontLarge_1;
@@ -60,12 +60,12 @@
     //line:
     //UIView *line = [[UIView alloc] initLineWithFrame:CGRectMake(0, vBar.height-1, vBar.width, kLinePixel) color:kLineColor];
     
-    [vBar addSubview:_btnTitle];
-    [vBar addSubview:_btnLeft];
-    [vBar addSubview:_btnRight];
+    [_topBarView addSubview:_btnTitle];
+    [_topBarView addSubview:_btnLeft];
+    [_topBarView addSubview:_btnRight];
     //[vBar addSubview:line];
     
-    [self addSubview:vBar];
+    [self addSubview:_topBarView];
 }
 
 - (void)setLetfTitle:(NSString *)title

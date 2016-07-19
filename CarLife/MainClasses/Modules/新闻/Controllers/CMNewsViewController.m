@@ -31,7 +31,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         _dataArr = [NSMutableArray array];
-        _pageCount = 0;
+        _pageCount = 1;
     }
     return self;
 }
@@ -41,7 +41,6 @@
     // 导航头
     ISTTopBar *tbTop = [[ISTTopBar alloc] initWithFrame:frame];
     [tbTop.btnTitle setTitle:@"新闻" forState:UIControlStateNormal];
-    
     return tbTop;
 }
 
@@ -54,9 +53,7 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.backgroundColor = [UIColor clearColor];
-    [_tableView registerClass:[NoneImgCell class] forCellReuseIdentifier:@"NoneImgCell"];
-    [_tableView registerClass:[ImgCell class] forCellReuseIdentifier:@"ImgCell"];
-    [_tableView registerClass:[ThreeImgCell class] forCellReuseIdentifier:@"ThreeImgCell"];
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [_contentView addSubview:_tableView];
     
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -78,6 +75,7 @@
 #pragma mark - 网络请求
 
 - (void)performData{
+    _pageCount++;
     [self loadData];
 }
 
@@ -89,7 +87,6 @@
 #pragma mark  请求数据
 - (void)loadData
 {
-    _pageCount++;
     [[ISTHUDManager defaultManager] showHUDInView:_contentView withText:@"加载中"];
     [[NewsDataHelper defaultHelper] newsListRequestForPage:_pageCount requestMethod:@"GET" info:nil andBlock:^(id response, NSError *error) {
 
@@ -101,8 +98,11 @@
         NSArray *resultArr = response[@"showapi_res_body"][@"pagebean"][@"contentlist"];
         for (NSDictionary *dic in resultArr)
         {
-            NewsListModel *news = [[NewsListModel alloc]initWithJasonDic:dic];
-            [self.dataArr addObject:news];
+            NSArray *arr = dic[@"imageurls"];
+            if (arr.count !=3&&arr.count!=0){
+                NewsListModel *news = [[NewsListModel alloc]initWithJasonDic:dic];
+                [self.dataArr addObject:news];
+            }
         }
         
         [_tableView reloadData];
@@ -113,13 +113,8 @@
 
 #pragma mark - tableview
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NewsListModel *news = self.dataArr[indexPath.row];
-    NSArray *arr = news.imageurls;
-    if (arr.count == 3)
-    {
-        return (kScreen_Width-30)/3+18;
-    }
-    return (kScreen_Width-10)/4;
+  
+    return kAdjustLength(320);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -136,39 +131,56 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
    
-    NewsListModel *news = self.dataArr[indexPath.row];
-    NSArray *arr = news.imageurls;
-    if (arr.count == 3)
-    {
-        ThreeImgCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ThreeImgCell" forIndexPath:indexPath];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.titleLab.text = news.title;
-        cell.timeLab.text = news.pubDate;
-        for (int i = 0; i < arr.count; i++)
-        {
-            NSString * imageKey = [NSString stringWithFormat:@"newsImgV%d",i+1];
-            
-            UIImageView * showImage = [cell valueForKey:imageKey];
-            
-            [showImage sd_setImageWithURL:[NSURL URLWithString:arr[i]] placeholderImage:[UIImage imageNamed:@"loadind.jpg"]];
-        }
-    }
-    else if (arr.count !=3&&arr.count!=0)
-    {
-        ImgCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ImgCell" forIndexPath:indexPath];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.titleLab.text = news.title;
-        cell.descriptionLab.text = news.desc;
-        cell.timeLab.text = news.pubDate;
-        [cell.imgV sd_setImageWithURL:arr[0] placeholderImage:[UIImage imageNamed:@"loadind.jpg"]];
-        return cell;
+//    NewsListModel *news = self.dataArr[indexPath.row];
+//    NSArray *arr = news.imageurls;
+//    if (arr.count == 3)
+//    {
+//        ThreeImgCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ThreeImgCell" forIndexPath:indexPath];
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        cell.titleLab.text = news.title;
+//        cell.timeLab.text = news.pubDate;
+//        for (int i = 0; i < arr.count; i++)
+//        {
+//            NSString * imageKey = [NSString stringWithFormat:@"newsImgV%d",i+1];
+//            
+//            UIImageView * showImage = [cell valueForKey:imageKey];
+//            
+//            [showImage sd_setImageWithURL:[NSURL URLWithString:arr[i]] placeholderImage:[UIImage imageNamed:@"loadind.jpg"]];
+//        }
+//    }
+//    else if (arr.count !=3&&arr.count!=0)
+//    {
+//        ImgCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ImgCell" forIndexPath:indexPath];
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        cell.titleLab.text = news.title;
+//        cell.descriptionLab.text = news.desc;
+//        cell.timeLab.text = news.pubDate;
+//        [cell.imgV sd_setImageWithURL:arr[0] placeholderImage:[UIImage imageNamed:@"loadind.jpg"]];
+//        return cell;
+//    }
+//    
+//    NoneImgCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NoneImgCell" forIndexPath:indexPath];
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//    cell.titleLab.text = news.title;
+//    cell.descriptionLab.text = news.desc;
+//    cell.timeLab.text = news.pubDate;
+//    return cell;
+    
+    
+    static NSString *celliden = @"celliden";
+    ImgCell *cell = [tableView dequeueReusableCellWithIdentifier:celliden];
+    if (cell == nil) {
+        cell = [[ImgCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:celliden];
     }
     
-    NoneImgCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NoneImgCell" forIndexPath:indexPath];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    NewsListModel *news = self.dataArr[indexPath.row];
+    NSArray *arr = news.imageurls;
     cell.titleLab.text = news.title;
     cell.descriptionLab.text = news.desc;
     cell.timeLab.text = news.pubDate;
+    [cell.imgV sd_setImageWithURL:arr[0] placeholderImage:[UIImage imageNamed:@"loadind.jpg"]];
+    
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     
 }

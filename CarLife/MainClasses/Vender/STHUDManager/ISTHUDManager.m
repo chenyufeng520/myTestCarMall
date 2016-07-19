@@ -112,6 +112,7 @@ static ISTHUDManager *instance = nil;
 //动画加载(新的等待框)
 - (void)showHUDInView:(UIView *)view withText:(NSString *)text
 {
+    text = @"";//去掉文字提示
     if ([[HttpReachabilityHelper sharedService] checkNetwork]) {
         
         [_viewArray addObject:view];
