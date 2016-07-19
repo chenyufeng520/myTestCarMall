@@ -34,6 +34,7 @@
 {
     _tbTop = [self creatTopBarView:kTopFrame];
     _tbTop.backgroundColor = RGBCOLOR(251, 59, 67);
+    _tbTop.statusView.backgroundColor = RGBCOLOR(251, 59, 67);
     [self.view addSubview:_tbTop];
     self.view.backgroundColor = RGBCOLOR(255, 240, 240);
 }
@@ -52,7 +53,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _toTopHeight.constant = self.iosChangeFloat + kNavHeight;
+    _toTopHeight.constant = self.iosChangeFloat + kNavHeight + 30;
     [self loadSubviews];
 }
 @end

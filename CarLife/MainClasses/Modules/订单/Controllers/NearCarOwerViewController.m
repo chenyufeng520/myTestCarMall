@@ -55,6 +55,7 @@
 
 - (void)initUI{
     _toTopHeight.constant = self.iosChangeFloat + kNavHeight;
+    _tableView.backgroundColor = [UIColor redColor];
     _dataArr = [NSMutableArray array];
     [_dataArr addObject:@"1"];
     [_dataArr addObject:@"1"];

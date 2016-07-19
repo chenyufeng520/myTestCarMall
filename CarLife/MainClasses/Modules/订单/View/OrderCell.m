@@ -14,7 +14,6 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.contentView.backgroundColor = kMainBGColor;
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self makeSubViews];
     }
@@ -53,7 +52,7 @@
 - (UIView *)hiddenView{
     if (!_hiddenView) {
         _hiddenView = [[UIView alloc] initWithFrame:CGRectMake(0, 100, kScreen_Width, 10*2+45*3+20*2)];
-        _hiddenView.backgroundColor = [UIColor whiteColor];
+        _hiddenView.backgroundColor = kMainBGColor;
         NSArray *imageArr = @[@"附近车主按钮",@"红包按钮",@"添加好友按钮",@"语音视频按钮",@"电话联系按钮",@"转发按钮"];
         NSArray *titleArr = @[@"附近车主",@"发红包",@"添加好友",@"语音/视频联系",@"电话联系",@"转发空间/朋友圈"];
         CGFloat w = 160;

@@ -17,6 +17,7 @@
 #import "RedEnvelopeViewController.h"
 #import "AddFriendMessageViewController.h"
 #import "ShareToZoneViewController.h"
+#import "OrderDatahelper.h"
 
 @interface ShopListTableViewController ()<UITableViewDelegate,UITableViewDataSource,OrderCellDelegate,UITextFieldDelegate>{
     UITableView *_tableView;
@@ -24,6 +25,7 @@
     int _page;
     UIWebView *_phoneWebView;
     UITextField *_textField;
+    BOOL _isSearch;
 }
 
 @end
@@ -32,13 +34,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self initData];
     [self makeUI];
     [self loadShopListData];
 }
 
 - (void)initData{
-    _page = 1;
+    _page = 0;
     _shopListArr = [NSMutableArray array];
 }
 
@@ -54,6 +57,7 @@
     searchBtn.frame = CGRectMake(sideView.maxX+15, sideView.minY+5, 50, 45-10);
     [searchBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [searchBtn setTitle:@"搜索" forState:UIControlStateNormal];
+    [searchBtn addTarget:self action:@selector(searchButtonDown:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:searchBtn];
     
     UIImageView *leftImage = [[UIImageView alloc] initWithFrame:CGRectMake(5, 10, sideView.height-20, sideView.height-20)];
@@ -65,6 +69,7 @@
     _textField.placeholder = @"输入关键字查询";
     _textField.tintColor = kNavBarColor;
     _textField.delegate = self;
+    [_textField addTarget:self action:@selector(textFieldValueChanged:) forControlEvents:UIControlEventEditingChanged];
     [sideView addSubview:_textField];
     
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, _textField.maxY+10, kScreen_Width, 1)];
@@ -88,13 +93,49 @@
     _tableView.dataSource = self;
     _tableView.backgroundColor = kMainBGColor;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_tableView];
+    
+    __weak typeof(self) weakSelf = self;
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakSelf headerRefresh];
+    }];
+    _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [weakSelf footerRefresh];
+    }];
+}
+
+/**
+ * 上下拉加载数据
+ **/
+- (void)headerRefresh{
+    _page = 0;
+    [self commonRefreshLoadData];
+}
+
+- (void)footerRefresh{
+    [self commonRefreshLoadData];
+}
+
+- (void)commonRefreshLoadData{
+    if (_isSearch) {
+        [self loadSearchData];
+    }else{
+        [self loadShopListData];
+    }
+}
+
+- (void)endRefresh{
+    [_tableView.mj_header endRefreshing];
+    [_tableView.mj_footer endRefreshing];
 }
 
 - (void)loadShopListData{
+    _page++;
     __weak typeof(self) weakSelf = self;
     [[STHUDManager sharedManager] showHUDInView:self.view];
     [[OrderDatahelper defaultHelper] requestForURLStr:kFormatUrl requestMethod:@"GET" info:@{@"m":@"Api",@"c":@"Json",@"a":@"index",@"p":[NSString stringWithFormat:@"%d",_page]} andBlock:^(id response, NSError *error) {
+        [self endRefresh];
         [[STHUDManager sharedManager] hideHUDInView:weakSelf.view];
         if ([response isKindOfClass:[NSDictionary class]]) {
             int status = [response[@"status"] intValue];
@@ -102,6 +143,9 @@
             if (status == 200) {
                 NSArray *dataArr = response[@"data"];
                 if (dataArr) {
+                    if (_page == 1) {
+                        [_shopListArr removeAllObjects];
+                    }
                     for (NSDictionary *dic in dataArr) {
                         OrderModel *shopModel = [[OrderModel alloc] initWithDic:dic];
                         [_shopListArr addObject:shopModel];
@@ -124,8 +168,67 @@
     }];
 }
 
-#pragma mark - Table view data source
+/**
+ * 加载搜索数据
+ **/
+- (void)loadSearchData{
+    _page++;
+    NSString *urlStr = [NSString stringWithFormat:@"%@?m=Api&c=Json&a=search&word=%@&page=20&curpage=%d",kFormatUrl,_textField.text,_page];
+    [[OrderDatahelper defaultHelper] requestForURLStr:urlStr requestMethod:@"GET" info:nil andBlock:^(id response, NSError *error) {
+        NSLog(@"%@",response);
+        [self endRefresh];
+        if (error) {
+            
+        }else{
+            if ([[response objectForKey:@"status"] integerValue] == 200) {
+                NSArray *dataArr = response[@"data"];
+                if ([dataArr isKindOfClass:[NSArray class]]) {
+                    if (_page == 1) {
+                        [_shopListArr removeAllObjects];
+                    }
+                    for (NSDictionary *dic in dataArr) {
+                        OrderModel *shopModel = [[OrderModel alloc] initWithDic:dic];
+                        [_shopListArr addObject:shopModel];
+                    }
+                    [_tableView reloadData];
+                }
+            }
+        }
+    }];
+}
 
+//点击搜索按钮或键盘搜索
+- (void)searchShop{
+    _isSearch = YES;
+    _page = 0;
+    [self loadSearchData];
+    [_textField resignFirstResponder];
+}
+
+#pragma mark - Click Menu
+- (void)searchButtonDown:(UIButton *)btn{
+    [self searchShop];
+}
+
+#pragma mark - UITextFieldDelegaet
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if (_textField.text.length > 0){
+        [self searchShop];
+    }else{
+        [_textField resignFirstResponder];
+    }
+    return YES;
+}
+
+- (void)textFieldValueChanged:(UITextField *)textField{
+    if (_textField.text.length == 0) {
+        _isSearch = NO;
+        _page = 0;
+        [self loadShopListData];
+    }
+}
+
+#pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _shopListArr.count;
 }

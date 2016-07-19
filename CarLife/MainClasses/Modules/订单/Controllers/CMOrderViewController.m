@@ -50,7 +50,7 @@
 - (void)makeTopButtton{
     //上部分View
     UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, self.iosChangeFloat+kNavHeight, kScreen_Width, kAdjustLength(100)+20)];
-    topView.backgroundColor = _contentView.backgroundColor;
+    topView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:topView];
     
     //选择菜单
