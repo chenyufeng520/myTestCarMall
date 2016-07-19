@@ -10,4 +10,9 @@
 
 @interface NewsListModel : NSObject
 
+@property(nonatomic,copy)NSString *desc,*link,*pubDate,*source,*title,*channelId,*channelName,*nid;
+@property (nonatomic ,strong) NSMutableArray *imageurls;
+
+- (id)initWithJasonDic:(NSDictionary *)jasonDic;
+
 @end
