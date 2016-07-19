@@ -18,11 +18,12 @@
 #import "AddFriendMessageViewController.h"
 #import "ShareToZoneViewController.h"
 
-@interface ShopListTableViewController ()<UITableViewDelegate,UITableViewDataSource,OrderCellDelegate>{
+@interface ShopListTableViewController ()<UITableViewDelegate,UITableViewDataSource,OrderCellDelegate,UITextFieldDelegate>{
     UITableView *_tableView;
     NSMutableArray *_shopListArr;
     int _page;
     UIWebView *_phoneWebView;
+    UITextField *_textField;
 }
 
 @end
@@ -42,14 +43,38 @@
 }
 
 - (void)makeUI{
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreen_Width, 1)];
+    UIView *sideView = [[UIView alloc] initWithFrame:CGRectMake(25,0, (kScreen_Width-25-50-15-15), 45)];
+    sideView.layer.cornerRadius = sideView.height * 0.5;
+    sideView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    sideView.layer.borderWidth = 0.8;
+    [self.view addSubview:sideView];
+    
+    UIButton *searchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    searchBtn.backgroundColor = kNavBarColor;
+    searchBtn.frame = CGRectMake(sideView.maxX+15, sideView.minY+5, 50, 45-10);
+    [searchBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [searchBtn setTitle:@"搜索" forState:UIControlStateNormal];
+    [self.view addSubview:searchBtn];
+    
+    UIImageView *leftImage = [[UIImageView alloc] initWithFrame:CGRectMake(5, 10, sideView.height-20, sideView.height-20)];
+    leftImage.image = [UIImage imageNamed:@"icon_1"];
+    [sideView addSubview:leftImage];
+    
+    _textField = [[UITextField alloc] initWithFrame:CGRectMake(leftImage.maxX+5, 0, sideView.width-2*(leftImage.width+5), 45)];
+    _textField.borderStyle = UITextBorderStyleNone;
+    _textField.placeholder = @"输入关键字查询";
+    _textField.tintColor = kNavBarColor;
+    _textField.delegate = self;
+    [sideView addSubview:_textField];
+    
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, _textField.maxY+10, kScreen_Width, 1)];
     line.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:line];
     
     NSArray *titleArr = @[@"店铺页",@"智能排序",@"筛选"];
     CGFloat w = (kScreen_Width-10)/(float)titleArr.count;
     for (int i=0; i<titleArr.count; i++) {
-        UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(i*(w+5), 0, w, kAdjustLength(160))];
+        UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(i*(w+5), line.maxY, w, kAdjustLength(160))];
         lab.font = kFont_16;
         lab.text = titleArr[i];
         lab.textColor = [UIColor whiteColor];
@@ -58,7 +83,7 @@
         [self.view addSubview:lab];
     }
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kAdjustLength(160), kScreen_Width, kScreen_Height-self.iosChangeFloat-kNavHeight-30-kAdjustLength(100)-kAdjustLength(120)-kAdjustLength(160)-kTabBarHeight) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kAdjustLength(160)+sideView.height+10, kScreen_Width, kScreen_Height-self.iosChangeFloat-kNavHeight-30-kAdjustLength(100)-sideView.height-kAdjustLength(160)-kTabBarHeight) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.backgroundColor = kMainBGColor;

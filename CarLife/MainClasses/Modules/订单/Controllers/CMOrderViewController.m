@@ -13,8 +13,7 @@
 #import "EaseConversationListViewController.h"
 #import "ConversationListController.h"
 #import "AppDelegate.h"
-@interface CMOrderViewController ()<CustomSegmentDelegate,UIScrollViewDelegate,UITextFieldDelegate>{
-    UITextField *_textField;
+@interface CMOrderViewController ()<CustomSegmentDelegate,UIScrollViewDelegate>{
     ShopListTableViewController *_shopListVC;
     OrderTableViewController *_orderVC;
 }
@@ -50,7 +49,7 @@
 
 - (void)makeTopButtton{
     //上部分View
-    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, self.iosChangeFloat+kNavHeight, kScreen_Width, kAdjustLength(300))];
+    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, self.iosChangeFloat+kNavHeight, kScreen_Width, kAdjustLength(100)+20)];
     topView.backgroundColor = _contentView.backgroundColor;
     [self.view addSubview:topView];
     
@@ -61,25 +60,6 @@
     segmentView.backgroundColor = kNavBarColor;
     segmentView.delegate = self;
     [topView addSubview:segmentView];
-    
-    UIView *sideView = [[UIView alloc] initWithFrame:CGRectMake(kAdjustLength(140), segmentView.maxY + 10, (kScreen_Width-2*kAdjustLength(140)), kAdjustLength(120))];
-    sideView.layer.cornerRadius = sideView.height * 0.5;
-    sideView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    sideView.layer.borderWidth = 0.8;
-    [topView addSubview:sideView];
-    
-    UIImageView *leftImage = [[UIImageView alloc] initWithFrame:CGRectMake(5, 10, sideView.height-20, sideView.height-20)];
-    leftImage.image = [UIImage imageNamed:@"icon_1"];
-    [sideView addSubview:leftImage];
-    
-    _textField = [[UITextField alloc] initWithFrame:CGRectMake(leftImage.maxX+5, 0, sideView.width-2*(leftImage.width+5), kAdjustLength(120))];
-    _textField.borderStyle = UITextBorderStyleNone;
-    _textField.placeholder = @"输入关键字查询";
-    _textField.tintColor = kNavBarColor;
-    _textField.delegate = self;
-    [sideView addSubview:_textField];
-    
-    topView.height = sideView.maxY + 10;
     
     _contentView.frame = CGRectMake(0, topView.maxY, kScreen_Width, kScreen_Height-topView.maxY-kTabBarHeight);
     _contentView.contentSize = CGSizeMake(kScreen_Width * titleArr.count , 0);
