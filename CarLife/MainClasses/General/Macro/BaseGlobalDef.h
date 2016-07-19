@@ -36,7 +36,7 @@
 #define KTipView(_S_, ...) [UIAlertHelper showAlert:[NSString stringWithFormat:(_S_), ##__VA_ARGS__] AndShowView:_contentView];
 /**分割线及边框**/
 #define kLinePixel           1
-#define  kLineColor          RGBCOLOR(244, 244, 244)
+#define  kLineColor          RGBCOLOR(230, 230, 230)
 #define kCornerRadius        5.0
 #define kBorderWidth         1.0
 

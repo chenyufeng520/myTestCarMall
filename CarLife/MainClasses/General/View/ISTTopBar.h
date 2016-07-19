@@ -23,6 +23,8 @@ typedef enum {
 @property (nonatomic, readonly) UIButton *btnTitle;
 @property (nonatomic, readonly) UIButton *btnLeft;
 @property (nonatomic, strong) UIButton *btnRight;
+@property (nonatomic, strong)UIView *statusView;//状态栏
+@property (nonatomic, strong)UIView *topBarView;//导航栏
 
 - (void)setLetfTitle:(NSString *)title;
 - (void)setRightTitle:(NSString *)title;

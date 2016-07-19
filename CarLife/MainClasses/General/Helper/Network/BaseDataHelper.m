@@ -307,6 +307,7 @@ static BaseDataHelper *_sharedInst = nil;
         [manager GET:urlString parameters:nil  success:^(NSURLSessionDataTask *task, id responseObject) {
             BSLog(@"\n\n路径:%@\n***请求结果:\n%@\n***结束\n\n", task.response.URL,responseObject);
             block(responseObject,nil);
+            
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             BSLog(@"%@",error);
             block(nil,error);
