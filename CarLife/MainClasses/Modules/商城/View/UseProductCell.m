@@ -48,7 +48,7 @@
     _productModel = productModel;
     
     self.leftImage.frame = CGRectMake(10, 5, kAdjustLength(280), kAdjustLength(280));
-    [self.leftImage sd_setImageWithURL:KImageUrl(productModel.goods_picurl) placeholderImage:[UIImage imageNamed:@"占位图"]];
+    [self.leftImage sd_setImageWithURL:KImageUrl(productModel.goods_picurl) placeholderImage:[UIImage imageNamed:@"defaultimg"]];
     
     self.nameLab.frame = CGRectMake(self.leftImage.maxX+10, self.leftImage.minY, kScreen_Width-self.leftImage.maxX-20, STRING_HEIGHT(productModel.goods_name, kScreen_Width-self.leftImage.maxX-20, kFont_16));
     self.nameLab.text = productModel.goods_name;

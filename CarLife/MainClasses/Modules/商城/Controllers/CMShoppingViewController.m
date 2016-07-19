@@ -12,6 +12,9 @@
 #import "TyreTableViewController.h"
 #import "OilTableViewController.h"
 #import "PartsTableViewController.h"
+#import "DragView.h"
+#import "ShoppingCarViewController.h"
+#import "AppDelegate.h"
 
 @interface CMShoppingViewController ()<UIScrollViewDelegate>{
     UseProductTableViewController *_productVC;
@@ -57,6 +60,7 @@
     [self.view addSubview:self.columeView];
 
     [self addFirstVCView];
+    [self configDragView];
 }
 
 - (void)addFirstVCView{
@@ -66,6 +70,23 @@
         [self addChildViewController:_productVC];
         [_contentView addSubview:_productVC.view];
     }
+}
+
+//添加悬浮购物车
+- (void)configDragView{
+    //悬浮按钮
+    DragView *dragView = [[DragView alloc] initWithFrame:CGRectMake(_contentView.width - kAdjustLength(200), _contentView.height - kAdjustLength(300), 50, 50)];
+    [dragView setBlock:^(){
+        BSLog(@"点击了悬浮按钮");
+        ShoppingCarViewController *shoppingCar = [[ShoppingCarViewController alloc] init];
+        [[AppDelegate shareDelegate].rootNavigation pushViewController:shoppingCar animated:YES];
+    }];
+    
+    UIImageView *shopCarImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    shopCarImg.image = [UIImage imageNamed:@"shoppingCari"];
+    [dragView addSubview:shopCarImg];
+    
+    [self.view addSubview:dragView];
 }
 
 #pragma mark 懒加载
