@@ -57,11 +57,11 @@
     [_contentView addSubview:_tableView];
     
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self performData];
+        [self resetData];
     }];
     _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
        
-        [self resetData];
+        [self performData];
     }];
     
 }
@@ -80,7 +80,7 @@
 }
 
 - (void)resetData{
-    _pageCount = 0;
+    _pageCount = 1;
    [self loadData];
 }
 
@@ -178,9 +178,7 @@
     cell.titleLab.text = news.title;
     cell.descriptionLab.text = news.desc;
     cell.timeLab.text = news.pubDate;
-    [cell.imgV sd_setImageWithURL:arr[0] placeholderImage:[UIImage imageNamed:@"loadind.jpg"]];
-    
-//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell.imgV sd_setImageWithURL:arr[0] placeholderImage:[UIImage imageNamed:@"defaultimg"]];
     return cell;
     
 }

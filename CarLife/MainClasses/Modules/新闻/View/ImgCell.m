@@ -21,6 +21,7 @@
 - (void)configUI{
     //logo
     self.imgV = [[UIImageView alloc]initWithFrame:CGRectMake(kAdjustLength(20), kAdjustLength(40), kAdjustLength(320), kAdjustLength(240))];
+    self.imgV.backgroundColor = kMainBGColor;
     [self.contentView addSubview:self.imgV];
     //标题lab
     self.titleLab = [[UILabel alloc]initWithFrame:CGRectMake(self.imgV.right + kAdjustLength(20), kAdjustLength(40), kScreen_Width - kAdjustLength(400), kAdjustLength(60))];

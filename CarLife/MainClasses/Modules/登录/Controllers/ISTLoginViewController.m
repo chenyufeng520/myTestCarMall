@@ -53,11 +53,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    UIImageView * bgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kScreen_Width, kScreen_Height)];
+    bgView.image = [UIImage imageNamed:@"login_bg"];
+    [self.view addSubview:bgView];
+    
     _mainView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.iosChangeFloat , kScreen_Width, kScreen_Height - self.iosChangeFloat)];
     _mainView.showsHorizontalScrollIndicator = NO;
     _mainView.showsVerticalScrollIndicator = NO;
-    _mainView.backgroundColor = kMainBGColor;
     [self.view addSubview:_mainView];
+    
     [self configUI];
     
     // 键盘关闭按钮
@@ -80,9 +84,9 @@
 //初始化登录页面
 - (void)configUI{
     
-    UIView *statusView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreen_Width, self.iosChangeFloat)];
-    statusView.backgroundColor = kMainBGColor;
-    [self.view addSubview:statusView];
+//    UIView *statusView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreen_Width, self.iosChangeFloat)];
+//    statusView.backgroundColor = kMainBGColor;
+//    [self.view addSubview:statusView];
     
     UIImageView * companyLogo = [[UIImageView alloc]initWithFrame:CGRectMake(0, kAdjustLength(400), self.view.width, kAdjustLength(300))];
     companyLogo.backgroundColor = [UIColor clearColor];
@@ -164,7 +168,7 @@
     UIButton *registerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     registerBtn.frame = CGRectMake(10, loginBtn.bottom+14, 80, 30);
     registerBtn.titleLabel.font = kFontNormal;
-    [registerBtn setTitleColor:kDarkTextColor forState:UIControlStateNormal];
+    [registerBtn setTitleColor:kWhiteColor forState:UIControlStateNormal];
     [registerBtn setTitle:@"账号注册" forState:UIControlStateNormal];
     registerBtn.contentMode = UIViewContentModeLeft;
     [registerBtn addTarget:self action:@selector(registerUser:) forControlEvents:(UIControlEventTouchUpInside)];
@@ -174,7 +178,7 @@
     UIButton *forgetBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     forgetBtn.frame = CGRectMake(kScreen_Width - 10 - 80, loginBtn.bottom + 14, 80, 30);
     forgetBtn.titleLabel.font = kFontNormal;
-    [forgetBtn setTitleColor:kDarkTextColor forState:UIControlStateNormal];
+    [forgetBtn setTitleColor:kWhiteColor forState:UIControlStateNormal];
     [forgetBtn setTitle:@"忘记密码？" forState:UIControlStateNormal];
     [forgetBtn addTarget:self action:@selector(forgetBntClick:) forControlEvents:UIControlEventTouchUpInside];
      registerBtn.contentMode = UIViewContentModeRight;
@@ -212,7 +216,29 @@
 //    wxLogin.frame = bottomView.bounds;
 //    [wxLogin addTarget:self action:@selector(wxloginClick:) forControlEvents:UIControlEventTouchUpInside];
 //    [bottomView addSubview:wxLogin];
-   
+    
+    
+    //寻找商家
+    UIButton *findBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    findBtn.frame = CGRectMake(0, kScreen_Height - kAdjustLength(200), kScreen_Width/2, kAdjustLength(80));
+    findBtn.titleLabel.font = kFont_16;
+    [findBtn setTitleColor:kDarkTextColor forState:UIControlStateNormal];
+    [findBtn setTitle:@"寻找商家" forState:UIControlStateNormal];
+    findBtn.contentMode = UIViewContentModeCenter;
+    [findBtn addTarget:self action:@selector(bottomButtonClick:) forControlEvents:(UIControlEventTouchUpInside)];
+    findBtn.tag = 10001;
+    [_mainView addSubview:findBtn];
+    
+    //通知物流
+    UIButton *noticeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    noticeBtn.frame = CGRectMake(kScreen_Width/2, kScreen_Height - kAdjustLength(200), kScreen_Width/2, kAdjustLength(80));
+    noticeBtn.titleLabel.font = kFont_16;
+    [noticeBtn setTitleColor:kDarkTextColor forState:UIControlStateNormal];
+    [noticeBtn setTitle:@"通知物流" forState:UIControlStateNormal];
+    [noticeBtn addTarget:self action:@selector(bottomButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    noticeBtn.contentMode = UIViewContentModeCenter;
+    noticeBtn.tag = 10002;
+    [_mainView addSubview:noticeBtn];
 }
 
 -(void)refreshUIWithInfo:(NSDictionary*)info{
@@ -391,6 +417,16 @@
     registerVC.Navtitle = @"重置密码";
     [self.navigationController pushViewController:registerVC animated:YES];
 }
+
+- (void)bottomButtonClick:(UIButton*)button{
+    if (button.tag == 10001) {
+        BSLog(@"寻找商家");
+    }
+    if (button.tag == 10002) {
+        BSLog(@"通知物流");
+    }
+}
+
 //回收键盘
 - (void)onClickCloseKeyboard{
     [self.view endEditing:YES];
