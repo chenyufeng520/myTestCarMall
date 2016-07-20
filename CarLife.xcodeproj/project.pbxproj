@@ -62,6 +62,8 @@
 		71CB53F21D17DA2C0089E1DA /* loading11.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CB53E61D17DA2C0089E1DA /* loading11.png */; };
 		71CB53F31D17DA2C0089E1DA /* loading12.png in Resources */ = {isa = PBXBuildFile; fileRef = 71CB53E71D17DA2C0089E1DA /* loading12.png */; };
 		71CCE63D1CF6A9960045F7C8 /* ISTSupBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CCE63C1CF6A9960045F7C8 /* ISTSupBaseViewController.m */; };
+		71CD72141D3F2BF4003A79FB /* ISTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CD72131D3F2BF4003A79FB /* ISTWebViewController.m */; };
+		71CD72171D3F2BFF003A79FB /* ISTWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CD72161D3F2BFF003A79FB /* ISTWebView.m */; };
 		71D87F451CEE0D8B000D7525 /* OrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D87F441CEE0D8B000D7525 /* OrderCell.m */; };
 		821F5D811D3DF4C000050A24 /* OrderCellButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F5D801D3DF4C000050A24 /* OrderCellButton.m */; };
 		821F5D851D3E08FD00050A24 /* PhoneContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F5D831D3E08FD00050A24 /* PhoneContactViewController.m */; };
@@ -477,6 +479,10 @@
 		71CB53E71D17DA2C0089E1DA /* loading12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading12.png; sourceTree = "<group>"; };
 		71CCE63B1CF6A9960045F7C8 /* ISTSupBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTSupBaseViewController.h; sourceTree = "<group>"; };
 		71CCE63C1CF6A9960045F7C8 /* ISTSupBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTSupBaseViewController.m; sourceTree = "<group>"; };
+		71CD72121D3F2BF4003A79FB /* ISTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTWebViewController.h; sourceTree = "<group>"; };
+		71CD72131D3F2BF4003A79FB /* ISTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTWebViewController.m; sourceTree = "<group>"; };
+		71CD72151D3F2BFF003A79FB /* ISTWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTWebView.h; sourceTree = "<group>"; };
+		71CD72161D3F2BFF003A79FB /* ISTWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTWebView.m; sourceTree = "<group>"; };
 		71D87F431CEE0D8B000D7525 /* OrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCell.h; sourceTree = "<group>"; };
 		71D87F441CEE0D8B000D7525 /* OrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCell.m; sourceTree = "<group>"; };
 		821F5D7F1D3DF4C000050A24 /* OrderCellButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCellButton.h; sourceTree = "<group>"; };
@@ -2466,6 +2472,8 @@
 				CE34D1CB1BF5C4C100EB31CF /* ISTBaseViewController.m */,
 				CE34D1CC1BF5C4C100EB31CF /* ISTContentViewController.h */,
 				CE34D1CD1BF5C4C100EB31CF /* ISTContentViewController.m */,
+				71CD72121D3F2BF4003A79FB /* ISTWebViewController.h */,
+				71CD72131D3F2BF4003A79FB /* ISTWebViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2587,6 +2595,8 @@
 				CE34D2051BF5C4C100EB31CF /* ISTCustomBar.m */,
 				71A71C1E1CE3320A0078FABA /* CustomBarButton.h */,
 				71A71C1F1CE3320A0078FABA /* CustomBarButton.m */,
+				71CD72151D3F2BFF003A79FB /* ISTWebView.h */,
+				71CD72161D3F2BFF003A79FB /* ISTWebView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3352,6 +3362,7 @@
 				713F08721CF55B190022A009 /* ShoppingCarViewController.m in Sources */,
 				8259CBC21CECC9AE00D6685C /* EMCDDeviceManager+Remind.m in Sources */,
 				8259CBD11CECC9AE00D6685C /* MJRefreshAutoNormalFooter.m in Sources */,
+				71CD72141D3F2BF4003A79FB /* ISTWebViewController.m in Sources */,
 				8259CC261CECC9AE00D6685C /* EaseBubbleView+Video.m in Sources */,
 				8259CC031CECC9AE00D6685C /* PSTGridLayoutSection.m in Sources */,
 				8259CBD21CECC9AE00D6685C /* MJRefreshAutoStateFooter.m in Sources */,
@@ -3371,6 +3382,7 @@
 				8259CC0B1CECC9AE00D6685C /* NSString+Valid.m in Sources */,
 				821F5D811D3DF4C000050A24 /* OrderCellButton.m in Sources */,
 				8259CC0C1CECC9AE00D6685C /* UIViewController+DismissKeyboard.m in Sources */,
+				71CD72171D3F2BFF003A79FB /* ISTWebView.m in Sources */,
 				8259CBC51CECC9AE00D6685C /* wav.mm in Sources */,
 				DC86C3921BD36C66007DEE6F /* ClickImage.m in Sources */,
 				8241D30E1CF2CE1900411423 /* PartsTableViewController.m in Sources */,

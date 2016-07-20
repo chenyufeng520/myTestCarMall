@@ -12,6 +12,7 @@
 #import "PersonHeadCell.h"
 #import "UIAlertHelper.h"
 #import "ModifyUserInfoViewController.h"
+#import "NearCarOwerViewController.h"
 
 @interface ISTMineViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -158,8 +159,6 @@
             //我的订单
             //敬请期待
             KTipFun;
-          
-//            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=LOCATION_SERVICES"]];
         }
         else if (indexPath.row == 2){
             //记事本
@@ -179,7 +178,8 @@
         }
         else{
             //附近车主
-            KTipFun;
+            NearCarOwerViewController *carOwerVC = [[NearCarOwerViewController alloc] init];
+            [[AppDelegate shareDelegate].rootNavigation pushViewController:carOwerVC animated:YES];
         }
     }
 }

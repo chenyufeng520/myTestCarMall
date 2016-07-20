@@ -17,6 +17,7 @@
 #import "NewsListModel.h"
 #import "DetailNewsViewController.h"
 #import "AppDelegate.h"
+#import "ISTWebViewController.h"
 
 @interface CMNewsViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -186,9 +187,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NewsListModel *model = self.dataArr[indexPath.row];
-    DetailNewsViewController *detailVC = [[DetailNewsViewController alloc] init];
-    detailVC.newsModel = model;
-    [[AppDelegate shareDelegate].rootNavigation pushViewController:detailVC animated:YES];
+    ISTWebViewController *webVC = [[ISTWebViewController alloc] initWithNavTitle:@"详情" andUrl:model.link];
+    [[AppDelegate shareDelegate].rootNavigation pushViewController:webVC animated:YES];
 }
 
 
