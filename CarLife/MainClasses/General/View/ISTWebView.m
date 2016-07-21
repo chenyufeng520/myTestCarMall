@@ -7,16 +7,16 @@
 //
 
 #import "ISTWebView.h"
-//#import "NJKWebViewProgressView.h"
-//#import "NJKWebViewProgress.h"
+#import "NJKWebViewProgressView.h"
+#import "NJKWebViewProgress.h"
 #import "BSPayCenter.h"
 #import "MineDataHelper.h"
 #import "ISTHUDManager.h"
 
-@interface ISTWebView ()<UIWebViewDelegate /*NJKWebViewProgressDelegate*/>
+@interface ISTWebView ()<UIWebViewDelegate ,NJKWebViewProgressDelegate>
 {
-//    NJKWebViewProgressView *_webViewProgressView;
-//    NJKWebViewProgress *_webViewProgress;
+    NJKWebViewProgressView *_webViewProgressView;
+    NJKWebViewProgress *_webViewProgress;
 }
 @end
 
@@ -48,15 +48,15 @@
     _webView.scrollView.bounces = NO;
     [bgView addSubview:_webView];
     
-//    _webViewProgress = [[NJKWebViewProgress alloc] init];
-//    _webView.delegate = _webViewProgress;
-//    _webViewProgress.webViewProxyDelegate = self;
-//    _webViewProgress.progressDelegate = self;
-//    
-//    CGRect barFrame = CGRectMake(0, 0, _webView.width, 2);
-//    _webViewProgressView = [[NJKWebViewProgressView alloc] initWithFrame:barFrame];
-//    _webViewProgressView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-//    [_webViewProgressView setProgress:0 animated:YES];
+    _webViewProgress = [[NJKWebViewProgress alloc] init];
+    _webView.delegate = _webViewProgress;
+    _webViewProgress.webViewProxyDelegate = self;
+    _webViewProgress.progressDelegate = self;
+    
+    CGRect barFrame = CGRectMake(0, 0, _webView.width, 2);
+    _webViewProgressView = [[NJKWebViewProgressView alloc] initWithFrame:barFrame];
+    _webViewProgressView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    [_webViewProgressView setProgress:0 animated:YES];
 }
 
 - (void)setURL:(NSString *)URL
@@ -65,7 +65,7 @@
         _URL = URL;
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URL]];
         [_webView loadRequest:request];
-//        [_webView addSubview:_webViewProgressView];
+        [_webView addSubview:_webViewProgressView];
     }
 }
 
@@ -104,10 +104,10 @@
 }
 
 #pragma mark - NJKWebViewProgressDelegate
-//-(void)webViewProgress:(NJKWebViewProgress *)webViewProgress updateProgress:(float)progress
-//{
-//    [_webViewProgressView setProgress:progress animated:YES];
-//
-//}
+-(void)webViewProgress:(NJKWebViewProgress *)webViewProgress updateProgress:(float)progress
+{
+    [_webViewProgressView setProgress:progress animated:YES];
+
+}
 
 @end

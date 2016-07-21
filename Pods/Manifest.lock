@@ -1,5 +1,5 @@
 PODS:
-  - ActionSheetPicker-3.0 (2.0.3)
+  - ActionSheetPicker-3.0 (2.0.5)
   - AFNetworking (2.6.3):
     - AFNetworking/NSURLConnection (= 2.6.3)
     - AFNetworking/NSURLSession (= 2.6.3)
@@ -22,22 +22,31 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - BaiduMapKit (2.10.2)
-  - CocoaAsyncSocket (7.4.2)
+  - CocoaAsyncSocket (7.4.3):
+    - CocoaAsyncSocket/All (= 7.4.3)
+  - CocoaAsyncSocket/All (7.4.3):
+    - CocoaAsyncSocket/GCD
+    - CocoaAsyncSocket/RunLoop
+  - CocoaAsyncSocket/GCD (7.4.3)
+  - CocoaAsyncSocket/RunLoop (7.4.3)
   - CustomBadge (3.0.0)
-  - FMDB (2.5):
-    - FMDB/standard (= 2.5)
-  - FMDB/common (2.5)
-  - FMDB/standard (2.5):
-    - FMDB/common
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
   - iOS-WechatSDK (1.6.1)
-  - IQKeyboardManager (3.3.4)
-  - JDStatusBarNotification (1.5.2)
+  - IQKeyboardManager (3.3.7)
+  - JDStatusBarNotification (1.5.3)
+  - NJKWebViewProgress (0.2.3):
+    - NJKWebViewProgress/Core (= 0.2.3)
+    - NJKWebViewProgress/ProgressView (= 0.2.3)
+  - NJKWebViewProgress/Core (0.2.3)
+  - NJKWebViewProgress/ProgressView (0.2.3)
   - OpenUDID (1.0.0)
   - Reachability (3.2)
-  - SDWebImage (3.7.3):
-    - SDWebImage/Core (= 3.7.3)
-  - SDWebImage/Core (3.7.3)
-  - UMengAnalyticsSDK (3.6.5)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
+  - UMengAnalyticsSDK (3.6.7.0)
   - UMengSocial (4.2.5)
   - VRGCalendarView (0.0.1)
   - WPAttributedMarkup (1.0.0)
@@ -53,6 +62,7 @@ DEPENDENCIES:
   - iOS-WechatSDK (~> 1.6.1)
   - IQKeyboardManager (~> 3.3.2)
   - JDStatusBarNotification (~> 1.5.2)
+  - NJKWebViewProgress (~> 0.2.3)
   - OpenUDID (~> 1.0.0)
   - Reachability (~> 3.2)
   - SDWebImage (~> 3.7.3)
@@ -63,19 +73,20 @@ DEPENDENCIES:
   - ZYQAssetPickerController (~> 1.0.0)
 
 SPEC CHECKSUMS:
-  ActionSheetPicker-3.0: 11f2053085d3088dc1ef9d38a9f11c18b528dd9e
+  ActionSheetPicker-3.0: 8312778b6815578e6a86d630fbcf31dc94c534e7
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   BaiduMapKit: b1706a062597c70ec62a0cca93212cba1d3017e1
-  CocoaAsyncSocket: f5783bdedd232d91b89769bc4b5a1580aed518ad
+  CocoaAsyncSocket: a18c75dca4b08723628a0bacca6e94803d90be91
   CustomBadge: c60738d213e7ef019b0bf1caa7948333f280ea9b
-  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   iOS-WechatSDK: bd8d0ad5ff5635ded9ab08a8cf09a53569931fde
-  IQKeyboardManager: ac803e61e5b50efae6b3aeedd95a02c7c7d3b2b3
-  JDStatusBarNotification: a36d09ccbb047217572b074a61e7ca10dddc5f0a
+  IQKeyboardManager: 249c3946acf61345c18b038eb50863fe2793e3a8
+  JDStatusBarNotification: 29413865af11c862c17180610b0f46a21118b412
+  NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
   OpenUDID: e7cb6984c7304906ad20f3a36bf087b025896b6b
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
-  UMengAnalyticsSDK: 63e8b331c43072137b212090608f532816c2fece
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  UMengAnalyticsSDK: 995da0b94da156de77da7ec6666b3801f3db20a4
   UMengSocial: 76fb557ec9d2749a63dde17c28ab915f4642e52d
   VRGCalendarView: f9d33791eed8be9ef69ac91e915277a1da7913e6
   WPAttributedMarkup: eb50878af4ec647d8d2090f721a5cfe7d29c27fe

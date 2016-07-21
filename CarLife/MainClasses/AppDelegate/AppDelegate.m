@@ -268,7 +268,7 @@
     //      [MobClick checkUpdate];   //自动更新检查, 如果需要自定义更新请使用下面的方法,需要接收一个(NSDictionary *)appInfo的参数
     //    [MobClick checkUpdateWithDelegate:self selector:@selector(updateMethod:)];
     
-    [MobClick updateOnlineConfig];  //在线参数配置
+//    [MobClick updateOnlineConfig];  //在线参数配置
     
     //    1.6.8之前的初始化方法
     //    [MobClick setDelegate:self reportPolicy:REALTIME];  //建议使用新方法
