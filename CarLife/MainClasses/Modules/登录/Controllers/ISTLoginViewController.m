@@ -190,13 +190,14 @@
 //    [self.view addSubview:bottomView];
     
     
-    UIButton * wxLogin = [UIButton buttonWithType:UIButtonTypeCustom];
-    wxLogin.frame = CGRectMake(_mainView.centerX - kAdjustLength(100), forgetBtn.maxY + 20, kAdjustLength(200), kAdjustLength(200));
-    [wxLogin addTarget:self action:@selector(wxloginClick:) forControlEvents:UIControlEventTouchUpInside];
-    [wxLogin setImage:[UIImage imageNamed:@"icons-wechat"] forState:UIControlStateNormal];
-    [_mainView addSubview:wxLogin];
+//    UIButton * wxLogin = [UIButton buttonWithType:UIButtonTypeCustom];
+//    wxLogin.frame = CGRectMake(_mainView.centerX - kAdjustLength(100), forgetBtn.maxY + 20, kAdjustLength(200), kAdjustLength(200));
+//    [wxLogin addTarget:self action:@selector(wxloginClick:) forControlEvents:UIControlEventTouchUpInside];
+//    [wxLogin setImage:[UIImage imageNamed:@"icons-wechat"] forState:UIControlStateNormal];
+//    [_mainView addSubview:wxLogin];
     
-    [_mainView setContentSize:CGSizeMake(_mainView.width, wxLogin.maxY + 20)];
+    [_mainView setContentSize:CGSizeMake(_mainView.width, forgetBtn.maxY + 20)];
+    
 //    UIImageView *imageView = [[UIImageView alloc] init];
 //    imageView.image = [UIImage imageNamed:@"icons-wechat"];
 //    [bottomView addSubview:imageView];
