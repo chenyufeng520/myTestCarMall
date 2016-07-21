@@ -84,10 +84,12 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
    [[ISTHUDManager defaultManager] showHUDInView:self withText:@"加载中"];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     [[ISTHUDManager defaultManager] hideHUDInView:self];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     //调整webview的高度
     double htmlHeight = [[_webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"] doubleValue];
     if (_delegate && [_delegate respondsToSelector:@selector(webHeightAdjusted:)]) {
@@ -101,6 +103,7 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error
 {
     [[ISTHUDManager defaultManager] hideHUDInView:self];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 #pragma mark - NJKWebViewProgressDelegate
