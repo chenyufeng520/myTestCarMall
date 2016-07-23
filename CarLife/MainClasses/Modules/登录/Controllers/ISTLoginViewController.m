@@ -88,15 +88,15 @@
 //    statusView.backgroundColor = kMainBGColor;
 //    [self.view addSubview:statusView];
     
-    UIImageView * companyLogo = [[UIImageView alloc]initWithFrame:CGRectMake(0, kAdjustLength(400), self.view.width, kAdjustLength(300))];
-    companyLogo.backgroundColor = [UIColor clearColor];
-    companyLogo.contentMode = UIViewContentModeScaleAspectFit;
-    companyLogo.image = [UIImage imageNamed:@"logo.png"];
+//    UIImageView * companyLogo = [[UIImageView alloc]initWithFrame:CGRectMake(0, kAdjustLength(400), self.view.width, kAdjustLength(300))];
+//    companyLogo.backgroundColor = [UIColor clearColor];
+//    companyLogo.contentMode = UIViewContentModeScaleAspectFit;
+//    companyLogo.image = [UIImage imageNamed:@"logo.png"];
+//    
+//    [_mainView addSubview:companyLogo];
     
-    [_mainView addSubview:companyLogo];
-    
-    UIView * backView = [[UIView alloc]initWithFrame:CGRectMake(10, companyLogo.bottom+15, self.view.width-2*10, kAdjustLength(320))];
-    backView.backgroundColor = [UIColor whiteColor];
+    UIView * backView = [[UIView alloc]initWithFrame:CGRectMake(10, kAdjustLength(700)+15, self.view.width-2*10, kAdjustLength(320))];
+    backView.backgroundColor = [UIColor clearColor];
     backView.layer.cornerRadius = 5.0;
     [_mainView addSubview:backView];
     
