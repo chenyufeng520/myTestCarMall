@@ -52,6 +52,8 @@
 {
     _tbTop = [self creatTopBarView:kTopFrame];
     [self.view addSubview:_tbTop];
+    _contentView.bounces = NO;
+
 }
 
 - (void)viewDidLoad {
@@ -175,15 +177,9 @@
 }
 
 #pragma mark UIScrowViewDelegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if (scrollView.contentOffset.x<0) {
-        _contentView.contentOffset = CGPointMake(0, 0);
-    }
-}
-
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     int page = (scrollView.contentOffset.x/kScreen_Width);
-    scrollView.contentOffset = CGPointMake(page * kScreen_Width, 0);
+//    scrollView.contentOffset = CGPointMake(page * kScreen_Width, 0);
     for (UIButton *tempBtn in _columeView.subviews) {
         if ([tempBtn isKindOfClass:[UIButton class]]) {
             [tempBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];

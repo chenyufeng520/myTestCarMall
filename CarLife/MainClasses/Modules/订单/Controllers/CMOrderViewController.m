@@ -39,6 +39,7 @@
 {
     _tbTop = [self creatTopBarView:kTopFrame];
     [self.view addSubview:_tbTop];
+    _contentView.bounces = NO;
 }
 
 - (void)viewDidLoad {
@@ -94,12 +95,6 @@
 }
 
 #pragma mark - UIScrollView Delegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if (scrollView.contentOffset.x<0) {
-        _contentView.contentOffset = CGPointMake(0, 0);
-    }
-}
-
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     int page = (scrollView.contentOffset.x/kScreen_Width);
     _segmentView.selectNumber = page;
