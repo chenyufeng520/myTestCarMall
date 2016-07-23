@@ -55,13 +55,12 @@
 
 - (void)initUI{
     _toTopHeight.constant = self.iosChangeFloat + kNavHeight;
-    _tableView.backgroundColor = [UIColor redColor];
+    _tableView.backgroundColor = [UIColor clearColor];
+    _tableView.tableFooterView = [[UIView alloc] init];
     _dataArr = [NSMutableArray array];
-    [_dataArr addObject:@"1"];
-    [_dataArr addObject:@"1"];
-    [_dataArr addObject:@"1"];
-    [_dataArr addObject:@"1"];
-    [_dataArr addObject:@"1"];
+    for (int i = 0 ; i < 8; i ++ ) {
+        [_dataArr addObject:@"1"];
+    }
 
     [_tableView registerNib:[UINib nibWithNibName:@"NearCarOwerCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"NearCarOwerCell"];
 }

@@ -54,7 +54,7 @@ static BaseDataHelper *_sharedInst = nil;
 
 - (void)requestForURLStr:(NSString *)URLStr requestMethod:(NSString *)requestMethod info:(NSDictionary *)requestInfo andBlock:(void (^)(id response, NSError *error))block{
     
-    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES; //请求过程状态栏的小转圈
     NSString *urlString = nil;
     
     if ([requestMethod isEqualToString:@"GET"]) {
@@ -80,17 +80,21 @@ static BaseDataHelper *_sharedInst = nil;
     
     if ([requestMethod isEqualToString:@"POST"]) {
         [manager POST:urlString parameters:requestInfo  success:^(NSURLSessionDataTask *task, id responseObject){
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             BSLog(@"\n\n路径:%@\n***请求结果:\n%@\n***结束\n\n", task.response.URL,responseObject);
             block(responseObject,nil);
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             BSLog(@"%@",error);
             block(nil,error);
         }];
     } else {
         [manager GET:urlString parameters:nil  success:^(NSURLSessionDataTask *task, id responseObject) {
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             BSLog(@"\n\n路径:%@\n***请求结果:\n%@\n***结束\n\n", task.response.URL,responseObject);
             block(responseObject,nil);
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             BSLog(@"%@",error);
             block(nil,error);
         }];
@@ -99,6 +103,7 @@ static BaseDataHelper *_sharedInst = nil;
 
 - (void)testrequestForURLStr:(NSString*)URLStr requestMethod:(NSString*)requestMethod info:(NSDictionary *)requestInfo andBlock:(void (^)(id response, NSError *error))block
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NSString *urlString = nil;
     
     if ([requestMethod isEqualToString:@"GET"]) {
@@ -124,17 +129,21 @@ static BaseDataHelper *_sharedInst = nil;
     
     if ([requestMethod isEqualToString:@"POST"]) {
         [manager POST:urlString parameters:requestInfo  success:^(NSURLSessionDataTask *task, id responseObject){
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             BSLog(@"\n\n路径:%@\n***请求结果:\n%@\n***结束\n\n", task.response.URL,responseObject);
             block(responseObject,nil);
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             BSLog(@"%@",error);
             block(nil,error);
         }];
     } else {
         [manager GET:urlString parameters:nil  success:^(NSURLSessionDataTask *task, id responseObject) {
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             BSLog(@"\n\n路径:%@\n***请求结果:\n%@\n***结束\n\n", task.response.URL,responseObject);
             block(responseObject,nil);
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             BSLog(@"%@",error);
             block(nil,error);
         }];
@@ -142,6 +151,7 @@ static BaseDataHelper *_sharedInst = nil;
 }
 
 - (void)commonRequestForURLStr:(NSString*)URLStr requestMethod:(NSString*)requestMethod info:(NSDictionary *)requestInfo andBlock:(void (^)(id response, NSError *error))block{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NSString *urlString = nil;
     
     if ([requestMethod isEqualToString:@"GET"]) {
@@ -167,17 +177,21 @@ static BaseDataHelper *_sharedInst = nil;
     
     if ([requestMethod isEqualToString:@"POST"]) {
         [manager POST:urlString parameters:requestInfo  success:^(NSURLSessionDataTask *task, id responseObject){
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             BSLog(@"\n\n路径:%@\n***请求结果:\n%@\n***结束\n\n", task.response.URL,responseObject);
             block(responseObject,nil);
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             BSLog(@"%@",error);
             block(nil,error);
         }];
     } else {
         [manager GET:urlString parameters:nil  success:^(NSURLSessionDataTask *task, id responseObject) {
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             BSLog(@"\n\n路径:%@\n***请求结果:\n%@\n***结束\n\n", task.response.URL,responseObject);
             block(responseObject,nil);
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             BSLog(@"%@",error);
             block(nil,error);
         }];
@@ -189,6 +203,7 @@ static BaseDataHelper *_sharedInst = nil;
 
 - (void)updateImages:(NSArray *)imageArray urlStr:(NSString *)URLStr info:(NSDictionary *)requestInfo andBlock:(void (^)(id response, NSError *error))block
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NSString *urlString = [NSString stringWithFormat:@"%@%@",kMainDomain,URLStr];
     urlString = [NSString encodeChineseToUTF8:urlString];
     
@@ -204,9 +219,11 @@ static BaseDataHelper *_sharedInst = nil;
             [formData appendPartWithFileData :data name:imageKey fileName:[NSString stringWithFormat:@"%@.jpg",imageKey] mimeType:@"multipart/form-data"];
         }
     } success:^(AFHTTPRequestOperation *operation,id responseObject) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         block(responseObject,nil);
         
     } failure:^(AFHTTPRequestOperation *operation,NSError *error) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         BSLog(@"%@",error);
         block(nil,error);
     }];
@@ -217,6 +234,7 @@ static BaseDataHelper *_sharedInst = nil;
 
 - (void)updateImages:(UIImage *)image urlStr:(NSString *)URLStr info:(NSDictionary *)requestInfo andBlock:(void (^)(id response, NSError *error))block uploadProgressBlock:(void (^)(float, long long, long long))uploadProgressBlock
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NSString *urlString = [NSString stringWithFormat:@"%@%@",kMainDomain,URLStr];
     urlString = [NSString encodeChineseToUTF8:urlString];
     
@@ -229,9 +247,11 @@ static BaseDataHelper *_sharedInst = nil;
         [formData appendPartWithFileData :data name:imageKey fileName:[NSString stringWithFormat:@"%@.jpg",imageKey] mimeType:@"multipart/form-data"];
         
     } success:^(AFHTTPRequestOperation *operation,id responseObject) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         block(responseObject,nil);
         
     } failure:^(AFHTTPRequestOperation *operation,NSError *error) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         BSLog(@"%@",error);
         block(nil,error);
     }];
@@ -245,6 +265,7 @@ static BaseDataHelper *_sharedInst = nil;
 
 - (void)postBodyForUrlStr:(NSString *)UrlStr info:(NSDictionary *)requestInfo andBlock:(void (^)(id response, NSError *error))block
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NSString *urlString = [NSString stringWithFormat:@"%@%@",kMainDomain,UrlStr];
     urlString = [NSString encodeChineseToUTF8:urlString];
     
@@ -258,9 +279,11 @@ static BaseDataHelper *_sharedInst = nil;
     [manager.requestSerializer setTimeoutInterval:30];
     
     [manager POST:urlString parameters:requestInfo  success:^(NSURLSessionDataTask *task, id responseObject){
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         BSLog(@"\n\n路径:%@\n***请求结果:\n%@\n***结束\n\n", task.response.URL,responseObject);
         block(responseObject,nil);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         BSLog(@"%@",error);
         block(nil,error);
     }];
@@ -270,7 +293,7 @@ static BaseDataHelper *_sharedInst = nil;
 
 - (void)newsListRequestForPage:(int)page requestMethod:(NSString *)requestMethod info:(NSDictionary *)requestInfo andBlock:(void (^)(id response, NSError *error))block{
     
-    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NSString *urlString = nil;
     
     if ([requestMethod isEqualToString:@"GET"]) {
@@ -297,18 +320,22 @@ static BaseDataHelper *_sharedInst = nil;
     
     if ([requestMethod isEqualToString:@"POST"]) {
         [manager POST:urlString parameters:requestInfo  success:^(NSURLSessionDataTask *task, id responseObject){
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             BSLog(@"\n\n路径:%@\n***请求结果:\n%@\n***结束\n\n", task.response.URL,responseObject);
             block(responseObject,nil);
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             BSLog(@"%@",error);
             block(nil,error);
         }];
     } else {
         [manager GET:urlString parameters:nil  success:^(NSURLSessionDataTask *task, id responseObject) {
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             BSLog(@"\n\n路径:%@\n***请求结果:\n%@\n***结束\n\n", task.response.URL,responseObject);
             block(responseObject,nil);
             
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             BSLog(@"%@",error);
             block(nil,error);
         }];

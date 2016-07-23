@@ -8,6 +8,13 @@
 
 #import "ISTBaseViewController.h"
 
+#define  kAliPartnerID      @"partner"
+#define  kAliAppID          @"appid"
+#define  kAliAuthStr        @"authStr"
+#define  kAliDataStr        @"dataStr"
+#define  kAliSigner         @"signer"
+#define  kAuthCode          @"authcode"
+
 @interface ISTLoginViewController : ISTBaseViewController
 
 @end
