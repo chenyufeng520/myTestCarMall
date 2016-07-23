@@ -3015,7 +3015,7 @@
 				TargetAttributes = {
 					DC7B70191BD1F5B500327B03 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = PCUTZ5RAXB;
+						DevelopmentTeam = Q9QGXP49FA;
 					};
 				};
 			};
@@ -3616,7 +3616,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hfdianche.DianCheWuLiu;
 				PRODUCT_NAME = CarLife;
-				PROVISIONING_PROFILE = "7e6072c6-2892-4529-97f9-47a840b4a37b";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -3676,7 +3676,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hfdianche.DianCheWuLiu;
 				PRODUCT_NAME = CarLife;
-				PROVISIONING_PROFILE = "5c1abdc4-6c99-45c3-9d5e-7c182d2cfd0a";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

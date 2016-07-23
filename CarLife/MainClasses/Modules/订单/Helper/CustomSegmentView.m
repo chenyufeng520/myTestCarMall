@@ -167,9 +167,9 @@
         
         [self selectTitleWithInteger:selectNumber];
         
-        if ([_delegate respondsToSelector:@selector(segmentedViewSelectTitleInteger:)]) {
-            [_delegate segmentedViewSelectTitleInteger:self.selectNumber];
-        }
+//        if ([_delegate respondsToSelector:@selector(segmentedViewSelectTitleInteger:)]) {
+//            [_delegate segmentedViewSelectTitleInteger:self.selectNumber];
+//        }
     }];
     
 }
@@ -186,7 +186,7 @@
         
     }];
     
-    if ([_delegate respondsToSelector:@selector(x)]) {
+    if ([_delegate respondsToSelector:@selector(segmentedViewSelectTitleInteger:)]) {
         [_delegate segmentedViewSelectTitleInteger:self.selectNumber];
     }
     

@@ -31,8 +31,10 @@
 }
 
 - (void)loadUseProductData{
+    [[STHUDManager sharedManager] showHUDInView:self.view];
      NSString *urlString = @"index.php?m=api&c=Store&a=index";
     [[ShoppingDataHelper defaultHelper] requestForURLStr:urlString requestMethod:@"GET" info:nil andBlock:^(id response, NSError *error) {
+        [[STHUDManager sharedManager] hideHUDInView:self.view];
         if (error) {
             [MBProgressHUD showError:@"网络异常" toView:self.view];
         }else{

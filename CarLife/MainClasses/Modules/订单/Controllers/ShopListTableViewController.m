@@ -155,7 +155,7 @@
             }
             else
             {
-                [MBProgressHUD showMessag:response[@"message"] toView:self.view];
+                [MBProgressHUD showError:response[@"message"] toView:self.view];
             }
         }
         else

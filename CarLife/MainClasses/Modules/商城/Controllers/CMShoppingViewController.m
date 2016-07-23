@@ -163,8 +163,7 @@
     [UIView animateWithDuration:0.5 animations:^{
         [_underline setMinX:btn.minX];
     }];
-    CGPoint point = CGPointMake(btn.tag * kScreen_Width, 0);
-    _contentView.contentOffset = point;
+    [_contentView scrollRectToVisible:CGRectMake(btn.tag * kScreen_Width, _contentView.minY, _contentView.width, _contentView.height) animated:YES];
 }
 
 
@@ -176,6 +175,12 @@
 }
 
 #pragma mark UIScrowViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (scrollView.contentOffset.x<0) {
+        _contentView.contentOffset = CGPointMake(0, 0);
+    }
+}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     int page = (scrollView.contentOffset.x/kScreen_Width);
     scrollView.contentOffset = CGPointMake(page * kScreen_Width, 0);

@@ -16,6 +16,7 @@
 @interface CMOrderViewController ()<CustomSegmentDelegate,UIScrollViewDelegate>{
     ShopListTableViewController *_shopListVC;
     OrderTableViewController *_orderVC;
+    CustomSegmentView *_segmentView;
 }
 
 @end
@@ -55,14 +56,14 @@
     
     //选择菜单
     NSArray *titleArr = @[@"汽配店",@"下订单"];
-    CustomSegmentView *segmentView = [[CustomSegmentView alloc] initWithFrame:CGRectMake(kAdjustLength(240), 10, (kScreen_Width-2*kAdjustLength(240)), kAdjustLength(100))];
-    [segmentView setTitles:titleArr];
-    segmentView.backgroundColor = kNavBarColor;
-    segmentView.delegate = self;
-    [topView addSubview:segmentView];
+    _segmentView = [[CustomSegmentView alloc] initWithFrame:CGRectMake(kAdjustLength(240), 10, (kScreen_Width-2*kAdjustLength(240)), kAdjustLength(100))];
+    [_segmentView setTitles:titleArr];
+    _segmentView.backgroundColor = kNavBarColor;
+    _segmentView.delegate = self;
+    [topView addSubview:_segmentView];
     
     _contentView.frame = CGRectMake(0, topView.maxY, kScreen_Width, kScreen_Height-topView.maxY-kTabBarHeight);
-    _contentView.contentSize = CGSizeMake(kScreen_Width * titleArr.count , 0);
+    _contentView.contentSize = CGSizeMake(kScreen_Width * titleArr.count , _contentView.height);
     _contentView.pagingEnabled = YES;
     _contentView.delegate = self;
 }
@@ -88,11 +89,20 @@
 
 #pragma mark - CustomSegmentView Delegate
 - (void)segmentedViewSelectTitleInteger:(NSInteger)integer{
-    
+    [_contentView scrollRectToVisible:CGRectMake(integer * kScreen_Width, _contentView.minY, _contentView.width, _contentView.height) animated:YES];
+
 }
 
 #pragma mark - UIScrollView Delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (scrollView.contentOffset.x<0) {
+        _contentView.contentOffset = CGPointMake(0, 0);
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    int page = (scrollView.contentOffset.x/kScreen_Width);
+    _segmentView.selectNumber = page;
 
 }
 @end
