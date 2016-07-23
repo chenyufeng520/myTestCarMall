@@ -14,8 +14,7 @@
 #import "EaseEmoji.h"
 #import "EaseEmotionManager.h"
 
-@interface ChatViewController ()<UIAlertViewDelegate, EaseMessageViewControllerDelegate, EaseMessageViewControllerDataSource,EMClientDelegate>
-{
+@interface ChatViewController (){
     UIMenuItem *_copyMenuItem;
     UIMenuItem *_deleteMenuItem;
     UIMenuItem *_transpondMenuItem;

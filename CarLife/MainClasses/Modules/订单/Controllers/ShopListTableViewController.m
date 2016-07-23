@@ -133,10 +133,10 @@
 - (void)loadShopListData{
     _page++;
     __weak typeof(self) weakSelf = self;
-    [[STHUDManager sharedManager] showHUDInView:self.view];
+    [[ISTHUDManager defaultManager] showHUDInView:self.view withText:nil];
     [[OrderDatahelper defaultHelper] requestForURLStr:kFormatUrl requestMethod:@"GET" info:@{@"m":@"Api",@"c":@"Json",@"a":@"index",@"p":[NSString stringWithFormat:@"%d",_page]} andBlock:^(id response, NSError *error) {
         [self endRefresh];
-        [[STHUDManager sharedManager] hideHUDInView:weakSelf.view];
+        [[ISTHUDManager defaultManager] hideHUDInView:weakSelf.view];
         if ([response isKindOfClass:[NSDictionary class]]) {
             int status = [response[@"status"] intValue];
             

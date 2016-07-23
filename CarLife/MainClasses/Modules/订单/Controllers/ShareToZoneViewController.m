@@ -7,8 +7,12 @@
 //
 
 #import "ShareToZoneViewController.h"
+#import "UMSocial.h"
+#import "UMSocialWechatHandler.h"
 
-@interface ShareToZoneViewController ()<UITextViewDelegate>
+@interface ShareToZoneViewController ()<UITextViewDelegate,UMSocialUIDelegate>{
+    UILabel *_placeHolderLab;
+}
 
 
 @property (nonatomic ,strong)UITextView *msgTextView;
@@ -31,6 +35,7 @@
 {
     _tbTop = [self creatTopBarView:kTopFrame];
     [self.view addSubview:_tbTop];
+    _contentView.height = kScreen_Height-kNavHeight-self.iosChangeFloat;
 }
 
 #pragma mark - Click Menu
@@ -52,16 +57,23 @@
 }
 
 - (void)makeUI{
-    _msgTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, self.iosChangeFloat+kNavHeight, kScreen_Width, 200)];
+    _msgTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, kScreen_Width, 200)];
     _msgTextView.font = kFontLarge_1;
     _msgTextView.autocorrectionType = UITextAutocorrectionTypeNo;
-    _msgTextView.layer.cornerRadius = 5;
-    _msgTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    _msgTextView.layer.borderWidth = 0.8;
+//    _msgTextView.layer.cornerRadius = 5;
+//    _msgTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+//    _msgTextView.layer.borderWidth = 0.8;
     _msgTextView.delegate = self;
     _msgTextView.returnKeyType = UIReturnKeyDone;
     _msgTextView.layoutManager.allowsNonContiguousLayout = NO;
-    [self.view addSubview:_msgTextView];
+    _msgTextView.font = kFont_16;;
+    [_contentView addSubview:_msgTextView];
+    
+    _placeHolderLab = [[UILabel alloc] initWithFrame:CGRectMake(5, 8, _msgTextView.width-10, 20)];
+    _placeHolderLab.font = kFont_16;
+    _placeHolderLab.textColor = [UIColor lightGrayColor];
+    _placeHolderLab.text = @"说点儿什么...";
+    [_msgTextView addSubview:_placeHolderLab];
     
     NSArray *imageArr = @[@"新浪微博",@"微信",@"微信朋友圈",@"QQ好友",@"复制"];
     CGFloat w = (kScreen_Width-20*5)/4.f;
@@ -69,14 +81,94 @@
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake(20+(i%4)*(w+20), _msgTextView.maxY+25+i/4*(w+45), w, w);
         [btn setBackgroundImage:[UIImage imageNamed:imageArr[i]] forState:UIControlStateNormal];
-        [self.view addSubview:btn];
+        [btn addTarget:self action:@selector(shareButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        btn.tag = 2000 + i;
+        [_contentView addSubview:btn];
         
         UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(10+(i%4)*(w+20), btn.maxY+5, w+20, 20)];
         lab.text = imageArr[i];
         lab.font = kFontLarge_1;
         lab.textAlignment = NSTextAlignmentCenter;
         lab.textColor = [UIColor grayColor];
-        [self.view addSubview:lab];
+        [_contentView addSubview:lab];
+    }
+    
+}
+
+- (void)shareButtonClick:(UIButton *)btn{
+    switch (btn.tag) {
+        case 2000:
+        {
+            [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeDefault url:@"http://baidu.com"];
+            [UMSocialData defaultData].extConfig.title = @"今天是个好日子";
+            [UMSocialData defaultData].extConfig.sinaData.shareText = @"明天会更好";
+            [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToSina] content:nil image:nil location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity *response){
+                NSLog(@"%@",response);
+                if (response.responseCode == UMSResponseCodeSuccess) {
+                    
+                }
+            }];
+
+            break;
+        }
+        case 2001:
+        {
+            [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeDefault url:@"http://baidu.com"];
+            [UMSocialData defaultData].extConfig.title = @"今天是个好日子";
+            [UMSocialData defaultData].extConfig.wechatSessionData.url = @"http://baidu.com";
+            [UMSocialData defaultData].extConfig.wechatSessionData.shareText = @"明天会更好";
+            [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToWechatSession] content:nil image:nil location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity *response){
+                NSLog(@"%@",response);
+                if (response.responseCode == UMSResponseCodeSuccess) {
+                    
+                }
+            }];
+            
+            break;
+        }
+        case 2002:
+        {
+            [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeDefault url:@"http://baidu.com"];
+            [UMSocialData defaultData].extConfig.title = @"今天是个好日子";
+            [UMSocialData defaultData].extConfig.qqData.url = @"http://baidu.com";
+            [UMSocialData defaultData].extConfig.qqData.shareText = @"明天会更好";
+            [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToQQ] content:nil image:nil location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity *response){
+                NSLog(@"%@",response);
+                if (response.responseCode == UMSResponseCodeSuccess) {
+                    
+                }
+            }];
+            break;
+        }
+        case 2003:
+        {
+            [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeDefault url:@"http://baidu.com"];
+            [UMSocialData defaultData].extConfig.title = @"今天是个好日子";
+            [UMSocialData defaultData].extConfig.wechatTimelineData.url = @"http://baidu.com";
+            [UMSocialData defaultData].extConfig.wechatTimelineData.shareText = @"明天会更好";
+            [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToQQ] content:nil image:nil location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity *response){
+                NSLog(@"%@",response);
+                if (response.responseCode == UMSResponseCodeSuccess) {
+                    
+                }
+            }];
+            break;
+        }
+        case 2004:
+        {
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+#pragma mark - UITextViewDelegate
+- (void)textViewDidChange:(UITextView *)textView{
+    if (_msgTextView.text.length == 0) {
+        _placeHolderLab.hidden = NO;
+    }else{
+        _placeHolderLab.hidden = YES;
     }
 }
 @end

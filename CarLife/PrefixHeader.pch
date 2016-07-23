@@ -24,6 +24,7 @@
 #import "ISTHUDManager.h"
 #import "EMSDK.h"
 #import "MJRefresh.h"
+#import "ISTHUDManager.h"
 
 #endif
 

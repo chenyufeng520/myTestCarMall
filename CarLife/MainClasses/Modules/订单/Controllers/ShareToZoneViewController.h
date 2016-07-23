@@ -6,8 +6,8 @@
 //  Copyright © 2016年 陈宇峰. All rights reserved.
 //
 
-#import "ISTSupBaseViewController.h"
+#import "ISTBaseViewController.h"
 
-@interface ShareToZoneViewController : ISTSupBaseViewController
+@interface ShareToZoneViewController : ISTBaseViewController
 
 @end

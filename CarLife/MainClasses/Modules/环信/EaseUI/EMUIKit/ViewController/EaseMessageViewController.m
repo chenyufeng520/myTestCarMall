@@ -30,7 +30,7 @@
 
 #define IOS_VERSION [[UIDevice currentDevice] systemVersion]>=9.0
 
-@interface EaseMessageViewController ()<EaseMessageCellDelegate>
+@interface EaseMessageViewController ()
 {
     UIMenuItem *_copyMenuItem;
     UIMenuItem *_deleteMenuItem;

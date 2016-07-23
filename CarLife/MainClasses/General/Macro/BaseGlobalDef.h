@@ -26,6 +26,8 @@
 #define Phone_WidthProportion(Width)     Width*kScreen_Width/375
 #define Phone_HeightProportion(Height)     Height*kScreen_Height/736
 
+#define kVERSION  [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
+
 
 #define STRING_HEIGHT(string,width,font) [string boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size.height
 

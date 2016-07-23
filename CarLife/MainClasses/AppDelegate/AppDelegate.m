@@ -12,6 +12,7 @@
 #import "UMSocialControllerService.h"
 #import "UMSocialWechatHandler.h"
 #import "UMSocialQQHandler.h"
+#import "UMSocialSinaSSOHandler.h"
 #import "WXApi.h"
 #import "MobClick.h"
 #import "HttpReachabilityHelper.h"
@@ -25,6 +26,9 @@
 #import "ISTLoginViewController.h"
 #import "GifViewController.h"
 #import "DataSigner.h"
+#import "MobClick.h"
+//#import "ChatDemoHelper.h"
+//#import "RedPacketUserConfig.h"
 
 @interface AppDelegate ()<UMSocialUIDelegate,WXApiDelegate,BMKGeneralDelegate>
 {
@@ -48,9 +52,8 @@
     [self startIQKeyboard];
     [self startBaiduMap];
     [self configWeiXin];
-    //    [self umengTrack];
-    //    [UMSocialData setAppKey:UmengAppkey];
-    
+    [self configUM];
+    [self umengTrack];
     [[HttpReachabilityHelper sharedService] detectNetwork];
 }
 
@@ -95,7 +98,9 @@
     }
     else
     {
-        [self autoLoginEMService];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            [self autoLoginEMService];
+        });
         [self.window setRootViewController:self.rootNavigation];
     }
     [self.window makeKeyAndVisible];
@@ -143,6 +148,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     
 }
+
 
 #pragma mark - 参数拼接
 
@@ -204,10 +210,10 @@
     }
     
     [names addObject:UMShareToSina];
-    //    [names addObject:UMShareToTencent];
-    //    [names addObject:UMShareToQQ];
-    //    [names addObject:UMShareToEmail];
-    [names addObject:UMShareToSms];
+//        [names addObject:UMShareToTencent];
+    [names addObject:UMShareToQQ];
+//        [names addObject:UMShareToEmail];
+//    [names addObject:UMShareToSms];
     //调用快速分享接口
     [UMSocialSnsService presentSnsIconSheetView:vc
                                          appKey:UmengAppkey
@@ -255,7 +261,21 @@
 }
 
 
-#pragma mark - UMTrack
+#pragma mark - UMTrack 友盟
+
+- (void)configUM{
+    
+    [MobClick setAppVersion:kVERSION];
+    [MobClick startWithAppkey:UmengAppkey reportPolicy:BATCH   channelId:@""];
+
+    [UMSocialData setAppKey:UmengAppkey];
+
+    [UMSocialWechatHandler setWXAppId:@"wxd930ea5d5a258f4f" appSecret:@"db426a9829e4b49a0dcac7b4162da6b6" url:@"http://www.umeng.com/social"];
+    //设置手机QQ 的AppId，Appkey，和分享URL，需要#import "UMSocialQQHandler.h"
+    [UMSocialQQHandler setQQWithAppId:@"100424468" appKey:@"c7394704798a158208a74ab60104f0ba" url:@"http://www.umeng.com/social"];
+    //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。需要 #import "UMSocialSinaSSOHandler.h"
+    [UMSocialSinaSSOHandler openNewSinaSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+}
 
 - (void)umengTrack {
     //    [MobClick setCrashReportEnabled:NO]; // 如果不需要捕捉异常，注释掉此行
@@ -453,7 +473,7 @@
     //UMSocial
     else
     {
-        return  [UMSocialSnsService handleOpenURL:url wxApiDelegate:nil];
+        return  [UMSocialSnsService handleOpenURL:url];
     }
 }
 // NOTE: 9.0以后使用新API接口
@@ -507,6 +527,8 @@
             }
         }
         return [WXApi handleOpenURL:url delegate:self];
+    }else{
+        return  [UMSocialSnsService handleOpenURL:url];
     }
     return YES;
 }
@@ -521,7 +543,9 @@
 - (void)configEMSDK{
     EMOptions *options = [EMOptions optionsWithAppkey:EMAppKey];
     options.apnsCertName = @"PushCer";
+//    [[RedPacketUserConfig sharedConfig] configWithAppKey:EMAppKey];
     [[EMClient sharedClient] initializeSDKWithOptions:options];
+//    [ChatDemoHelper shareHelper];//注册环信相关回调
 }
 
 #pragma mark - 注册推送
