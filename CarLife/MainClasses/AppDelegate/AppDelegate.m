@@ -24,6 +24,7 @@
 #import "LoginCenter.h"
 #import "ISTLoginViewController.h"
 #import "GifViewController.h"
+#import "DataSigner.h"
 
 @interface AppDelegate ()<UMSocialUIDelegate,WXApiDelegate,BMKGeneralDelegate>
 {
@@ -351,6 +352,44 @@
 }
 
 #pragma mark - UMSocial
+
+- (void)getAlipayUserid:(NSDictionary *)info{
+    
+    NSString *appID = [info objectForKey:kAliAppID];
+    NSString *dataStr = [info objectForKey:kAliDataStr];
+    id<DataSigner>signer = [info objectForKey:kAliSigner];
+    NSString *authCode = [info objectForKey:kAuthCode];
+    
+    /*  由authCode换取accessToken  */
+    //第二次加签 字符串是按照ASCII码升序排列的
+    NSString *str = [NSString stringWithFormat:@"app_id=%@&charset=%@&code=%@&format=json&grant_type=authorization_code&method=alipay.system.oauth.token&platform=aop&sendFormat=normal&sign_flag=true&sign_type=RSA&timestamp=%@",appID,@"UTF-8",authCode,dataStr];
+    NSString *signedStringSecond = [signer signString:str];
+    NSString *dataStr1 = [dataStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *urlStr = [NSString stringWithFormat:@"https://openapi.alipay.com/gateway.do?app_id=%@&charset=UTF-8&code=%@&format=json&grant_type=authorization_code&method=alipay.system.oauth.token&platform=aop&sendFormat=normal&sign_flag=true&sign_type=RSA&timestamp=%@&sign=%@",appID,authCode,dataStr1,signedStringSecond];
+    
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.operationQueue.maxConcurrentOperationCount = 4;
+    manager.requestSerializer.timeoutInterval = 30.f;
+    
+    //普通网络请求
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json", @"text/json", @"text/javascript",@"application/xml",@"application/x-plist", nil];
+    
+    [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+        NSString *userid = [[dic objectForKey:@"alipay_system_oauth_token_response"] objectForKey:@"user_id"];
+        if(!userid || [userid length] == 0){
+            userid = @"";
+        }
+        [[NSNotificationCenter defaultCenter] postNotificationName:kAliLoginSucceedNotification object:@{@"userid":userid}];
+        
+    }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kAliLoginSucceedNotification object:@{@"userid":@""} ];
+    }];
+}
+
+#pragma mark - UMSocial
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     NSLog(@"application %@", application);
@@ -358,18 +397,55 @@
     // 这里处理新浪微博SSO授权之后跳转回来，和微信分享完成之后跳转回来
     NSLog(@"source app-%@, des app-%@",sourceApplication,application);
     if ([sourceApplication isEqualToString:@"com.tencent.xin"]) {
+        //[[NSNotificationCenter defaultCenter] postNotificationName:kOrderRefreshNotification object:nil];
+        NSString *urlString = [url absoluteString];
+        NSDictionary *info = [self getParameter:urlString];
+        NSRange ret = [urlString rangeOfString:@"pay"];
+        if(ret.location != NSNotFound){
+            //支付成功：
+            if(info && [[info objectForKey:@"ret"] intValue] == 0){
+                [[NSNotificationCenter defaultCenter] postNotificationName:kPaySucceedNotification object:@{@"result":[NSNumber numberWithBool:YES]}];
+            }
+            else{
+                [[NSNotificationCenter defaultCenter] postNotificationName:kPaySucceedNotification object:@{@"result":[NSNumber numberWithBool:NO]}];
+            }
+        }
         return [WXApi handleOpenURL:url delegate:self];
     }
     else if([url.host isEqualToString:@"safepay"])
     {
         //跳转支付宝钱包进行支付，处理支付结果
-        //        这个方法的block没调用，官方demo也没调用，莫名其妙的调用了BSPayCenter里的block方法：[[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic)
-        [[AlipaySDK defaultService] processOrderWithPaymentResult:url
-                                                  standbyCallback:^(NSDictionary *resultDic) {
-                                                      NSLog(@"result = %@",resultDic);
-                                                      NSString *resultSting = resultDic[@"result"];
-                                                      NSLog(@"%@",resultSting);
-                                                  }];
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic)
+         {
+             NSLog(@"result = %@",resultDic);
+         }];
+        
+        NSMutableDictionary *infoDic = [NSMutableDictionary dictionary];
+        //跳转支付宝钱包进行授权，需要将支付宝钱包的授权结果回传给SDK，从SDK中拿authcode和openID
+        [[AlipaySDK defaultService] processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDic)
+         {
+             NSLog(@"result = %@",resultDic);
+             NSString *resultStr = resultDic[@"result"];
+             //解析authCode
+             NSLog(@"解析authCode");
+             if (resultStr&&resultStr.length>0) {
+                 NSArray *resultArr = [resultStr componentsSeparatedByString:@"&"];
+                 NSString *authCode = @"";
+                 for (NSString *subResult in resultArr) {
+                     NSArray *subResultArr = [subResult componentsSeparatedByString:@"="];
+                     
+                     if ([subResultArr[0] isEqualToString:@"auth_code"]) {
+                         NSLog(@"authCode = %@",subResultArr[1]);
+                         NSString *auth =subResultArr[1];
+                         authCode = [auth substringWithRange:NSMakeRange(1, [auth length]-2)];
+                         [infoDic setValue:auth forKey:kAuthCode];
+                         break;
+                     }
+                 }
+                 [self getAlipayUserid:infoDic];
+                 
+             }
+         }];
         
         return YES;
         
@@ -379,6 +455,60 @@
     {
         return  [UMSocialSnsService handleOpenURL:url wxApiDelegate:nil];
     }
+}
+// NOTE: 9.0以后使用新API接口
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
+{
+    if ([url.host isEqualToString:@"safepay"]) {
+        //跳转支付宝钱包进行支付，处理支付结果
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+            NSLog(@"result = %@",resultDic);
+        }];
+        
+        NSMutableDictionary *infoDic = [NSMutableDictionary dictionary];
+        //跳转支付宝钱包进行授权，需要将支付宝钱包的授权结果回传给SDK，从SDK中拿authcode和openID
+        [[AlipaySDK defaultService] processAuth_V2Result:url standbyCallback:^(NSDictionary *resultDic)
+         {
+             NSLog(@"result = %@",resultDic);
+             NSString *resultStr = resultDic[@"result"];
+             //解析authCode
+             NSLog(@"解析authCode");
+             if (resultStr&&resultStr.length>0) {
+                 NSArray *resultArr = [resultStr componentsSeparatedByString:@"&"];
+                 NSString *authCode = @"";
+                 for (NSString *subResult in resultArr) {
+                     NSArray *subResultArr = [subResult componentsSeparatedByString:@"="];
+                     
+                     if ([subResultArr[0] isEqualToString:@"auth_code"]) {
+                         NSLog(@"authCode = %@",subResultArr[1]);
+                         NSString *auth =subResultArr[1];
+                         authCode = [auth substringWithRange:NSMakeRange(1, [auth length]-2)];
+                         [infoDic setValue:authCode forKey:kAuthCode];
+                         break;
+                     }
+                 }
+                 [self getAlipayUserid:infoDic];
+            
+             }
+         }];
+    }else if([[NSString stringWithFormat:@"%@",url] rangeOfString:[NSString stringWithFormat:@"%@://pay",wxAppKey]].location != NSNotFound){
+        //微信支付跳转
+        //[[NSNotificationCenter defaultCenter] postNotificationName:kOrderRefreshNotification object:nil];
+        NSString *urlString = [url absoluteString];
+        NSDictionary *info = [self getParameter:urlString];
+        NSRange ret = [urlString rangeOfString:@"pay"];
+        if(ret.location != NSNotFound){
+            //支付成功：
+            if(info && [[info objectForKey:@"ret"] intValue] == 0){
+                [[NSNotificationCenter defaultCenter] postNotificationName:kPaySucceedNotification object:@{@"result":[NSNumber numberWithBool:YES]}];
+            }
+            else{
+                [[NSNotificationCenter defaultCenter] postNotificationName:kPaySucceedNotification object:@{@"result":[NSNumber numberWithBool:NO]}];
+            }
+        }
+        return [WXApi handleOpenURL:url delegate:self];
+    }
+    return YES;
 }
 
 - (BOOL)application:(UIApplication *)application

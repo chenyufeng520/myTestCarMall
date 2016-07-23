@@ -88,81 +88,90 @@
 //    statusView.backgroundColor = kMainBGColor;
 //    [self.view addSubview:statusView];
     
-//    UIImageView * companyLogo = [[UIImageView alloc]initWithFrame:CGRectMake(0, kAdjustLength(400), self.view.width, kAdjustLength(300))];
-//    companyLogo.backgroundColor = [UIColor clearColor];
-//    companyLogo.contentMode = UIViewContentModeScaleAspectFit;
-//    companyLogo.image = [UIImage imageNamed:@"logo.png"];
-//    
-//    [_mainView addSubview:companyLogo];
+    UIImageView * companyLogo = [[UIImageView alloc]initWithFrame:CGRectMake(kAdjustLength(200), kAdjustLength(300), self.view.width - kAdjustLength(400), kAdjustLength(300))];
+    companyLogo.backgroundColor = [UIColor clearColor];
+    companyLogo.contentMode = UIViewContentModeScaleAspectFit;
+    companyLogo.image = [UIImage imageNamed:@"TVlogo"];
+    [_mainView addSubview:companyLogo];
     
-    UIView * backView = [[UIView alloc]initWithFrame:CGRectMake(10, kAdjustLength(700)+15, self.view.width-2*10, kAdjustLength(320))];
-    backView.backgroundColor = [UIColor clearColor];
-    backView.layer.cornerRadius = 5.0;
-    [_mainView addSubview:backView];
+//    UIView * backView = [[UIView alloc]initWithFrame:CGRectMake(10, kAdjustLength(700)+15, self.view.width-2*10, kAdjustLength(320))];
+//    backView.backgroundColor = [UIColor clearColor];
+//    backView.layer.cornerRadius = 5.0;
+//    [_mainView addSubview:backView];
     
-    UILabel * sepLine = [[UILabel alloc]initWithFrame:CGRectMake(0, backView.height/2.0-0.25, backView.width, 0.5)];
-    sepLine.backgroundColor = kMainBGColor;
-    [backView addSubview:sepLine];
+//    UILabel * sepLine = [[UILabel alloc]initWithFrame:CGRectMake(0, backView.height/2.0-0.25, backView.width, 0.5)];
+//    sepLine.backgroundColor = kMainBGColor;
+//    [backView addSubview:sepLine];
+    
+    UIView *nameView = [[UIView alloc] initWithFrame:CGRectMake(20, companyLogo.maxY + 35, self.view.width - 40, 50)];
+    nameView.layer.borderWidth = 0.5;
+    nameView.layer.borderColor = kWhiteColor.CGColor;
+    [_mainView addSubview:nameView];
     
     
-    UIImageView *userNameView = [[UIImageView alloc] initWithFrame:CGRectMake(10, ((backView.height-0.5)/2.0-40)/2.0, 40, 40)];
+    UIImageView *userNameView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 40, 40)];
     userNameView.image = [UIImage imageNamed:@"icons-iphoe"];
     userNameView.backgroundColor = [UIColor clearColor];
     userNameView.userInteractionEnabled = YES;
-    [backView addSubview:userNameView];
-
-    
-    UIImageView *passwordView = [[UIImageView alloc] initWithFrame:CGRectMake(10, sepLine.bottom+((backView.height-0.5)/2.0-40)/2.0, 40, 40)];
-    passwordView.image = [UIImage imageNamed:@"icons-lock"];
-    passwordView.backgroundColor = [UIColor clearColor];
-    passwordView.userInteractionEnabled = YES;
-    [backView addSubview:passwordView];
+    [nameView addSubview:userNameView];
 
     NSString *phone = [[NSUserDefaults standardUserDefaults] objectForKey:kPhone];
-   
-    _nameTextField = [[UITextField alloc] initWithFrame:CGRectMake(userNameView.right+5, 0, backView.width-userNameView.right , (backView.height-0.5)/2.0)];
+    
+    _nameTextField = [[UITextField alloc] initWithFrame:CGRectMake(userNameView.right+5, 0, nameView.width-userNameView.right , 50)];
     _nameTextField.placeholder = @"用户名";
     _nameTextField.text = phone;
-    _nameTextField.textColor = kLightTextColor;
+    _nameTextField.textColor = kWhiteColor;
     _nameTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     [_nameTextField setAutocorrectionType:UITextAutocorrectionTypeNo];
     [_nameTextField setClearButtonMode:UITextFieldViewModeWhileEditing];
     [_nameTextField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
     _nameTextField.font = kFontNormal;
-    [backView addSubview:_nameTextField];
+    [nameView addSubview:_nameTextField];
+    
+    
+    UIView *passView = [[UIView alloc] initWithFrame:CGRectMake(20, nameView.maxY + 25, self.view.width - 40, 50)];
+    passView.layer.borderWidth = 0.5;
+    passView.layer.borderColor = kWhiteColor.CGColor;
+    [_mainView addSubview:passView];
+    
+    UIImageView *passwordView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 40, 40)];
+    passwordView.image = [UIImage imageNamed:@"icons-lock"];
+    passwordView.backgroundColor = [UIColor clearColor];
+    passwordView.userInteractionEnabled = YES;
+    [passView addSubview:passwordView];
 
-    _pwdTextField = [[UITextField alloc] initWithFrame:CGRectMake(passwordView.right+5 , sepLine.bottom, backView.width-userNameView.right-100 , (backView.height-0.5)/2.0)];
+    _pwdTextField = [[UITextField alloc] initWithFrame:CGRectMake(passwordView.right+5 , 0, passView.width-userNameView.right-100 , 50)];
     _pwdTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     _pwdTextField.placeholder = @"密码";
-    _pwdTextField.textColor = kLightTextColor;
+    _pwdTextField.textColor = kWhiteColor;
     [_pwdTextField setAutocorrectionType:UITextAutocorrectionTypeNo];
     [_pwdTextField setClearButtonMode:UITextFieldViewModeWhileEditing];
     [_pwdTextField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
     _pwdTextField.secureTextEntry = YES;
     _pwdTextField.font = kFontNormal;
     _pwdTextField.keyboardType = UIKeyboardTypeASCIICapable;
-    [backView addSubview:_pwdTextField];
+    [passView addSubview:_pwdTextField];
     
     BOOL rememberPWD = [[NSUserDefaults standardUserDefaults] boolForKey:kRememberPWD];
     if (rememberPWD) {
         _pwdTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:kPassword];
     }
    
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(_pwdTextField.right+5, (_pwdTextField.height-30)/2.0+sepLine.bottom, 80, 30);
-    [btn setTitle:@"记住密码" forState:UIControlStateNormal];
-    [btn setTitleColor:kBlueColor forState:UIControlStateNormal];
-    [btn setTitleColor:kWhiteColor forState:UIControlStateSelected];
-    [btn setBackgroundImage:[UIImage imageWithColor:kWhiteColor size:btn.size] forState:UIControlStateNormal];
-    [btn setBackgroundImage:[UIImage imageWithColor:kBlueColor size:btn.size] forState:UIControlStateSelected];
-    [btn addTarget:self action:@selector(remmberPassWdBntClick:) forControlEvents:UIControlEventTouchUpInside];
-    btn.titleLabel.font = kFontMiddle;
-    [btn setRoundCorner];
-    btn.selected = rememberPWD;
-    [backView addSubview:btn];
+//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    btn.frame = CGRectMake(_pwdTextField.right+5, (_pwdTextField.height-30)/2.0+sepLine.bottom, 80, 30);
+//    [btn setTitle:@"记住密码" forState:UIControlStateNormal];
+//    [btn setTitleColor:kBlueColor forState:UIControlStateNormal];
+//    [btn setTitleColor:kWhiteColor forState:UIControlStateSelected];
+//    [btn setBackgroundImage:[UIImage imageWithColor:kWhiteColor size:btn.size] forState:UIControlStateNormal];
+//    [btn setBackgroundImage:[UIImage imageWithColor:kBlueColor size:btn.size] forState:UIControlStateSelected];
+//    [btn addTarget:self action:@selector(remmberPassWdBntClick:) forControlEvents:UIControlEventTouchUpInside];
+//    btn.titleLabel.font = kFontMiddle;
+//    [btn setRoundCorner];
+//    btn.selected = rememberPWD;
+//    [backView addSubview:btn];
     
     //登录按钮
-    UIButton *loginBtn = [ISTButtonHelper buttonWithFrame:CGRectMake(10 , backView.bottom+15, backView.width, 40) AndTitle:@"登录" AndColor:kBlueColor AndSuperView:_mainView Andaction:@selector(onLoginResponse) AndTarget:self WithButtonType:LZButtonTypeRoundedRect];
+    UIButton *loginBtn = [ISTButtonHelper buttonWithFrame:CGRectMake(20 , passView.bottom+25, self.view.width - 40, 40) AndTitle:@"登录" AndColor:RGBCOLOR(151, 205, 243) AndSuperView:_mainView Andaction:@selector(onLoginResponse) AndTarget:self WithButtonType:LZButtonTypeRoundedRect];
     
     //账号注册
     UIButton *registerBtn = [UIButton buttonWithType:UIButtonTypeCustom];

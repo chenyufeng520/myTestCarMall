@@ -163,6 +163,7 @@ static NSString *kTurnBackHomeNotification          = @"kTurnBackHomeNotificatio
 static NSString *kWXLoginSuccessed                  = @"kWXLoginSuccessed";                 //微信登录成功
 static NSString *kWXLoginFailed                     = @"kWXLoginFailed";                    //微信登录失败
 static NSString *kSocketConnectNotification         = @"kSocketConnectNotification";        //socket连接成功通知
+static NSString *kAliLoginSucceedNotification       = @"kAliLoginSucceedNotification";//支付宝确认授权回调
 
 
 #endif /* BaseGlobalDef_h */
