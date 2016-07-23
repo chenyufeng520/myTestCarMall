@@ -190,12 +190,29 @@
     }];
     [smallView3 addSubview:btn3];
     
+    UIView *detailView = [[UIView alloc] initWithFrame:CGRectMake(kAdjustLength(100), bgView3.maxY + kAdjustLength(100), kScreen_Width - kAdjustLength(200), kAdjustLength(300))];
+    detailView.backgroundColor = RGBACOLOR(91, 140, 231, 1);
+    [_contentView addSubview:detailView];
+    
+    UILabel *titleLab = [[UILabel alloc] initWithFrame:CGRectMake(kAdjustLength(30), kAdjustLength(40), detailView.width, kAdjustLength(60))];
+    titleLab.text = @"零件描述：";
+    titleLab.font = kFontNormal;
+    titleLab.textColor = kWhiteColor;
+    [detailView addSubview:titleLab];
+    
+    UILabel *detailLab = [[UILabel alloc] initWithFrame:CGRectMake(kAdjustLength(80), titleLab.maxY, detailView.width - kAdjustLength(100), kAdjustLength(120))];
+    detailLab.text = @"汽车后备胎";
+    detailLab.numberOfLines = 0;
+    detailLab.font = kFontNormal;
+    detailLab.textColor = kWhiteColor;
+    [detailView addSubview:detailLab];
+    
     //确定按钮
     UIButton *LogoutButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    LogoutButton.frame = CGRectMake(kAdjustLength(40), _contentView.height - kAdjustLength(300), kScreen_Width - kAdjustLength(80), kAdjustLength(120));
+    LogoutButton.frame = CGRectMake(kAdjustLength(100), detailView.maxY + kAdjustLength(100), kScreen_Width - kAdjustLength(200), kAdjustLength(120));
     [LogoutButton setTitle:@"确定" forState:UIControlStateNormal];
     [LogoutButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
-    LogoutButton.backgroundColor = kBlueColor;
+    LogoutButton.backgroundColor = RGBCOLOR(91, 140, 231);
     LogoutButton.layer.cornerRadius = kCornerRadius;
     LogoutButton.layer.masksToBounds = YES;
     LogoutButton.titleLabel.font = kFontLarge_2;

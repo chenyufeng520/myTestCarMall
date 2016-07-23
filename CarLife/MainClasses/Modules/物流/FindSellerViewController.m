@@ -152,10 +152,10 @@
     
     //查询按钮
     UIButton *LogoutButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    LogoutButton.frame = CGRectMake(kAdjustLength(40), _contentView.height - kAdjustLength(300), kScreen_Width - kAdjustLength(80), kAdjustLength(120));
+    LogoutButton.frame = CGRectMake(kAdjustLength(100), _contentView.height - kAdjustLength(300), kScreen_Width - kAdjustLength(200), kAdjustLength(120));
     [LogoutButton setTitle:@"查询" forState:UIControlStateNormal];
     [LogoutButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
-    LogoutButton.backgroundColor = kBlueColor;
+    LogoutButton.backgroundColor = RGBCOLOR(91, 140, 231);;
     LogoutButton.layer.cornerRadius = kCornerRadius;
     LogoutButton.layer.masksToBounds = YES;
     LogoutButton.titleLabel.font = kFontLarge_2;
