@@ -15,6 +15,8 @@
 #import "ISTButtonHelper.h"
 #import "LoginDataHelper.h"
 #import "WXLoginModel.h"
+#import "LogisticsViewController.h"
+#import "FindSellerViewController.h"
 
 @interface ISTLoginViewController ()
 @property (nonatomic,copy) NSString * access_token;
@@ -88,7 +90,7 @@
 //    statusView.backgroundColor = kMainBGColor;
 //    [self.view addSubview:statusView];
     
-    UIImageView * companyLogo = [[UIImageView alloc]initWithFrame:CGRectMake(kAdjustLength(200), kAdjustLength(300), self.view.width - kAdjustLength(400), kAdjustLength(300))];
+    UIImageView * companyLogo = [[UIImageView alloc]initWithFrame:CGRectMake( (kScreen_Width - kAdjustLength(300))/2, kAdjustLength(300), kAdjustLength(300), kAdjustLength(300))];
     companyLogo.backgroundColor = [UIColor clearColor];
     companyLogo.contentMode = UIViewContentModeScaleAspectFit;
     companyLogo.image = [UIImage imageNamed:@"TVlogo"];
@@ -103,21 +105,25 @@
 //    sepLine.backgroundColor = kMainBGColor;
 //    [backView addSubview:sepLine];
     
-    UIView *nameView = [[UIView alloc] initWithFrame:CGRectMake(20, companyLogo.maxY + 35, self.view.width - 40, 50)];
+    UIView *nameView = [[UIView alloc] initWithFrame:CGRectMake(20, companyLogo.maxY + 35, self.view.width - 40, 44)];
     nameView.layer.borderWidth = 0.5;
     nameView.layer.borderColor = kWhiteColor.CGColor;
     [_mainView addSubview:nameView];
     
     
-    UIImageView *userNameView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 40, 40)];
-    userNameView.image = [UIImage imageNamed:@"icons-iphoe"];
+    UIImageView *userNameView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 24, 24)];
+    userNameView.image = [UIImage imageNamed:@"loginName"];
     userNameView.backgroundColor = [UIColor clearColor];
     userNameView.userInteractionEnabled = YES;
     [nameView addSubview:userNameView];
 
+    UILabel * sepLine1 = [[UILabel alloc]initWithFrame:CGRectMake(userNameView.right+10, nameView.height/4, 0.5, nameView.height/2)];
+    sepLine1.backgroundColor = kWhiteColor;
+    [nameView addSubview:sepLine1];
+
     NSString *phone = [[NSUserDefaults standardUserDefaults] objectForKey:kPhone];
     
-    _nameTextField = [[UITextField alloc] initWithFrame:CGRectMake(userNameView.right+5, 0, nameView.width-userNameView.right , 50)];
+    _nameTextField = [[UITextField alloc] initWithFrame:CGRectMake(sepLine1.right+10, 0, nameView.width-userNameView.right - kAdjustLength(80) , 44)];
     _nameTextField.placeholder = @"用户名";
     _nameTextField.text = phone;
     _nameTextField.textColor = kWhiteColor;
@@ -129,18 +135,22 @@
     [nameView addSubview:_nameTextField];
     
     
-    UIView *passView = [[UIView alloc] initWithFrame:CGRectMake(20, nameView.maxY + 25, self.view.width - 40, 50)];
+    UIView *passView = [[UIView alloc] initWithFrame:CGRectMake(20, nameView.maxY + 25, self.view.width - 40, 44)];
     passView.layer.borderWidth = 0.5;
     passView.layer.borderColor = kWhiteColor.CGColor;
     [_mainView addSubview:passView];
     
-    UIImageView *passwordView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 40, 40)];
-    passwordView.image = [UIImage imageNamed:@"icons-lock"];
+    UIImageView *passwordView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 24, 24)];
+    passwordView.image = [UIImage imageNamed:@"loginPass"];
     passwordView.backgroundColor = [UIColor clearColor];
     passwordView.userInteractionEnabled = YES;
     [passView addSubview:passwordView];
+    
+    UILabel * sepLine2 = [[UILabel alloc]initWithFrame:CGRectMake(passwordView.right+10, passView.height/4, 0.5, passView.height/2)];
+    sepLine2.backgroundColor = kWhiteColor;
+    [passView addSubview:sepLine2];
 
-    _pwdTextField = [[UITextField alloc] initWithFrame:CGRectMake(passwordView.right+5 , 0, passView.width-userNameView.right-100 , 50)];
+    _pwdTextField = [[UITextField alloc] initWithFrame:CGRectMake(sepLine2.right+10, 0, passView.width-passwordView.right - kAdjustLength(80) , 44)];
     _pwdTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     _pwdTextField.placeholder = @"密码";
     _pwdTextField.textColor = kWhiteColor;
@@ -172,7 +182,7 @@
     
     //登录按钮
     UIButton *loginBtn = [ISTButtonHelper buttonWithFrame:CGRectMake(20 , passView.bottom+25, self.view.width - 40, 40) AndTitle:@"登录" AndColor:RGBCOLOR(151, 205, 243) AndSuperView:_mainView Andaction:@selector(onLoginResponse) AndTarget:self WithButtonType:LZButtonTypeRoundedRect];
-    
+   
     //账号注册
     UIButton *registerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     registerBtn.frame = CGRectMake(10, loginBtn.bottom+14, 80, 30);
@@ -431,9 +441,13 @@
 - (void)bottomButtonClick:(UIButton*)button{
     if (button.tag == 10001) {
         BSLog(@"寻找商家");
+        FindSellerViewController *findVC = [[FindSellerViewController alloc] init];
+        [self.navigationController pushViewController:findVC animated:YES];
     }
     if (button.tag == 10002) {
         BSLog(@"通知物流");
+        LogisticsViewController *logVC = [[LogisticsViewController alloc] init];
+        [self.navigationController pushViewController:logVC animated:YES];
     }
 }
 

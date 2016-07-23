@@ -21,6 +21,8 @@
 		714991CF1D3DE0F000D180A0 /* NoneImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 714991CB1D3DE0F000D180A0 /* NoneImgCell.m */; };
 		714991D01D3DE0F000D180A0 /* ThreeImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 714991CD1D3DE0F000D180A0 /* ThreeImgCell.m */; };
 		714991D31D3DE73600D180A0 /* DetailNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 714991D21D3DE73600D180A0 /* DetailNewsViewController.m */; };
+		716266311D43498600A370B1 /* LogisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 716266301D43498600A370B1 /* LogisticsViewController.m */; };
+		716266341D434A5700A370B1 /* FindSellerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 716266331D434A5700A370B1 /* FindSellerViewController.m */; };
 		7163AB981CF7DD0B00C0FC3C /* RoadSearchViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7163AB971CF7DD0B00C0FC3C /* RoadSearchViewController.mm */; };
 		7163AB9B1CF7DD1900C0FC3C /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7163AB9A1CF7DD1900C0FC3C /* UIImage+Rotate.m */; };
 		7163F97E1CED534300BB565B /* PersonInfoListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7163F97D1CED534300BB565B /* PersonInfoListCell.m */; };
@@ -447,6 +449,10 @@
 		714991CD1D3DE0F000D180A0 /* ThreeImgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreeImgCell.m; sourceTree = "<group>"; };
 		714991D11D3DE73600D180A0 /* DetailNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailNewsViewController.h; sourceTree = "<group>"; };
 		714991D21D3DE73600D180A0 /* DetailNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailNewsViewController.m; sourceTree = "<group>"; };
+		7162662F1D43498600A370B1 /* LogisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogisticsViewController.h; sourceTree = "<group>"; };
+		716266301D43498600A370B1 /* LogisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogisticsViewController.m; sourceTree = "<group>"; };
+		716266321D434A5700A370B1 /* FindSellerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindSellerViewController.h; sourceTree = "<group>"; };
+		716266331D434A5700A370B1 /* FindSellerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindSellerViewController.m; sourceTree = "<group>"; };
 		7163AB961CF7DD0B00C0FC3C /* RoadSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoadSearchViewController.h; sourceTree = "<group>"; };
 		7163AB971CF7DD0B00C0FC3C /* RoadSearchViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RoadSearchViewController.mm; sourceTree = "<group>"; };
 		7163AB991CF7DD1900C0FC3C /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
@@ -1415,6 +1421,17 @@
 				7163AB9A1CF7DD1900C0FC3C /* UIImage+Rotate.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7162662E1D43493C00A370B1 /* 物流 */ = {
+			isa = PBXGroup;
+			children = (
+				7162662F1D43498600A370B1 /* LogisticsViewController.h */,
+				716266301D43498600A370B1 /* LogisticsViewController.m */,
+				716266321D434A5700A370B1 /* FindSellerViewController.h */,
+				716266331D434A5700A370B1 /* FindSellerViewController.m */,
+			);
+			path = "物流";
 			sourceTree = "<group>";
 		};
 		71A42A521C9E74D200CA29FE /* View */ = {
@@ -2386,6 +2403,7 @@
 		CE34D0C61BF596DB00EB31CF /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7162662E1D43493C00A370B1 /* 物流 */,
 				8259CA6B1CECC8F500D6685C /* 环信 */,
 				713F07C31C9DC97200BC2462 /* 商城 */,
 				713F07C21C9DC96F00BC2462 /* 订单 */,
@@ -3125,7 +3143,7 @@
 				TargetAttributes = {
 					DC7B70191BD1F5B500327B03 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = Q9QGXP49FA;
+						DevelopmentTeam = PCUTZ5RAXB;
 					};
 				};
 			};
@@ -3454,6 +3472,7 @@
 				CE34D1C11BF5C42A00EB31CF /* ISTBase64.m in Sources */,
 				8259CC021CECC9AE00D6685C /* PSTGridLayoutRow.m in Sources */,
 				8259CBEE1CECC9AE00D6685C /* MKAnnotationView+EMWebCache.m in Sources */,
+				716266341D434A5700A370B1 /* FindSellerViewController.m in Sources */,
 				CE34D20F1BF5C4C100EB31CF /* HttpReachabilityHelper.m in Sources */,
 				8259CC0F1CECC9AE00D6685C /* EaseConvertToCommonEmoticonsHelper.m in Sources */,
 				8259CBC31CECC9AE00D6685C /* EMCDDeviceManagerBase.m in Sources */,
@@ -3463,6 +3482,7 @@
 				8259CC081CECC9AE00D6685C /* EaseUserModel.m in Sources */,
 				8259CBF91CECC9AE00D6685C /* PSTCollectionViewCell.m in Sources */,
 				8259CBFA1CECC9AE00D6685C /* PSTCollectionViewController.m in Sources */,
+				716266311D43498600A370B1 /* LogisticsViewController.m in Sources */,
 				CE34D19B1BF596DB00EB31CF /* WXLoginModel.m in Sources */,
 				8259CC161CECC9AE00D6685C /* EaseConversationListViewController.m in Sources */,
 				CE34D1901BF596DB00EB31CF /* ISTAgreementController.m in Sources */,
@@ -3759,7 +3779,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hfdianche.DianCheWuLiu;
 				PRODUCT_NAME = CarLife;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "7e6072c6-2892-4529-97f9-47a840b4a37b";
 			};
 			name = Debug;
 		};
@@ -3820,7 +3840,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hfdianche.DianCheWuLiu;
 				PRODUCT_NAME = CarLife;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5c1abdc4-6c99-45c3-9d5e-7c182d2cfd0a";
 			};
 			name = Release;
 		};

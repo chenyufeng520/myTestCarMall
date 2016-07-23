@@ -124,6 +124,7 @@ typedef enum {
 #define  kOrangeColor            RGBCOLOR(241, 115, 27)
 #define  kLigthRedColor          RGBCOLOR(223, 62, 51)
 #define  kDarkRedColor           RGBCOLOR(220, 30, 70)
+#define  kWuLiuBGColor           RGBCOLOR(57, 115, 222)
 
 /**字体字号配置**/
 #define kFontHuge               [UIFont systemFontOfSize:27]
