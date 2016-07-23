@@ -10,7 +10,6 @@
 #import "ShoppingCarViewController.h"
 #import "ShoppingDataHelper.h"
 #import "AppDelegate.h"
-#import "DragView.h"
 #import "GoodsToPayViewController.h"
 
 @interface GoodsDetailViewController ()<UITextFieldDelegate,UITextViewDelegate>{
@@ -44,21 +43,6 @@
     _contentView.height += kTabBarHeight;
     
     [self initWithModel];
-
-    
-    //悬浮按钮
-    DragView *dragView = [[DragView alloc] initWithFrame:CGRectMake(_contentView.width - kAdjustLength(200), _contentView.height - kAdjustLength(300), kAdjustLength(200), kAdjustLength(200))];
-    [dragView setBlock:^(){
-        BSLog(@"点击了悬浮按钮");
-        ShoppingCarViewController *shoppingCar = [[ShoppingCarViewController alloc] init];
-        [[AppDelegate shareDelegate].rootNavigation pushViewController:shoppingCar animated:YES];
-    }];
-    
-    UIImageView *shopCarImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kAdjustLength(200), kAdjustLength(200))];
-    shopCarImg.image = [UIImage imageNamed:@"shoppingCari"];
-    [dragView addSubview:shopCarImg];
-    
-    [_contentView addSubview:dragView];
 }
 
 
@@ -112,6 +96,7 @@
     addBtn.titleLabel.font = [UIFont systemFontOfSize:18];
     [addBtn setTitle:@"十" forState:UIControlStateNormal];
     [addBtn setTitleColor:kNavBarColor forState:UIControlStateNormal];
+    [addBtn addTarget:self action:@selector(addNumber:) forControlEvents:UIControlEventTouchUpInside];
     [_contentView addSubview:addBtn];
     
     _numTextField = [[UITextField alloc] initWithFrame:CGRectMake(kScreen_Width-addBtn.width-10-kAdjustLength(240)-8, addBtn.minY, kAdjustLength(240), addBtn.height)];
@@ -133,6 +118,7 @@
     subtractBtn.titleLabel.font = [UIFont systemFontOfSize:18];
     [subtractBtn setTitle:@"一" forState:UIControlStateNormal];
     [subtractBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [subtractBtn addTarget:self action:@selector(subtrackNum:) forControlEvents:UIControlEventTouchUpInside];
     [_contentView addSubview:subtractBtn];
 
     UIView *secondLine = [[UIView alloc] initWithFrame:CGRectMake(10, buyNumLab.maxY+1, kScreen_Width-10, 1)];
@@ -239,22 +225,59 @@
     }
 }
 
-#pragma mark - 添加到购物车
-- (void)addToCar:(UIButton *)btn{
-    if (!_msgTextView.text) {
-        _msgTextView.text = @"";
+//加数量
+- (void)addNumber:(UIButton *)btn{
+    if (_numTextField.text.length > 0) {
+        if ([self isPureNumandCharacters:_numTextField.text]) {
+            _numTextField.text = [NSString stringWithFormat:@"%zd",_numTextField.text.integerValue+1];
+
+        }
+    }else{
+        KTipView(@"请填写购买数量");
     }
-    NSString *urlStr = [NSString stringWithFormat:@"index.php?m=api&c=Store&a=addBuycar&uid=%@&gid=%@&num=%@&dd_text=%@",kUID,self.productModel.gid,_numTextField.text,_msgTextView.text];
-    [[ShoppingDataHelper defaultHelper] requestForURLStr:urlStr requestMethod:@"GET" info:nil andBlock:^(id response, NSError *error) {
-        if (!error) {
-            NSDictionary *dic = response;
-            if ([[dic objectForKey:@"status"] integerValue] == 200) {
-                [[ISTHUDManager defaultManager] showHUDWithSuccess:@"添加成功"];
+}
+
+//减数量
+- (void)subtrackNum:(UIButton *)btn{
+    if (_numTextField.text.length > 0) {
+        if ([self isPureNumandCharacters:_numTextField.text]) {
+            if (_numTextField.text.integerValue == 0) {
+                _numTextField.text = @"0";
+                
             }else{
-                [[ISTHUDManager defaultManager] showHUDWithError:dic[@"message"]];
+                _numTextField.text = [NSString stringWithFormat:@"%zd",_numTextField.text.integerValue-1];
+                
             }
         }
- }];
+    }else{
+        KTipView(@"请填写购买数量" );
+    }
+
+}
+
+#pragma mark - 添加到购物车接口
+- (void)addToCar:(UIButton *)btn{
+    if (_msgTextView.text.length == 0) {
+        _msgTextView.text = @"";
+    }
+    if (_numTextField.text.integerValue == 0) {
+        KTipView(@"请填写正确的数量");
+        return;
+    }
+    
+    if ([self isPureNumandCharacters:_numTextField.text] && _numTextField.text.integerValue > 0) {
+        NSString *urlStr = [NSString stringWithFormat:@"index.php?m=api&c=Store&a=addBuycar&uid=%@&gid=%@&num=%@&dd_text=%@",kUID,self.productModel.gid,_numTextField.text,_msgTextView.text];
+        [[ShoppingDataHelper defaultHelper] requestForURLStr:urlStr requestMethod:@"GET" info:nil andBlock:^(id response, NSError *error) {
+            if (!error) {
+                NSDictionary *dic = response;
+                if ([[dic objectForKey:@"status"] integerValue] == 200) {
+                    [[ISTHUDManager defaultManager] showHUDWithSuccess:@"添加成功"];
+                }else{
+                    [[ISTHUDManager defaultManager] showHUDWithError:dic[@"message"]];
+                }
+            }
+        }];
+    }
 }
 
 #pragma mark - UITextViewDelegate
@@ -323,5 +346,16 @@
     }
     
     return canChange;
+}
+
+//判断一个字符串是否是纯数字
+- (BOOL)isPureNumandCharacters:(NSString *)string
+{
+    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet decimalDigitCharacterSet]];
+    if(string.length > 0)
+    {
+        return NO;
+    }
+    return YES;
 }
 @end

@@ -110,9 +110,11 @@
 }
 
 - (void)loadShopCarGoodsData{
+    [[ISTHUDManager defaultManager] showHUDInView:self.view withText:nil];
     NSString *urlStr = [NSString stringWithFormat:@"index.php?m=api&c=Store&a=pay&uid=%@",kUID];
     [[ShoppingDataHelper defaultHelper] requestForURLStr:urlStr requestMethod:@"GET" info:nil andBlock:^(id response, NSError *error) {
         if (!error) {
+            [[ISTHUDManager defaultManager] hideHUDInView:self.view];
             NSDictionary *dic = response;
             if ([[dic objectForKey:@"status"] integerValue] == 200) {
                 _dataArr = [dic objectForKey:@"data"];
