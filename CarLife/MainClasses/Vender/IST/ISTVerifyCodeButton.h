@@ -18,5 +18,6 @@ typedef void (^CodeBlock)(ISTVerifyCodeButton *);
 @property (nonatomic, strong) void(^doneBlock)();
 
 - (void)startTimer;
+- (void)stopTimer;
 
 @end

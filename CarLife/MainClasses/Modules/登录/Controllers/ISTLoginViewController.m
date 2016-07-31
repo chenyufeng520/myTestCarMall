@@ -17,6 +17,8 @@
 #import "WXLoginModel.h"
 #import "LogisticsViewController.h"
 #import "FindSellerViewController.h"
+#import "NewRegisterViewController.h"
+#import "ForgetPassWordViewController.h"
 
 @interface ISTLoginViewController ()
 @property (nonatomic,copy) NSString * access_token;
@@ -423,8 +425,11 @@
 //注册账号
 -(void)registerUser:(UIButton *)sender{
     
-    ISTRegisterViewController * registerVC = [[ISTRegisterViewController alloc]init];
-    registerVC.Navtitle = @"注册";
+//    ISTRegisterViewController * registerVC = [[ISTRegisterViewController alloc]init];
+//    registerVC.Navtitle = @"注册";
+//    [self.navigationController pushViewController:registerVC animated:YES];
+    
+    NewRegisterViewController *registerVC = [[NewRegisterViewController alloc] init];
     [self.navigationController pushViewController:registerVC animated:YES];
 }
 -(void)cancleLogin:(UIButton*)sender{
@@ -433,9 +438,12 @@
 
 
 -(void)forgetBntClick:(UIButton*)sender{
-    ISTRegisterViewController * registerVC = [[ISTRegisterViewController alloc]init];
-    registerVC.Navtitle = @"重置密码";
-    [self.navigationController pushViewController:registerVC animated:YES];
+//    ISTRegisterViewController * registerVC = [[ISTRegisterViewController alloc]init];
+//    registerVC.Navtitle = @"重置密码";
+//    [self.navigationController pushViewController:registerVC animated:YES];
+    
+    ForgetPassWordViewController *forgetVC = [[ForgetPassWordViewController alloc] init];
+    [self.navigationController pushViewController:forgetVC animated:YES];
 }
 
 - (void)bottomButtonClick:(UIButton*)button{
@@ -478,12 +486,12 @@
                 }
                 else
                 {
-                     [[ISTHUDManager defaultManager] showHUDWithError:@"登录失败"];
+                    KTipView(@"登陆失败");
                 }
             }
             else
             {
-                   [[ISTHUDManager defaultManager] showHUDWithError:@"登录失败"];
+                KTipView(@"登陆失败");
             }
         }];
 
