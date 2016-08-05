@@ -3787,12 +3787,9 @@
 				829D7DA51D545A3C00DBD45C /* UIScrollView+MJRefresh.m in Sources */,
 				829D7DAF1D545A3C00DBD45C /* DACircularProgressView.m in Sources */,
 				71977F811CFFDD05007B2C4B /* ModifyUserInfoViewController.m in Sources */,
-
 				829D7DC51D545A3C00DBD45C /* PSTCollectionViewFlowLayout.m in Sources */,
 				829D7E031D545A3C00DBD45C /* RedpacketMessageCell.m in Sources */,
-
 				71E4DEA41D4D82F600C78B21 /* NewRegisterViewController.m in Sources */,
-
 				714991D01D3DE0F000D180A0 /* ThreeImgCell.m in Sources */,
 				829D7DC61D545A3C00DBD45C /* PSTCollectionViewItemKey.m in Sources */,
 				829D7DB51D545A3C00DBD45C /* EMSDWebImageManager.m in Sources */,
@@ -3885,12 +3882,7 @@
 				829D7E011D545A3C00DBD45C /* EaseRedBagCell.m in Sources */,
 				829D7DCA1D545A3C00DBD45C /* PSTGridLayoutItem.m in Sources */,
 				8241D30B1CF2CE1200411423 /* OilTableViewController.m in Sources */,
-
-				8259CC131CECC9AE00D6685C /* EaseEmotionEscape.m in Sources */,
-				8259CC281CECC9AE00D6685C /* EaseBubbleView.m in Sources */,
-				8259CBF41CECC9AE00D6685C /* UIImageView+EMHighlightedWebCache.m in Sources */,
 				71E4DEA71D4D83F500C78B21 /* ForgetPassWordViewController.m in Sources */,
-
 				CE34D1921BF596DB00EB31CF /* ISTRegisterViewController.m in Sources */,
 				821F5D851D3E08FD00050A24 /* PhoneContactViewController.m in Sources */,
 				829D7DDC1D545A3C00DBD45C /* EaseEmotionEscape.m in Sources */,
@@ -4045,8 +4037,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_CXX_LIBRARY = "libstdc++";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Agricom Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Agricom Co., Ltd.";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4102,7 +4094,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiase.nongguanjia;
 				PRODUCT_NAME = CarLife;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "fad2aedd-a3e8-4814-b85c-ace1aea138a6";
 			};
 			name = Debug;
 		};
@@ -4115,8 +4107,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_CXX_LIBRARY = "libstdc++";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Agricom Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Agricom Co., Ltd.";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4172,7 +4164,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jiase.nongguanjia;
 				PRODUCT_NAME = CarLife;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "fad2aedd-a3e8-4814-b85c-ace1aea138a6";
 			};
 			name = Release;
 		};
