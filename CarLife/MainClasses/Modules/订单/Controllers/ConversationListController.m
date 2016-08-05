@@ -11,7 +11,7 @@
  */
 
 #import "ConversationListController.h"
-#import "ChatViewController.h"
+#import "RedPacketChatViewController.h"
 #import "AppDelegate.h"
 #import "NSDate+Category.h"
 #import "EaseConvertToCommonEmoticonsHelper.h"
@@ -134,7 +134,8 @@
     if (conversationModel) {
         EMConversation *conversation = conversationModel.conversation;
         if (conversation) {
-            ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:conversation.conversationId conversationType:conversation.type];
+            
+            RedPacketChatViewController *chatController = [[RedPacketChatViewController alloc] initWithConversationChatter:conversation.conversationId conversationType:conversation.type];
             chatController.title = conversationModel.title;
             [self.navigationController pushViewController:chatController animated:YES];
         }

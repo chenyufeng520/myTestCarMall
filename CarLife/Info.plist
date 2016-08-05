@@ -79,6 +79,8 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.hfdianche.DianCheWuLiu</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>QQ05FC5B34</string>
@@ -98,6 +100,16 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>100424468</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string></string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>alipayredpacket</string>
 			</array>
 		</dict>
 	</array>

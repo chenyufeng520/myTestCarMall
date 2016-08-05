@@ -77,7 +77,7 @@
 //添加悬浮购物车
 - (void)configDragView{
     //悬浮按钮
-    DragView *dragView = [[DragView alloc] initWithFrame:CGRectMake(_contentView.width - kAdjustLength(200), _contentView.height - kAdjustLength(300), 50, 50)];
+    DragView *dragView = [[DragView alloc] initWithFrame:CGRectMake(kScreen_Width - 50, kScreen_Height - 50 -kTabBarHeight-20, 50, 50)];
     [dragView setBlock:^(){
         BSLog(@"点击了悬浮按钮");
         ShoppingCarViewController *shoppingCar = [[ShoppingCarViewController alloc] init];

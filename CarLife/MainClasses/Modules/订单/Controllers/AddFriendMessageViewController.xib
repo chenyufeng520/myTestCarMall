@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddFriendMessageViewController">
             <connections>
+                <outlet property="textView" destination="bfi-mX-999" id="dar-D0-3Db"/>
                 <outlet property="toTopHeight" destination="6b4-Pw-Son" id="t5c-nL-R4r"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -25,7 +26,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="我是..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bfi-mX-999">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bfi-mX-999">
                     <rect key="frame" x="0.0" y="114" width="414" height="200"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -37,6 +38,20 @@
                         <outlet property="delegate" destination="-1" id="M2f-Dd-2GA"/>
                     </connections>
                 </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MhO-h1-37Y">
+                    <rect key="frame" x="50" y="344" width="314" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="rVm-T8-Lln"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="确认并发送">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="confirmSend:" destination="-1" eventType="touchUpInside" id="ieV-U0-32O"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -45,7 +60,10 @@
                 <constraint firstItem="qnN-eM-NBA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="AxS-cU-2Bm"/>
                 <constraint firstAttribute="trailing" secondItem="bfi-mX-999" secondAttribute="trailing" id="BUV-dp-iCF"/>
                 <constraint firstAttribute="trailing" secondItem="qnN-eM-NBA" secondAttribute="trailing" constant="10" id="OBu-aH-yxM"/>
+                <constraint firstItem="MhO-h1-37Y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="ek5-HN-hyd"/>
                 <constraint firstItem="bfi-mX-999" firstAttribute="top" secondItem="qnN-eM-NBA" secondAttribute="bottom" constant="10" id="ghr-2T-Ngf"/>
+                <constraint firstItem="MhO-h1-37Y" firstAttribute="top" secondItem="bfi-mX-999" secondAttribute="bottom" constant="30" id="gqw-lj-4KQ"/>
+                <constraint firstAttribute="trailing" secondItem="MhO-h1-37Y" secondAttribute="trailing" constant="50" id="pl9-w9-Fd0"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
         </view>

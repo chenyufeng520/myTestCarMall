@@ -8,8 +8,12 @@
 
 #import "AddFriendMessageViewController.h"
 
-@interface AddFriendMessageViewController ()
+@interface AddFriendMessageViewController (){
+    UILabel *_placeHolderLab;
+
+}
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *toTopHeight;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
@@ -22,6 +26,8 @@
     [tbTop.btnLeft addTarget:self action:@selector(onClickTopBar:) forControlEvents:UIControlEventTouchUpInside];
     [tbTop setLetfTitle:nil];
     
+    [tbTop.btnRight setTitle:@"发送" forState:UIControlStateNormal];
+    [tbTop.btnRight addTarget:self action:@selector(onClickTopBar:) forControlEvents:UIControlEventTouchUpInside];
     return tbTop;
 }
 
@@ -39,15 +45,61 @@
         [self.navigationController popViewControllerAnimated:YES];
     }
     else if (btn.tag == BSTopBarButtonRight) {
-        
+        [self sendMessage];
     }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _toTopHeight.constant = self.iosChangeFloat + kNavHeight;
+    _toTopHeight.constant = self.iosChangeFloat + kNavHeight+10;
     [self loadSubviews];
+    [self initPlaceHolderLab];
 }
 
+- (void)initPlaceHolderLab{
+    _placeHolderLab = [[UILabel alloc] initWithFrame:CGRectMake(5, 8, _textView.width-10, 20)];
+    _placeHolderLab.font = kFont_16;
+    _placeHolderLab.textColor = [UIColor lightGrayColor];
+    _placeHolderLab.text = @"我是...";
+    [_textView addSubview:_placeHolderLab];
+
+}
+
+- (void)sendMessage{
+    
+}
+
+- (IBAction)confirmSend:(id)sender {
+    [self sendMessage];
+}
+
+#pragma mark - UITextViewDelegate
+- (void)textViewDidChange:(UITextView *)textView{
+    if (_textView.text.length == 0) {
+        _placeHolderLab.hidden = NO;
+    }else{
+        _placeHolderLab.hidden = YES;
+    }
+}
+
+//判断内容是否全部为空格  yes 全部为空格  no 不是
+- (BOOL) isEmpty:(NSString *) str {
+    
+    if (!str) {
+        return true;
+    } else {
+        //A character set containing only the whitespace characters space (U+0020) and tab (U+0009) and the newline and nextline characters (U+000A–U+000D, U+0085).
+        NSCharacterSet *set = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+        
+        //Returns a new string made by removing from both ends of the receiver characters contained in a given character set.
+        NSString *trimedString = [str stringByTrimmingCharactersInSet:set];
+        
+        if ([trimedString length] == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
 
 @end

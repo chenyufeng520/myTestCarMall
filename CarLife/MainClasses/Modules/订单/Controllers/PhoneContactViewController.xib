@@ -29,6 +29,9 @@
                                 <constraint firstAttribute="width" constant="100" id="MMV-Rj-peS"/>
                             </constraints>
                             <state key="normal" backgroundImage="电话联系按钮"/>
+                            <connections>
+                                <action selector="phoneContack:" destination="-1" eventType="touchUpInside" id="vQi-6n-xxG"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZT2-dL-K8S">
                             <rect key="frame" x="130" y="20" width="5" height="90"/>
@@ -82,6 +85,9 @@
                     <state key="normal" title="取消">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="cancelContack:" destination="-1" eventType="touchUpInside" id="vVw-Ew-ENV"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

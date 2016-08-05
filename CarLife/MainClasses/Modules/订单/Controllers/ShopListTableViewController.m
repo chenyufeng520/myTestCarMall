@@ -9,7 +9,7 @@
 #import "ShopListTableViewController.h"
 #import "OrderDatahelper.h"
 #import "OrderCell.h"
-#import "ChatViewController.h"
+#import "RedPacketChatViewController.h"
 #import "AppDelegate.h"
 #import "OrderDatahelper.h"
 #import "PhoneContactViewController.h"
@@ -18,14 +18,15 @@
 #import "AddFriendMessageViewController.h"
 #import "ShareToZoneViewController.h"
 #import "OrderDatahelper.h"
+#import "ShopDetailViewController.h"
 
-@interface ShopListTableViewController ()<UITableViewDelegate,UITableViewDataSource,OrderCellDelegate,UITextFieldDelegate>{
+@interface ShopListTableViewController ()<UITableViewDelegate,UITableViewDataSource,OrderCellDelegate,UITextFieldDelegate,UIAlertViewDelegate>{
     UITableView *_tableView;
     NSMutableArray *_shopListArr;
     int _page;
-    UIWebView *_phoneWebView;
     UITextField *_textField;
     BOOL _isSearch;
+    OrderModel *_currentModel;
 }
 
 @end
@@ -264,19 +265,15 @@
 
 #pragma mark - OrderCellDelagate
 - (void)orderCellPhoneClick:(OrderModel *)orderModel{
-    if (!_phoneWebView) {
-        _phoneWebView = [[UIWebView alloc]init];
-        [self.view addSubview:_phoneWebView];
-    }
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",orderModel.store_phone]];
-    [_phoneWebView loadRequest:[NSURLRequest requestWithURL:url]];
+    RedPacketChatViewController *chatController = [[RedPacketChatViewController alloc] initWithConversationChatter:orderModel.store_phone conversationType:EMConversationTypeChat];
+    chatController.title = orderModel.store_name;
+    [[AppDelegate shareDelegate].rootNavigation pushViewController:chatController animated:YES];
 }
 
 - (void)orderCellMessageClick:(OrderModel *)orderModel{
-    ChatViewController *chatController = [[ChatViewController alloc] initWithConversationChatter:@"18501047155" conversationType:EMConversationTypeChat];
-    chatController.title = orderModel.store_name;
-    [[AppDelegate shareDelegate].rootNavigation pushViewController:chatController animated:YES];
-
+    ShopDetailViewController *shopDetail = [[ShopDetailViewController alloc] init];
+    shopDetail.orderModel = orderModel;
+    [[AppDelegate shareDelegate].rootNavigation pushViewController:shopDetail animated:YES];
 }
 
 - (void)orderCellHiddenButtonClick:(NSInteger)index orderModel:(OrderModel *)orderModel{
@@ -289,8 +286,9 @@
         }
         case 1:
         {
-            RedEnvelopeViewController *redEnvelope = [[RedEnvelopeViewController alloc] init];
-            [[AppDelegate shareDelegate].rootNavigation pushViewController:redEnvelope animated:YES];
+            RedPacketChatViewController *chatController = [[RedPacketChatViewController alloc] initWithConversationChatter:orderModel.store_phone conversationType:EMConversationTypeChat];
+            chatController.title = orderModel.store_name;
+            [[AppDelegate shareDelegate].rootNavigation pushViewController:chatController animated:YES];
             break;
         }
         case 2:
@@ -302,7 +300,10 @@
         }
         case 3:
         {
-
+            _currentModel = orderModel;
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:nil delegate:self cancelButtonTitle:@"语音" otherButtonTitles:@"视频", nil];
+            alert.tag = 1111;
+            [alert show];
             break;
         }
         case 4:
@@ -322,6 +323,20 @@
             
         default:
             break;
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (alertView.tag == 1111) {
+        if (buttonIndex == 0) {
+        //    语音
+            [[NSNotificationCenter defaultCenter] postNotificationName:KNOTIFICATION_CALL object:@{@"chatter":_currentModel.store_phone,@"type":[NSNumber numberWithInt:0]}];
+
+        }else{
+            //视频
+            [[NSNotificationCenter defaultCenter] postNotificationName:KNOTIFICATION_CALL object:@{@"chatter":_currentModel.store_phone, @"type":[NSNumber numberWithInt:1]}];
+
+        }
     }
 }
 

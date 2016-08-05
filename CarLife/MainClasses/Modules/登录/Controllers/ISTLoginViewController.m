@@ -505,6 +505,8 @@
     EMError *error = [[EMClient sharedClient] loginWithUsername:userphone password:userphone];
     if (error==nil) {
         NSLog(@"登录成功");
+        [[NSNotificationCenter defaultCenter] postNotificationName:KNOTIFICATION_LOGINCHANGE object:@YES];
+
     }
 }
 

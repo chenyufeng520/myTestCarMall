@@ -96,6 +96,13 @@
  *  @return 是否越界
  */
 - (BOOL)checkPoint:(CGPoint)point {
+//    NSLog(@"%f",kScreen_Height - kTabBarHeight);
+//    if (point.y < 20+kNavHeight) {
+//        return false;
+//    }
+//    if (point.y > kScreen_Height - kTabBarHeight-self.frame.size.height) {
+//        return false;
+//    }
     if (-point.x >= self.frame.size.width/2) {
         return false;
     }
@@ -111,6 +118,7 @@
     if (point.y >([self superview].frame.size.height - self.frame.size.height /2)) {
         return false;
     }
+    CGRect rect = [self superview].frame;
     return true;
 }
 
@@ -125,6 +133,14 @@
     CGPoint end = [self getAccuratePoint:_startPoint end:_endPoint];
     if (touch.phase == UITouchPhaseMoved) {
         if ([self checkPoint:end]) {
+            /** 由于拖动的view在导航条下，而且拖动的view加在self.view上，所以要去掉一段距离*/
+            if (end.y<20+kNavHeight) {
+                end.y = 20 + kNavHeight;
+            }
+            if (end.y > kScreen_Height-kTabBarHeight-self.frame.size.height) {
+                end.y = kScreen_Height - self.frame.size.height-kTabBarHeight;
+            }
+            /***/
             self.frame = CGRectMake(end.x, end.y, self.frame.size.width, self.frame.size.height);
         }
     }
@@ -177,6 +193,15 @@
            point.x = [self superview].frame.size.width - self.frame.size.width;
         }
     }
+    
+    /** 由于拖动的view在导航条下，而且拖动的view加在self.view上，所以要去掉一段距离*/
+    if (point.y<20+kNavHeight) {
+        point.y = 20 + kNavHeight;
+    }
+    if (point.y > kScreen_Height-kTabBarHeight-self.frame.size.height) {
+        point.y = kScreen_Height - self.frame.size.height-kTabBarHeight;
+    }
+    /***/
 
     [UIView animateWithDuration:0.3f animations:^{
         self.frame = CGRectMake(point.x, point.y, self.frame.size.width, self.frame.size.height);

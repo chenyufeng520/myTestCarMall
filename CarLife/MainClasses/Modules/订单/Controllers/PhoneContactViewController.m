@@ -8,7 +8,9 @@
 
 #import "PhoneContactViewController.h"
 
-@interface PhoneContactViewController ()
+@interface PhoneContactViewController (){
+    UIWebView *_phoneWebView;
+}
 @property (weak, nonatomic) IBOutlet UILabel *firstLab;
 @property (weak, nonatomic) IBOutlet UILabel *secondLab;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
@@ -59,11 +61,22 @@
     _firstLab.layer.cornerRadius = _firstLab.height/2.f;
     _firstLab.layer.masksToBounds = YES;
     
-    _secondLab.text = _orderModel.store_phone;
+    _secondLab.text = _orderModel.store_qq;
     _secondLab.layer.cornerRadius = _firstLab.height/2.f;
     _secondLab.layer.masksToBounds = YES;
 
     _cancelButton.layer.cornerRadius = _cancelButton.height/2.f;
+}
+- (IBAction)phoneContack:(id)sender {
+    if (!_phoneWebView) {
+        _phoneWebView = [[UIWebView alloc]init];
+        [self.view addSubview:_phoneWebView];
+    }
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",_orderModel.store_phone]];
+    [_phoneWebView loadRequest:[NSURLRequest requestWithURL:url]];
+}
+- (IBAction)cancelContack:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

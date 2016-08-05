@@ -93,6 +93,9 @@ static NSString *wxSecret       = @"da972b13215611e5291c31374534d3b8";
 static NSString *KeFuAppKey     = @"3d09752b4ad192976fd39172a9d72e1a";
 static NSString *EMAppKey     = @"dianche123#dianche";
 
+
+UIKIT_EXTERN NSString *const RedpacketAlipayNotifaction;
+
 /**支付方式**/
 typedef enum {
     WeiXin = 0,

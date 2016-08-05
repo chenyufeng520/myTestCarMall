@@ -96,12 +96,16 @@
 }
 
 - (void)shareButtonClick:(UIButton *)btn{
+    if (_msgTextView.text.length == 0 || [self isEmpty:_msgTextView.text]) {
+        KTipView(@"说点什么吧！");
+        return;
+    }
     switch (btn.tag) {
         case 2000:
         {
             [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeDefault url:@"http://baidu.com"];
             [UMSocialData defaultData].extConfig.title = @"今天是个好日子";
-            [UMSocialData defaultData].extConfig.sinaData.shareText = @"明天会更好";
+            [UMSocialData defaultData].extConfig.sinaData.shareText = _msgTextView.text;
             [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToSina] content:nil image:nil location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity *response){
                 NSLog(@"%@",response);
                 if (response.responseCode == UMSResponseCodeSuccess) {
@@ -116,7 +120,7 @@
             [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeDefault url:@"http://baidu.com"];
             [UMSocialData defaultData].extConfig.title = @"今天是个好日子";
             [UMSocialData defaultData].extConfig.wechatSessionData.url = @"http://baidu.com";
-            [UMSocialData defaultData].extConfig.wechatSessionData.shareText = @"明天会更好";
+            [UMSocialData defaultData].extConfig.wechatSessionData.shareText = _msgTextView.text;
             [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToWechatSession] content:nil image:nil location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity *response){
                 NSLog(@"%@",response);
                 if (response.responseCode == UMSResponseCodeSuccess) {
@@ -131,7 +135,7 @@
             [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeDefault url:@"http://baidu.com"];
             [UMSocialData defaultData].extConfig.title = @"今天是个好日子";
             [UMSocialData defaultData].extConfig.qqData.url = @"http://baidu.com";
-            [UMSocialData defaultData].extConfig.qqData.shareText = @"明天会更好";
+            [UMSocialData defaultData].extConfig.qqData.shareText = _msgTextView.text;
             [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToQQ] content:nil image:nil location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity *response){
                 NSLog(@"%@",response);
                 if (response.responseCode == UMSResponseCodeSuccess) {
@@ -145,7 +149,7 @@
             [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeDefault url:@"http://baidu.com"];
             [UMSocialData defaultData].extConfig.title = @"今天是个好日子";
             [UMSocialData defaultData].extConfig.wechatTimelineData.url = @"http://baidu.com";
-            [UMSocialData defaultData].extConfig.wechatTimelineData.shareText = @"明天会更好";
+            [UMSocialData defaultData].extConfig.wechatTimelineData.shareText = _msgTextView.text;
             [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToQQ] content:nil image:nil location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity *response){
                 NSLog(@"%@",response);
                 if (response.responseCode == UMSResponseCodeSuccess) {
@@ -169,6 +173,26 @@
         _placeHolderLab.hidden = NO;
     }else{
         _placeHolderLab.hidden = YES;
+    }
+}
+
+//判断内容是否全部为空格  yes 全部为空格  no 不是
+- (BOOL) isEmpty:(NSString *) str {
+    
+    if (!str) {
+        return true;
+    } else {
+        //A character set containing only the whitespace characters space (U+0020) and tab (U+0009) and the newline and nextline characters (U+000A–U+000D, U+0085).
+        NSCharacterSet *set = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+        
+        //Returns a new string made by removing from both ends of the receiver characters contained in a given character set.
+        NSString *trimedString = [str stringByTrimmingCharactersInSet:set];
+        
+        if ([trimedString length] == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 @end

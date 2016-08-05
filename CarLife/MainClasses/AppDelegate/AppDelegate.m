@@ -27,8 +27,8 @@
 #import "GifViewController.h"
 #import "DataSigner.h"
 #import "MobClick.h"
-//#import "ChatDemoHelper.h"
-//#import "RedPacketUserConfig.h"
+#import "ChatDemoHelper.h"
+#import "RedPacketUserConfig.h"
 
 @interface AppDelegate ()<UMSocialUIDelegate,WXApiDelegate,BMKGeneralDelegate>
 {
@@ -106,15 +106,6 @@
     [self.window makeKeyAndVisible];
 }
 
-//自动登录时登录环信
-- (void)autoLoginEMService{
-    NSString *user_phone = [[NSUserDefaults standardUserDefaults] objectForKey:kPhone];
-    EMError *error = [[EMClient sharedClient] loginWithUsername:user_phone password:user_phone];
-    if (error==nil) {
-        NSLog(@"登录成功");
-    }
-}
-
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
     EMError *error = [[EMClient sharedClient] bindDeviceToken:deviceToken];
     NSLog(@"%@",error);
@@ -141,7 +132,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kApplicationDidBecameForeground object:nil];
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:RedpacketAlipayNotifaction object:nil];
 //    [BMKMapView didForeGround];
 }
 
@@ -412,6 +403,7 @@
 #pragma mark - UMSocial
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
+    
     NSLog(@"application %@", application);
     // 处理调用
     // 这里处理新浪微博SSO授权之后跳转回来，和微信分享完成之后跳转回来
@@ -438,6 +430,9 @@
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic)
          {
              NSLog(@"result = %@",resultDic);
+            //环信
+             [[NSNotificationCenter defaultCenter] postNotificationName:RedpacketAlipayNotifaction object:resultDic];
+
          }];
         
         NSMutableDictionary *infoDic = [NSMutableDictionary dictionary];
@@ -483,6 +478,9 @@
         //跳转支付宝钱包进行支付，处理支付结果
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
             NSLog(@"result = %@",resultDic);
+            //环信
+            [[NSNotificationCenter defaultCenter] postNotificationName:RedpacketAlipayNotifaction object:resultDic];
+
         }];
         
         NSMutableDictionary *infoDic = [NSMutableDictionary dictionary];
@@ -543,9 +541,21 @@
 - (void)configEMSDK{
     EMOptions *options = [EMOptions optionsWithAppkey:EMAppKey];
     options.apnsCertName = @"PushCer";
-//    [[RedPacketUserConfig sharedConfig] configWithAppKey:EMAppKey];
+    [[RedPacketUserConfig sharedConfig] configWithAppKey:EMAppKey];
     [[EMClient sharedClient] initializeSDKWithOptions:options];
-//    [ChatDemoHelper shareHelper];//注册环信相关回调
+    [ChatDemoHelper shareHelper];//注册环信相关回调
+}
+
+//自动登录时登录环信
+- (void)autoLoginEMService{
+    NSString *user_phone = [[NSUserDefaults standardUserDefaults] objectForKey:kPhone];
+    EMError *error = [[EMClient sharedClient] loginWithUsername:user_phone password:user_phone];
+    if (error==nil) {
+        NSLog(@"登录成功");
+        error = [[EMClient sharedClient] setApnsNickname:user_phone];
+        NSLog(@"%@",error);
+        [[NSNotificationCenter defaultCenter] postNotificationName:KNOTIFICATION_LOGINCHANGE object:@YES];
+    }
 }
 
 #pragma mark - 注册推送

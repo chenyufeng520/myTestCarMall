@@ -22,7 +22,8 @@
 #import "UIAlertHelper.h"
 #import "User.h"
 #import "ISTHUDManager.h"
-#import "EMSDK.h"
+#import "EaseUI.h"
+#import "EMSDKFull.h"
 #import "MJRefresh.h"
 #import "ISTHUDManager.h"
 

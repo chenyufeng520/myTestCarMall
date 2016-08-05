@@ -420,6 +420,9 @@ shouldSendHasReadAckForMessage:(EMMessage *)message
  */
 - (void)sendTextMessage:(NSString *)text;
 
+- (void)sendTextMessage:(NSString *)text withExt:(NSDictionary*)ext;
+
+
 /*!
  @method
  @brief 发送图片消息
@@ -472,5 +475,15 @@ shouldSendHasReadAckForMessage:(EMMessage *)message
  */
 -(void)addMessageToDataSource:(EMMessage *)message
                      progress:(id)progress;
+
+
+-(void)showMenuViewController:(UIView *)showInView
+                 andIndexPath:(NSIndexPath *)indexPath
+                  messageType:(EMMessageBodyType)messageType;
+
+-(BOOL)shouldSendHasReadAckForMessage:(EMMessage *)message
+                                 read:(BOOL)read;
+
+
 
 @end

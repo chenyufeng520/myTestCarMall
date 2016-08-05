@@ -111,12 +111,21 @@ typedef enum{
 
 /*!
  *  \~chinese
- *  时间戳
+ *  时间戳，服务器收到此消息的时间
  *
  *  \~english
- *  Timestamp
+ *  Timestamp, the time of server received this message
  */
 @property (nonatomic) long long timestamp;
+
+/*!
+ *  \~chinese
+ *  客户端发送/收到此消息的时间
+ *
+ *  \~english
+ *  The time of client send/received this message
+ */
+@property (nonatomic) long long localTime;
 
 /*!
  *  \~chinese
