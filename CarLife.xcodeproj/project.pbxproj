@@ -67,6 +67,8 @@
 		71CD72141D3F2BF4003A79FB /* ISTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CD72131D3F2BF4003A79FB /* ISTWebViewController.m */; };
 		71CD72171D3F2BFF003A79FB /* ISTWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CD72161D3F2BFF003A79FB /* ISTWebView.m */; };
 		71D87F451CEE0D8B000D7525 /* OrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D87F441CEE0D8B000D7525 /* OrderCell.m */; };
+		71E4DEA41D4D82F600C78B21 /* NewRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E4DEA31D4D82F600C78B21 /* NewRegisterViewController.m */; };
+		71E4DEA71D4D83F500C78B21 /* ForgetPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E4DEA61D4D83F500C78B21 /* ForgetPassWordViewController.m */; };
 		821F5D811D3DF4C000050A24 /* OrderCellButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F5D801D3DF4C000050A24 /* OrderCellButton.m */; };
 		821F5D851D3E08FD00050A24 /* PhoneContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F5D831D3E08FD00050A24 /* PhoneContactViewController.m */; };
 		821F5D861D3E08FD00050A24 /* PhoneContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 821F5D841D3E08FD00050A24 /* PhoneContactViewController.xib */; };
@@ -559,6 +561,10 @@
 		71CD72161D3F2BFF003A79FB /* ISTWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTWebView.m; sourceTree = "<group>"; };
 		71D87F431CEE0D8B000D7525 /* OrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCell.h; sourceTree = "<group>"; };
 		71D87F441CEE0D8B000D7525 /* OrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCell.m; sourceTree = "<group>"; };
+		71E4DEA21D4D82F600C78B21 /* NewRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewRegisterViewController.h; sourceTree = "<group>"; };
+		71E4DEA31D4D82F600C78B21 /* NewRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewRegisterViewController.m; sourceTree = "<group>"; };
+		71E4DEA51D4D83F500C78B21 /* ForgetPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPassWordViewController.h; sourceTree = "<group>"; };
+		71E4DEA61D4D83F500C78B21 /* ForgetPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPassWordViewController.m; sourceTree = "<group>"; };
 		821F5D7F1D3DF4C000050A24 /* OrderCellButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCellButton.h; sourceTree = "<group>"; };
 		821F5D801D3DF4C000050A24 /* OrderCellButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCellButton.m; sourceTree = "<group>"; };
 		821F5D821D3E08FD00050A24 /* PhoneContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneContactViewController.h; sourceTree = "<group>"; };
@@ -2722,6 +2728,10 @@
 				CE34D1271BF596DB00EB31CF /* ISTLoginViewController.m */,
 				CE34D1281BF596DB00EB31CF /* ISTRegisterViewController.h */,
 				CE34D1291BF596DB00EB31CF /* ISTRegisterViewController.m */,
+				71E4DEA21D4D82F600C78B21 /* NewRegisterViewController.h */,
+				71E4DEA31D4D82F600C78B21 /* NewRegisterViewController.m */,
+				71E4DEA51D4D83F500C78B21 /* ForgetPassWordViewController.h */,
+				71E4DEA61D4D83F500C78B21 /* ForgetPassWordViewController.m */,
 				CE34D1241BF596DB00EB31CF /* ISTAgreementController.h */,
 				CE34D1251BF596DB00EB31CF /* ISTAgreementController.m */,
 				CE34D1201BF596DB00EB31CF /* ISTAccountBindViewController.h */,
@@ -3777,8 +3787,12 @@
 				829D7DA51D545A3C00DBD45C /* UIScrollView+MJRefresh.m in Sources */,
 				829D7DAF1D545A3C00DBD45C /* DACircularProgressView.m in Sources */,
 				71977F811CFFDD05007B2C4B /* ModifyUserInfoViewController.m in Sources */,
+
 				829D7DC51D545A3C00DBD45C /* PSTCollectionViewFlowLayout.m in Sources */,
 				829D7E031D545A3C00DBD45C /* RedpacketMessageCell.m in Sources */,
+
+				71E4DEA41D4D82F600C78B21 /* NewRegisterViewController.m in Sources */,
+
 				714991D01D3DE0F000D180A0 /* ThreeImgCell.m in Sources */,
 				829D7DC61D545A3C00DBD45C /* PSTCollectionViewItemKey.m in Sources */,
 				829D7DB51D545A3C00DBD45C /* EMSDWebImageManager.m in Sources */,
@@ -3871,6 +3885,12 @@
 				829D7E011D545A3C00DBD45C /* EaseRedBagCell.m in Sources */,
 				829D7DCA1D545A3C00DBD45C /* PSTGridLayoutItem.m in Sources */,
 				8241D30B1CF2CE1200411423 /* OilTableViewController.m in Sources */,
+
+				8259CC131CECC9AE00D6685C /* EaseEmotionEscape.m in Sources */,
+				8259CC281CECC9AE00D6685C /* EaseBubbleView.m in Sources */,
+				8259CBF41CECC9AE00D6685C /* UIImageView+EMHighlightedWebCache.m in Sources */,
+				71E4DEA71D4D83F500C78B21 /* ForgetPassWordViewController.m in Sources */,
+
 				CE34D1921BF596DB00EB31CF /* ISTRegisterViewController.m in Sources */,
 				821F5D851D3E08FD00050A24 /* PhoneContactViewController.m in Sources */,
 				829D7DDC1D545A3C00DBD45C /* EaseEmotionEscape.m in Sources */,

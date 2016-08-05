@@ -41,11 +41,26 @@ static NSInteger validtime = 60;
     [self onTimer];
 }
 
+- (void)stopTimer
+{
+    if(_timer)
+    {
+        //dispatch_source_cancel(_timer);
+        [_timer invalidate];
+        _timer = nil;
+    }
+    self.enabled = YES;
+    self.layer.borderWidth = kLinePixel;
+    [self setBackgroundColor:kWhiteColor];
+    [self setTitle:@"获取验证密码" forState:UIControlStateNormal];
+    [self setTitleColor:_color forState:UIControlStateNormal];
+}
+
 - (void)setColor:(UIColor *)color
 {
     _color = color;
     [self setBackgroundColor:kWhiteColor];
-    [self setTitle:@"获取验证码" forState:UIControlStateNormal];
+    [self setTitle:@"获取验证密码" forState:UIControlStateNormal];
     [self setTitleColor:_color forState:UIControlStateNormal];
     self.titleLabel.font = kFontSmall;
     self.layer.borderColor = _color.CGColor;
@@ -67,7 +82,7 @@ static NSInteger validtime = 60;
     self.enabled = YES;
     self.layer.borderWidth = kLinePixel;
     [self setBackgroundColor:kWhiteColor];
-    [self setTitle:@"获取验证码" forState:UIControlStateNormal];
+    [self setTitle:@"获取验证密码" forState:UIControlStateNormal];
     [self setTitleColor:_color forState:UIControlStateNormal];
 }
 
