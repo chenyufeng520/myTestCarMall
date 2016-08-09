@@ -7,7 +7,10 @@
 //
 
 #import "ISTSupBaseViewController.h"
+#import "OrderModel.h"
 
 @interface AddFriendMessageViewController : ISTSupBaseViewController
+
+@property (strong, nonatomic)OrderModel *orderModel;
 
 @end

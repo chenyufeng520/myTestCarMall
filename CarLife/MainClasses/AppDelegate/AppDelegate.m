@@ -29,6 +29,7 @@
 #import "MobClick.h"
 #import "ChatDemoHelper.h"
 #import "RedPacketUserConfig.h"
+#import "ApplyViewController.h"
 
 @interface AppDelegate ()<UMSocialUIDelegate,WXApiDelegate,BMKGeneralDelegate>
 {
@@ -554,6 +555,8 @@
         NSLog(@"登录成功");
         error = [[EMClient sharedClient] setApnsNickname:user_phone];
         NSLog(@"%@",error);
+        [[ApplyViewController shareController] loadDataSourceFromLocalDB];
+
         [[NSNotificationCenter defaultCenter] postNotificationName:KNOTIFICATION_LOGINCHANGE object:@YES];
     }
 }

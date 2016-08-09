@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="对方需要你填写验证信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnN-eM-NBA">
-                    <rect key="frame" x="10" y="84" width="394" height="20"/>
+                    <rect key="frame" x="0.0" y="84" width="404" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="ssi-Jv-81F"/>
                     </constraints>
@@ -57,7 +57,7 @@
             <constraints>
                 <constraint firstItem="qnN-eM-NBA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="6b4-Pw-Son"/>
                 <constraint firstItem="bfi-mX-999" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8Dy-MZ-RWX"/>
-                <constraint firstItem="qnN-eM-NBA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="AxS-cU-2Bm"/>
+                <constraint firstItem="qnN-eM-NBA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="AxS-cU-2Bm"/>
                 <constraint firstAttribute="trailing" secondItem="bfi-mX-999" secondAttribute="trailing" id="BUV-dp-iCF"/>
                 <constraint firstAttribute="trailing" secondItem="qnN-eM-NBA" secondAttribute="trailing" constant="10" id="OBu-aH-yxM"/>
                 <constraint firstItem="MhO-h1-37Y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="ek5-HN-hyd"/>

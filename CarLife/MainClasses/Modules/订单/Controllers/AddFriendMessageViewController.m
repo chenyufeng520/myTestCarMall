@@ -45,7 +45,7 @@
         [self.navigationController popViewControllerAnimated:YES];
     }
     else if (btn.tag == BSTopBarButtonRight) {
-        [self sendMessage];
+        [self sendAddFriendMessage];
     }
 }
 
@@ -65,12 +65,21 @@
 
 }
 
-- (void)sendMessage{
-    
+- (void)sendAddFriendMessage{
+    EMError *error = [[EMClient sharedClient].contactManager addContact:_orderModel.store_phone message:_textView.text];
+    if (!error) {
+        NSLog(@"添加成功");
+    }
+    [MBProgressHUD showError:error.description toView:self.view];
+
 }
 
 - (IBAction)confirmSend:(id)sender {
-    [self sendMessage];
+    if (_textView.text.length > 0 && ![self isEmpty:_textView.text]) {
+        [self sendAddFriendMessage];
+    }else{
+        [MBProgressHUD showError:@"请输入验证信息" toView:self.view];
+    }
 }
 
 #pragma mark - UITextViewDelegate

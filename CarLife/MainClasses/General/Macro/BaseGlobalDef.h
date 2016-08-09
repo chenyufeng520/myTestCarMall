@@ -9,6 +9,10 @@
 #ifndef BaseGlobalDef_h
 #define BaseGlobalDef_h
 
+#ifdef __OBJC__
+
+#define kTest 1 //是测试还是打包
+
 #define kKeyWindow [UIApplication sharedApplication].keyWindow
 
 /**System Config**/
@@ -170,6 +174,6 @@ static NSString *kWXLoginSuccessed                  = @"kWXLoginSuccessed";     
 static NSString *kWXLoginFailed                     = @"kWXLoginFailed";                    //微信登录失败
 static NSString *kSocketConnectNotification         = @"kSocketConnectNotification";        //socket连接成功通知
 static NSString *kAliLoginSucceedNotification       = @"kAliLoginSucceedNotification";//支付宝确认授权回调
-
+#endif
 
 #endif /* BaseGlobalDef_h */

@@ -17,6 +17,7 @@
 #import "MBProgressHUD.h"
 
 #import "CallViewController.h"
+#import "ApplyViewController.h"
 
 @interface ChatDemoHelper()<EMCallManagerDelegate>
 {
@@ -407,12 +408,15 @@ static ChatDemoHelper *helper = nil;
 
 - (void)didReceiveAddedFromUsername:(NSString *)aUsername
 {
+    NSLog(@"%@",aUsername);
 //    [_contactViewVC reloadDataSource];
 }
 
 - (void)didReceiveFriendInvitationFromUsername:(NSString *)aUsername
                                        message:(NSString *)aMessage
 {
+    NSLog(@"%@",aUsername);
+
     if (!aUsername) {
         return;
     }
@@ -420,8 +424,8 @@ static ChatDemoHelper *helper = nil;
     if (!aMessage) {
         aMessage = [NSString stringWithFormat:NSLocalizedString(@"friend.somebodyAddWithName", @"%@ add you as a friend"), aUsername];
     }
-//    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:@{@"title":aUsername, @"username":aUsername, @"applyMessage":aMessage, @"applyStyle":[NSNumber numberWithInteger:ApplyStyleFriend]}];
-//    [[ApplyViewController shareController] addNewApply:dic];
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:@{@"title":aUsername, @"username":aUsername, @"applyMessage":aMessage, @"applyStyle":[NSNumber numberWithInteger:ApplyStyleFriend]}];
+    [[ApplyViewController shareController] addNewApply:dic];
 //    if (self.mainVC) {
 //        [self.mainVC setupUntreatedApplyCount];
 //#if !TARGET_IPHONE_SIMULATOR

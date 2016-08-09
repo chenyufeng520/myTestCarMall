@@ -69,6 +69,16 @@
 		71D87F451CEE0D8B000D7525 /* OrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D87F441CEE0D8B000D7525 /* OrderCell.m */; };
 		71E4DEA41D4D82F600C78B21 /* NewRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E4DEA31D4D82F600C78B21 /* NewRegisterViewController.m */; };
 		71E4DEA71D4D83F500C78B21 /* ForgetPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E4DEA61D4D83F500C78B21 /* ForgetPassWordViewController.m */; };
+		820EB1D21D5885DA0042B348 /* AddFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 820EB1CB1D5885DA0042B348 /* AddFriendCell.m */; };
+		820EB1D31D5885DA0042B348 /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820EB1CD1D5885DA0042B348 /* AddFriendViewController.m */; };
+		820EB1D41D5885DA0042B348 /* ApplyFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 820EB1CF1D5885DA0042B348 /* ApplyFriendCell.m */; };
+		820EB1D51D5885DA0042B348 /* ApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820EB1D11D5885DA0042B348 /* ApplyViewController.m */; };
+		820EB1EB1D5886320042B348 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 820EB1D81D5886320042B348 /* BaseTableViewCell.m */; };
+		820EB1EC1D5886320042B348 /* EMSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 820EB1DA1D5886320042B348 /* EMSearchBar.m */; };
+		820EB1ED1D5886320042B348 /* EMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 820EB1DC1D5886320042B348 /* EMTextView.m */; };
+		820EB1F31D5886320042B348 /* XHMessageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 820EB1EA1D5886320042B348 /* XHMessageTextView.m */; };
+		820EB1F91D5887750042B348 /* InvitationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 820EB1F61D5887750042B348 /* InvitationManager.m */; };
+		820EB1FD1D5887DD0042B348 /* EMAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 820EB1FC1D5887DD0042B348 /* EMAlertView.m */; };
 		821F5D811D3DF4C000050A24 /* OrderCellButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F5D801D3DF4C000050A24 /* OrderCellButton.m */; };
 		821F5D851D3E08FD00050A24 /* PhoneContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F5D831D3E08FD00050A24 /* PhoneContactViewController.m */; };
 		821F5D861D3E08FD00050A24 /* PhoneContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 821F5D841D3E08FD00050A24 /* PhoneContactViewController.xib */; };
@@ -565,6 +575,26 @@
 		71E4DEA31D4D82F600C78B21 /* NewRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewRegisterViewController.m; sourceTree = "<group>"; };
 		71E4DEA51D4D83F500C78B21 /* ForgetPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPassWordViewController.h; sourceTree = "<group>"; };
 		71E4DEA61D4D83F500C78B21 /* ForgetPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPassWordViewController.m; sourceTree = "<group>"; };
+		820EB1CA1D5885DA0042B348 /* AddFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendCell.h; sourceTree = "<group>"; };
+		820EB1CB1D5885DA0042B348 /* AddFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendCell.m; sourceTree = "<group>"; };
+		820EB1CC1D5885DA0042B348 /* AddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendViewController.h; sourceTree = "<group>"; };
+		820EB1CD1D5885DA0042B348 /* AddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendViewController.m; sourceTree = "<group>"; };
+		820EB1CE1D5885DA0042B348 /* ApplyFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyFriendCell.h; sourceTree = "<group>"; };
+		820EB1CF1D5885DA0042B348 /* ApplyFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyFriendCell.m; sourceTree = "<group>"; };
+		820EB1D01D5885DA0042B348 /* ApplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyViewController.h; sourceTree = "<group>"; };
+		820EB1D11D5885DA0042B348 /* ApplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyViewController.m; sourceTree = "<group>"; };
+		820EB1D71D5886320042B348 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
+		820EB1D81D5886320042B348 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
+		820EB1D91D5886320042B348 /* EMSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMSearchBar.h; sourceTree = "<group>"; };
+		820EB1DA1D5886320042B348 /* EMSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMSearchBar.m; sourceTree = "<group>"; };
+		820EB1DB1D5886320042B348 /* EMTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMTextView.h; sourceTree = "<group>"; };
+		820EB1DC1D5886320042B348 /* EMTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMTextView.m; sourceTree = "<group>"; };
+		820EB1E91D5886320042B348 /* XHMessageTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHMessageTextView.h; sourceTree = "<group>"; };
+		820EB1EA1D5886320042B348 /* XHMessageTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHMessageTextView.m; sourceTree = "<group>"; };
+		820EB1F51D5887750042B348 /* InvitationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationManager.h; sourceTree = "<group>"; };
+		820EB1F61D5887750042B348 /* InvitationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationManager.m; sourceTree = "<group>"; };
+		820EB1FB1D5887DD0042B348 /* EMAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMAlertView.h; sourceTree = "<group>"; };
+		820EB1FC1D5887DD0042B348 /* EMAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMAlertView.m; sourceTree = "<group>"; };
 		821F5D7F1D3DF4C000050A24 /* OrderCellButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCellButton.h; sourceTree = "<group>"; };
 		821F5D801D3DF4C000050A24 /* OrderCellButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCellButton.m; sourceTree = "<group>"; };
 		821F5D821D3E08FD00050A24 /* PhoneContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneContactViewController.h; sourceTree = "<group>"; };
@@ -1706,6 +1736,47 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		820EB1C91D5885DA0042B348 /* FriendApply */ = {
+			isa = PBXGroup;
+			children = (
+				820EB1CA1D5885DA0042B348 /* AddFriendCell.h */,
+				820EB1CB1D5885DA0042B348 /* AddFriendCell.m */,
+				820EB1CC1D5885DA0042B348 /* AddFriendViewController.h */,
+				820EB1CD1D5885DA0042B348 /* AddFriendViewController.m */,
+				820EB1CE1D5885DA0042B348 /* ApplyFriendCell.h */,
+				820EB1CF1D5885DA0042B348 /* ApplyFriendCell.m */,
+				820EB1D01D5885DA0042B348 /* ApplyViewController.h */,
+				820EB1D11D5885DA0042B348 /* ApplyViewController.m */,
+			);
+			path = FriendApply;
+			sourceTree = "<group>";
+		};
+		820EB1D61D5886320042B348 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				820EB1FB1D5887DD0042B348 /* EMAlertView.h */,
+				820EB1FC1D5887DD0042B348 /* EMAlertView.m */,
+				820EB1D71D5886320042B348 /* BaseTableViewCell.h */,
+				820EB1D81D5886320042B348 /* BaseTableViewCell.m */,
+				820EB1D91D5886320042B348 /* EMSearchBar.h */,
+				820EB1DA1D5886320042B348 /* EMSearchBar.m */,
+				820EB1DB1D5886320042B348 /* EMTextView.h */,
+				820EB1DC1D5886320042B348 /* EMTextView.m */,
+				820EB1E91D5886320042B348 /* XHMessageTextView.h */,
+				820EB1EA1D5886320042B348 /* XHMessageTextView.m */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		820EB1F41D5887750042B348 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				820EB1F51D5887750042B348 /* InvitationManager.h */,
+				820EB1F61D5887750042B348 /* InvitationManager.m */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
 		829D7B9A1D545A3C00DBD45C /* 环信 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1715,6 +1786,9 @@
 				829D7B9E1D545A3C00DBD45C /* ChatDemoHelper.m */,
 				829D7B9F1D545A3C00DBD45C /* ChatViewController.h */,
 				829D7BA01D545A3C00DBD45C /* ChatViewController.m */,
+				820EB1F41D5887750042B348 /* Core Data */,
+				820EB1D61D5886320042B348 /* Custom */,
+				820EB1C91D5885DA0042B348 /* FriendApply */,
 				829D7BA11D545A3C00DBD45C /* EaseUI */,
 				829D7CC61D545A3C00DBD45C /* EaseUIResource.bundle */,
 				829D7CC71D545A3C00DBD45C /* HyphenateSDK */,
@@ -3714,9 +3788,11 @@
 				829D7D9B1D545A3C00DBD45C /* MJRefreshAutoStateFooter.m in Sources */,
 				71249F751CEF3F4100C2151D /* NewsListModel.m in Sources */,
 				829D7DA01D545A3C00DBD45C /* MJRefreshNormalHeader.m in Sources */,
+				820EB1D21D5885DA0042B348 /* AddFriendCell.m in Sources */,
 				DC7B72371BD1F9A100327B03 /* UIColor+expanded.m in Sources */,
 				829D7DC41D545A3C00DBD45C /* PSTCollectionViewData.m in Sources */,
 				DC86C3E71BD36F86007DEE6F /* UUDatePicker_DateModel.m in Sources */,
+				820EB1ED1D5886320042B348 /* EMTextView.m in Sources */,
 				829D7E061D545A3C00DBD45C /* RedPacketUserConfig.m in Sources */,
 				829D7DB31D545A3C00DBD45C /* EMSDWebImageDownloader.m in Sources */,
 				829D7DD51D545A3C00DBD45C /* UIViewController+DismissKeyboard.m in Sources */,
@@ -3726,7 +3802,9 @@
 				829D7D8D1D545A3C00DBD45C /* amrFileCodec.mm in Sources */,
 				82E9526C1CF576540078E89B /* CustomSegmentView.m in Sources */,
 				71249F851CEF433E00C2151D /* UseProductModel.m in Sources */,
+				820EB1D31D5885DA0042B348 /* AddFriendViewController.m in Sources */,
 				821F5D8F1D3E145800050A24 /* NearCarOwerCell.m in Sources */,
+				820EB1F31D5886320042B348 /* XHMessageTextView.m in Sources */,
 				829D7DE61D545A3C00DBD45C /* EaseBaseMessageCell.m in Sources */,
 				CE34D1C21BF5C42A00EB31CF /* ISTButtonHelper.m in Sources */,
 				829D7DA71D545A3C00DBD45C /* MWCaptionView.m in Sources */,
@@ -3751,6 +3829,7 @@
 				829D7DE71D545A3C00DBD45C /* EaseCustomMessageCell.m in Sources */,
 				CE34D1931BF596DB00EB31CF /* LoginCenter.m in Sources */,
 				CE2747B51BF4603E00D2349D /* BlockButton.m in Sources */,
+				820EB1F91D5887750042B348 /* InvitationManager.m in Sources */,
 				CE34D1C41BF5C42A00EB31CF /* ISTStringHelper.m in Sources */,
 				821F5D991D3E1E5A00050A24 /* RedEnvelopeViewController.m in Sources */,
 				DC7B72341BD1F9A100327B03 /* NSTimer+Addition.m in Sources */,
@@ -3759,12 +3838,14 @@
 				71CCE63D1CF6A9960045F7C8 /* ISTSupBaseViewController.m in Sources */,
 				CE34D1C11BF5C42A00EB31CF /* ISTBase64.m in Sources */,
 				829D7D881D545A3C00DBD45C /* EMCDDeviceManager+Media.m in Sources */,
+				820EB1EC1D5886320042B348 /* EMSearchBar.m in Sources */,
 				829D7D921D545A3C00DBD45C /* MBProgressHUD+Add.m in Sources */,
 				829D7D971D545A3C00DBD45C /* MJRefreshFooter.m in Sources */,
 				829D7D851D545A3C00DBD45C /* EaseUI.m in Sources */,
 				716266341D434A5700A370B1 /* FindSellerViewController.m in Sources */,
 				829D7DD21D545A3C00DBD45C /* NSDate+Category.m in Sources */,
 				829D7D931D545A3C00DBD45C /* MBProgressHUD.m in Sources */,
+				820EB1D41D5885DA0042B348 /* ApplyFriendCell.m in Sources */,
 				CE34D20F1BF5C4C100EB31CF /* HttpReachabilityHelper.m in Sources */,
 				CE34D1AC1BF596DB00EB31CF /* ISTHomeViewController.m in Sources */,
 				829D7DAD1D545A3C00DBD45C /* MWTapDetectingView.m in Sources */,
@@ -3832,6 +3913,7 @@
 				829D7DFA1D545A3C00DBD45C /* EaseConversationCell.m in Sources */,
 				DC7B701F1BD1F5B500327B03 /* main.m in Sources */,
 				829D7DDA1D545A3C00DBD45C /* EaseEmoji.m in Sources */,
+				820EB1EB1D5886320042B348 /* BaseTableViewCell.m in Sources */,
 				CE2747BB1BF4612200D2349D /* NSObject+Common.m in Sources */,
 				7163AB9B1CF7DD1900C0FC3C /* UIImage+Rotate.m in Sources */,
 				829D7D891D545A3C00DBD45C /* EMCDDeviceManager+Microphone.m in Sources */,
@@ -3881,6 +3963,7 @@
 				7116286F1C9CFCC20049AB7B /* BaseDataHelper.m in Sources */,
 				829D7E011D545A3C00DBD45C /* EaseRedBagCell.m in Sources */,
 				829D7DCA1D545A3C00DBD45C /* PSTGridLayoutItem.m in Sources */,
+				820EB1FD1D5887DD0042B348 /* EMAlertView.m in Sources */,
 				8241D30B1CF2CE1200411423 /* OilTableViewController.m in Sources */,
 				71E4DEA71D4D83F500C78B21 /* ForgetPassWordViewController.m in Sources */,
 				CE34D1921BF596DB00EB31CF /* ISTRegisterViewController.m in Sources */,
@@ -3908,6 +3991,7 @@
 				DC86C3E61BD36F86007DEE6F /* UUDatePicker.m in Sources */,
 				829D7D9F1D545A3C00DBD45C /* MJRefreshGifHeader.m in Sources */,
 				829D7DB21D545A3C00DBD45C /* EMSDWebImageDecoder.m in Sources */,
+				820EB1D51D5885DA0042B348 /* ApplyViewController.m in Sources */,
 				829D7DC71D545A3C00DBD45C /* PSTCollectionViewLayout.m in Sources */,
 				82D4932B1D448ABD00890032 /* GoodslistCell.m in Sources */,
 				CED1C1431BF44E6B007C94F3 /* BSPayCenter.m in Sources */,
@@ -4037,8 +4121,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_CXX_LIBRARY = "libstdc++";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Agricom Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Agricom Co., Ltd.";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4092,9 +4176,9 @@
 					"$(PROJECT_DIR)/CarLife/MainClasses/Modules/环信(红包)/HyphenateSDK",
 					"$(PROJECT_DIR)/CarLife/MainClasses/Modules/环信(红包)/RedpacketStaticLib/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jiase.nongguanjia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hfdianche.DianCheWuLiu;
 				PRODUCT_NAME = CarLife;
-				PROVISIONING_PROFILE = "fad2aedd-a3e8-4814-b85c-ace1aea138a6";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -4107,8 +4191,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_CXX_LIBRARY = "libstdc++";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Agricom Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Agricom Co., Ltd.";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4162,9 +4246,9 @@
 					"$(PROJECT_DIR)/CarLife/MainClasses/Modules/环信(红包)/HyphenateSDK",
 					"$(PROJECT_DIR)/CarLife/MainClasses/Modules/环信(红包)/RedpacketStaticLib/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jiase.nongguanjia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hfdianche.DianCheWuLiu;
 				PRODUCT_NAME = CarLife;
-				PROVISIONING_PROFILE = "fad2aedd-a3e8-4814-b85c-ace1aea138a6";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

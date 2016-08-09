@@ -265,6 +265,15 @@
 
 #pragma mark - OrderCellDelagate
 - (void)orderCellPhoneClick:(OrderModel *)orderModel{
+#ifdef kTest
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kPhone] isEqualToString:@"18501047699"]) {
+        orderModel.store_phone = @"18682451391";
+    }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:kPhone] isEqualToString:@"18682451391"]){
+        orderModel.store_phone = @"18501047699";
+    }else{
+        NSLog(@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:kPhone]);
+    }
+#endif   
     RedPacketChatViewController *chatController = [[RedPacketChatViewController alloc] initWithConversationChatter:orderModel.store_phone conversationType:EMConversationTypeChat];
     chatController.title = orderModel.store_name;
     [[AppDelegate shareDelegate].rootNavigation pushViewController:chatController animated:YES];
@@ -277,6 +286,16 @@
 }
 
 - (void)orderCellHiddenButtonClick:(NSInteger)index orderModel:(OrderModel *)orderModel{
+#ifdef kTest
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:kPhone] isEqualToString:@"18501047699"]) {
+        orderModel.store_phone = @"18682451391";
+    }else if ([[[NSUserDefaults standardUserDefaults] objectForKey:kPhone] isEqualToString:@"18682451391"]){
+        orderModel.store_phone = @"18501047699";
+    }else{
+        NSLog(@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:kPhone]);
+    }
+#endif
+
     switch (index) {
         case 0:
         {
@@ -294,6 +313,7 @@
         case 2:
         {
             AddFriendMessageViewController *addMessage = [[AddFriendMessageViewController alloc] init];
+            addMessage.orderModel = orderModel;
             [[AppDelegate shareDelegate].rootNavigation pushViewController:addMessage animated:YES];
 
             break;

@@ -16,6 +16,7 @@
 #import "NSDate+Category.h"
 #import "EaseConvertToCommonEmoticonsHelper.h"
 #import "EaseEmotionManager.h"
+#import "ApplyViewController.h"
 
 @interface ConversationListController ()<EaseConversationListViewControllerDelegate, EaseConversationListViewControllerDataSource>
 
@@ -52,6 +53,7 @@
         [self.navigationController popViewControllerAnimated:YES];
     }
     else if (btn.tag == BSTopBarButtonRight) {
+        [[AppDelegate shareDelegate].rootNavigation pushViewController:[ApplyViewController shareController] animated:YES];
 
     }
 }
