@@ -83,7 +83,7 @@
 
 - (void)initUI{
     self.dataArray = [NSMutableArray new];
-    [ThrowLineTool sharedTool].delegate = self;
+//    [ThrowLineTool sharedTool].delegate = self;
     
     
     [self.view addSubview:self.topView];
@@ -382,8 +382,14 @@
          *  是否执行添加的动画
          */
         if (animated) {
-            [bself.view addSubview:self.redView];
-            [[ThrowLineTool sharedTool] throwObject:self.redView from:parentRectA.origin to:parentRectB.origin];
+            UIImageView *redView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+            redView.image = [UIImage imageNamed:@"adddetail"];
+            redView.layer.cornerRadius = 10;
+
+            [bself.view addSubview:redView];
+            ThrowLineTool *throw = [[ThrowLineTool alloc] init];
+            throw.delegate = self;
+            [throw throwObject:redView from:parentRectA.origin to:parentRectB.origin];
             bself.ordersArray = [ViewModel storeOrders:dic OrderData:self.ordersArray isAdded:YES];
         } else{
             bself.ordersArray = [ViewModel storeOrders:dic OrderData:self.ordersArray isAdded:NO];
@@ -405,7 +411,7 @@
 - (void)animationDidFinish
 {
     
-    [self.redView removeFromSuperview];
+//    [self.redView removeFromSuperview];
     [UIView animateWithDuration:0.1 animations:^{
         self.shoppcartview.shoppingCartBtn.transform = CGAffineTransformMakeScale(0.8, 0.8);
     } completion:^(BOOL finished) {

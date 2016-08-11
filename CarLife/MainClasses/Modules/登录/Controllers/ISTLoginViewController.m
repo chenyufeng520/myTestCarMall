@@ -92,7 +92,7 @@
 //    statusView.backgroundColor = kMainBGColor;
 //    [self.view addSubview:statusView];
     
-    UIImageView * companyLogo = [[UIImageView alloc]initWithFrame:CGRectMake( (kScreen_Width - kAdjustLength(300))/2, kAdjustLength(300), kAdjustLength(300), kAdjustLength(300))];
+    UIImageView * companyLogo = [[UIImageView alloc]initWithFrame:CGRectMake( (kScreen_Width - kAdjustLength(300))/2, kAdjustLength(300)-(kScreen_Height == 480?30:0), kAdjustLength(300), kAdjustLength(300))];
     companyLogo.backgroundColor = [UIColor clearColor];
     companyLogo.contentMode = UIViewContentModeScaleAspectFit;
     companyLogo.image = [UIImage imageNamed:@"TVlogo"];

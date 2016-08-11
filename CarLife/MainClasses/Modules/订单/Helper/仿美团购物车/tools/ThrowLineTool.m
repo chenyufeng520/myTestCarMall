@@ -8,16 +8,16 @@
 
 #import "ThrowLineTool.h"
 
-static ThrowLineTool *s_sharedInstance = nil;
+//static ThrowLineTool *s_sharedInstance = nil;
 @implementation ThrowLineTool
 
-+ (ThrowLineTool *)sharedTool
-{
-    if (!s_sharedInstance) {
-        s_sharedInstance = [[[self class] alloc] init];
-    }
-    return s_sharedInstance;
-}
+//+ (ThrowLineTool *)sharedTool
+//{
+//    if (!s_sharedInstance) {
+//        s_sharedInstance = [[[self class] alloc] init];
+//    }
+//    return s_sharedInstance;
+//}
 
 /**
  *  将某个view或者layer从起点抛到终点
@@ -70,6 +70,7 @@ static ThrowLineTool *s_sharedInstance = nil;
     if (self.delegate && [self.delegate respondsToSelector:@selector(animationDidFinish)]) {
         [self.delegate performSelector:@selector(animationDidFinish) withObject:nil];
     }
+    [self.showingView removeFromSuperview];
     self.showingView = nil;
 }
 

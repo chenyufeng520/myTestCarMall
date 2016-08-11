@@ -11,6 +11,7 @@
   */
 
 #import <UIKit/UIKit.h>
+#import "ISTSupBaseViewController.h"
 
 typedef enum{
     ApplyStyleFriend            = 0,
@@ -18,7 +19,7 @@ typedef enum{
     ApplyStyleJoinGroup,
 }ApplyStyle;
 
-@interface ApplyViewController : UITableViewController
+@interface ApplyViewController : ISTSupBaseViewController
 {
     NSMutableArray *_dataSource;
 }

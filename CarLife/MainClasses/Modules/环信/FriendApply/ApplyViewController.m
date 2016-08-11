@@ -17,18 +17,52 @@
 
 static ApplyViewController *controller = nil;
 
-@interface ApplyViewController ()<ApplyFriendCellDelegate>
+@interface ApplyViewController ()<ApplyFriendCellDelegate,UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic, strong)UITableView *tableView;
 
 @end
 
 @implementation ApplyViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (ISTTopBar *)creatTopBarView:(CGRect)frame
 {
-    self = [super initWithStyle:style];
+    // 导航头
+    ISTTopBar *tbTop = [[ISTTopBar alloc] initWithFrame:frame];
+    [tbTop.btnTitle setTitle:@"通知" forState:UIControlStateNormal];
+    [tbTop.btnLeft addTarget:self action:@selector(onClickTopBar:) forControlEvents:UIControlEventTouchUpInside];
+    [tbTop setLetfTitle:nil];
+    
+    return tbTop;
+}
+
+- (void)loadSubviews
+{
+    _tbTop = [self creatTopBarView:kTopFrame];
+    [self.view addSubview:_tbTop];
+}
+
+#pragma mark - Click Menu
+
+- (void)onClickTopBar:(UIButton *)btn
+{
+    if (btn.tag == BSTopBarButtonLeft) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else if (btn.tag == BSTopBarButtonRight) {
+        
+    }
+}
+
+
+- (id)init
+{
+    self = [super init];
     if (self) {
         // Custom initialization
         _dataSource = [[NSMutableArray alloc] init];
+        [self.view addSubview:self.tableView];
+        [self loadSubviews];
     }
     return self;
 }
@@ -37,16 +71,25 @@ static ApplyViewController *controller = nil;
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        controller = [[self alloc] initWithStyle:UITableViewStylePlain];
+        controller = [[self alloc] init];
     });
     
     return controller;
 }
 
+
+- (UITableView *)tableView{
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.iosChangeFloat+kNavHeight, kScreen_Width, kScreen_Height-self.iosChangeFloat-kNavHeight) style:UITableViewStylePlain];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+    }
+    return _tableView;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     // Uncomment the following line to preserve selection between presentations.
     self.title = NSLocalizedString(@"title.apply", @"Application and notification");
     self.tableView.tableFooterView = [[UIView alloc] init];

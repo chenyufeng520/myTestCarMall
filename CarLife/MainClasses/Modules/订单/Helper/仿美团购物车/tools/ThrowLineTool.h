@@ -15,9 +15,9 @@
 @interface ThrowLineTool : NSObject
 
 @property (nonatomic, assign) id<ThrowLineToolDelegate>delegate;
-@property (nonatomic, retain) UIView *showingView;
+@property (nonatomic, strong) UIView *showingView;
 
-+ (ThrowLineTool *)sharedTool;
+//+ (ThrowLineTool *)sharedTool;
 
 /**
  *  将某个view或者layer从起点抛到终点

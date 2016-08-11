@@ -9,9 +9,9 @@
 #ifndef BaseGlobalDef_h
 #define BaseGlobalDef_h
 
-#ifdef __OBJC__
+#define kTest //是测试还是打包
 
-#define kTest 1 //是测试还是打包
+#ifdef __OBJC__
 
 #define kKeyWindow [UIApplication sharedApplication].keyWindow
 
