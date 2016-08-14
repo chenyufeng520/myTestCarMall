@@ -32,7 +32,7 @@
     ISTTopBar *tbTop = [[ISTTopBar alloc] initWithFrame:frame];
     [tbTop.btnTitle setTitle:@"消息列表" forState:UIControlStateNormal];
     [tbTop.btnRight addTarget:self action:@selector(onClickTopBar:) forControlEvents:UIControlEventTouchUpInside];
-    [tbTop.btnRight setTitle:@"设置" forState:UIControlStateNormal];
+    [tbTop.btnRight setTitle:@"申请" forState:UIControlStateNormal];
     [tbTop.btnLeft addTarget:self action:@selector(onClickTopBar:) forControlEvents:UIControlEventTouchUpInside];
     [tbTop setLetfTitle:nil];
 

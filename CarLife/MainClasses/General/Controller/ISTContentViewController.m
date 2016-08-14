@@ -119,12 +119,12 @@
 //    NSMutableDictionary *settingDic = [[NSMutableDictionary dictionaryWithContentsOfFile:parh] objectForKey:@"STTabBarSetting"];
 //    NSArray *items = [settingDic objectForKey:@"Items"];
 
-    NSMutableDictionary *dic1 = [NSMutableDictionary dictionary];
-    [dic1 setValue:@"商城" forKey:@"title"];
-    [dic1 setValue:@"shopping" forKey:@"type"];
-    [dic1 setValue:@"btn_gray_01" forKey:@"unSelectImg"];
-    [dic1 setValue:@"btn_white_01" forKey:@"selectImg"];
-    [dic1 setValue:[NSNumber numberWithBool:NO] forKey:@"highlighted"];
+//    NSMutableDictionary *dic1 = [NSMutableDictionary dictionary];
+//    [dic1 setValue:@"商城" forKey:@"title"];
+//    [dic1 setValue:@"shopping" forKey:@"type"];
+//    [dic1 setValue:@"btn_gray_01" forKey:@"unSelectImg"];
+//    [dic1 setValue:@"btn_white_01" forKey:@"selectImg"];
+//    [dic1 setValue:[NSNumber numberWithBool:NO] forKey:@"highlighted"];
     
     NSMutableDictionary *dic2 = [NSMutableDictionary dictionary];
     [dic2 setValue:@"订单" forKey:@"title"];
@@ -154,7 +154,7 @@
     [dic5 setValue:@"btn_white_05" forKey:@"selectImg"];
     [dic5 setValue:[NSNumber numberWithBool:NO] forKey:@"highlighted"];
     
-    NSArray *items = @[dic1, dic2, dic3,dic4,dic5];
+    NSArray *items = @[dic2, dic3,dic4,dic5];
     
     NSMutableArray *menuArray = [NSMutableArray array];
     for(NSDictionary *aItem in items)

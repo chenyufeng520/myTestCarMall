@@ -47,6 +47,10 @@
     [self loadSubviews];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [_tableView reloadData];
+}
+
 - (void)prepareData{
     
     self.listArray = @[
@@ -119,6 +123,9 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    NSData *udObject = [[NSUserDefaults standardUserDefaults] objectForKey:kUSERINFO];
+    User *user = [NSKeyedUnarchiver unarchiveObjectWithData:udObject];
+    
     if (indexPath.section == 0) {
         static NSString *largeCelliden = @"largeCelliden";
         PersonHeadCell *cell = [tableView dequeueReusableCellWithIdentifier:largeCelliden];
@@ -126,7 +133,7 @@
             cell = [[PersonHeadCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:largeCelliden];
         }
         cell.iconImageView.image = [UIImage imageNamed:@"Default-user"];
-        cell.titleLabel.text = @"隔壁老王";
+        cell.titleLabel.text = user.user_nickname;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
 

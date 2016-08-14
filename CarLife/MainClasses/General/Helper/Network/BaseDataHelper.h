@@ -29,6 +29,9 @@
 //上传图片(不带进度条的)
 - (void)updateImages:(NSArray *)imageArray urlStr:(NSString *)URLStr info:(NSDictionary *)requestInfo andBlock:(void (^)(id response, NSError *error))block;
 
+//新上传图像
+- (void)postUserImageWithUid:(NSString*)uidStr imageName:(UIImage *)Userimage completion:(void(^)(NSDictionary * responDic))complete;
+
 //上传图片(带进度条的)
 - (void)updateImages:(UIImage *)image urlStr:(NSString *)URLStr info:(NSDictionary *)requestInfo andBlock:(void (^)(id response, NSError *error))block uploadProgressBlock:(void (^)(float, long long, long long))uploadProgressBlock;
 

@@ -221,7 +221,7 @@
     else if (btn.tag == BSTopBarButtonRight) {
         
         [[ISTHUDManager defaultManager] showHUDInView:_contentView withText:@"保存中"];
-        [[MineDataHelper defaultHelper] requestForURLStr:@"index.php" requestMethod:@"POST" info:@{@"m":@"api",@"c":@"user",@"a":@"updateHandle",@"uid":userid,@"user_address":field1.text,@"user_nickname":field2.text,@"user_email":field4.text} andBlock:^(id response, NSError *error) {
+        [[MineDataHelper defaultHelper] requestForURLStr:@"index.php?m=api&c=user&a=updateHandle" requestMethod:@"POST" info:@{@"uid":userid,@"user_address":field1.text,@"user_nickname":field2.text,@"user_email":field4.text} andBlock:^(id response, NSError *error) {
             [[ISTHUDManager defaultManager] hideHUDInView:_contentView];
             
             if ([response isKindOfClass:[NSDictionary class]]) {
@@ -230,6 +230,11 @@
                 if (status == 200) {
                     KTipView(@"保存成功");
                     //请求成功，处理结果
+                    user.user_email = field4.text;
+                    user.user_nickname = field2.text;
+                    NSData *userObj = [NSKeyedArchiver archivedDataWithRootObject:user];
+                    [[NSUserDefaults standardUserDefaults] setObject:userObj forKey:kUSERINFO];
+                    
                 }
                 else
                 {
@@ -246,36 +251,65 @@
 
 #pragma mark - Request
 //上传图片
-- (void)upLoad:(UIImage*)image{
+- (void)upLoad:(UIImage*)Userimage{
     
     NSData *udObject = [[NSUserDefaults standardUserDefaults] objectForKey:kUSERINFO];
     User *user = [NSKeyedUnarchiver unarchiveObjectWithData:udObject];
-    NSString *userid = user.uid;
-    [[ISTHUDManager defaultManager] showHUDInView:_contentView withText:@"上传中"];
-    
-//    [[MineDataHelper defaultHelper] updateImages:@[image] urlStr:@"index.php" info:@{@"m":@"Api",@"c":@"User",@"a":@"updateavatar",@"uid":userid,@"avatar":@"123.png"} andBlock:^(id response, NSError *error) {
-    
-    [[MineDataHelper defaultHelper] requestForURLStr:@"index.php" requestMethod:@"POST" info:@{@"m":@"Api",@"c":@"User",@"a":@"updateavatar",@"uid":userid,@"avatar":@"123.png"} andBlock:^(id response, NSError *error){
-        
+    NSString *uid = user.uid;
+     [[ISTHUDManager defaultManager] showHUDInView:_contentView withText:@"上传中"];
+    [[MineDataHelper defaultHelper] postUserImageWithUid:uid imageName:Userimage completion:^(NSDictionary *responDic) {
         [[ISTHUDManager defaultManager] hideHUDInView:_contentView];
-        
-        if ([response isKindOfClass:[NSDictionary class]]) {
-            int status = [response[@"status"] intValue];
+        if ([responDic isKindOfClass:[NSDictionary class]]) {
+            int status = [responDic[@"status"] intValue];
             
-            if (status == 400) {
+            if (status == 200) {
+                KTipView(@"上传成功");
                 //请求成功，处理结果
             }
             else
             {
-                [[ISTHUDManager defaultManager] showHUDWithError:@"上传失败"];
+                KTipView(@"上传失败");
             }
         }
         else
         {
-            [[ISTHUDManager defaultManager] showHUDWithError:@"上传失败"];
+             KTipView(@"上传失败");
         }
     }];
 }
+
+
+////上传图片
+//- (void)upLoad:(UIImage*)image{
+//
+//    NSData *udObject = [[NSUserDefaults standardUserDefaults] objectForKey:kUSERINFO];
+//    User *user = [NSKeyedUnarchiver unarchiveObjectWithData:udObject];
+//    NSString *userid = user.uid;
+//    [[ISTHUDManager defaultManager] showHUDInView:_contentView withText:@"上传中"];
+//    
+////    [[MineDataHelper defaultHelper] updateImages:@[image] urlStr:@"index.php" info:@{@"m":@"Api",@"c":@"User",@"a":@"updateavatar",@"uid":userid,@"avatar":@"123.png"} andBlock:^(id response, NSError *error) {
+//    
+//    [[MineDataHelper defaultHelper] requestForURLStr:@"index.php" requestMethod:@"POST" info:@{@"m":@"Api",@"c":@"User",@"a":@"updateavatar",@"uid":userid,@"avatar":@"123.png"} andBlock:^(id response, NSError *error){
+//        
+//        [[ISTHUDManager defaultManager] hideHUDInView:_contentView];
+//        
+//        if ([response isKindOfClass:[NSDictionary class]]) {
+//            int status = [response[@"status"] intValue];
+//            
+//            if (status == 400) {
+//                //请求成功，处理结果
+//            }
+//            else
+//            {
+//                [[ISTHUDManager defaultManager] showHUDWithError:@"上传失败"];
+//            }
+//        }
+//        else
+//        {
+//            [[ISTHUDManager defaultManager] showHUDWithError:@"上传失败"];
+//        }
+//    }];
+//}
 
 //获取用户详情
 - (void)getUserInfoData{

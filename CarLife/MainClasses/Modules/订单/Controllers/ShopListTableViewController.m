@@ -140,7 +140,6 @@
         [[ISTHUDManager defaultManager] hideHUDInView:weakSelf.view];
         if ([response isKindOfClass:[NSDictionary class]]) {
             int status = [response[@"status"] intValue];
-            
             if (status == 200) {
                 NSArray *dataArr = response[@"data"];
                 if (dataArr) {

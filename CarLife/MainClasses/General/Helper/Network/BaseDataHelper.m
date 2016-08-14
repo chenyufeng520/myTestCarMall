@@ -227,8 +227,32 @@ static BaseDataHelper *_sharedInst = nil;
         BSLog(@"%@",error);
         block(nil,error);
     }];
+
 }
 
+
+//上传用户头像
+- (void)postUserImageWithUid:(NSString*)uidStr imageName:(UIImage *)Userimage completion:(void(^)(NSDictionary * responDic))complete
+{
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json",nil];
+    NSString *str = @"http://www.hfdianche.cn/wuliu/index.php?m=Api&c=User&a=updateavatar";
+    NSData *imageData = UIImageJPEGRepresentation(Userimage, 0.5);
+    NSDictionary *dic = @{@"uid":uidStr};
+    
+    [manager POST:str parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+         [formData appendPartWithFileData:imageData name:@"avatar" fileName:@"head.png" mimeType:@"image/jpeg"];
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        if (complete) {
+            complete(result);
+        }
+        BSLog(@"\n\n路径:%@\n***请求结果:\n%@\n***结束\n\n", task.response.URL,result);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+         BSLog(@"%@",error);
+    }];
+}
 
 #pragma mark - 上传图片（带进度条）
 
