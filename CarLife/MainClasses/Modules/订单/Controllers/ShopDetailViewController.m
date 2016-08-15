@@ -75,7 +75,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _type = arc4random()%2;
+    _type = 1;
     [self loadSubviews];
     [self initUI];
     [self CustomModel];

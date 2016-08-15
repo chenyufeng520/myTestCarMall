@@ -13,6 +13,7 @@
 #import "UIAlertHelper.h"
 #import "ModifyUserInfoViewController.h"
 #import "NearCarOwerViewController.h"
+#import "AdviceViewController.h"
 
 @interface ISTMineViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -177,7 +178,8 @@
         }
         else if (indexPath.row == 4){
             //意见反馈
-            KTipFun;
+            AdviceViewController *adviceVC = [[AdviceViewController alloc] init];
+            [[AppDelegate shareDelegate].rootNavigation pushViewController:adviceVC animated:YES];
         }
         else if (indexPath.row == 5){
             //附近修理厂

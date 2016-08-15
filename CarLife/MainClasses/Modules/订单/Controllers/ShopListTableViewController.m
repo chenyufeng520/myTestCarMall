@@ -77,7 +77,7 @@
     line.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:line];
     
-    NSArray *titleArr = @[@"店铺页",@"智能排序",@"筛选"];
+    NSArray *titleArr = @[@"修理厂",@"智能排序",@"筛选"];
     CGFloat w = (kScreen_Width-10)/(float)titleArr.count;
     for (int i=0; i<titleArr.count; i++) {
         UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(i*(w+5), line.maxY, w, kAdjustLength(160))];

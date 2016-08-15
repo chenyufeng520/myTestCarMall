@@ -9,7 +9,7 @@
 #ifndef BaseGlobalDef_h
 #define BaseGlobalDef_h
 
-#define kTest //是测试还是打包
+//#define kTest //是测试还是打包
 
 #ifdef __OBJC__
 
@@ -40,6 +40,9 @@
 //提示语
 #define KTipFun [UIAlertHelper showAlert:@"敬请期待" AndShowView:_contentView];
 #define KTipView(_S_, ...) [UIAlertHelper showAlert:[NSString stringWithFormat:(_S_), ##__VA_ARGS__] AndShowView:_contentView];
+
+#define KTipBaseView(_S_, ...) [UIAlertHelper showAlert:[NSString stringWithFormat:(_S_), ##__VA_ARGS__] AndShowView:self.view];
+
 /**分割线及边框**/
 #define kLinePixel           1
 #define  kLineColor          RGBCOLOR(230, 230, 230)

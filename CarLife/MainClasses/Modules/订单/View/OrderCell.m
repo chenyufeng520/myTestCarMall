@@ -78,7 +78,7 @@
     if (!_phoneBtn) {
         _phoneBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _phoneBtn.backgroundColor = kNavBarColor;
-        [_phoneBtn setTitle:@"联系店家" forState:UIControlStateNormal];
+        [_phoneBtn setTitle:@"联系厂家" forState:UIControlStateNormal];
         [_phoneBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_phoneBtn addTarget:self action:@selector(phoneButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         _phoneBtn.titleLabel.font = kFont_16;
@@ -90,7 +90,7 @@
     if (!_msgBtn) {
         _msgBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _msgBtn.backgroundColor = kNavBarColor;
-        [_msgBtn setTitle:@"进入店铺" forState:UIControlStateNormal];
+        [_msgBtn setTitle:@"进入修理厂" forState:UIControlStateNormal];
         [_msgBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_msgBtn addTarget:self action:@selector(msgButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         _msgBtn.titleLabel.font = kFont_16;

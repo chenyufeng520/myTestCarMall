@@ -69,6 +69,8 @@
 		71D87F451CEE0D8B000D7525 /* OrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D87F441CEE0D8B000D7525 /* OrderCell.m */; };
 		71E4DEA41D4D82F600C78B21 /* NewRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E4DEA31D4D82F600C78B21 /* NewRegisterViewController.m */; };
 		71E4DEA71D4D83F500C78B21 /* ForgetPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E4DEA61D4D83F500C78B21 /* ForgetPassWordViewController.m */; };
+		820946BA1D61535000B578A2 /* AdviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820946B91D61535000B578A2 /* AdviceViewController.m */; };
+		820946BD1D6161EC00B578A2 /* VINCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820946BC1D6161EC00B578A2 /* VINCodeViewController.m */; };
 		821F5D811D3DF4C000050A24 /* OrderCellButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F5D801D3DF4C000050A24 /* OrderCellButton.m */; };
 		821F5D851D3E08FD00050A24 /* PhoneContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F5D831D3E08FD00050A24 /* PhoneContactViewController.m */; };
 		821F5D861D3E08FD00050A24 /* PhoneContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 821F5D841D3E08FD00050A24 /* PhoneContactViewController.xib */; };
@@ -575,6 +577,10 @@
 		71E4DEA31D4D82F600C78B21 /* NewRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewRegisterViewController.m; sourceTree = "<group>"; };
 		71E4DEA51D4D83F500C78B21 /* ForgetPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPassWordViewController.h; sourceTree = "<group>"; };
 		71E4DEA61D4D83F500C78B21 /* ForgetPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPassWordViewController.m; sourceTree = "<group>"; };
+		820946B81D61535000B578A2 /* AdviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdviceViewController.h; sourceTree = "<group>"; };
+		820946B91D61535000B578A2 /* AdviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdviceViewController.m; sourceTree = "<group>"; };
+		820946BB1D6161EC00B578A2 /* VINCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VINCodeViewController.h; sourceTree = "<group>"; };
+		820946BC1D6161EC00B578A2 /* VINCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VINCodeViewController.m; sourceTree = "<group>"; };
 		821F5D7F1D3DF4C000050A24 /* OrderCellButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCellButton.h; sourceTree = "<group>"; };
 		821F5D801D3DF4C000050A24 /* OrderCellButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCellButton.m; sourceTree = "<group>"; };
 		821F5D821D3E08FD00050A24 /* PhoneContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneContactViewController.h; sourceTree = "<group>"; };
@@ -1545,6 +1551,8 @@
 				71A42A501C9E70CD00CA29FE /* CMToolKitViewController.m */,
 				7163AB961CF7DD0B00C0FC3C /* RoadSearchViewController.h */,
 				7163AB971CF7DD0B00C0FC3C /* RoadSearchViewController.mm */,
+				820946BB1D6161EC00B578A2 /* VINCodeViewController.h */,
+				820946BC1D6161EC00B578A2 /* VINCodeViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -2800,6 +2808,8 @@
 				CE34D1191BF596DB00EB31CF /* ISTMineViewController.m */,
 				71977F7F1CFFDD05007B2C4B /* ModifyUserInfoViewController.h */,
 				71977F801CFFDD05007B2C4B /* ModifyUserInfoViewController.m */,
+				820946B81D61535000B578A2 /* AdviceViewController.h */,
+				820946B91D61535000B578A2 /* AdviceViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3911,6 +3921,7 @@
 				71977F8A1D0021F7007B2C4B /* ISTHUDManager.m in Sources */,
 				71CAFEF91CF45C660098CF4B /* DragView.m in Sources */,
 				82E952781CF59C8F0078E89B /* OrderTableViewController.m in Sources */,
+				820946BA1D61535000B578A2 /* AdviceViewController.m in Sources */,
 				DC7B722F1BD1F9A100327B03 /* STHUDManager.m in Sources */,
 				82C4D3601D5968D50038A3DB /* EaseLocationViewController.m in Sources */,
 				82D4933D1D4495C300890032 /* ShopDetailViewController.m in Sources */,
@@ -3978,6 +3989,7 @@
 				DC7B723B1BD1F9A100327B03 /* UIView+Util.m in Sources */,
 				82C4D31E1D5968D50038A3DB /* MJRefreshBackStateFooter.m in Sources */,
 				82C4D31D1D5968D50038A3DB /* MJRefreshBackNormalFooter.m in Sources */,
+				820946BD1D6161EC00B578A2 /* VINCodeViewController.m in Sources */,
 				8241D31A1CF2CE5A00411423 /* PartsTableViewCell.m in Sources */,
 				82C4D35B1D5968D50038A3DB /* EaseEmojiEmoticons.m in Sources */,
 				82C4D3421D5968D50038A3DB /* PSTCollectionViewCell.m in Sources */,
