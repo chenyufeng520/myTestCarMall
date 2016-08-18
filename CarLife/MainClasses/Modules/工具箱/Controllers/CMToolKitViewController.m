@@ -12,6 +12,7 @@
 #import "RoadSearchViewController.h"
 #import "AppDelegate.h"
 #import "VINCodeViewController.h"
+#import "OilPriceSearchViewController.h"
 
 @interface CMToolKitViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 {
@@ -90,17 +91,59 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 3) {
-        RoadSearchViewController *roadVC = [[RoadSearchViewController alloc] init];
-        [[AppDelegate shareDelegate].rootNavigation pushViewController:roadVC animated:YES];
-    }else if (indexPath.row == 6){
-        VINCodeViewController *vin = [[VINCodeViewController alloc] init];
-        [[AppDelegate shareDelegate].rootNavigation pushViewController:vin animated:YES];
-    }
-    else{
-        //敬请期待
-        KTipFun;
-        return ;
+    switch (indexPath.row) {
+        case 0:
+        {
+            OilPriceSearchViewController *oil = [[OilPriceSearchViewController alloc] init];
+            [[AppDelegate shareDelegate].rootNavigation pushViewController:oil animated:YES];
+
+            break;
+        }
+        case 1:
+        {
+            KTipFun;
+            break;
+        }
+        case 2:
+        {
+            KTipFun;
+            break;
+        }
+        case 3:
+        {
+            RoadSearchViewController *roadVC = [[RoadSearchViewController alloc] init];
+            [[AppDelegate shareDelegate].rootNavigation pushViewController:roadVC animated:YES];
+            break;
+        }
+        case 4:
+        {
+            KTipFun;
+            break;
+        }
+        case 5:
+        {
+            KTipFun;
+            break;
+        }
+        case 6:
+        {
+            VINCodeViewController *vin = [[VINCodeViewController alloc] init];
+            [[AppDelegate shareDelegate].rootNavigation pushViewController:vin animated:YES];
+            break;
+        }
+        case 7:
+        {
+            KTipFun;
+            break;
+        }
+        case 8:
+        {
+            KTipFun;
+            break;
+        }
+        
+        default:
+            break;
     }
 }
 

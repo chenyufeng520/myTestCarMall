@@ -360,6 +360,7 @@
 		82D4933D1D4495C300890032 /* ShopDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D4933B1D4495C300890032 /* ShopDetailViewController.m */; };
 		82D493421D4495D800890032 /* MainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D493401D4495D800890032 /* MainTableViewCell.m */; };
 		82D493431D4495D800890032 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82D493411D4495D800890032 /* MainTableViewCell.xib */; };
+		82E391B81D655A9900CBC539 /* OilPriceSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E391B71D655A9900CBC539 /* OilPriceSearchViewController.m */; };
 		82E9526C1CF576540078E89B /* CustomSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E9526B1CF576540078E89B /* CustomSegmentView.m */; };
 		82E952751CF59C450078E89B /* ShopListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E952741CF59C450078E89B /* ShopListTableViewController.m */; };
 		82E952781CF59C8F0078E89B /* OrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E952771CF59C8F0078E89B /* OrderTableViewController.m */; };
@@ -1105,6 +1106,8 @@
 		82D4933F1D4495D800890032 /* MainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewCell.h; sourceTree = "<group>"; };
 		82D493401D4495D800890032 /* MainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewCell.m; sourceTree = "<group>"; };
 		82D493411D4495D800890032 /* MainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
+		82E391B61D655A9900CBC539 /* OilPriceSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OilPriceSearchViewController.h; sourceTree = "<group>"; };
+		82E391B71D655A9900CBC539 /* OilPriceSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OilPriceSearchViewController.m; sourceTree = "<group>"; };
 		82E9526A1CF576540078E89B /* CustomSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSegmentView.h; sourceTree = "<group>"; };
 		82E9526B1CF576540078E89B /* CustomSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSegmentView.m; sourceTree = "<group>"; };
 		82E952731CF59C450078E89B /* ShopListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopListTableViewController.h; sourceTree = "<group>"; };
@@ -1553,6 +1556,8 @@
 				7163AB971CF7DD0B00C0FC3C /* RoadSearchViewController.mm */,
 				820946BB1D6161EC00B578A2 /* VINCodeViewController.h */,
 				820946BC1D6161EC00B578A2 /* VINCodeViewController.m */,
+				82E391B61D655A9900CBC539 /* OilPriceSearchViewController.h */,
+				82E391B71D655A9900CBC539 /* OilPriceSearchViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -3798,6 +3803,7 @@
 				82C4D3501D5968D50038A3DB /* EaseMessageModel.m in Sources */,
 				82C4D3641D5968D50038A3DB /* EaseViewController.m in Sources */,
 				82C4D3391D5968D50038A3DB /* UIButton+EMWebCache.m in Sources */,
+				82E391B81D655A9900CBC539 /* OilPriceSearchViewController.m in Sources */,
 				82C4D3181D5968D50038A3DB /* MJRefreshHeader.m in Sources */,
 				82E952751CF59C450078E89B /* ShopListTableViewController.m in Sources */,
 				71A42A611C9E757A00CA29FE /* ToolDataHelper.m in Sources */,
