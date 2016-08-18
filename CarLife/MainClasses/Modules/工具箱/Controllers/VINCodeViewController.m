@@ -7,6 +7,7 @@
 //
 
 #import "VINCodeViewController.h"
+#import "MineDataHelper.h"
 
 @interface VINCodeViewController ()<UITextFieldDelegate>{
     UITextField *_searchTextField;
@@ -68,7 +69,12 @@
         [self.navigationController popViewControllerAnimated:YES];
     }
     else if (btn.tag == BSTopBarButtonRight) {
-        
+        if (_searchTextField.text.length > 0) {
+            [self search];
+        }else{
+            KTipBaseView(@"请填写要搜索的车架号")
+        }
+
     }
 }
 
@@ -76,6 +82,41 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadSubviews];
+}
+
+#pragma mark - 搜索接口
+- (void)search{
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json",nil];
+    NSString *str = [NSString stringWithFormat:@"http://getVIN.api.juhe.cn/CarManagerServer/getVINFormat?&key=5c315f716c1e609fbdf9c63afbeaf136&VIN=%@",_searchTextField.text];
+    NSString *urlString = [str stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    [manager GET:urlString parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        if (!task.error) {
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+            BSLog(@"%@",dic);
+            NSString *reason = dic[@"reason"];
+            if ([reason isEqualToString:@"查询成功"])
+            {
+                
+            }
+            else
+            {
+                [self showHint:reason];
+            }
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    if (_searchTextField.text.length > 0) {
+        [self search];
+    }
+    return YES;
 }
 
 @end
