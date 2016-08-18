@@ -39,7 +39,14 @@
 }
 
 - (void)makeSearchView{
-    _searchTextField = [[UITextField alloc]initWithFrame:CGRectMake(_tbTop.btnTitle.minX, (_tbTop.btnTitle.height-35)/2.f, _tbTop.btnTitle.width, 35)];
+    _tbTop.btnLeft.width = 0.5 * _tbTop.btnLeft.width;
+    _tbTop.btnLeft.imageEdgeInsets = UIEdgeInsetsMake(13, kButtonEdgeInsetsLeft, 13, 20);
+
+    _tbTop.btnRight.width = 0.5 * _tbTop.btnRight.width;
+    _tbTop.btnRight.minX = _tbTop.btnRight.minX+_tbTop.btnRight.width;
+    _tbTop.btnRight.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 10);
+
+    _searchTextField = [[UITextField alloc]initWithFrame:CGRectMake(_tbTop.btnLeft.maxX, (_tbTop.btnTitle.height-35)/2.f, _tbTop.btnTitle.width*1.5, 35)];
     _searchTextField.borderStyle = UITextBorderStyleRoundedRect;
     _searchTextField.backgroundColor=  [UIColor whiteColor];
     _searchTextField.layer.masksToBounds=YES;
