@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "VINCodeViewController.h"
 #import "OilPriceSearchViewController.h"
+#import "CarCategorySearchViewController.h"
 
 @interface CMToolKitViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 {
@@ -122,7 +123,9 @@
         }
         case 5:
         {
-            KTipFun;
+            CarCategorySearchViewController *carCate = [[CarCategorySearchViewController alloc] init];
+            [[AppDelegate shareDelegate].rootNavigation pushViewController:carCate animated:YES];
+
             break;
         }
         case 6:
