@@ -96,7 +96,12 @@
             NSLog(@"%@",response);
 
             if (!error) {
-                KTipBaseView(@"提交成功");
+                if ([response[@"status"] integerValue] == 200) {
+                    KTipBaseView(@"提交成功");
+                    [self.navigationController popViewControllerAnimated:YES];
+                }else{
+                    [self showHint:response[@"message"]];
+                }
             }else{
                 KTipBaseView(@"提交失败");
             }

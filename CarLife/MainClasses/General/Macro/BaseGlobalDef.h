@@ -9,7 +9,7 @@
 #ifndef BaseGlobalDef_h
 #define BaseGlobalDef_h
 
-#define kTest //是测试还是打包
+//#define kTest //是测试还是打包
 
 #ifdef __OBJC__
 
