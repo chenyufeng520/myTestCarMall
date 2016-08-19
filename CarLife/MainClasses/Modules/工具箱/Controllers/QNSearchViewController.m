@@ -1,22 +1,23 @@
 //
-//  CarCategorySearchViewController.m
+//  QNSearchViewController.m
 //  CarLife
 //
-//  Created by 聂康  on 16/8/18.
+//  Created by 聂康  on 16/8/19.
 //  Copyright © 2016年 陈宇峰. All rights reserved.
 //
 
-#import "CarCategorySearchViewController.h"
+#import "QNSearchViewController.h"
 #import "ToolDataHelper.h"
 
-@interface CarCategorySearchViewController ()<UITextFieldDelegate>{
+@interface QNSearchViewController ()<UITextFieldDelegate>{
     UITextField *_searchTextField;
+    int _page;
 }
 
 
 @end
 
-@implementation CarCategorySearchViewController
+@implementation QNSearchViewController
 
 - (ISTTopBar *)creatTopBarView:(CGRect)frame
 {
@@ -54,15 +55,13 @@
     _searchTextField.layer.masksToBounds=YES;
     _searchTextField.returnKeyType = UIReturnKeyDone;
     _searchTextField.delegate = self;
-    _searchTextField.placeholder = @"车系查询";
+    _searchTextField.placeholder = @"请输入关键字";
     _searchTextField.borderStyle = UITextBorderStyleRoundedRect;
     _searchTextField.exclusiveTouch = YES;
     [_tbTop.topBarView addSubview:_searchTextField];
     
     [_tbTop.btnTitle removeFromSuperview];
 }
-
-#pragma mark - Click Menu
 
 - (void)onClickTopBar:(UIButton *)btn
 {
@@ -71,48 +70,48 @@
     }
     else if (btn.tag == BSTopBarButtonRight) {
         if (_searchTextField.text.length > 0) {
-            [self searchWithCarCategory:_searchTextField.text];
+            [self searchWithString:_searchTextField.text];
         }else{
-            KTipBaseView(@"请填写要搜索的车系")
+            KTipBaseView(@"请输入关键字")
         }
         
     }
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self loadSubviews];
-//    [self searchWithCarCategory:@"途观"];
-}
-
-- (void)searchWithCarCategory:(NSString *)carCategory{
-    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json",nil];
-    NSString *str = [NSString stringWithFormat:@"http://op.juhe.cn/onebox/car/query?key=8898f82d39c84ca94371d5883039c74d&car=%@",carCategory];
-    NSString *urlString = [str stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    [manager GET:urlString parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        NSString *reason = dic[@"reason"];
-        if ([reason isEqualToString:@"查询成功"])
-        {
-            NSArray *arr = dic[@"result"][@"carinfo"];
-        }
-        else {
-            [self showHint:reason];
-        }
-
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-    }];
 }
 
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     if (_searchTextField.text.length > 0) {
-        [self searchWithCarCategory:_searchTextField.text];
+        [self searchWithString:_searchTextField.text];
     }
     return YES;
 }
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    _page = 1;
+    [self loadSubviews];
+}
+
+- (void)searchWithString:(NSString *)searchString{
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json",nil];
+    NSString *str = [NSString stringWithFormat:@"http://v.juhe.cn/carzone/acc/query?action=search&pageSize=20&pageNo=%d&type=0&key=0b64bdee66f06914deb5cdac53871f8b&keyword=%@",_page,searchString];
+    NSString *urlString = [str stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    [manager GET:urlString parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        NSDictionary *responDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        if ([responDic[@"reason"] isEqualToString:@"查询成功"])
+        {
+            NSArray *dataArr = responDic[@"result"][@"detail"][@"accInfos"];
+        }else{
+        
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+
+}
+
 @end

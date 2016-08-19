@@ -14,6 +14,7 @@
 #import "VINCodeViewController.h"
 #import "OilPriceSearchViewController.h"
 #import "CarCategorySearchViewController.h"
+#import "QNSearchViewController.h"
 
 @interface CMToolKitViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 {
@@ -118,7 +119,8 @@
         }
         case 4:
         {
-            KTipFun;
+            QNSearchViewController *qnSearch = [[QNSearchViewController alloc] init];
+            [[AppDelegate shareDelegate].rootNavigation pushViewController:qnSearch animated:YES];
             break;
         }
         case 5:

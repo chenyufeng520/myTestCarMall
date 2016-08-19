@@ -365,6 +365,7 @@
 		82E9526C1CF576540078E89B /* CustomSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E9526B1CF576540078E89B /* CustomSegmentView.m */; };
 		82E952751CF59C450078E89B /* ShopListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E952741CF59C450078E89B /* ShopListTableViewController.m */; };
 		82E952781CF59C8F0078E89B /* OrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E952771CF59C8F0078E89B /* OrderTableViewController.m */; };
+		82ECB7861D66CD700043DBDE /* QNSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82ECB7851D66CD700043DBDE /* QNSearchViewController.m */; };
 		82F967CF1D1E73C000F6CDC5 /* GoodsToPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F967CE1D1E73C000F6CDC5 /* GoodsToPayViewController.m */; };
 		82F967D71D1E8C0000F6CDC5 /* ShopCarGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F967D61D1E8C0000F6CDC5 /* ShopCarGoodsCell.m */; };
 		CE2747B51BF4603E00D2349D /* BlockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2747B41BF4603E00D2349D /* BlockButton.m */; };
@@ -1117,6 +1118,8 @@
 		82E952741CF59C450078E89B /* ShopListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopListTableViewController.m; sourceTree = "<group>"; };
 		82E952761CF59C8F0078E89B /* OrderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderTableViewController.h; sourceTree = "<group>"; };
 		82E952771CF59C8F0078E89B /* OrderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderTableViewController.m; sourceTree = "<group>"; };
+		82ECB7841D66CD700043DBDE /* QNSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNSearchViewController.h; sourceTree = "<group>"; };
+		82ECB7851D66CD700043DBDE /* QNSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNSearchViewController.m; sourceTree = "<group>"; };
 		82F967CD1D1E73C000F6CDC5 /* GoodsToPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsToPayViewController.h; sourceTree = "<group>"; };
 		82F967CE1D1E73C000F6CDC5 /* GoodsToPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsToPayViewController.m; sourceTree = "<group>"; };
 		82F967D51D1E8C0000F6CDC5 /* ShopCarGoodsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCarGoodsCell.h; sourceTree = "<group>"; };
@@ -1563,6 +1566,8 @@
 				82E391B71D655A9900CBC539 /* OilPriceSearchViewController.m */,
 				82E391B91D655F4300CBC539 /* CarCategorySearchViewController.h */,
 				82E391BA1D655F4300CBC539 /* CarCategorySearchViewController.m */,
+				82ECB7841D66CD700043DBDE /* QNSearchViewController.h */,
+				82ECB7851D66CD700043DBDE /* QNSearchViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -3910,6 +3915,7 @@
 				71D87F451CEE0D8B000D7525 /* OrderCell.m in Sources */,
 				82D4932E1D448ABD00890032 /* OverlayView.m in Sources */,
 				71A42A511C9E70CD00CA29FE /* CMToolKitViewController.m in Sources */,
+				82ECB7861D66CD700043DBDE /* QNSearchViewController.m in Sources */,
 				82C4D34C1D5968D50038A3DB /* PSTGridLayoutSection.m in Sources */,
 				82C4D3321D5968D50038A3DB /* EMSDWebImageDecoder.m in Sources */,
 				82C4D3011D5968D50038A3DB /* EMAlertView.m in Sources */,
