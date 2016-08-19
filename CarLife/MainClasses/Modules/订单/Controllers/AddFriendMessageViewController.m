@@ -68,10 +68,11 @@
 - (void)sendAddFriendMessage{
     EMError *error = [[EMClient sharedClient].contactManager addContact:_orderModel.store_phone message:_textView.text];
     if (!error) {
-        NSLog(@"添加成功");
+        [self showHint:@"请求已发送"];
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
+        [MBProgressHUD showError:error.description toView:self.view];
     }
-    [MBProgressHUD showError:error.description toView:self.view];
-
 }
 
 - (IBAction)confirmSend:(id)sender {

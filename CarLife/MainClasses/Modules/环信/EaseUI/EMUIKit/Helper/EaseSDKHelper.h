@@ -20,6 +20,9 @@
 #define KNOTIFICATION_CALL @"callOutWithChatter"
 #define KNOTIFICATION_CALL_CLOSE @"callControllerClose"
 
+#define kGroupMessageAtList      @"em_at_list"
+#define kGroupMessageAtAll       @"all"
+
 #define kSDKConfigEnableConsoleLogger @"SDKConfigEnableConsoleLogger"
 #define kEaseUISDKConfigIsUseLite @"isUselibEaseMobClientSDKLite"
 

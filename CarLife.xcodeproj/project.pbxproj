@@ -366,6 +366,7 @@
 		82E952751CF59C450078E89B /* ShopListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E952741CF59C450078E89B /* ShopListTableViewController.m */; };
 		82E952781CF59C8F0078E89B /* OrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E952771CF59C8F0078E89B /* OrderTableViewController.m */; };
 		82ECB7861D66CD700043DBDE /* QNSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82ECB7851D66CD700043DBDE /* QNSearchViewController.m */; };
+		82ECB78C1D66D21E0043DBDE /* MyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82ECB78B1D66D21E0043DBDE /* MyOrderViewController.m */; };
 		82F967CF1D1E73C000F6CDC5 /* GoodsToPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F967CE1D1E73C000F6CDC5 /* GoodsToPayViewController.m */; };
 		82F967D71D1E8C0000F6CDC5 /* ShopCarGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F967D61D1E8C0000F6CDC5 /* ShopCarGoodsCell.m */; };
 		CE2747B51BF4603E00D2349D /* BlockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2747B41BF4603E00D2349D /* BlockButton.m */; };
@@ -1120,6 +1121,8 @@
 		82E952771CF59C8F0078E89B /* OrderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderTableViewController.m; sourceTree = "<group>"; };
 		82ECB7841D66CD700043DBDE /* QNSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNSearchViewController.h; sourceTree = "<group>"; };
 		82ECB7851D66CD700043DBDE /* QNSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNSearchViewController.m; sourceTree = "<group>"; };
+		82ECB78A1D66D21E0043DBDE /* MyOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderViewController.h; sourceTree = "<group>"; };
+		82ECB78B1D66D21E0043DBDE /* MyOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderViewController.m; sourceTree = "<group>"; };
 		82F967CD1D1E73C000F6CDC5 /* GoodsToPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsToPayViewController.h; sourceTree = "<group>"; };
 		82F967CE1D1E73C000F6CDC5 /* GoodsToPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsToPayViewController.m; sourceTree = "<group>"; };
 		82F967D51D1E8C0000F6CDC5 /* ShopCarGoodsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCarGoodsCell.h; sourceTree = "<group>"; };
@@ -2825,6 +2828,8 @@
 				71977F801CFFDD05007B2C4B /* ModifyUserInfoViewController.m */,
 				820946B81D61535000B578A2 /* AdviceViewController.h */,
 				820946B91D61535000B578A2 /* AdviceViewController.m */,
+				82ECB78A1D66D21E0043DBDE /* MyOrderViewController.h */,
+				82ECB78B1D66D21E0043DBDE /* MyOrderViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3547,7 +3552,6 @@
 				TargetAttributes = {
 					DC7B70191BD1F5B500327B03 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = Q9QGXP49FA;
 					};
 				};
 			};
@@ -3917,6 +3921,7 @@
 				71A42A511C9E70CD00CA29FE /* CMToolKitViewController.m in Sources */,
 				82ECB7861D66CD700043DBDE /* QNSearchViewController.m in Sources */,
 				82C4D34C1D5968D50038A3DB /* PSTGridLayoutSection.m in Sources */,
+				82ECB78C1D66D21E0043DBDE /* MyOrderViewController.m in Sources */,
 				82C4D3321D5968D50038A3DB /* EMSDWebImageDecoder.m in Sources */,
 				82C4D3011D5968D50038A3DB /* EMAlertView.m in Sources */,
 				82C4D3271D5968D50038A3DB /* MWCaptionView.m in Sources */,
@@ -4179,8 +4184,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_CXX_LIBRARY = "libstdc++";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Agricom Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Agricom Co., Ltd.";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4238,9 +4243,9 @@
 					"$(PROJECT_DIR)/CarLife/MainClasses/Modules/环信/HyphenateFullSDK/lib/3rdparty",
 					"$(PROJECT_DIR)/CarLife/MainClasses/Modules/环信/HyphenateFullSDK/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jiase.nongguanjia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hfdianche.DianCheWuLiu;
 				PRODUCT_NAME = CarLife;
-				PROVISIONING_PROFILE = "fad2aedd-a3e8-4814-b85c-ace1aea138a6";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -4253,8 +4258,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_CXX_LIBRARY = "libstdc++";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Agricom Co., Ltd.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Agricom Co., Ltd.";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4312,9 +4317,9 @@
 					"$(PROJECT_DIR)/CarLife/MainClasses/Modules/环信/HyphenateFullSDK/lib/3rdparty",
 					"$(PROJECT_DIR)/CarLife/MainClasses/Modules/环信/HyphenateFullSDK/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jiase.nongguanjia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hfdianche.DianCheWuLiu;
 				PRODUCT_NAME = CarLife;
-				PROVISIONING_PROFILE = "fad2aedd-a3e8-4814-b85c-ace1aea138a6";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

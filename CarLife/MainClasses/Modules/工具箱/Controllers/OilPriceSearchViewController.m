@@ -85,12 +85,14 @@
 }
 
 - (void)searchWithProcince:(NSString *)province{
+    [[ISTHUDManager defaultManager] showHUDInView:self.view withText:nil];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json",nil];
     NSString *str = [NSString stringWithFormat:@"http://api.avatardata.cn/OilPrice/LookUp?key=5a94738a0c2b4fa7a960e6e0426312cb&prov=%@",province];
     NSString *urlString = [str stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     [manager GET:urlString parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        [[ISTHUDManager defaultManager] hideHUDInView:self.view];
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSString *reason = dic[@"reason"];
         if ([reason isEqualToString:@"Succes"])
@@ -104,7 +106,8 @@
         }
 
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        [[ISTHUDManager defaultManager] hideHUDInView:self.view];
+
     }];
 }
 

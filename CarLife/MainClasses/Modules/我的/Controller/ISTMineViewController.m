@@ -14,6 +14,7 @@
 #import "ModifyUserInfoViewController.h"
 #import "NearCarOwerViewController.h"
 #import "AdviceViewController.h"
+#import "MyOrderViewController.h"
 
 @interface ISTMineViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
@@ -165,8 +166,9 @@
         }
         else if (indexPath.row == 1){
             //我的订单
-            //敬请期待
-            KTipFun;
+            MyOrderViewController *order = [[MyOrderViewController alloc] init];
+            [[AppDelegate shareDelegate].rootNavigation pushViewController:order animated:YES];
+
         }
         else if (indexPath.row == 2){
             //记事本

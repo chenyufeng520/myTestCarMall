@@ -102,12 +102,14 @@
 
 #pragma mark - 搜索接口
 - (void)search{
+    [[ISTHUDManager defaultManager] showHUDInView:self.view withText:nil];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json",nil];
     NSString *str = [NSString stringWithFormat:@"http://getVIN.api.juhe.cn/CarManagerServer/getVINFormat?&key=5c315f716c1e609fbdf9c63afbeaf136&VIN=%@",_searchTextField.text];
     NSString *urlString = [str stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     [manager GET:urlString parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        [[ISTHUDManager defaultManager] hideHUDInView:self.view];
         if (!task.error) {
             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             BSLog(@"%@",dic);
@@ -123,7 +125,7 @@
             }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        [[ISTHUDManager defaultManager] hideHUDInView:self.view];
     }];
 }
 

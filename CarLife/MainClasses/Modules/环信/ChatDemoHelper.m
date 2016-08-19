@@ -206,13 +206,13 @@ static ChatDemoHelper *helper = nil;
             UIApplicationState state = [[UIApplication sharedApplication] applicationState];
             switch (state) {
                 case UIApplicationStateActive:
-//                    [self.mainVC playSoundAndVibration];
+                    [[AppDelegate shareDelegate].mainVC playSoundAndVibration];
                     break;
                 case UIApplicationStateInactive:
-//                    [self.mainVC playSoundAndVibration];
+                    [[AppDelegate shareDelegate].mainVC playSoundAndVibration];
                     break;
                 case UIApplicationStateBackground:
-//                    [self.mainVC showNotificationWithMessage:message];
+                    [[AppDelegate shareDelegate].mainVC showNotificationWithMessage:message];
                     break;
                 default:
                     break;
@@ -426,10 +426,10 @@ static ChatDemoHelper *helper = nil;
     }
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:@{@"title":aUsername, @"username":aUsername, @"applyMessage":aMessage, @"applyStyle":[NSNumber numberWithInteger:ApplyStyleFriend]}];
     [[ApplyViewController shareController] addNewApply:dic];
-//    if (self.mainVC) {
-//        [self.mainVC setupUntreatedApplyCount];
+    if ([AppDelegate shareDelegate].mainVC) {
+        [[AppDelegate shareDelegate].mainVC setupUntreatedApplyCount];
 //#if !TARGET_IPHONE_SIMULATOR
-//        [self.mainVC playSoundAndVibration];
+        [[AppDelegate shareDelegate].mainVC playSoundAndVibration];
     
         BOOL isAppActivity = [[UIApplication sharedApplication] applicationState] == UIApplicationStateActive;
         if (!isAppActivity) {
@@ -439,8 +439,10 @@ static ChatDemoHelper *helper = nil;
             notification.alertBody = [NSString stringWithFormat:NSLocalizedString(@"friend.somebodyAddWithName", @"%@ add you as a friend"), aUsername];
             notification.alertAction = NSLocalizedString(@"open", @"Open");
             notification.timeZone = [NSTimeZone defaultTimeZone];
+            [[UIApplication sharedApplication] scheduleLocalNotification:notification];
         }
-//    }
+
+    }
 //    [_contactViewVC reloadApplyView];
 }
 

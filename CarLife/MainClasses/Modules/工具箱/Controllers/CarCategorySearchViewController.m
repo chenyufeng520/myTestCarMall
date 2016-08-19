@@ -86,12 +86,14 @@
 }
 
 - (void)searchWithCarCategory:(NSString *)carCategory{
+    [[ISTHUDManager defaultManager] showHUDInView:self.view withText:nil];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] init];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json",nil];
     NSString *str = [NSString stringWithFormat:@"http://op.juhe.cn/onebox/car/query?key=8898f82d39c84ca94371d5883039c74d&car=%@",carCategory];
     NSString *urlString = [str stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     [manager GET:urlString parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        [[ISTHUDManager defaultManager] hideHUDInView:self.view];
         NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         NSString *reason = dic[@"reason"];
         if ([reason isEqualToString:@"查询成功"])
@@ -103,7 +105,7 @@
         }
 
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        [[ISTHUDManager defaultManager] hideHUDInView:self.view];
     }];
 }
 
