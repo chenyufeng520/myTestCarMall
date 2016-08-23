@@ -542,6 +542,7 @@
 - (void)configEMSDK{
     EMOptions *options = [EMOptions optionsWithAppkey:EMAppKey];
     options.apnsCertName = @"PushCer";
+    
     [[RedPacketUserConfig sharedConfig] configWithAppKey:EMAppKey];
     [[EMClient sharedClient] initializeSDKWithOptions:options];
     [ChatDemoHelper shareHelper];//注册环信相关回调
@@ -553,7 +554,15 @@
     EMError *error = [[EMClient sharedClient] loginWithUsername:user_phone password:user_phone];
     if (error==nil) {
         NSLog(@"登录成功");
-        error = [[EMClient sharedClient] setApnsNickname:user_phone];
+        EMPushOptions *options = [[EMClient sharedClient] getPushOptionsFromServerWithError:&error];
+        options.nickname = user_phone;
+        options.displayStyle = EMPushDisplayStyleMessageSummary;
+        [[EMClient sharedClient] asyncUpdatePushOptionsToServer:^{
+            BSLog(@"成功")
+        } failure:^(EMError *aError) {
+            BSLog(@"%@",aError);
+        }];
+    
         NSLog(@"%@",error);
         [[ApplyViewController shareController] loadDataSourceFromLocalDB];
 
